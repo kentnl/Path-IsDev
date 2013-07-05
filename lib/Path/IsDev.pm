@@ -30,37 +30,35 @@ our $DEFAULT         = ( exists $ENV{$ENV_KEY_DEFAULT} ? $ENV{$ENV_KEY_DEFAULT} 
 our $DEBUG           = ( exists $ENV{$ENV_KEY_DEBUG} ? $ENV{$ENV_KEY_DEBUG} : undef );
 
 sub _expand_set {
-  my $set = shift;
-  return _compose_module_name( 'Path::IsDev::HeuristicSet', $set );
+  return _compose_module_name( 'Path::IsDev::HeuristicSet', shift );
 }
 
 sub _get_set {
-  my $set = shift;
-  return _use_module($set)->_modules_loaded;
+  return _use_module(shift)->_modules_loaded;
 }
 
 sub _shorten_module_name {
   my $name = shift;
-  $name =~ s/^Path::IsDev::Heuristic:/:/;
+  $name =~ s/\APath::IsDev::Heuristic:/:/msx;
   return $name;
 }
 
 sub _debug {
   return unless $DEBUG;
-  return *STDERR->printf( q{[Path::IsDev] %s}, $_[0] );
+  return *STDERR->printf( q{[Path::IsDev] %s}, shift );
 }
 
 sub _build_is_dev {
   my ( $class, $name, $arg ) = @_;
 
-  my $set;
+  my $set_name;
   if ( not $arg->{set} ) {
-    $set = $DEFAULT;
+    $set_name = $DEFAULT;
   }
   else {
-    $set = $arg->{set};
+    $set_name = $arg->{set};
   }
-  my $set_class = _expand_set($set);
+  my $set_class = _expand_set($set_name);
   my (@modules) = _get_set($set_class);
   return sub {
     my ($path) = @_;
@@ -146,7 +144,7 @@ That is, no C<set> specification is applicable, so you'll only get the "default"
 
 =head2 Custom Sets
 
-C<Path::IsDev> has a system of "sets" of Heuristics, in order to allow for plugable
+C<Path::IsDev> has a system of "sets" of Heuristics, in order to allow for pluggable
 and flexible heuristic types.
 
 Though, for the vast majority of cases, this is not required.
@@ -178,9 +176,9 @@ If this poses a security concern for the user, then this security hole can be el
 =head1 SECURITY
 
 Its conceivable, than an evil user could construct an evil set, containing arbitrary and vulnerable code,
-and possibly stash that evil set in a poorly secured priveleged users @INC 
+and possibly stash that evil set in a poorly secured privileged users @INC 
 
-And if they managed to achieve that, if they could poison the priveleged users %ENV, they could trick the priveleged user into executing arbitrary code.
+And if they managed to achieve that, if they could poison the privileged users %ENV, they could trick the privileged user into executing arbitrary code.
 
 Though granted, if you can do either of those 2 things, you're probably security vulnerable anyway, and granted, if you could do either of those 2 things you could do much more evil things by the following:
 
