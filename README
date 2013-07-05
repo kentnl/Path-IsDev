@@ -48,7 +48,7 @@ METHODS
 ADVANCED USAGE
   Custom Sets
     "Path::IsDev" has a system of "sets" of Heuristics, in order to allow
-    for pluggable and flexible heuristic types.
+    for plugable and flexible heuristic types.
 
     Though, for the vast majority of cases, this is not required.
 
@@ -81,10 +81,10 @@ ADVANCED USAGE
 SECURITY
     Its conceivable, than an evil user could construct an evil set,
     containing arbitrary and vulnerable code, and possibly stash that evil
-    set in a poorly secured privelaged users @INC
+    set in a poorly secured priveleged users @INC
 
-    And if they managed to achieve that, if they could poison the privelaged
-    users %ENV, they could trick the privelaged user into executing
+    And if they managed to achieve that, if they could poison the priveleged
+    users %ENV, they could trick the priveleged user into executing
     arbitrary code.
 
     Though granted, if you can do either of those 2 things, you're probably
@@ -99,7 +99,7 @@ SECURITY
     And to that effect, this module does nothing to "lock down" that
     mechanism, and this module encourages you to NOT force a set, unless you
     NEED to, and strongly suggests that forcing a set for the purpose of
-    security will acheive no real improvement in security, while
+    security will achieve no real improvement in security, while
     simultaneously reducing utility.
 
 AUTHOR

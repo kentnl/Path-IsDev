@@ -146,7 +146,7 @@ That is, no C<set> specification is applicable, so you'll only get the "default"
 
 =head2 Custom Sets
 
-C<Path::IsDev> has a system of "sets" of Heuristics, in order to allow for pluggable
+C<Path::IsDev> has a system of "sets" of Heuristics, in order to allow for plugable
 and flexible heuristic types.
 
 Though, for the vast majority of cases, this is not required.
@@ -178,9 +178,9 @@ If this poses a security concern for the user, then this security hole can be el
 =head1 SECURITY
 
 Its conceivable, than an evil user could construct an evil set, containing arbitrary and vulnerable code,
-and possibly stash that evil set in a poorly secured privelaged users @INC 
+and possibly stash that evil set in a poorly secured priveleged users @INC 
 
-And if they managed to achieve that, if they could poison the privelaged users %ENV, they could trick the privelaged user into executing arbitrary code.
+And if they managed to achieve that, if they could poison the priveleged users %ENV, they could trick the priveleged user into executing arbitrary code.
 
 Though granted, if you can do either of those 2 things, you're probably security vulnerable anyway, and granted, if you could do either of those 2 things you could do much more evil things by the following:
 
@@ -189,7 +189,7 @@ Though granted, if you can do either of those 2 things, you're probably security
 So with that in understanding, saying this modules default utility is "insecure" is mostly a bogus argument.
 
 And to that effect, this module does nothing to "lock down" that mechanism, and this module encourages you
-to B<NOT> force a set, unless you B<NEED> to, and strongly suggests that forcing a set for the purpose of security will acheive no real improvement in security, while simultaneously reducing utility.
+to B<NOT> force a set, unless you B<NEED> to, and strongly suggests that forcing a set for the purpose of security will achieve no real improvement in security, while simultaneously reducing utility.
 
 =begin MetaPOD::JSON v1.1.0
 
