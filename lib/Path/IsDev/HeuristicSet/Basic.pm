@@ -22,7 +22,7 @@ use parent 'Path::IsDev::HeuristicSet';
 sub heuristics {
   return qw(
     Tool::Dzil Tool::MakeMaker Tool::ModuleBuild
-    META Changelog TestDir DevDirMarker Makefile
+    META Changelog TestDir DevDirMarker MYMETA Makefile
   );
 }
 
