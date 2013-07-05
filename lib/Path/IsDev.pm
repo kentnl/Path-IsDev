@@ -34,7 +34,7 @@ sub _expand_set {
 }
 
 sub _get_set {
-  return _use_module(shift)->_modules_loaded;
+  return _use_module(shift);
 }
 
 sub _shorten_module_name {
@@ -59,24 +59,10 @@ sub _build_is_dev {
     $set_name = $arg->{set};
   }
   my $set_class = _expand_set($set_name);
-  my (@modules) = _get_set($set_class);
   return sub {
     my ($path) = @_;
-    for my $module (@modules) {
-      if ( $module->matches($path) ) {
-        my $name;
-        if ( $module->can('name') ) {
-          $name = $module->name;
-        }
-        else {
-          $name = _shorten_module_name($module);
-        }
-        _debug( $name . q[ matched path ] . $path );
-        return 1;
-      }
-    }
-    _debug( ' no matches for path ' . $path );
-    return;
+    my $set = _get_set($set_class);
+    return $set->matches($path);
   };
 }
 
