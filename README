@@ -22,6 +22,29 @@ DESCRIPTION
     for "installed" modules to be different to those that are still "in
     development"
 
+METHODS
+  is_dev
+    Using an "import"'ed "is_dev":
+
+        if( is_dev( $path ) ) {
+
+        }
+
+    Though the actual heuristics used will be based on how "import" was
+    called.
+
+    Additionally, you can call
+
+        Path::IsDev::is_dev
+
+    without "import"ing anything, and it will behave exactly the same as if
+    you'd imported it using
+
+        use Path::IsDev qw( is_dev );
+
+    That is, no "set" specification is applicable, so you'll only get the
+    "default".
+
 ADVANCED USAGE
   Custom Sets
     "Path::IsDev" has a system of "sets" of Heuristics, in order to allow
@@ -47,7 +70,7 @@ ADVANCED USAGE
     specified during "import"
 
     If this poses a security concern for the user, then this security hole
-    can be elimiated by declaring the set you want in code:
+    can be eliminated by declaring the set you want in code:
 
         export PATH_ISDEV_DEFAULT_SET="SomeOtherSet"
 
@@ -60,7 +83,7 @@ SECURITY
     containing arbitrary and vulnerable code, and possibly stash that evil
     set in a poorly secured privelaged users @INC
 
-    And if they managed to acheive that, if they could poison the privelaged
+    And if they managed to achieve that, if they could poison the privelaged
     users %ENV, they could trick the privelaged user into executing
     arbitrary code.
 
@@ -77,7 +100,7 @@ SECURITY
     mechanism, and this module encourages you to NOT force a set, unless you
     NEED to, and strongly suggests that forcing a set for the purpose of
     security will acheive no real improvement in security, while
-    simulataneously reducing utility.
+    simultaneously reducing utility.
 
 AUTHOR
     Kent Fredric <kentfredric@gmail.com>

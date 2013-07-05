@@ -82,6 +82,7 @@ sub _build_is_dev {
   };
 }
 
+
 *is_dev = _build_is_dev( 'Path::IsDev', 'is_dev', {} );
 
 1;
@@ -118,6 +119,29 @@ is a development tree root of some kind.
 This has many useful applications, notably ones that require behaviours for "installed"
 modules to be different to those that are still "in development" 
 
+=head1 METHODS
+
+=head2 is_dev
+
+Using an C<import>'ed C<is_dev>:
+
+    if( is_dev( $path ) ) {
+
+    }
+
+Though the actual heuristics used will be based on how C<import> was called.
+
+Additionally, you can call 
+
+    Path::IsDev::is_dev
+
+without C<import>ing anything, and it will behave exactly the same as if you'd imported
+it using 
+
+    use Path::IsDev qw( is_dev );
+
+That is, no C<set> specification is applicable, so you'll only get the "default".
+
 =head1 ADVANCED USAGE
 
 =head2 Custom Sets
@@ -143,7 +167,7 @@ the "default" set can be overridden.
 
 Though this will only take priority in the event the set is not specified during C<import>
 
-If this poses a security concern for the user, then this security hole can be elimiated by declaring the set you want in code:
+If this poses a security concern for the user, then this security hole can be eliminated by declaring the set you want in code:
 
     export PATH_ISDEV_DEFAULT_SET="SomeOtherSet"
 
@@ -156,7 +180,7 @@ If this poses a security concern for the user, then this security hole can be el
 Its conceivable, than an evil user could construct an evil set, containing arbitrary and vulnerable code,
 and possibly stash that evil set in a poorly secured privelaged users @INC 
 
-And if they managed to acheive that, if they could poison the privelaged users %ENV, they could trick the privelaged user into executing arbitrary code.
+And if they managed to achieve that, if they could poison the privelaged users %ENV, they could trick the privelaged user into executing arbitrary code.
 
 Though granted, if you can do either of those 2 things, you're probably security vulnerable anyway, and granted, if you could do either of those 2 things you could do much more evil things by the following:
 
@@ -165,7 +189,7 @@ Though granted, if you can do either of those 2 things, you're probably security
 So with that in understanding, saying this modules default utility is "insecure" is mostly a bogus argument.
 
 And to that effect, this module does nothing to "lock down" that mechanism, and this module encourages you
-to B<NOT> force a set, unless you B<NEED> to, and strongly suggests that forcing a set for the purpose of security will acheive no real improvement in security, while simulataneously reducing utility.
+to B<NOT> force a set, unless you B<NEED> to, and strongly suggests that forcing a set for the purpose of security will acheive no real improvement in security, while simultaneously reducing utility.
 
 =begin MetaPOD::JSON v1.1.0
 
