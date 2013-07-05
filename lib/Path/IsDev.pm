@@ -88,18 +88,14 @@ to B<NOT> force a set, unless you B<NEED> to, and strongly suggests that forcing
 
 =cut
 
-use Sub::Exporter -setup => {
-    exports => [
-        is_dev => \&_build_is_dev,
-    ],
-};
+use Sub::Exporter -setup => { exports => [ is_dev => \&_build_is_dev, ], };
 
 sub _croak      { require Carp;            goto &Carp::croak }
 sub _use_module { require Module::Runtime; goto &Module::Runtime::use_module }
 
 sub _compose_module_name {
-    require Module::Runtime;
-    goto &Module::Runtime::compose_module_name;
+  require Module::Runtime;
+  goto &Module::Runtime::compose_module_name;
 }
 
 our $ENV_KEY_DEFAULT = 'PATH_ISDEV_DEFAULT_SET';
@@ -107,58 +103,59 @@ our $ENV_KEY_DEBUG   = 'PATH_ISDEV_DEBUG';
 our $DEFAULT         = ( exists $ENV{$ENV_KEY_DEFAULT} ? $ENV{$ENV_KEY_DEFAULT} : 'Basic' );
 our $DEBUG           = ( exists $ENV{$ENV_KEY_DEBUG} ? $ENV{$ENV_KEY_DEBUG} : undef );
 
-
-
-
 sub _expand_set {
-    my $set = shift;
-    return _compose_module_name('Path::IsDev::HeuristicSet', $set );
+  my $set = shift;
+  return _compose_module_name( 'Path::IsDev::HeuristicSet', $set );
 }
 
 sub _get_set {
-    my $set = shift;
-    return _use_module($set)->_modules_loaded;
+  my $set = shift;
+  return _use_module($set)->_modules_loaded;
 }
+
 sub _shorten_module_name {
-    my $name = shift;
-    $name =~ s/^Path::IsDev::Heuristic:/:/;
-    return $name;
+  my $name = shift;
+  $name =~ s/^Path::IsDev::Heuristic:/:/;
+  return $name;
 }
+
 sub _debug {
-    return unless $DEBUG;
-    return *STDERR->printf(q{[Path::IsDev] %s}, $_[0] );
+  return unless $DEBUG;
+  return *STDERR->printf( q{[Path::IsDev] %s}, $_[0] );
 }
 
 sub _build_is_dev {
-    my ( $class, $name , $arg ) = @_; 
+  my ( $class, $name, $arg ) = @_;
 
-    my $set;
-    if ( not $arg->{set} ) { 
-        $set = $DEFAULT;
-    } else {
-        $set = $arg->{set}
-    }
-    my $set_class = _expand_set($set);
-    my (@modules) = _get_set( $set_class );
-    return sub {
-        my ($path) = @_;
-        for my $module ( @modules ) {
-           if ( $module->matches( $path ) ) {
-                my $name;
-                if ( $module->can('name') ) {
-                    $name = $module->name;
-                } else {
-                    $name = _shorten_module_name($module);
-                }
-                _debug( $name . q[ matched path ] . $path );
-                return 1;
-            }
+  my $set;
+  if ( not $arg->{set} ) {
+    $set = $DEFAULT;
+  }
+  else {
+    $set = $arg->{set};
+  }
+  my $set_class = _expand_set($set);
+  my (@modules) = _get_set($set_class);
+  return sub {
+    my ($path) = @_;
+    for my $module (@modules) {
+      if ( $module->matches($path) ) {
+        my $name;
+        if ( $module->can('name') ) {
+          $name = $module->name;
         }
-        _debug(' no matches for path ' . $path );
-        return;
-    };
+        else {
+          $name = _shorten_module_name($module);
+        }
+        _debug( $name . q[ matched path ] . $path );
+        return 1;
+      }
+    }
+    _debug( ' no matches for path ' . $path );
+    return;
+  };
 }
 
-*is_dev = _build_is_dev('Path::IsDev', 'is_dev', {} );
+*is_dev = _build_is_dev( 'Path::IsDev', 'is_dev', {} );
 
 1;

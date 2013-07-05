@@ -15,7 +15,6 @@ package Path::IsDev::Heuristic::Tool::MakeMaker;
 
 =cut
 
-
 # ABSTRACT: Determine if a path is an EUMM Tooled source dir
 
 use parent 'Path::IsDev::Heuristic';

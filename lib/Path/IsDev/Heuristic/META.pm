@@ -15,7 +15,6 @@ package Path::IsDev::Heuristic::META;
 
 =cut
 
-
 # ABSTRACT: Determine if a path contains META.(json|yml)
 
 use parent 'Path::IsDev::Heuristic';

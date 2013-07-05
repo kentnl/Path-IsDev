@@ -15,7 +15,6 @@ package Path::IsDev::Heuristic::Makefile;
 
 =cut
 
-
 # ABSTRACT: Determine if a path contains Makefile
 
 use parent 'Path::IsDev::Heuristic';

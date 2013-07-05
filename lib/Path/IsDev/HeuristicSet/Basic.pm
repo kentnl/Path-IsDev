@@ -16,13 +16,14 @@ package Path::IsDev::HeuristicSet::Basic;
 =end MetaPOD::JSON
 
 =cut
+
 use parent 'Path::IsDev::HeuristicSet';
 
 sub heuristics {
-    return qw( 
-        Tool::Dzil Tool::MakeMaker Tool::ModuleBuild
-        META Changelog TestDir DevDirMarker Makefile
-    );
+  return qw(
+    Tool::Dzil Tool::MakeMaker Tool::ModuleBuild
+    META Changelog TestDir DevDirMarker Makefile
+  );
 }
 
 1;

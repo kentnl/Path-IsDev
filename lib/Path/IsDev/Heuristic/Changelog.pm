@@ -33,15 +33,15 @@ etc.
 =cut
 
 use parent 'Path::IsDev::Heuristic';
-sub _path {   require Path::Tiny;    goto &Path::Tiny::path }
+sub _path { require Path::Tiny; goto &Path::Tiny::path }
 
 sub matches {
-    my ( $self, $path ) = @_;
-    for my $child ( _path($path)->children ) {
-        next unless -f $child;
-        return 1 if $child->basename =~ /^Change(s|log)(|[.][^.]+)/i;
-    }
-    return;
+  my ( $self, $path ) = @_;
+  for my $child ( _path($path)->children ) {
+    next unless -f $child;
+    return 1 if $child->basename =~ /^Change(s|log)(|[.][^.]+)/i;
+  }
+  return;
 }
 
 1;

@@ -15,7 +15,6 @@ package Path::IsDev::Heuristic::Tool::ModuleBuild;
 
 =cut
 
-
 # ABSTRACT: Determine if a path is a Module::Build Source tree
 
 use parent 'Path::IsDev::Heuristic';
