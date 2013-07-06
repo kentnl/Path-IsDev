@@ -26,6 +26,7 @@ my %module_build_args = (
     "Carp" => 0,
     "Module::Runtime" => 0,
     "Path::Tiny" => 0,
+    "Scalar::Util" => 0,
     "Sub::Exporter" => 0,
     "parent" => 0,
     "perl" => "v5.10.0",

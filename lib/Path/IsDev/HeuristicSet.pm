@@ -48,23 +48,11 @@ sub matches {
     for my $module ( $self->modules ) {
         $self->_load_module($module);
         next unless $module->matches( $path );
-
-        my $name;
-        if ( $module->can('name') ) {
-            $name = $module->name;
-        }
-        else {
-            $name = Path::IsDev::_shorten_module_name($module);
-        }
+        my $name = $module->name;
         Path::IsDev::_debug( $name . q[ matched path ] . $path );
         return 1;
     }
     return;
-}
-
-sub _modules_loaded {
-  my ($self) = @_;
-  return map { $self->_load_module($_) } $self->modules;
 }
 
 1;

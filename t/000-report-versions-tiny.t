@@ -58,6 +58,7 @@ eval { $v .= pmver('Module::Build','0.4005') };
 eval { $v .= pmver('Module::Runtime','any version') };
 eval { $v .= pmver('Path::Tiny','any version') };
 eval { $v .= pmver('Pod::Coverage::TrustPod','any version') };
+eval { $v .= pmver('Scalar::Util','any version') };
 eval { $v .= pmver('Sub::Exporter','any version') };
 eval { $v .= pmver('Test::CPAN::Changes','0.19') };
 eval { $v .= pmver('Test::CPAN::Meta','any version') };

@@ -9,7 +9,7 @@ BEGIN {
   $Path::IsDev::Heuristic::Changelog::VERSION = '0.1.0';
 }
 
-# ABSTRACT: Determine if a path contains a Changelog (or similar)
+# ABSTRACT: Determine if a path contains a C<Changelog> (or similar)
 
 
 
@@ -20,7 +20,7 @@ sub matches {
   my ( $self, $path ) = @_;
   for my $child ( _path($path)->children ) {
     next unless -f $child;
-    return 1 if $child->basename =~ /^Change(s|log)(|[.][^.]+)/i;
+    return 1 if $child->basename =~ /\AChange(s|log)(|[.][^.\s]+)\z/isxm;
   }
   return;
 }
@@ -35,7 +35,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Heuristic::Changelog - Determine if a path contains a Changelog (or similar)
+Path::IsDev::Heuristic::Changelog - Determine if a path contains a C<Changelog> (or similar)
 
 =head1 VERSION
 
@@ -43,10 +43,10 @@ version 0.1.0
 
 =head1 DESCRIPTION
 
-This hueristic matches any case variation of "Changes" or "Changelog",
+This hueristic matches any case variation of C<Changes> or C<Changelog>,
 including any files of that name with a suffix.
 
-ie:
+e.g.:
 
     Changes
     CHANGES

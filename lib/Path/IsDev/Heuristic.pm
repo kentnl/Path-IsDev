@@ -12,8 +12,16 @@ BEGIN {
 # ABSTRACT: Heuristic Base class
 
 
-sub _path  { require Path::Tiny; goto &Path::Tiny::path }
-sub _croak { require Carp;       goto &Carp::croak }
+sub _path    { require Path::Tiny;   goto &Path::Tiny::path }
+sub _croak   { require Carp;         goto &Carp::croak }
+sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
+
+sub name {
+  my $name = shift;
+  $name = blessed($name) if blessed($name);
+  $name =~ s/\APath::IsDev::Heuristic:/:/msx;
+  return $name;
+}
 
 sub _file_matches {
   my ( $self, $path ) = @_;
