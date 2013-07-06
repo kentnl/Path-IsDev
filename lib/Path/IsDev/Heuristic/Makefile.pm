@@ -14,6 +14,7 @@ BEGIN {
 
 use parent 'Path::IsDev::Heuristic';
 
+
 sub files { return qw( GNUmakefile makefile Makefile ) }
 
 1;
@@ -31,6 +32,16 @@ Path::IsDev::Heuristic::Makefile - Determine if a path contains a C<Makefile>
 =head1 VERSION
 
 version 0.1.0
+
+=head1 METHODS
+
+=head2 C<files>
+
+Files relevant to this heuristic:
+
+    GNUmakefile
+    makefile
+    Makefile
 
 =begin MetaPOD::JSON v1.1.0
 

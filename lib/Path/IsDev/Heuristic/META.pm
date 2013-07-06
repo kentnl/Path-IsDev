@@ -14,6 +14,7 @@ BEGIN {
 
 use parent 'Path::IsDev::Heuristic';
 
+
 sub files { return qw( META.json META.yml ) }
 
 1;
@@ -31,6 +32,15 @@ Path::IsDev::Heuristic::META - Determine if a path contains META.(json|yml)
 =head1 VERSION
 
 version 0.1.0
+
+=head1 METHODS
+
+=head2 C<files>
+
+files relevant to this heuristic:
+
+    META.json
+    META.yml
 
 =begin MetaPOD::JSON v1.1.0
 

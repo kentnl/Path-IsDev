@@ -14,6 +14,7 @@ BEGIN {
 
 use parent 'Path::IsDev::Heuristic';
 
+
 sub dirs { return qw( t xt ) }
 
 1;
@@ -31,6 +32,15 @@ Path::IsDev::Heuristic::TestDir - Determine if a path contains a t/ or xt/ direc
 =head1 VERSION
 
 version 0.1.0
+
+=head1 METHODS
+
+=head2 dirs
+
+Directories relevant to this heuristic:
+
+    t/
+    xt/
 
 =begin MetaPOD::JSON v1.1.0
 

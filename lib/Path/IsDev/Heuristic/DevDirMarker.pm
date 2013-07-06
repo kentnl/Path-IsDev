@@ -15,6 +15,7 @@ BEGIN {
 
 use parent 'Path::IsDev::Heuristic';
 
+
 sub files { return qw( .devdir ) }
 
 1;
@@ -41,6 +42,14 @@ All this heuristic checks for is the presence of a special file called C<.devdir
 
 An example case where you might need such a Heuristic, is the scenario where you're not working
 with a Perl C<CPAN> dist, but are instead working on a project in a different language, where Perl is simply there for build/test purposes.
+
+=head1 METHODS
+
+=head2 files
+
+Files relevant for this heuristic:
+
+    .devdir
 
 =begin MetaPOD::JSON v1.1.0
 
