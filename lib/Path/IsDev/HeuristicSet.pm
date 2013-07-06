@@ -43,15 +43,15 @@ sub modules {
 
 
 sub matches {
-    my ( $self, $path ) = @_;
-    for my $module ( $self->modules ) {
-        $self->_load_module($module);
-        next unless $module->matches( $path );
-        my $name = $module->name;
-        _debug( $name . q[ matched path ] . $path );
-        return 1;
-    }
-    return;
+  my ( $self, $path ) = @_;
+  for my $module ( $self->modules ) {
+    $self->_load_module($module);
+    next unless $module->matches($path);
+    my $name = $module->name;
+    _debug( $name . q[ matched path ] . $path );
+    return 1;
+  }
+  return;
 }
 
 1;
