@@ -18,7 +18,7 @@ sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 
 sub name {
   my $name = shift;
-  $name = blessed($name) if blessed($name);
+  $name = _blessed($name) if _blessed($name);
   $name =~ s/\APath::IsDev::Heuristic:/:/msx;
   return $name;
 }

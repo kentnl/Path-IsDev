@@ -15,15 +15,12 @@ BEGIN {
 
 sub _croak      { require Carp;            goto &Carp::croak }
 sub _use_module { require Module::Runtime; goto &Module::Runtime::use_module }
-
-sub _compose_module_name {
-  require Module::Runtime;
-  goto &Module::Runtime::compose_module_name;
-}
+sub _debug      { require Path::IsDev;     goto &Path::IsDev::debug }
+sub _com_mn     { require Module::Runtime; goto &Module::Runtime::compose_module_name; }
 
 sub _expand_heuristic {
   my ( $self, $hn ) = @_;
-  return _compose_module_name( 'Path::IsDev::Heuristic', $hn );
+  return _com_mn( 'Path::IsDev::Heuristic', $hn );
 }
 
 sub _load_module {
@@ -49,7 +46,7 @@ sub matches {
         $self->_load_module($module);
         next unless $module->matches( $path );
         my $name = $module->name;
-        Path::IsDev::_debug( $name . q[ matched path ] . $path );
+        _debug( $name . q[ matched path ] . $path );
         return 1;
     }
     return;
