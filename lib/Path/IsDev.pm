@@ -119,7 +119,7 @@ To enable debugging:
 
 sub debug {
   return unless $DEBUG;
-  return *STDERR->printf( q{[Path::IsDev] %s}, shift );
+  return *STDERR->printf( qq{[Path::IsDev] %s\n}, shift );
 }
 
 sub _build_is_dev {
