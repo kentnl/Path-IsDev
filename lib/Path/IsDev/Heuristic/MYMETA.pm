@@ -43,7 +43,7 @@ Granted, this heuristic is expected to be B<never> needed, as in order to create
 
 =head1 METHODS
 
-=head2 files
+=head2 C<files>
 
 Files relevant to this heuristic
 

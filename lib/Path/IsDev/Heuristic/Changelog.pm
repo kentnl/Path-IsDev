@@ -16,6 +16,7 @@ BEGIN {
 use parent 'Path::IsDev::Heuristic';
 sub _path { require Path::Tiny; goto &Path::Tiny::path }
 
+
 sub matches {
   my ( $self, $path ) = @_;
   for my $child ( _path($path)->children ) {
@@ -53,6 +54,17 @@ e.g.:
     Changes.mkdn
 
 etc.
+
+=head1 METHODS
+
+=head2 C<matches>
+
+Indicators for this heuristic is the existence of a file such as:
+
+    Changes             (i)
+    Changes.anyext      (i)
+    Changelog           (i)
+    Changelog.anyext    (i)
 
 =begin MetaPOD::JSON v1.1.0
 

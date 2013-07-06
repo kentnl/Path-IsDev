@@ -14,6 +14,7 @@ BEGIN {
 
 use parent 'Path::IsDev::Heuristic';
 
+
 sub files { return qw( dist.ini ) }
 
 1;
@@ -31,6 +32,14 @@ Path::IsDev::Heuristic::Tool::Dzil - Determine if a path is a Dist::Zilla Source
 =head1 VERSION
 
 version 0.1.0
+
+=head1 METHODS
+
+=head2 C<files>
+
+Files relevant to this heuristic:
+
+    dist.ini
 
 =begin MetaPOD::JSON v1.1.0
 

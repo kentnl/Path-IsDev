@@ -90,29 +90,6 @@ is a development tree root of some kind.
 This has many useful applications, notably ones that require behaviours for "installed"
 modules to be different to those that are still "in development"
 
-=head1 METHODS
-
-=head2 is_dev
-
-Using an C<import>'ed C<is_dev>:
-
-    if( is_dev( $path ) ) {
-
-    }
-
-Though the actual heuristics used will be based on how C<import> was called.
-
-Additionally, you can call
-
-    Path::IsDev::is_dev
-
-without C<import>ing anything, and it will behave exactly the same as if you'd imported
-it using
-
-    use Path::IsDev qw( is_dev );
-
-That is, no C<set> specification is applicable, so you'll only get the "default".
-
 =head1 ADVANCED USAGE
 
 =head2 Custom Sets
@@ -171,6 +148,27 @@ to B<NOT> force a set, unless you B<NEED> to, and strongly suggests that forcing
 
 
 =end MetaPOD::JSON
+
+=func C<is_dev>
+
+Using an C<import>'ed C<is_dev>:
+
+    if( is_dev( $path ) ) {
+
+    }
+
+Though the actual heuristics used will be based on how C<import> was called.
+
+Additionally, you can call
+
+    Path::IsDev::is_dev
+
+without C<import>ing anything, and it will behave exactly the same as if you'd imported
+it using
+
+    use Path::IsDev qw( is_dev );
+
+That is, no C<set> specification is applicable, so you'll only get the "default".
 
 =head1 AUTHOR
 

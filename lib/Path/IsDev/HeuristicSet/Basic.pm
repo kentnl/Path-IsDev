@@ -40,7 +40,7 @@ version 0.1.0
 
 =head1 METHODS
 
-=head2 heuristics
+=head2 C<heuristics>
 
 Heuristics included in this set:
 

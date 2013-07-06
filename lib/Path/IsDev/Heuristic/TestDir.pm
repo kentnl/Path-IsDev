@@ -35,7 +35,7 @@ version 0.1.0
 
 =head1 METHODS
 
-=head2 dirs
+=head2 C<dirs>
 
 Directories relevant to this heuristic:
 

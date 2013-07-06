@@ -45,7 +45,7 @@ with a Perl C<CPAN> dist, but are instead working on a project in a different la
 
 =head1 METHODS
 
-=head2 files
+=head2 C<files>
 
 Files relevant for this heuristic:
 

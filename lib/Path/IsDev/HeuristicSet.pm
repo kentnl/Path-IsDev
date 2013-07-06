@@ -28,6 +28,7 @@ sub _load_module {
   return _use_module($module);
 }
 
+
 sub modules {
   my ($self) = @_;
   if ( not $self->can('heuristics') ) {
@@ -39,6 +40,7 @@ sub modules {
   }
   return @out;
 }
+
 
 sub matches {
     my ( $self, $path ) = @_;
@@ -67,6 +69,22 @@ Path::IsDev::HeuristicSet - Base class for sets of heuristics
 =head1 VERSION
 
 version 0.1.0
+
+=head1 METHODS
+
+=head2 C<modules>
+
+Returns the list of fully qualifed module names that comprise this heuristic.
+
+Default implementation expands results from C<< ->heuristics >>
+
+=head2 C<matches>
+
+Determine if the HeuristicSet contains a match.
+
+    if( $hs->matches($path) ) {
+        # one of hs->modules() matched $path
+    }
 
 =begin MetaPOD::JSON v1.1.0
 
