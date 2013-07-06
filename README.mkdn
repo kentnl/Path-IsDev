@@ -1,0 +1,123 @@
+# NAME
+
+Path::IsDev - Determine if a given Path resembles a development source tree
+
+# VERSION
+
+version 0.1.0
+
+# SYNOPSIS
+
+    use Path::IsDev qw(is_dev);
+
+    if( is_dev('/some/path') ) {
+        ...
+    } else {
+        ...
+    }
+
+# DESCRIPTION
+
+This module is more or less a bunch of heuristics for determining if a given path
+is a development tree root of some kind.
+
+This has many useful applications, notably ones that require behaviours for "installed"
+modules to be different to those that are still "in development"
+
+# FUNCTIONS
+
+## debug
+
+Debug callback.
+
+To enable debugging:
+
+    export PATH_ISDEV_DEBUG=1
+
+## `is_dev`
+
+Using an `import`'ed `is_dev`:
+
+    if( is_dev( $path ) ) {
+
+    }
+
+Though the actual heuristics used will be based on how `import` was called.
+
+Additionally, you can call
+
+    Path::IsDev::is_dev
+
+without `import`ing anything, and it will behave exactly the same as if you'd imported
+it using
+
+    use Path::IsDev qw( is_dev );
+
+That is, no `set` specification is applicable, so you'll only get the "default".
+
+# ADVANCED USAGE
+
+## Custom Sets
+
+`Path::IsDev` has a system of "sets" of Heuristics, in order to allow for pluggable
+and flexible heuristic types.
+
+Though, for the vast majority of cases, this is not required.
+
+    use Path::IsDev is_dev => { set => 'Basic' };
+    use Path::IsDev is_dev => { set => 'SomeOtherSet' , -as => 'is_dev_other' };
+
+## Overriding the default set
+
+If for whatever reason the `Basic` set is insufficient, or if it false positives on your system for some reason,
+the "default" set can be overridden.
+
+    export PATH_ISDEV_DEFAULT_SET="SomeOtherSet"
+
+    ...
+    use Path::IsDev qw( is_dev );
+    is_dev('/some/path') # uses SomeOtherSet
+
+Though this will only take priority in the event the set is not specified during `import`
+
+If this poses a security concern for the user, then this security hole can be eliminated by declaring the set you want in code:
+
+    export PATH_ISDEV_DEFAULT_SET="SomeOtherSet"
+
+    ...
+    use Path::IsDev  is_dev => { set => 'Basic' };
+    is_dev('/some/path') # uses Basic, regardless of ENV
+
+# SECURITY
+
+Its conceivable, than an evil user could construct an evil set, containing arbitrary and vulnerable code,
+and possibly stash that evil set in a poorly secured privileged users @INC
+
+And if they managed to achieve that, if they could poison the privileged users %ENV, they could trick the privileged user into executing arbitrary code.
+
+Though granted, if you can do either of those 2 things, you're probably security vulnerable anyway, and granted, if you could do either of those 2 things you could do much more evil things by the following:
+
+    export PERL5OPT="-MEvil::Module"
+
+So with that in understanding, saying this modules default utility is "insecure" is mostly a bogus argument.
+
+And to that effect, this module does nothing to "lock down" that mechanism, and this module encourages you
+to __NOT__ force a set, unless you __NEED__ to, and strongly suggests that forcing a set for the purpose of security will achieve no real improvement in security, while simultaneously reducing utility.
+
+{
+    "namespace":"Path::IsDev",
+    "interface":"exporter"
+}
+
+
+
+# AUTHOR
+
+Kent Fredric <kentfredric@gmail.com>
+
+# COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
