@@ -19,6 +19,14 @@ package Path::IsDev::Heuristic::Tool::ModuleBuild;
 
 use parent 'Path::IsDev::Heuristic';
 
+=method C<files>
+
+Files relevant to this heuristic:
+
+    Build.PL
+
+=cut
+
 sub files { return qw( Build.PL ) }
 
 1;

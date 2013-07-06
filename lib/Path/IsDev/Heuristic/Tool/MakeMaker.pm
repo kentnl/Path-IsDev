@@ -15,9 +15,17 @@ package Path::IsDev::Heuristic::Tool::MakeMaker;
 
 =cut
 
-# ABSTRACT: Determine if a path is an EUMM Tooled source dir
+# ABSTRACT: Determine if a path is an C<EUMM> Tooled source directory
 
 use parent 'Path::IsDev::Heuristic';
+
+=method C<files>
+
+Files relevant to this heuristic:
+
+    Makefile.PL
+
+=cut
 
 sub files { return qw( Makefile.PL ) }
 

@@ -19,21 +19,26 @@ package Path::IsDev::HeuristicSet;
 
 sub _croak      { require Carp;            goto &Carp::croak }
 sub _use_module { require Module::Runtime; goto &Module::Runtime::use_module }
-
-sub _compose_module_name {
-  require Module::Runtime;
-  goto &Module::Runtime::compose_module_name;
-}
+sub _debug      { require Path::IsDev;     goto &Path::IsDev::debug }
+sub _com_mn     { require Module::Runtime; goto &Module::Runtime::compose_module_name; }
 
 sub _expand_heuristic {
   my ( $self, $hn ) = @_;
-  return _compose_module_name( 'Path::IsDev::Heuristic', $hn );
+  return _com_mn( 'Path::IsDev::Heuristic', $hn );
 }
 
 sub _load_module {
   my ( $self, $module ) = @_;
   return _use_module($module);
 }
+
+=method C<modules>
+
+Returns the list of fully qualified module names that comprise this heuristic.
+
+Default implementation expands results from C<< ->heuristics >>
+
+=cut
 
 sub modules {
   my ($self) = @_;
@@ -47,9 +52,26 @@ sub modules {
   return @out;
 }
 
-sub _modules_loaded {
-  my ($self) = @_;
-  return map { $self->_load_module($_) } $self->modules;
+=method C<matches>
+
+Determine if the C<HeuristicSet> contains a match.
+
+    if( $hs->matches($path) ) {
+        # one of hs->modules() matched $path
+    }
+
+=cut
+
+sub matches {
+  my ( $self, $path ) = @_;
+  for my $module ( $self->modules ) {
+    $self->_load_module($module);
+    next unless $module->matches($path);
+    my $name = $module->name;
+    _debug( $name . q[ matched path ] . $path );
+    return 1;
+  }
+  return;
 }
 
 1;

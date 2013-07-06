@@ -3,14 +3,14 @@ use warnings;
 
 package Path::IsDev::Heuristic::Changelog;
 
-# ABSTRACT: Determine if a path contains a Changelog (or similar)
+# ABSTRACT: Determine if a path contains a C<Changelog> (or similar)
 
 =head1 DESCRIPTION
 
-This hueristic matches any case variation of "Changes" or "Changelog",
+This heuristic matches any case variation of C<Changes> or C<Changelog>,
 including any files of that name with a suffix.
 
-ie:
+e.g.:
 
     Changes
     CHANGES
@@ -35,11 +35,22 @@ etc.
 use parent 'Path::IsDev::Heuristic';
 sub _path { require Path::Tiny; goto &Path::Tiny::path }
 
+=method C<matches>
+
+Indicators for this heuristic is the existence of a file such as:
+
+    Changes             (i)
+    Changes.anyext      (i)
+    Changelog           (i)
+    Changelog.anyext    (i)
+
+=cut
+
 sub matches {
   my ( $self, $path ) = @_;
   for my $child ( _path($path)->children ) {
     next unless -f $child;
-    return 1 if $child->basename =~ /^Change(s|log)(|[.][^.]+)/i;
+    return 1 if $child->basename =~ /\AChange(s|log)(|[.][^.\s]+)\z/isxm;
   }
   return;
 }

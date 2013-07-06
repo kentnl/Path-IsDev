@@ -15,9 +15,19 @@ package Path::IsDev::Heuristic::Makefile;
 
 =cut
 
-# ABSTRACT: Determine if a path contains Makefile
+# ABSTRACT: Determine if a path contains a C<Makefile>
 
 use parent 'Path::IsDev::Heuristic';
+
+=method C<files>
+
+Files relevant to this heuristic:
+
+    GNUmakefile
+    makefile
+    Makefile
+
+=cut
 
 sub files { return qw( GNUmakefile makefile Makefile ) }
 

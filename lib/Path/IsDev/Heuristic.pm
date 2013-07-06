@@ -16,8 +16,36 @@ package Path::IsDev::Heuristic;
 
 =cut
 
-sub _path  { require Path::Tiny; goto &Path::Tiny::path }
-sub _croak { require Carp;       goto &Carp::croak }
+sub _path    { require Path::Tiny;   goto &Path::Tiny::path }
+sub _croak   { require Carp;         goto &Carp::croak }
+sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
+
+=method C<name>
+
+Returns the name to use in debugging.
+
+By default, this is derived from the classes name
+with the C<PIDH> prefix removed:
+
+    Path::IsDev::Heuristic::Tool::Dzil->name() # → ::Tool::Dzil
+
+=cut
+
+sub name {
+  my $name = shift;
+  $name = _blessed($name) if _blessed($name);
+  $name =~ s/\APath::IsDev::Heuristic:/:/msx;
+  return $name;
+}
+
+=p_method C<_file_matches>
+
+Glue layer between C<< ->matches >> and C<< ->files >>
+
+    # iterate $heuristic->files looking for a match
+    $heurisitic->_file_matches($path);
+
+=cut
 
 sub _file_matches {
   my ( $self, $path ) = @_;
@@ -31,6 +59,16 @@ sub _file_matches {
   return;
 }
 
+=p_method C<_dir_matches>
+
+Glue layer between C<< ->matches >> and C<< ->dirs >>
+
+    # iterate $heuristic->dirs looking for a match
+    $heurisitic->_dir_matches($path);
+
+
+=cut
+
 sub _dir_matches {
   my ( $self, $path ) = @_;
   my $root = _path($path);
@@ -42,6 +80,17 @@ sub _dir_matches {
   }
   return;
 }
+
+=method C<matches>
+
+Determines if the current heuristic matches a given path
+
+    my $result = $heuristic->matches( $path );
+
+The default implementation takes values from C<< ->files >> and C<< ->dirs >>
+and returns true as soon as any match satisfies.
+
+=cut
 
 sub matches {
   my ( $self, $path ) = @_;

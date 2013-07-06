@@ -3,7 +3,7 @@ use warnings;
 
 package Path::IsDev::Heuristic::TestDir;
 
-# ABSTRACT: Determine if a path contains a t/ or xt/ dir
+# ABSTRACT: Determine if a path contains a t/ or xt/ directory
 
 =begin MetaPOD::JSON v1.1.0
 
@@ -18,6 +18,15 @@ package Path::IsDev::Heuristic::TestDir;
 =cut
 
 use parent 'Path::IsDev::Heuristic';
+
+=method C<dirs>
+
+Directories relevant to this heuristic:
+
+    t/
+    xt/
+
+=cut
 
 sub dirs { return qw( t xt ) }
 

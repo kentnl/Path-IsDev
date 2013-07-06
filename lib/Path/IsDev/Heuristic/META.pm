@@ -19,6 +19,15 @@ package Path::IsDev::Heuristic::META;
 
 use parent 'Path::IsDev::Heuristic';
 
+=method C<files>
+
+files relevant to this heuristic:
+
+    META.json
+    META.yml
+
+=cut
+
 sub files { return qw( META.json META.yml ) }
 
 1;

@@ -19,6 +19,14 @@ package Path::IsDev::Heuristic::Tool::Dzil;
 
 use parent 'Path::IsDev::Heuristic';
 
+=method C<files>
+
+Files relevant to this heuristic:
+
+    dist.ini
+
+=cut
+
 sub files { return qw( dist.ini ) }
 
 1;
