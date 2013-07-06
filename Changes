@@ -1,6 +1,6 @@
 Release history for Path-IsDev
 
-0.1.1 2013-07-06T14:07:57Z
+0.1.1 2013-07-06T15:34:45Z
  [Internals]
  - debug() now appends \n automatically.
 
