@@ -1,6 +1,8 @@
 Release history for Path-IsDev
 
 {{$NEXT}}
+ [Internals]
+ - debug() now appends \n automatically.
 
 0.1.0 2013-07-06T12:49:36Z
  - First version.
