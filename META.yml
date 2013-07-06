@@ -68,6 +68,10 @@ requires:
   perl: v5.10.0
   strict: 0
   warnings: 0
+resources:
+  bugtracker: https://github.com/kentfredric/Path-IsDev/issues
+  homepage: https://github.com/kentfredric/Path-IsDev
+  repository: https://github.com/kentfredric/Path-IsDev.git
 version: 0.1.0
 x_BuiltWith:
   modules:
