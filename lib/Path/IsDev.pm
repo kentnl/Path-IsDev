@@ -33,7 +33,6 @@ sub _expand_set {
   return _compose_module_name( 'Path::IsDev::HeuristicSet', shift );
 }
 
-
 sub debug {
   return unless $DEBUG;
   return *STDERR->printf( q{[Path::IsDev] %s}, shift );
@@ -41,14 +40,14 @@ sub debug {
 
 sub _build_is_dev {
   my ( $class, $name, $arg ) = @_;
-  my $set_name = (  $arg->{set} ?  $arg->{set} : $DEFAULT );
+  my $set_name = ( $arg->{set} ? $arg->{set} : $DEFAULT );
 
   my $set_class;
   my $set_module;
 
   return sub {
     my ($path) = @_;
-    $set_class ||= do { _expand_set($set_name) };
+    $set_class  ||= do { _expand_set($set_name) };
     $set_module ||= do { _use_module($set_class) };
     return $set_module->matches($path);
   };

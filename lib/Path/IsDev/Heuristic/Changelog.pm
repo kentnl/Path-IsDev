@@ -43,7 +43,7 @@ version 0.1.0
 
 =head1 DESCRIPTION
 
-This hueristic matches any case variation of C<Changes> or C<Changelog>,
+This heuristic matches any case variation of C<Changes> or C<Changelog>,
 including any files of that name with a suffix.
 
 e.g.:

@@ -9,7 +9,8 @@ BEGIN {
   $Path::IsDev::Heuristic::DevDirMarker::VERSION = '0.1.0';
 }
 
-# ABSTRACT: Determine if a path contains a .devdir file
+# ABSTRACT: Determine if a path contains a C<.devdir> file
+
 
 
 use parent 'Path::IsDev::Heuristic';
@@ -26,11 +27,18 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Heuristic::DevDirMarker - Determine if a path contains a .devdir file
+Path::IsDev::Heuristic::DevDirMarker - Determine if a path contains a C<.devdir> file
 
 =head1 VERSION
 
 version 0.1.0
+
+=head1 DESCRIPTION
+
+In the event none of the other Heuristics work for you (ie: in the case you're not working
+with a Perl CPAN dist, and are in fact working on a project in a different language, where
+perl is simply there for build/test purposes), this Heuristic allows explict marking
+of a C<developer directory> with a special file: C<.devdir>
 
 =begin MetaPOD::JSON v1.1.0
 
