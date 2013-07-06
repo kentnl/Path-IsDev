@@ -74,13 +74,13 @@ version 0.1.0
 
 =head2 C<modules>
 
-Returns the list of fully qualifed module names that comprise this heuristic.
+Returns the list of fully qualified module names that comprise this heuristic.
 
 Default implementation expands results from C<< ->heuristics >>
 
 =head2 C<matches>
 
-Determine if the HeuristicSet contains a match.
+Determine if the C<HeuristicSet> contains a match.
 
     if( $hs->matches($path) ) {
         # one of hs->modules() matched $path
