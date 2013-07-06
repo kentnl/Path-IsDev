@@ -7,7 +7,7 @@ BEGIN {
   $Path::IsDev::HeuristicSet::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::HeuristicSet::VERSION = '0.1.0';
+  $Path::IsDev::HeuristicSet::VERSION = '0.1.1';
 }
 
 # ABSTRACT: Base class for sets of heuristics
@@ -68,7 +68,7 @@ Path::IsDev::HeuristicSet - Base class for sets of heuristics
 
 =head1 VERSION
 
-version 0.1.0
+version 0.1.1
 
 =head1 METHODS
 
