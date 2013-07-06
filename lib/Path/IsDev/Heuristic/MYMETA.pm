@@ -36,7 +36,7 @@ version 0.1.0
 =head1 DESCRIPTION
 
 This heuristic is intended as a guarantee that B<SOME> kind of top level marker will
-be present in a distribution, as all the main toolchains emit this file during C<configure>.
+be present in a distribution, as all the main tool-chains emit this file during C<configure>.
 
 Granted, this heuristic is expected to be B<never> needed, as in order to create such a file, you first need a C<Build.PL>/C<Makefile.PL> to generate it.
 

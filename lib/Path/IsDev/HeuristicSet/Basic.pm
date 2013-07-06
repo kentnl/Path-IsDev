@@ -9,7 +9,7 @@ BEGIN {
   $Path::IsDev::HeuristicSet::Basic::VERSION = '0.1.0';
 }
 
-# ABSTRACT: Basic IsDev set of Heuristics
+# ABSTRACT: Basic C<IsDev> set of Heuristics
 
 
 use parent 'Path::IsDev::HeuristicSet';
@@ -31,7 +31,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::HeuristicSet::Basic - Basic IsDev set of Heuristics
+Path::IsDev::HeuristicSet::Basic - Basic C<IsDev> set of Heuristics
 
 =head1 VERSION
 

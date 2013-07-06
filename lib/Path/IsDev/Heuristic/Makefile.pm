@@ -10,7 +10,7 @@ BEGIN {
 }
 
 
-# ABSTRACT: Determine if a path contains Makefile
+# ABSTRACT: Determine if a path contains a C<Makefile>
 
 use parent 'Path::IsDev::Heuristic';
 
@@ -26,7 +26,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Heuristic::Makefile - Determine if a path contains Makefile
+Path::IsDev::Heuristic::Makefile - Determine if a path contains a C<Makefile>
 
 =head1 VERSION
 

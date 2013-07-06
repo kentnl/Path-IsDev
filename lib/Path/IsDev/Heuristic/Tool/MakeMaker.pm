@@ -10,7 +10,7 @@ BEGIN {
 }
 
 
-# ABSTRACT: Determine if a path is an EUMM Tooled source dir
+# ABSTRACT: Determine if a path is an C<EUMM> Tooled source directory
 
 use parent 'Path::IsDev::Heuristic';
 
@@ -26,7 +26,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Heuristic::Tool::MakeMaker - Determine if a path is an EUMM Tooled source dir
+Path::IsDev::Heuristic::Tool::MakeMaker - Determine if a path is an C<EUMM> Tooled source directory
 
 =head1 VERSION
 

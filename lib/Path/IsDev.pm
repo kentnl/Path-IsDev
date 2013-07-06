@@ -88,7 +88,7 @@ This module is more or less a bunch of heuristics for determining if a given pat
 is a development tree root of some kind.
 
 This has many useful applications, notably ones that require behaviours for "installed"
-modules to be different to those that are still "in development" 
+modules to be different to those that are still "in development"
 
 =head1 METHODS
 
@@ -102,12 +102,12 @@ Using an C<import>'ed C<is_dev>:
 
 Though the actual heuristics used will be based on how C<import> was called.
 
-Additionally, you can call 
+Additionally, you can call
 
     Path::IsDev::is_dev
 
 without C<import>ing anything, and it will behave exactly the same as if you'd imported
-it using 
+it using
 
     use Path::IsDev qw( is_dev );
 
@@ -144,12 +144,12 @@ If this poses a security concern for the user, then this security hole can be el
 
     ...
     use Path::IsDev  is_dev => { set => 'Basic' };
-    is_dev('/some/path') # uses Basic, regardless of ENV 
+    is_dev('/some/path') # uses Basic, regardless of ENV
 
 =head1 SECURITY
 
 Its conceivable, than an evil user could construct an evil set, containing arbitrary and vulnerable code,
-and possibly stash that evil set in a poorly secured privileged users @INC 
+and possibly stash that evil set in a poorly secured privileged users @INC
 
 And if they managed to achieve that, if they could poison the privileged users %ENV, they could trick the privileged user into executing arbitrary code.
 

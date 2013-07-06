@@ -9,7 +9,7 @@ BEGIN {
   $Path::IsDev::Heuristic::TestDir::VERSION = '0.1.0';
 }
 
-# ABSTRACT: Determine if a path contains a t/ or xt/ dir
+# ABSTRACT: Determine if a path contains a t/ or xt/ directory
 
 
 use parent 'Path::IsDev::Heuristic';
@@ -26,7 +26,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Heuristic::TestDir - Determine if a path contains a t/ or xt/ dir
+Path::IsDev::Heuristic::TestDir - Determine if a path contains a t/ or xt/ directory
 
 =head1 VERSION
 

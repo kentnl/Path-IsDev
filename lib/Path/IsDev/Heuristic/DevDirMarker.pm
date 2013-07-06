@@ -35,10 +35,12 @@ version 0.1.0
 
 =head1 DESCRIPTION
 
-In the event none of the other Heuristics work for you (ie: in the case you're not working
-with a Perl CPAN dist, and are in fact working on a project in a different language, where
-perl is simply there for build/test purposes), this Heuristic allows explict marking
-of a C<developer directory> with a special file: C<.devdir>
+This Heuristic is a workaround that is likely viable in the event none of the other Heuristics work.
+
+All this heuristic checks for is the presence of a special file called C<.devdir>, which is intended as an explicit notation that "This directory is a project root".
+
+An example case where you might need such a Heuristic, is the scenario where you're not working
+with a Perl C<CPAN> dist, but are instead working on a project in a different language, where Perl is simply there for build/test purposes.
 
 =begin MetaPOD::JSON v1.1.0
 
