@@ -75,11 +75,13 @@ sub _instance_id {
 
 
 sub _debug {
+  my ( $self, $message ) = @_;
+
   return unless $DEBUG;
-  my ($self, $message ) = @_;
   my $id = $self->_instance_id;
   return *STDERR->printf( qq{[Path::IsDev=%s] %s\n}, $id, $message );
 }
+
 
 sub BUILD {
   my ($self) = @_;
@@ -97,11 +99,15 @@ sub BUILD {
 sub matches {
   my ( $self, $path ) = @_;
   $self->_debug( 'Matching ' . $path );
-  no warnings 'redefine';
-  local *Path::IsDev::debug = sub {
-    $self->_debug(@_);
-  };
-  my $result = $self->loaded_set_module->matches($path);
+  my $result;
+  {
+    ## no critic (ProhibitNoWarnings)
+    no warnings 'redefine';
+    local *Path::IsDev::debug = sub {
+      $self->_debug(@_);
+    };
+    $result = $self->loaded_set_module->matches($path);
+  }
   if ( not $result ) {
     $self->_debug('no match found');
   }
@@ -185,22 +191,29 @@ An accessor which returns a module name after loading it.
 
 =head1 PRIVATE METHODS
 
-=head2 _instance_id
+=head2 C<_instance_id>
 
-An opportunistic sequence number for help wtih debug messages.
+An opportunistic sequence number for help with debug messages.
 
 Note: This is not guaranteed to be unique per instance, only guaranteed
 to be constant within the life of the object.
 
 Based on C<refaddr>, and giving out new ids when new C<refaddr>'s are seen.
 
-=head2 _debug
+=head2 C<_debug>
 
 The debugger callback.
 
     export PATH_ISDEV_DEBUG=1
 
 to get debug info.
+
+=head2 C<BUILD>
+
+C<BUILD> is an implementation detail of C<Moo>/C<Moose>.
+
+This module hooks C<BUILD> to give a self report of the object
+to C<*STDERR> after C<< ->new >> when under C<$DEBUG>
 
 =begin MetaPOD::JSON v1.1.0
 
