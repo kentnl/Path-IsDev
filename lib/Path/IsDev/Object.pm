@@ -25,7 +25,7 @@ has 'set' => (
   lazy    => 1,
   builder => sub {
     return $DEFAULT;
-  }
+  },
 );
 
 
@@ -34,7 +34,7 @@ has 'set_prefix' => (
   lazy    => 1,
   builder => sub {
     return 'Path::IsDev::HeuristicSet';
-  }
+  },
 );
 
 
@@ -44,7 +44,7 @@ has 'set_module' => (
   builder => sub {
     require Module::Runtime;
     Module::Runtime::compose_module_name( $_[0]->set_prefix => $_[0]->set );
-  }
+  },
 );
 
 
@@ -54,7 +54,7 @@ has 'loaded_set_module' => (
   builder => sub {
     require Module::Runtime;
     return Module::Runtime::use_module( $_[0]->set_module );
-  }
+  },
 );
 
 
