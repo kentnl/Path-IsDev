@@ -1,5 +1,10 @@
 Release history for Path-IsDev
 
+0.2.2 2013-07-07T15:53:07Z
+ [Bugs]
+ - Suppress redefine warning caused by localising a sub before sourcing the
+   module that provides it.
+
 0.2.1 2013-07-07T15:27:19Z
  [Internals]
  - Debug messages now include some indicator suggesting which unique object

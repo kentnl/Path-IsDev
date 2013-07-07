@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Object::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Object::VERSION = '0.2.1';
+  $Path::IsDev::Object::VERSION = '0.2.2';
 }
 
 # ABSTRACT: Object Oriented guts for C<IsDev> export
@@ -101,6 +101,7 @@ sub matches {
   $self->_debug( 'Matching ' . $path );
   my $result;
   {
+    require Path::IsDev;
     ## no critic (ProhibitNoWarnings)
     no warnings 'redefine';
     local *Path::IsDev::debug = sub {
@@ -130,7 +131,7 @@ Path::IsDev::Object - Object Oriented guts for C<IsDev> export
 
 =head1 VERSION
 
-version 0.2.1
+version 0.2.2
 
 =head1 SYNOPSIS
 
