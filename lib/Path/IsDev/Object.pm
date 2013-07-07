@@ -103,7 +103,7 @@ sub matches {
   {
     require Path::IsDev;
     ## no critic (ProhibitNoWarnings)
-    no warnings 'redefined';
+    no warnings 'redefine';
     local *Path::IsDev::debug = sub {
       $self->_debug(@_);
     };
