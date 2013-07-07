@@ -76,8 +76,9 @@ sub _instance_id {
 
 sub _debug {
   return unless $DEBUG;
-  my $id = $_[0]->_instance_id;
-  return *STDERR->printf( qq{[Path::IsDev=%s] %s\n}, $id, $_[1] );
+  my ($self, $message ) = @_;
+  my $id = $self->_instance_id;
+  return *STDERR->printf( qq{[Path::IsDev=%s] %s\n}, $id, $message );
 }
 
 sub BUILD {
