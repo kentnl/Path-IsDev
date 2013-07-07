@@ -1,6 +1,10 @@
 Release history for Path-IsDev
 
 {{$NEXT}}
+ [Internals]
+ - Debug messages now include some indicator suggesting which unique object
+   they're comming from.
+ - invoking BUILD with debugging on prints basic introspected data.
 
 0.2.0 2013-07-07T13:52:33Z
  [00 Major Changes]
