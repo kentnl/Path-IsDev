@@ -1,6 +1,8 @@
 Release history for Path-IsDev
 
 {{$NEXT}}
+
+0.2.1 2013-07-07T15:27:19Z
  [Internals]
  - Debug messages now include some indicator suggesting which unique object
    they're comming from.
