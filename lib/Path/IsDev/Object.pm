@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Object::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Object::VERSION = '0.2.0';
+  $Path::IsDev::Object::VERSION = '0.2.1';
 }
 
 # ABSTRACT: Object Oriented guts for C<IsDev> export
@@ -14,6 +14,9 @@ BEGIN {
 
 
 use Moo;
+
+our $ENV_KEY_DEBUG = 'PATH_ISDEV_DEBUG';
+our $DEBUG = ( exists $ENV{$ENV_KEY_DEBUG} ? $ENV{$ENV_KEY_DEBUG} : undef );
 
 our $ENV_KEY_DEFAULT = 'PATH_ISDEV_DEFAULT_SET';
 our $DEFAULT =
@@ -57,10 +60,58 @@ has 'loaded_set_module' => (
   },
 );
 
+my $instances   = {};
+my $instance_id = 0;
+
+
+sub _instance_id {
+  my ($self) = @_;
+  require Scalar::Util;
+  my $addr = Scalar::Util::refaddr($self);
+  return $instances->{$addr} if exists $instances->{$addr};
+  $instances->{$addr} = sprintf '%x', $instance_id++;
+  return $instances->{$addr};
+}
+
+
+sub _debug {
+  my ( $self, $message ) = @_;
+
+  return unless $DEBUG;
+  my $id = $self->_instance_id;
+  return *STDERR->printf( qq{[Path::IsDev=%s] %s\n}, $id, $message );
+}
+
+
+sub BUILD {
+  my ($self) = @_;
+  return $self unless $DEBUG;
+  $self->_debug('{');
+  $self->_debug( ' set               => ' . $self->set );
+  $self->_debug( ' set_prefix        => ' . $self->set_prefix );
+  $self->_debug( ' set_module        => ' . $self->set_module );
+  $self->_debug( ' loaded_set_module => ' . $self->loaded_set_module );
+  $self->_debug('}');
+  return $self;
+}
+
 
 sub matches {
   my ( $self, $path ) = @_;
-  return $self->loaded_set_module->matches($path);
+  $self->_debug( 'Matching ' . $path );
+  my $result;
+  {
+    ## no critic (ProhibitNoWarnings)
+    no warnings 'redefine';
+    local *Path::IsDev::debug = sub {
+      $self->_debug(@_);
+    };
+    $result = $self->loaded_set_module->matches($path);
+  }
+  if ( not $result ) {
+    $self->_debug('no match found');
+  }
+  return $result;
 }
 
 no Moo;
@@ -79,7 +130,7 @@ Path::IsDev::Object - Object Oriented guts for C<IsDev> export
 
 =head1 VERSION
 
-version 0.2.0
+version 0.2.1
 
 =head1 SYNOPSIS
 
@@ -137,6 +188,32 @@ Composed by joining C<set> and C<set_prefix>
 =head2 C<loaded_set_module>
 
 An accessor which returns a module name after loading it.
+
+=head1 PRIVATE METHODS
+
+=head2 C<_instance_id>
+
+An opportunistic sequence number for help with debug messages.
+
+Note: This is not guaranteed to be unique per instance, only guaranteed
+to be constant within the life of the object.
+
+Based on C<refaddr>, and giving out new ids when new C<refaddr>'s are seen.
+
+=head2 C<_debug>
+
+The debugger callback.
+
+    export PATH_ISDEV_DEBUG=1
+
+to get debug info.
+
+=head2 C<BUILD>
+
+C<BUILD> is an implementation detail of C<Moo>/C<Moose>.
+
+This module hooks C<BUILD> to give a self report of the object
+to C<*STDERR> after C<< ->new >> when under C<$DEBUG>
 
 =begin MetaPOD::JSON v1.1.0
 
