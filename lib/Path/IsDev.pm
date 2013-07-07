@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::VERSION = '0.1.2';
+  $Path::IsDev::VERSION = '0.2.0';
 }
 
 # ABSTRACT: Determine if a given Path resembles a development source tree
@@ -15,8 +15,6 @@ BEGIN {
 
 
 use Sub::Exporter -setup => { exports => [ is_dev => \&_build_is_dev, ], };
-
-sub _croak { require Carp; goto &Carp::croak }
 
 our $ENV_KEY_DEBUG = 'PATH_ISDEV_DEBUG';
 
@@ -59,7 +57,7 @@ Path::IsDev - Determine if a given Path resembles a development source tree
 
 =head1 VERSION
 
-version 0.1.2
+version 0.2.0
 
 =head1 SYNOPSIS
 
