@@ -192,6 +192,7 @@ sub matches {
   $self->_debug( 'Matching ' . $path );
   my $result;
   {
+    require Path::IsDev;
     ## no critic (ProhibitNoWarnings)
     no warnings 'redefine';
     local *Path::IsDev::debug = sub {

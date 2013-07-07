@@ -1,6 +1,9 @@
 Release history for Path-IsDev
 
 {{$NEXT}}
+ [Bugs]
+ - Suppress redefine warning caused by localising a sub before sourcing the
+   module that provides it.
 
 0.2.1 2013-07-07T15:27:19Z
  [Internals]
