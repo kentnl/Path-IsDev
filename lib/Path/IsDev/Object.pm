@@ -85,7 +85,7 @@ version 0.1.2
 
     use Path::IsDev::Object;
 
-    my $dev = Path::IsDev::Object->new(); 
+    my $dev = Path::IsDev::Object->new();
     my $dev = Path::IsDev::Object->new( set => 'MySet' );
 
     if ( $dev->matches($path) ){
@@ -97,7 +97,7 @@ version 0.1.2
 Exporting functions is handy for end users, but quickly
 becomes a huge headache when you're trying to chain them.
 
-ie: If you're writing an exporter yourself, and you want to wrap
+e.g: If you're writing an exporter yourself, and you want to wrap
 responses from an exported symbol, while passing through user
 configuration => Huge headache.
 
