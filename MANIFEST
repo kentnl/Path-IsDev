@@ -31,6 +31,7 @@ lib/Path/IsDev/Heuristic/Tool/MakeMaker.pm
 lib/Path/IsDev/Heuristic/Tool/ModuleBuild.pm
 lib/Path/IsDev/HeuristicSet.pm
 lib/Path/IsDev/HeuristicSet/Basic.pm
+lib/Path/IsDev/Object.pm
 perlcritic.rc
 t/00-compile.t
 t/000-report-versions-tiny.t

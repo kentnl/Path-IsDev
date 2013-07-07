@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::VERSION = '0.1.1';
+  $Path::IsDev::VERSION = '0.1.2';
 }
 
 # ABSTRACT: Determine if a given Path resembles a development source tree
@@ -16,22 +16,11 @@ BEGIN {
 
 use Sub::Exporter -setup => { exports => [ is_dev => \&_build_is_dev, ], };
 
-sub _croak      { require Carp;            goto &Carp::croak }
-sub _use_module { require Module::Runtime; goto &Module::Runtime::use_module }
+sub _croak { require Carp; goto &Carp::croak }
 
-sub _compose_module_name {
-  require Module::Runtime;
-  goto &Module::Runtime::compose_module_name;
-}
+our $ENV_KEY_DEBUG = 'PATH_ISDEV_DEBUG';
 
-our $ENV_KEY_DEFAULT = 'PATH_ISDEV_DEFAULT_SET';
-our $ENV_KEY_DEBUG   = 'PATH_ISDEV_DEBUG';
-our $DEFAULT         = ( exists $ENV{$ENV_KEY_DEFAULT} ? $ENV{$ENV_KEY_DEFAULT} : 'Basic' );
-our $DEBUG           = ( exists $ENV{$ENV_KEY_DEBUG} ? $ENV{$ENV_KEY_DEBUG} : undef );
-
-sub _expand_set {
-  return _compose_module_name( 'Path::IsDev::HeuristicSet', shift );
-}
+our $DEBUG = ( exists $ENV{$ENV_KEY_DEBUG} ? $ENV{$ENV_KEY_DEBUG} : undef );
 
 
 sub debug {
@@ -41,16 +30,15 @@ sub debug {
 
 sub _build_is_dev {
   my ( $class, $name, $arg ) = @_;
-  my $set_name = ( $arg->{set} ? $arg->{set} : $DEFAULT );
 
-  my $set_class;
-  my $set_module;
-
+  my $object;
   return sub {
     my ($path) = @_;
-    $set_class  ||= do { _expand_set($set_name) };
-    $set_module ||= do { _use_module($set_class) };
-    return $set_module->matches($path);
+    $object ||= do {
+      require Path::IsDev::Object;
+      Path::IsDev::Object->new( %{ $arg || {} } );
+    };
+    return $object->matches($path);
   };
 }
 
@@ -71,7 +59,7 @@ Path::IsDev - Determine if a given Path resembles a development source tree
 
 =head1 VERSION
 
-version 0.1.1
+version 0.1.2
 
 =head1 SYNOPSIS
 
