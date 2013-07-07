@@ -1,6 +1,8 @@
 Release history for Path-IsDev
 
 {{$NEXT}}
+
+0.2.0 2013-07-07T13:52:33Z
  [00 Major Changes]
  - Guts of exporter refactored to a Moo class.
 
