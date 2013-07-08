@@ -1,5 +1,7 @@
 Release history for Path-IsDev
 
+0.2.3 2013-07-08T23:53:22Z
+
 0.2.2 2013-07-07T15:53:07Z
  [Bugs]
  - Suppress redefine warning caused by localising a sub before sourcing the

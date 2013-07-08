@@ -17,7 +17,7 @@ my %module_build_args = (
     "Kent Fredric <kentfredric\@gmail.com>"
   ],
   "dist_name" => "Path-IsDev",
-  "dist_version" => "0.2.2",
+  "dist_version" => "0.2.3",
   "license" => "perl",
   "module_name" => "Path::IsDev",
   "recommends" => {},
