@@ -35,6 +35,7 @@ lib/Path/IsDev/Object.pm
 perlcritic.rc
 t/00-compile.t
 t/000-report-versions-tiny.t
+t/Path-IsDev-Object/basic.t
 t/Path-IsDev/is_dev/Changelog.t
 t/Path-IsDev/is_dev/DZil.t
 t/Path-IsDev/is_dev/DevDir.t
