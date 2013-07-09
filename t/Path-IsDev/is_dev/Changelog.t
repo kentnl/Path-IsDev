@@ -12,7 +12,7 @@ sub nofatal {
   return is( $e, undef, $message );
 }
 
-my $corpus_dir = path($FindBin::Bin)->parent->parent->child('corpus')->child('Changelog');
+my $corpus_dir = path($FindBin::Bin)->parent->parent->parent->child('corpus')->child('Changelog');
 
 nofatal 'Can require without exception' => sub {
   require Path::IsDev;
