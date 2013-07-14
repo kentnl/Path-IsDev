@@ -2,11 +2,13 @@ Release history for Path-IsDev
 
 {{$NEXT}}
  [Bugs]
- - Need more recent Moo for 'builder => sub {}'
- 
- [Dependencies::Changed / runtime requires]
- - Moo 0 → 1.000008
+ - Need more recent Moo for `builder => sub {}`
 
+ [Dependencies::Changed / runtime requires]
+ - `Moo 0` → `1.000008`
+
+ [Tests]
+ - Better coverage of `::Object`
 
 0.2.2 2013-07-07T15:53:07Z
  [Bugs]
@@ -17,18 +19,18 @@ Release history for Path-IsDev
  [Internals]
  - Debug messages now include some indicator suggesting which unique object
    they're comming from.
- - invoking BUILD with debugging on prints basic introspected data.
+ - invoking `BUILD` with debugging on prints basic introspected data.
 
 0.2.0 2013-07-07T13:52:33Z
  [00 Major Changes]
- - Guts of exporter refactored to a Moo class.
+ - Guts of exporter refactored to a `Moo` class.
 
  [Dependencies::Added / runtime requires]
- - Moo
+ - `Moo`
 
 0.1.1 2013-07-06T15:36:30Z
  [Internals]
- - debug() now appends \n automatically.
+ - `debug()` now appends `\n` automatically.
 
 0.1.0 2013-07-06T12:49:36Z
  - First version.
