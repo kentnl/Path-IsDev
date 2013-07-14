@@ -21,50 +21,50 @@ name: Path-IsDev
 provides:
   Path::IsDev:
     file: lib/Path/IsDev.pm
-    version: v0.2.2
+    version: v0.2.3
   Path::IsDev::Heuristic:
     file: lib/Path/IsDev/Heuristic.pm
-    version: v0.2.2
+    version: v0.2.3
   Path::IsDev::Heuristic::Changelog:
     file: lib/Path/IsDev/Heuristic/Changelog.pm
-    version: v0.2.2
+    version: v0.2.3
   Path::IsDev::Heuristic::DevDirMarker:
     file: lib/Path/IsDev/Heuristic/DevDirMarker.pm
-    version: v0.2.2
+    version: v0.2.3
   Path::IsDev::Heuristic::META:
     file: lib/Path/IsDev/Heuristic/META.pm
-    version: v0.2.2
+    version: v0.2.3
   Path::IsDev::Heuristic::MYMETA:
     file: lib/Path/IsDev/Heuristic/MYMETA.pm
-    version: v0.2.2
+    version: v0.2.3
   Path::IsDev::Heuristic::Makefile:
     file: lib/Path/IsDev/Heuristic/Makefile.pm
-    version: v0.2.2
+    version: v0.2.3
   Path::IsDev::Heuristic::TestDir:
     file: lib/Path/IsDev/Heuristic/TestDir.pm
-    version: v0.2.2
+    version: v0.2.3
   Path::IsDev::Heuristic::Tool::Dzil:
     file: lib/Path/IsDev/Heuristic/Tool/Dzil.pm
-    version: v0.2.2
+    version: v0.2.3
   Path::IsDev::Heuristic::Tool::MakeMaker:
     file: lib/Path/IsDev/Heuristic/Tool/MakeMaker.pm
-    version: v0.2.2
+    version: v0.2.3
   Path::IsDev::Heuristic::Tool::ModuleBuild:
     file: lib/Path/IsDev/Heuristic/Tool/ModuleBuild.pm
-    version: v0.2.2
+    version: v0.2.3
   Path::IsDev::HeuristicSet:
     file: lib/Path/IsDev/HeuristicSet.pm
-    version: v0.2.2
+    version: v0.2.3
   Path::IsDev::HeuristicSet::Basic:
     file: lib/Path/IsDev/HeuristicSet/Basic.pm
-    version: v0.2.2
+    version: v0.2.3
   Path::IsDev::Object:
     file: lib/Path/IsDev/Object.pm
-    version: v0.2.2
+    version: v0.2.3
 requires:
   Carp: 0
   Module::Runtime: 0
-  Moo: 0
+  Moo: 1.000008
   Path::Tiny: 0
   Scalar::Util: 0
   Sub::Exporter: 0
@@ -76,7 +76,7 @@ resources:
   bugtracker: https://github.com/kentfredric/Path-IsDev/issues
   homepage: https://github.com/kentfredric/Path-IsDev
   repository: https://github.com/kentfredric/Path-IsDev.git
-version: 0.2.2
+version: 0.2.3
 x_BuiltWith:
   modules:
     Carp: 1.29

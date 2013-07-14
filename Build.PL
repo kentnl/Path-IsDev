@@ -17,7 +17,7 @@ my %module_build_args = (
     "Kent Fredric <kentfredric\@gmail.com>"
   ],
   "dist_name" => "Path-IsDev",
-  "dist_version" => "0.2.2",
+  "dist_version" => "0.2.3",
   "license" => "perl",
   "module_name" => "Path::IsDev",
   "recommends" => {},
@@ -25,7 +25,7 @@ my %module_build_args = (
   "requires" => {
     "Carp" => 0,
     "Module::Runtime" => 0,
-    "Moo" => 0,
+    "Moo" => "1.000008",
     "Path::Tiny" => 0,
     "Scalar::Util" => 0,
     "Sub::Exporter" => 0,

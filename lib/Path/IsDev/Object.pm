@@ -6,14 +6,14 @@ BEGIN {
   $Path::IsDev::Object::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Object::VERSION = '0.2.2';
+  $Path::IsDev::Object::VERSION = '0.2.3';
 }
 
 # ABSTRACT: Object Oriented guts for C<IsDev> export
 
 
 
-use Moo;
+use Moo 1.000008; # Minimum for builder => sub {}
 
 our $ENV_KEY_DEBUG = 'PATH_ISDEV_DEBUG';
 our $DEBUG = ( exists $ENV{$ENV_KEY_DEBUG} ? $ENV{$ENV_KEY_DEBUG} : undef );
@@ -131,7 +131,7 @@ Path::IsDev::Object - Object Oriented guts for C<IsDev> export
 
 =head1 VERSION
 
-version 0.2.2
+version 0.2.3
 
 =head1 SYNOPSIS
 
