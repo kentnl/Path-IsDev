@@ -1,6 +1,8 @@
 Release history for Path-IsDev
 
 {{$NEXT}}
+
+0.2.3 2013-07-14T03:02:16Z
  [Bugs]
  - Need more recent Moo for `builder => sub {}`
 
