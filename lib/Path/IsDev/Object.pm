@@ -13,7 +13,7 @@ BEGIN {
 
 
 
-use Moo;
+use Moo 1.000008; # Minimum for builder => sub {}
 
 our $ENV_KEY_DEBUG = 'PATH_ISDEV_DEBUG';
 our $DEBUG = ( exists $ENV{$ENV_KEY_DEBUG} ? $ENV{$ENV_KEY_DEBUG} : undef );
