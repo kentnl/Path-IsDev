@@ -1,6 +1,12 @@
 Release history for Path-IsDev
 
 {{$NEXT}}
+ [Bugs]
+ - Need more recent Moo for 'builder => sub {}'
+ 
+ [Dependencies::Changed / runtime requires]
+ - Moo 0 → 1.000008
+
 
 0.2.2 2013-07-07T15:53:07Z
  [Bugs]
