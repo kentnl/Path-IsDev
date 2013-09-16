@@ -42,8 +42,6 @@ while the Object based interface is there for people with more complex requireme
 
 =cut
 
-use Moo 1.000008; # Minimum for builder => sub {}
-
 our $ENV_KEY_DEBUG = 'PATH_ISDEV_DEBUG';
 our $DEBUG = ( exists $ENV{$ENV_KEY_DEBUG} ? $ENV{$ENV_KEY_DEBUG} : undef );
 
@@ -59,13 +57,18 @@ Default is C<Basic>, or the value of C<$ENV{PATH_ISDEV_DEFAULT_SET}>
 
 =cut
 
-has 'set' => (
-  is      => ro =>,
-  lazy    => 1,
-  builder => sub {
-    return $DEFAULT;
+use Class::Tiny {
+  set        => sub { $DEFAULT },
+  set_prefix => sub { 'Path::IsDev::HeuristicSet' },
+  set_module => sub {
+    require Module::Runtime;
+    return Module::Runtime::compose_module_name( $_[0]->set_prefix => $_[0]->set );
   },
-);
+  loaded_set_module => sub {
+    require Module::Runtime;
+    return Module::Runtime::use_module( $_[0]->set_module );
+  },
+};
 
 =attr C<set_prefix>
 
@@ -73,47 +76,17 @@ The C<HeuristicSet> prefix to use to expand C<set> to a module name.
 
 Default is C<Path::IsDev::HeuristicSet>
 
-=cut
-
-has 'set_prefix' => (
-  is      => ro =>,
-  lazy    => 1,
-  builder => sub {
-    return 'Path::IsDev::HeuristicSet';
-  },
-);
-
 =attr C<set_module>
 
 The fully qualified module name.
 
 Composed by joining C<set> and C<set_prefix>
 
-=cut
-
-has 'set_module' => (
-  is      => ro =>,
-  lazy    => 1,
-  builder => sub {
-    require Module::Runtime;
-    Module::Runtime::compose_module_name( $_[0]->set_prefix => $_[0]->set );
-  },
-);
-
 =attr C<loaded_set_module>
 
 An accessor which returns a module name after loading it.
 
 =cut
-
-has 'loaded_set_module' => (
-  is      => ro =>,
-  lazy    => 1,
-  builder => sub {
-    require Module::Runtime;
-    return Module::Runtime::use_module( $_[0]->set_module );
-  },
-);
 
 my $instances   = {};
 my $instance_id = 0;
@@ -205,7 +178,5 @@ sub matches {
   }
   return $result;
 }
-
-no Moo;
 
 1;
