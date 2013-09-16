@@ -112,6 +112,10 @@
          "file" : "lib/Path/IsDev/Heuristic/Tool/ModuleBuild.pm",
          "version" : "v0.2.4"
       },
+      "Path::IsDev::Heuristic::VCS::Git" : {
+         "file" : "lib/Path/IsDev/Heuristic/VCS/Git.pm",
+         "version" : "v0.2.4"
+      },
       "Path::IsDev::HeuristicSet" : {
          "file" : "lib/Path/IsDev/HeuristicSet.pm",
          "version" : "v0.2.4"
