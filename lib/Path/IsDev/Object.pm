@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Object::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Object::VERSION = '0.2.4';
+  $Path::IsDev::Object::VERSION = '0.3.0';
 }
 
 # ABSTRACT: Object Oriented guts for C<IsDev> export
@@ -104,7 +104,7 @@ Path::IsDev::Object - Object Oriented guts for C<IsDev> export
 
 =head1 VERSION
 
-version 0.2.4
+version 0.3.0
 
 =head1 SYNOPSIS
 
@@ -194,7 +194,7 @@ to C<*STDERR> after C<< ->new >> when under C<$DEBUG>
 {
     "namespace":"Path::IsDev::Object",
     "interface":"class",
-    "inherits":"Moo::Object"
+    "inherits":"Class::Tiny::Object"
 }
 
 

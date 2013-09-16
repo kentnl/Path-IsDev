@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::VERSION = '0.2.4';
+  $Path::IsDev::VERSION = '0.3.0';
 }
 
 # ABSTRACT: Determine if a given Path resembles a development source tree
@@ -57,7 +57,7 @@ Path::IsDev - Determine if a given Path resembles a development source tree
 
 =head1 VERSION
 
-version 0.2.4
+version 0.3.0
 
 =head1 SYNOPSIS
 
