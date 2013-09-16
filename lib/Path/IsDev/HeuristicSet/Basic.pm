@@ -43,6 +43,8 @@ Heuristics included in this set:
 
 =item 9. L<< C<Makefile>|Path::IsDev::Heuristic::Makefile >>
 
+=item 10. L<< C<VCS::Git>|Path::IsDev::Heuristic::VCS::Git >>
+
 =back
 
 =cut
@@ -51,6 +53,7 @@ sub heuristics {
   return qw(
     Tool::Dzil Tool::MakeMaker Tool::ModuleBuild
     META Changelog TestDir DevDirMarker MYMETA Makefile
+    VCS::Git
   );
 }
 
