@@ -10,7 +10,7 @@ package Path::IsDev::Object;
 {
     "namespace":"Path::IsDev::Object",
     "interface":"class",
-    "inherits":"Moo::Object"
+    "inherits":"Class::Tiny::Object"
 }
 
 =end MetaPOD::JSON
