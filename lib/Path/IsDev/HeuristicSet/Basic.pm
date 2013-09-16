@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::HeuristicSet::Basic::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::HeuristicSet::Basic::VERSION = '0.2.3';
+  $Path::IsDev::HeuristicSet::Basic::VERSION = '0.3.0';
 }
 
 # ABSTRACT: Basic C<IsDev> set of Heuristics
@@ -19,6 +19,7 @@ sub heuristics {
   return qw(
     Tool::Dzil Tool::MakeMaker Tool::ModuleBuild
     META Changelog TestDir DevDirMarker MYMETA Makefile
+    VCS::Git
   );
 }
 
@@ -36,7 +37,7 @@ Path::IsDev::HeuristicSet::Basic - Basic C<IsDev> set of Heuristics
 
 =head1 VERSION
 
-version 0.2.3
+version 0.3.0
 
 =head1 METHODS
 
@@ -63,6 +64,8 @@ Heuristics included in this set:
 =item 8. L<< C<MYMETA>|Path::IsDev::Heuristic::MYMETA >>
 
 =item 9. L<< C<Makefile>|Path::IsDev::Heuristic::Makefile >>
+
+=item 10. L<< C<VCS::Git>|Path::IsDev::Heuristic::VCS::Git >>
 
 =back
 

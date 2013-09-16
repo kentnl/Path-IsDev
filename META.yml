@@ -3,16 +3,17 @@ abstract: 'Determine if a given Path resembles a development source tree'
 author:
   - 'Kent Fredric <kentfredric@gmail.com>'
 build_requires:
-  File::Find: 0
   File::Temp: 0
   FindBin: 0
-  Module::Build: 0.4005
+  IO::Handle: 0
+  IPC::Open3: 0
+  Module::Build: 0.4007
   Test::Fatal: 0
   Test::More: 0.98
 configure_requires:
-  Module::Build: 0.4005
+  Module::Build: 0.4007
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.131560'
+generated_by: 'Dist::Zilla version 4.300038, CPAN::Meta::Converter version 2.132510'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -21,50 +22,53 @@ name: Path-IsDev
 provides:
   Path::IsDev:
     file: lib/Path/IsDev.pm
-    version: v0.2.3
+    version: v0.3.0
   Path::IsDev::Heuristic:
     file: lib/Path/IsDev/Heuristic.pm
-    version: v0.2.3
+    version: v0.3.0
   Path::IsDev::Heuristic::Changelog:
     file: lib/Path/IsDev/Heuristic/Changelog.pm
-    version: v0.2.3
+    version: v0.3.0
   Path::IsDev::Heuristic::DevDirMarker:
     file: lib/Path/IsDev/Heuristic/DevDirMarker.pm
-    version: v0.2.3
+    version: v0.3.0
   Path::IsDev::Heuristic::META:
     file: lib/Path/IsDev/Heuristic/META.pm
-    version: v0.2.3
+    version: v0.3.0
   Path::IsDev::Heuristic::MYMETA:
     file: lib/Path/IsDev/Heuristic/MYMETA.pm
-    version: v0.2.3
+    version: v0.3.0
   Path::IsDev::Heuristic::Makefile:
     file: lib/Path/IsDev/Heuristic/Makefile.pm
-    version: v0.2.3
+    version: v0.3.0
   Path::IsDev::Heuristic::TestDir:
     file: lib/Path/IsDev/Heuristic/TestDir.pm
-    version: v0.2.3
+    version: v0.3.0
   Path::IsDev::Heuristic::Tool::Dzil:
     file: lib/Path/IsDev/Heuristic/Tool/Dzil.pm
-    version: v0.2.3
+    version: v0.3.0
   Path::IsDev::Heuristic::Tool::MakeMaker:
     file: lib/Path/IsDev/Heuristic/Tool/MakeMaker.pm
-    version: v0.2.3
+    version: v0.3.0
   Path::IsDev::Heuristic::Tool::ModuleBuild:
     file: lib/Path/IsDev/Heuristic/Tool/ModuleBuild.pm
-    version: v0.2.3
+    version: v0.3.0
+  Path::IsDev::Heuristic::VCS::Git:
+    file: lib/Path/IsDev/Heuristic/VCS/Git.pm
+    version: v0.3.0
   Path::IsDev::HeuristicSet:
     file: lib/Path/IsDev/HeuristicSet.pm
-    version: v0.2.3
+    version: v0.3.0
   Path::IsDev::HeuristicSet::Basic:
     file: lib/Path/IsDev/HeuristicSet/Basic.pm
-    version: v0.2.3
+    version: v0.3.0
   Path::IsDev::Object:
     file: lib/Path/IsDev/Object.pm
-    version: v0.2.3
+    version: v0.3.0
 requires:
   Carp: 0
+  Class::Tiny: 0
   Module::Runtime: 0
-  Moo: 1.000008
   Path::Tiny: 0
   Scalar::Util: 0
   Sub::Exporter: 0
@@ -76,49 +80,51 @@ resources:
   bugtracker: https://github.com/kentfredric/Path-IsDev/issues
   homepage: https://github.com/kentfredric/Path-IsDev
   repository: https://github.com/kentfredric/Path-IsDev.git
-version: 0.2.3
+version: 0.3.0
 x_BuiltWith:
   modules:
-    Carp: 1.29
-    Dist::Zilla::PluginBundle::Author::KENTNL: 1.7.4
-    Dist::Zilla::PluginBundle::Author::KENTNL::Lite: 'NA(possibly not installed)'
-    File::Find: 1.23
+    Carp: 1.32
+    Class::Tiny: 0.008
+    Dist::Zilla::PluginBundle::Author::KENTNL: 1.8.3
+    Dist::Zilla::PluginBundle::Author::KENTNL::Lite: 1.7.2
     File::Temp: 0.2301
     FindBin: 1.51
-    Module::Build: 0.4005
+    IO::Handle: 1.35
+    IPC::Open3: 1.15
+    Module::Build: 0.4007
     Module::Runtime: 0.013
-    Moo: 1.002
-    Path::Tiny: 0.024
+    Path::Tiny: 0.033
     Pod::Coverage::TrustPod: 0.100002
-    Scalar::Util: 1.27
+    Scalar::Util: 1.32
     Sub::Exporter: 0.986
-    Test::CPAN::Changes: 0.20
+    Test::CPAN::Changes: 0.23
     Test::CPAN::Meta: 0.23
     Test::Fatal: 0.010
+    Test::Kwalitee: 1.14
     Test::More: 0.98
     Test::Pod: 1.48
     Test::Pod::Coverage: 1.08
-    parent: 0.225
+    parent: 0.227
     perl: 'NA(skipped: perl)'
-    strict: 1.07
-    version: 0.9902
+    strict: 1.08
+    version: 0.9904
     warnings: 1.18
   perl:
-    original: v5.18.0
+    original: v5.19.3
     qv: 1
     version:
       - 5
-      - 18
-      - 0
+      - 19
+      - 3
   perl-config:
     gccversion: 4.7.2
     myarchname: x86_64-linux
     osname: linux
   platform: linux
-  uname: 'Linux 3.10.0-gentoo x86_64 GenuineIntel GNU/Linux'
+  uname: 'Linux 3.11.0-gentoo x86_64 GenuineIntel GNU/Linux'
 x_Dist_Zilla:
   perl:
-    version: 5.018000
+    version: 5.019003
   plugins:
     -
       class: Dist::Zilla::Plugin::Git::NextVersion
@@ -127,15 +133,15 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::MetaConfig
       name: '@Author::KENTNL/MetaConfig'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::GithubMeta
       name: '@Author::KENTNL/GithubMeta'
-      version: 0.28
+      version: 0.38
     -
       class: Dist::Zilla::Plugin::MetaProvides::Package
       name: '@Author::KENTNL/MetaProvides::Package'
-      version: 1.14000002
+      version: 1.14000003
     -
       class: Dist::Zilla::Plugin::MetaData::BuiltWith
       config:
@@ -160,39 +166,39 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::License
       name: '@Author::KENTNL/License'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::MetaJSON
       name: '@Author::KENTNL/MetaJSON'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::MetaYAML
       name: '@Author::KENTNL/MetaYAML'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::Manifest
       name: '@Author::KENTNL/Manifest'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::MetaTests
       name: '@Author::KENTNL/MetaTests'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::PodCoverageTests
       name: '@Author::KENTNL/PodCoverageTests'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::PodSyntaxTests
       name: '@Author::KENTNL/PodSyntaxTests'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::ReportVersions::Tiny
       name: '@Author::KENTNL/ReportVersions::Tiny'
-      version: 1.08
+      version: 1.09
     -
       class: Dist::Zilla::Plugin::Test::Kwalitee
       name: '@Author::KENTNL/Test::Kwalitee'
-      version: 2.03
+      version: 2.06
     -
       class: Dist::Zilla::Plugin::EOLTests
       name: '@Author::KENTNL/EOLTests'
@@ -203,8 +209,14 @@ x_Dist_Zilla:
       version: 2.000005
     -
       class: Dist::Zilla::Plugin::Test::Compile
+      config:
+        Dist::Zilla::Plugin::Test::Compile:
+          module_finder:
+            - ':InstallModules'
+          script_finder:
+            - ':ExecFiles'
       name: '@Author::KENTNL/Test::Compile'
-      version: 2.002
+      version: 2.030
     -
       class: Dist::Zilla::Plugin::Test::Perl::Critic
       name: '@Author::KENTNL/Test::Perl::Critic'
@@ -212,27 +224,27 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::PruneCruft
       name: '@Author::KENTNL/PruneCruft'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::ManifestSkip
       name: '@Author::KENTNL/ManifestSkip'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::PkgVersion
       name: '@Author::KENTNL/PkgVersion'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::PodWeaver
       name: '@Author::KENTNL/PodWeaver'
-      version: 3.101641
+      version: 3.101642
     -
       class: Dist::Zilla::Plugin::NextRelease
       name: '@Author::KENTNL/NextRelease'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::AutoPrereqs
       name: '@Author::KENTNL/AutoPrereqs'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -240,7 +252,7 @@ x_Dist_Zilla:
           phase: develop
           type: requires
       name: '@Author::KENTNL/Prereqs/BundleDevelNeeds'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -248,7 +260,7 @@ x_Dist_Zilla:
           phase: develop
           type: recommends
       name: '@Author::KENTNL/Prereqs/BundleDevelRecommends'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -256,23 +268,19 @@ x_Dist_Zilla:
           phase: develop
           type: suggests
       name: '@Author::KENTNL/Prereqs/BundleDevelSuggests'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::Author::KENTNL::MinimumPerl
       name: '@Author::KENTNL/Author::KENTNL::MinimumPerl'
-      version: 1.7.4
-    -
-      class: Dist::Zilla::Plugin::Author::KENTNL::Prereqs::Latest::Selective
-      name: '@Author::KENTNL/Author::KENTNL::Prereqs::Latest::Selective'
-      version: 0.1.0
+      version: 1.8.3
     -
       class: Dist::Zilla::Plugin::Authority
       name: '@Author::KENTNL/Authority'
-      version: 1.007
+      version: 1.006
     -
       class: Dist::Zilla::Plugin::ModuleBuild
       name: '@Author::KENTNL/ModuleBuild'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::ReadmeFromPod
       name: '@Author::KENTNL/ReadmeFromPod'
@@ -292,11 +300,11 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::TestRelease
       name: '@Author::KENTNL/TestRelease'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::ConfirmRelease
       name: '@Author::KENTNL/ConfirmRelease'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::Git::Check
       name: '@Author::KENTNL/Git::Check'
@@ -320,11 +328,47 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::UploadToCPAN
       name: '@Author::KENTNL/UploadToCPAN'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::Twitter
       name: '@Author::KENTNL/Twitter'
       version: 0.021
+    -
+      class: Dist::Zilla::Plugin::Prereqs::MatchInstalled
+      config:
+        Dist::Zilla::Plugin::Prereqs::MatchInstalled:
+          applyto:
+            - build.requires
+            - build.recommends
+            - build.suggests
+            - test.requires
+            - test.recommends
+            - test.suggests
+            - runtime.requires
+            - runtime.recommends
+            - runtime.suggests
+            - configure.requires
+            - configure.recommends
+            - configure.suggests
+            - develop.requires
+            - develop.recommends
+            - develop.suggests
+          applyto_phase:
+            - build
+            - test
+            - runtime
+            - configure
+            - develop
+          applyto_relation:
+            - requires
+            - recommends
+            - suggests
+          modules:
+            - Module::Build
+            - Test::More
+            - Dist::Zilla::PluginBundle::Author::KENTNL
+      name: '@Author::KENTNL/Prereqs::MatchInstalled'
+      version: 0.1.2
     -
       class: Dist::Zilla::Plugin::Prereqs
       config:
@@ -332,34 +376,34 @@ x_Dist_Zilla:
           phase: runtime
           type: requires
       name: Prereqs
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':InstallModules'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':IncModules'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':TestFiles'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ExecFiles'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':ShareFiles'
-      version: 4.300035
+      version: 4.300038
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':MainModule'
-      version: 4.300035
+      version: 4.300038
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
       is_trial: 0
-    version: 4.300035
+    version: 4.300038
 x_authority: cpan:KENTNL

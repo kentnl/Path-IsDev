@@ -2,7 +2,7 @@ strict digraph Perl {
 	graph [compound=1, concentrate=1, overlap=false, rankdir=LR, ranksep=1, smoothing=triangle, splines=spline];
 	node [label="\N", shape=record, style=dotted];
 	edge [minlen=1];
-	"Moo::Object" [label="<port1> Moo::Object"];
+	"Class::Tiny::Object" [label="<port1> Class::Tiny::Object"];
 	"Path::IsDev" [label="{{<port1> exporter}|<port2> Path::IsDev}"];
 	"Path::IsDev::Heuristic" [label="{{<port1> single_class}|<port2> Path::IsDev::Heuristic}", shape=Mrecord, style=solid, color="#0343df", fontsize=7, height="0.1"];
 	"Path::IsDev::Heuristic::Changelog" [label="{{<port1> single_class}|<port2> Path::IsDev::Heuristic::Changelog}", shape=Mrecord, style=solid, color="#0343df", fontsize=7, height="0.1"];
@@ -13,10 +13,11 @@ strict digraph Perl {
 	"Path::IsDev::Heuristic::Tool::Dzil" [label="{{<port1> single_class}|<port2> Path::IsDev::Heuristic::Tool::Dzil}", shape=Mrecord, style=solid, color="#0343df", fontsize=7, height="0.1"];
 	"Path::IsDev::Heuristic::Tool::MakeMaker" [label="{{<port1> single_class}|<port2> Path::IsDev::Heuristic::Tool::MakeMaker}", shape=Mrecord, style=solid, color="#0343df", fontsize=7, height="0.1"];
 	"Path::IsDev::Heuristic::Tool::ModuleBuild" [label="{{<port1> single_class}|<port2> Path::IsDev::Heuristic::Tool::ModuleBuild}", shape=Mrecord, style=solid, color="#0343df", fontsize=7, height="0.1"];
+	"Path::IsDev::Heuristic::VCS::Git" [label="{{<port1> single_class}|<port2> Path::IsDev::Heuristic::VCS::Git}", shape=Mrecord, style=solid, color="#0343df", fontsize=7, height="0.1"];
 	"Path::IsDev::HeuristicSet" [label="{{<port1> single_class}|<port2> Path::IsDev::HeuristicSet}", shape=Mrecord, style=solid, color="#0343df", fontsize=7, height="0.1"];
 	"Path::IsDev::HeuristicSet::Basic" [label="{{<port1> single_class}|<port2> Path::IsDev::HeuristicSet::Basic}", shape=Mrecord, style=solid, color="#0343df", fontsize=7, height="0.1"];
 	"Path::IsDev::Object" [label="{{<port1> class}|<port2> Path::IsDev::Object}", shape=Mrecord, style=solid, color="#7e1e9c", fontsize=7, height="0.1"];
-	"Moo::Object" -> "Path::IsDev::Object" [arrowhead=open, arrowsize="0.5", color="#ff81c0", dir=forward, fontsize=6, headclip=1, label="inherited by", samehead=head, tailclip=1, weight=10];
+	"Class::Tiny::Object" -> "Path::IsDev::Object" [arrowhead=open, arrowsize="0.5", color="#ff81c0", dir=forward, fontsize=6, headclip=1, label="inherited by", samehead=head, tailclip=1, weight=10];
 	"Path::IsDev::Heuristic" -> "Path::IsDev::Heuristic::Changelog" [arrowhead=open, arrowsize="0.5", color="#ff81c0", dir=forward, fontsize=6, headclip=1, label="inherited by", samehead=head, tailclip=1, weight=10];
 	"Path::IsDev::Heuristic" -> "Path::IsDev::Heuristic::TestDir" [arrowhead=open, arrowsize="0.5", color="#ff81c0", dir=forward, fontsize=6, headclip=1, label="inherited by", samehead=head, tailclip=1, weight=10];
 	"Path::IsDev::Heuristic" -> "Path::IsDev::Heuristic::META" [arrowhead=open, arrowsize="0.5", color="#ff81c0", dir=forward, fontsize=6, headclip=1, label="inherited by", samehead=head, tailclip=1, weight=10];
@@ -26,4 +27,5 @@ strict digraph Perl {
 	"Path::IsDev::Heuristic" -> "Path::IsDev::Heuristic::Tool::Dzil" [arrowhead=open, arrowsize="0.5", color="#ff81c0", dir=forward, fontsize=6, headclip=1, label="inherited by", samehead=head, tailclip=1, weight=10];
 	"Path::IsDev::Heuristic" -> "Path::IsDev::Heuristic::Tool::MakeMaker" [arrowhead=open, arrowsize="0.5", color="#ff81c0", dir=forward, fontsize=6, headclip=1, label="inherited by", samehead=head, tailclip=1, weight=10];
 	"Path::IsDev::Heuristic" -> "Path::IsDev::Heuristic::Tool::ModuleBuild" [arrowhead=open, arrowsize="0.5", color="#ff81c0", dir=forward, fontsize=6, headclip=1, label="inherited by", samehead=head, tailclip=1, weight=10];
+	"Path::IsDev::Heuristic" -> "Path::IsDev::Heuristic::VCS::Git" [arrowhead=open, arrowsize="0.5", color="#ff81c0", dir=forward, fontsize=6, headclip=1, label="inherited by", samehead=head, tailclip=1, weight=10];
 }

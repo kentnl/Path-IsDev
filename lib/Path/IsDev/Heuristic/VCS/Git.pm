@@ -1,21 +1,21 @@
 use strict;
 use warnings;
 
-package Path::IsDev::Heuristic::Tool::Dzil;
+package Path::IsDev::Heuristic::VCS::Git;
 BEGIN {
-  $Path::IsDev::Heuristic::Tool::Dzil::AUTHORITY = 'cpan:KENTNL';
+  $Path::IsDev::Heuristic::VCS::Git::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::Tool::Dzil::VERSION = '0.3.0';
+  $Path::IsDev::Heuristic::VCS::Git::VERSION = '0.3.0';
 }
 
 
-# ABSTRACT: Determine if a path is a Dist::Zilla Source tree
+# ABSTRACT: Determine if a path contains a C<.git> repository
 
 use parent 'Path::IsDev::Heuristic';
 
 
-sub files { return qw( dist.ini ) }
+sub dirs  { return qw( .git ) }
 
 1;
 
@@ -27,7 +27,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Heuristic::Tool::Dzil - Determine if a path is a Dist::Zilla Source tree
+Path::IsDev::Heuristic::VCS::Git - Determine if a path contains a C<.git> repository
 
 =head1 VERSION
 
@@ -35,16 +35,16 @@ version 0.3.0
 
 =head1 METHODS
 
-=head2 C<files>
+=head2 C<dirs>
 
-Files relevant to this heuristic:
+Directories relevant to this heuristic:
 
-    dist.ini
+    .git
 
 =begin MetaPOD::JSON v1.1.0
 
 {
-    "namespace":"Path::IsDev::Heuristic::Tool::Dzil",
+    "namespace":"Path::IsDev::Heuristic::VCS::Git",
     "interface":"single_class",
     "inherits":"Path::IsDev::Heuristic"
 }
