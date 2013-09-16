@@ -1,6 +1,37 @@
 Release history for Path-IsDev
 
 {{$NEXT}}
+ [!Major]
+ - Now uses Class::Tiny instead of Moo internally.
+ - New Heuristic VCS::Git and is part of the Basic set. ( Because I found a
+   few projects where I didn't have any toolkit specific files, but I
+   wanted to find the root anyway, and I assumed my own code would just
+   work, but it wouldn't ... )
+
+ [Dependencies::Added / develop requires]
+ - Test::Kwalitee 1.08
+
+ [Dependencies::Added / runtime requires]
+ - Class::Tiny
+
+ [Dependencies::Added / test requires]
+ - IO::Handle
+ - IPC::Open3
+
+ [Dependencies::Changed / build requires]
+ - Module::Build 0.4005 → 0.4007
+
+ [Dependencies::Changed / configure requires]
+ - Module::Build 0.4005 → 0.4007
+
+ [Dependencies::Changed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL v1.7.4 → v1.8.3
+
+ [Dependencies::Removed / runtime requires]
+ - Moo 1.000008
+
+ [Dependencies::Removed / test requires]
+ - File::Find
 
 0.2.3 2013-07-14T03:02:16Z
  [Bugs]
