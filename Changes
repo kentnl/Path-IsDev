@@ -1,6 +1,12 @@
 Release history for Path-IsDev
 
-0.2.4 2013-09-16T08:14:54Z
+0.2.4 2013-09-16T08:18:02Z
+ [!Major]
+ - Now uses Class::Tiny instead of Moo internally.
+ - New Heuristic VCS::Git and is part of the Basic set. ( Because I found a
+   few projects where I didn't have any toolkit specific files, but I
+   wanted to find the root anyway, and I assumed my own code would just
+   work, but it wouldn't ... )
 
 0.2.3 2013-07-14T03:02:16Z
  [Bugs]
