@@ -1,5 +1,7 @@
 Release history for Path-IsDev
 
+0.2.4 2013-09-16T07:58:54Z
+
 0.2.3 2013-07-14T03:02:16Z
  [Bugs]
  - Need more recent Moo for `builder => sub {}`

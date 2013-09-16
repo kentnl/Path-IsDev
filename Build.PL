@@ -7,25 +7,25 @@ use Module::Build 0.3601;
 
 my %module_build_args = (
   "build_requires" => {
-    "Module::Build" => "0.4005"
+    "Module::Build" => "0.4007"
   },
   "configure_requires" => {
-    "Module::Build" => "0.4005"
+    "Module::Build" => "0.4007"
   },
   "dist_abstract" => "Determine if a given Path resembles a development source tree",
   "dist_author" => [
     "Kent Fredric <kentfredric\@gmail.com>"
   ],
   "dist_name" => "Path-IsDev",
-  "dist_version" => "0.2.3",
+  "dist_version" => "0.2.4",
   "license" => "perl",
   "module_name" => "Path::IsDev",
   "recommends" => {},
   "recursive_test_files" => 1,
   "requires" => {
     "Carp" => 0,
+    "Class::Tiny" => 0,
     "Module::Runtime" => 0,
-    "Moo" => "1.000008",
     "Path::Tiny" => 0,
     "Scalar::Util" => 0,
     "Sub::Exporter" => 0,
@@ -36,9 +36,10 @@ my %module_build_args = (
   },
   "script_files" => [],
   "test_requires" => {
-    "File::Find" => 0,
     "File::Temp" => 0,
     "FindBin" => 0,
+    "IO::Handle" => 0,
+    "IPC::Open3" => 0,
     "Test::Fatal" => 0,
     "Test::More" => "0.98"
   }

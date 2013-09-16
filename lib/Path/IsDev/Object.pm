@@ -6,14 +6,12 @@ BEGIN {
   $Path::IsDev::Object::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Object::VERSION = '0.2.3';
+  $Path::IsDev::Object::VERSION = '0.2.4';
 }
 
 # ABSTRACT: Object Oriented guts for C<IsDev> export
 
 
-
-use Moo 1.000008; # Minimum for builder => sub {}
 
 our $ENV_KEY_DEBUG = 'PATH_ISDEV_DEBUG';
 our $DEBUG = ( exists $ENV{$ENV_KEY_DEBUG} ? $ENV{$ENV_KEY_DEBUG} : undef );
@@ -23,42 +21,19 @@ our $DEFAULT =
   ( exists $ENV{$ENV_KEY_DEFAULT} ? $ENV{$ENV_KEY_DEFAULT} : 'Basic' );
 
 
-has 'set' => (
-  is      => ro =>,
-  lazy    => 1,
-  builder => sub {
-    return $DEFAULT;
-  },
-);
-
-
-has 'set_prefix' => (
-  is      => ro =>,
-  lazy    => 1,
-  builder => sub {
-    return 'Path::IsDev::HeuristicSet';
-  },
-);
-
-
-has 'set_module' => (
-  is      => ro =>,
-  lazy    => 1,
-  builder => sub {
+use Class::Tiny {
+  set        => sub { $DEFAULT },
+  set_prefix => sub { 'Path::IsDev::HeuristicSet' },
+  set_module => sub {
     require Module::Runtime;
-    Module::Runtime::compose_module_name( $_[0]->set_prefix => $_[0]->set );
+    return Module::Runtime::compose_module_name( $_[0]->set_prefix => $_[0]->set );
   },
-);
-
-
-has 'loaded_set_module' => (
-  is      => ro =>,
-  lazy    => 1,
-  builder => sub {
+  loaded_set_module => sub {
     require Module::Runtime;
     return Module::Runtime::use_module( $_[0]->set_module );
   },
-);
+};
+
 
 my $instances   = {};
 my $instance_id = 0;
@@ -115,8 +90,6 @@ sub matches {
   return $result;
 }
 
-no Moo;
-
 1;
 
 __END__
@@ -131,7 +104,7 @@ Path::IsDev::Object - Object Oriented guts for C<IsDev> export
 
 =head1 VERSION
 
-version 0.2.3
+version 0.2.4
 
 =head1 SYNOPSIS
 
