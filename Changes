@@ -1,6 +1,8 @@
 Release history for Path-IsDev
 
-0.3.1 2013-09-17T05:26:24Z
+0.3.1 2013-09-17T05:27:45Z
+ [Bugfix]
+ - Require a Minimum Class::Tiny that supports lazy attrs
 
 0.3.0 2013-09-16T08:27:21Z
  [!Major]
