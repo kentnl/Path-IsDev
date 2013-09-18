@@ -1,6 +1,8 @@
 Release history for Path-IsDev
 
 {{$NEXT}}
+
+0.3.1 2013-09-18T02:21:11Z
  [Bugfix]
  - Require a Minimum Class::Tiny that supports lazy attrs
 
