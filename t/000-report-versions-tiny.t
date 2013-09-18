@@ -49,7 +49,7 @@ sub pmver {
 }
 
 eval { $v .= pmver('Carp','any version') };
-eval { $v .= pmver('Class::Tiny','0.005') };
+eval { $v .= pmver('Class::Tiny','0.010') };
 eval { $v .= pmver('Dist::Zilla::PluginBundle::Author::KENTNL','v1.8.3') };
 eval { $v .= pmver('Dist::Zilla::PluginBundle::Author::KENTNL::Lite','v1.3.0') };
 eval { $v .= pmver('File::Temp','any version') };
