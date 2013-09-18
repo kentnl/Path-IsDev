@@ -57,7 +57,7 @@ Default is C<Basic>, or the value of C<$ENV{PATH_ISDEV_DEFAULT_SET}>
 
 =cut
 
-use Class::Tiny 0.005 {
+use Class::Tiny 0.010 {
   set        => sub { $DEFAULT },
   set_prefix => sub { 'Path::IsDev::HeuristicSet' },
   set_module => sub {

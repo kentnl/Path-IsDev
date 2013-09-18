@@ -1,6 +1,11 @@
 Release history for Path-IsDev
 
 {{$NEXT}}
+ [Bugfix]
+ - Require a version of Class::Tiny that doesn't exhibit the "used only once" warning
+
+ [Dependencies::Changed / runtime requires]
+ - Class::Tiny 0.005 → 0.010
 
 0.3.1 2013-09-18T02:21:11Z
  [Bugfix]
