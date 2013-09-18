@@ -1,5 +1,12 @@
 Release history for Path-IsDev
 
+0.3.1 2013-09-18T02:21:11Z
+ [Bugfix]
+ - Require a Minimum Class::Tiny that supports lazy attrs
+
+ [Dependencies::Changed / runtime requires]
+ - Class::Tiny 0 → 0.005
+
 0.3.0 2013-09-16T08:27:21Z
  [!Major]
  - Now uses Class::Tiny instead of Moo internally.

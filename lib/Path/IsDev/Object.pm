@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Object::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Object::VERSION = '0.3.0';
+  $Path::IsDev::Object::VERSION = '0.3.1';
 }
 
 # ABSTRACT: Object Oriented guts for C<IsDev> export
@@ -21,7 +21,7 @@ our $DEFAULT =
   ( exists $ENV{$ENV_KEY_DEFAULT} ? $ENV{$ENV_KEY_DEFAULT} : 'Basic' );
 
 
-use Class::Tiny {
+use Class::Tiny 0.005 {
   set        => sub { $DEFAULT },
   set_prefix => sub { 'Path::IsDev::HeuristicSet' },
   set_module => sub {
@@ -104,7 +104,7 @@ Path::IsDev::Object - Object Oriented guts for C<IsDev> export
 
 =head1 VERSION
 
-version 0.3.0
+version 0.3.1
 
 =head1 SYNOPSIS
 
