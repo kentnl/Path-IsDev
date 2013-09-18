@@ -17,14 +17,14 @@ my %module_build_args = (
     "Kent Fredric <kentfredric\@gmail.com>"
   ],
   "dist_name" => "Path-IsDev",
-  "dist_version" => "0.3.1",
+  "dist_version" => "0.3.2",
   "license" => "perl",
   "module_name" => "Path::IsDev",
   "recommends" => {},
   "recursive_test_files" => 1,
   "requires" => {
     "Carp" => 0,
-    "Class::Tiny" => "0.005",
+    "Class::Tiny" => "0.010",
     "Module::Runtime" => 0,
     "Path::Tiny" => 0,
     "Scalar::Util" => 0,
