@@ -19,6 +19,7 @@ package Path::IsDev::Heuristic;
 sub _path    { require Path::Tiny;   goto &Path::Tiny::path }
 sub _croak   { require Carp;         goto &Carp::croak }
 sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
+sub _debug   { require Path::IsDev;  goto &Path::IsDev::debug }
 
 =method C<name>
 
@@ -54,6 +55,7 @@ sub _file_matches {
     my $stat = $root->child($file);
     next unless -e $stat;
     next unless -f $stat;
+    _debug("$stat exists for $self");
     return 1;
   }
   return;
@@ -76,6 +78,7 @@ sub _dir_matches {
     my $stat = $root->child($file);
     next unless -e $stat;
     next unless -d $stat;
+    _debug( "$stat exists for" . $self->name );
     return 1;
   }
   return;

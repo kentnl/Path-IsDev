@@ -27,7 +27,7 @@ Directories relevant to this heuristic:
 
 =cut
 
-sub dirs  { return qw( .git ) }
+sub dirs { return qw( .git ) }
 
 1;
 
