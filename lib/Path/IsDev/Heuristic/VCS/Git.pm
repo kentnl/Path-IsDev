@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Heuristic::VCS::Git::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::VCS::Git::VERSION = '0.3.3';
+  $Path::IsDev::Heuristic::VCS::Git::VERSION = '0.3.4';
 }
 
 
@@ -15,7 +15,7 @@ BEGIN {
 use parent 'Path::IsDev::Heuristic';
 
 
-sub dirs  { return qw( .git ) }
+sub dirs { return qw( .git ) }
 
 1;
 
@@ -31,7 +31,7 @@ Path::IsDev::Heuristic::VCS::Git - Determine if a path contains a C<.git> reposi
 
 =head1 VERSION
 
-version 0.3.3
+version 0.3.4
 
 =head1 METHODS
 

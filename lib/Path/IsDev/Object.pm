@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Object::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Object::VERSION = '0.3.3';
+  $Path::IsDev::Object::VERSION = '0.3.4';
 }
 
 # ABSTRACT: Object Oriented guts for C<IsDev> export
@@ -57,6 +57,17 @@ sub _debug {
   return *STDERR->printf( qq{[Path::IsDev=%s] %s\n}, $id, $message );
 }
 
+sub _with_debug {
+  my ( $self, $code ) = @_;
+  require Path::IsDev;
+  ## no critic (ProhibitNoWarnings)
+  no warnings 'redefine';
+  local *Path::IsDev::debug = sub {
+    $self->_debug(@_);
+  };
+  return $code->();
+}
+
 
 sub BUILD {
   my ($self) = @_;
@@ -74,16 +85,11 @@ sub BUILD {
 sub matches {
   my ( $self, $path ) = @_;
   $self->_debug( 'Matching ' . $path );
-  my $result;
-  {
-    require Path::IsDev;
-    ## no critic (ProhibitNoWarnings)
-    no warnings 'redefine';
-    local *Path::IsDev::debug = sub {
-      $self->_debug(@_);
-    };
-    $result = $self->loaded_set_module->matches($path);
-  }
+  my $result = $self->_with_debug(
+    sub {
+      $self->loaded_set_module->matches($path);
+    }
+  );
   if ( not $result ) {
     $self->_debug('no match found');
   }
@@ -104,7 +110,7 @@ Path::IsDev::Object - Object Oriented guts for C<IsDev> export
 
 =head1 VERSION
 
-version 0.3.3
+version 0.3.4
 
 =head1 SYNOPSIS
 
