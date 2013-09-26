@@ -1,5 +1,7 @@
 Release history for Path-IsDev
 
+0.3.3 2013-09-26T07:02:33Z
+
 0.3.2 2013-09-18T17:45:37Z
  [Bugfix]
  - Require a version of Class::Tiny that doesn't exhibit the "used only once" warning
