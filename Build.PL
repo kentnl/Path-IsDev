@@ -17,7 +17,7 @@ my %module_build_args = (
     "Kent Fredric <kentfredric\@gmail.com>"
   ],
   "dist_name" => "Path-IsDev",
-  "dist_version" => "0.3.2",
+  "dist_version" => "0.3.3",
   "license" => "perl",
   "module_name" => "Path::IsDev",
   "recommends" => {},
@@ -36,6 +36,7 @@ my %module_build_args = (
   },
   "script_files" => [],
   "test_requires" => {
+    "File::Spec" => 0,
     "File::Temp" => 0,
     "FindBin" => 0,
     "IO::Handle" => 0,
