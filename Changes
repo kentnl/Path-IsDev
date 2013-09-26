@@ -1,10 +1,16 @@
 Release history for Path-IsDev
 
 {{$NEXT}}
+ [Bugfix]
+ - Use a Non-Win32-failing compile test
+
+ [Dependencies::Added / test requires]
+ - File::Spec
 
 0.3.2 2013-09-18T17:45:37Z
  [Bugfix]
- - Require a version of Class::Tiny that doesn't exhibit the "used only once" warning
+ - Require a version of Class::Tiny that doesn't exhibit the "used only
+   once" warning
 
  [Dependencies::Changed / runtime requires]
  - Class::Tiny 0.005 → 0.010
