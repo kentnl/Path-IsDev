@@ -1,6 +1,27 @@
 Release history for Path-IsDev
 
 {{$NEXT}}
+ [00 Major Changes - Negative Heuristics]
+ - Now has a system to indicate negative heuristics, to mark  given
+   directories as "not dev", which cause other postive heuristics to be
+   ignored.
+ - One basic negative heuristic added, 'IsDev::IgnoreFile'
+ - Basic Negative heuristic comes standard with the basic set.
+
+ [Dependencies::Added / develop requires]
+ - Dist::Zilla::PluginBundle::Author::KENTNL v1.9.0
+
+ [Dependencies::Added / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL::Lite v1.3.0
+
+ [Dependencies::Removed / develop recommends]
+ - Dist::Zilla::PluginBundle::Author::KENTNL::Lite v1.3.0
+
+ [Dependencies::Removed / develop requires]
+ - Dist::Zilla::PluginBundle::Author::KENTNL::Lite
+
+ [Dependencies::Removed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL v1.8.3
 
 0.3.3 2013-09-26T07:09:14Z
  [Bugfix]
