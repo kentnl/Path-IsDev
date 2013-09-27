@@ -209,7 +209,7 @@ HEURISTICS
     Just remember, a Negative Heuristic excludes the path it is associated
     with
 
-    *   "IsDev::IgnoreFile"
+    *   "IsDev::IgnoreFile" - ".path_isdev_ignore"
 
   Positive Heuristics bundled with this distribution
     *   "Changelog" - Files matching "Changes", "Changelog", and similar,
@@ -217,7 +217,7 @@ HEURISTICS
 
     *   "DevDirMarker" - explicit ".devdir" file to indicate a project root.
 
-    *    "META" > - "META.yml"/"META.json"
+    *   "META" - "META.yml"/"META.json"
 
     *   "MYMETA" - "MYMETA.yml"/"MYMETA.json"
 
@@ -299,14 +299,4 @@ COPYRIGHT AND LICENSE
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
-
-POD ERRORS
-    Hey! The above document had some coding errors, which are explained
-    below:
-
-    Around line 261:
-        Unterminated L< ... > sequence
-
-    Around line 273:
-        L<> starts or ends with whitespace
 

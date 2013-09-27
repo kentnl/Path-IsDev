@@ -258,7 +258,7 @@ Just remember, a B<Negative> Heuristic B<excludes the path it is associated with
 
 =over 4
 
-=item * L<< C<IsDev::IgnoreFile> |Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile>> - C<.path_isdev_ignore>
+=item * L<< C<IsDev::IgnoreFile> |Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile >> - C<.path_isdev_ignore>
 
 =back
 
@@ -270,7 +270,7 @@ Just remember, a B<Negative> Heuristic B<excludes the path it is associated with
 
 =item * L<< C<DevDirMarker> |Path::IsDev::Heuristic::DevDirMarker >> - explicit C<.devdir> file to indicate a project root.
 
-=item * L< C<META> |Path::IsDev::Heuristic::META >> - C<META.yml>/C<META.json>
+=item * L<< C<META> |Path::IsDev::Heuristic::META >> - C<META.yml>/C<META.json>
 
 =item * L<< C<MYMETA> |Path::IsDev::Heuristic::MYMETA >> - C<MYMETA.yml>/C<MYMETA.json>
 
