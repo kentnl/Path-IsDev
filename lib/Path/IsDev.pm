@@ -268,7 +268,7 @@ Just remember, a B<Negative> Heuristic B<excludes the path it is associated with
 
 =item * L<Path::IsDev::Heuristic::Changelog> - Files matching Changes, Changelog, and similar, case insensitive, extensions optional.
 
-=item * L<Path::IsDev::Heuristic::DevDirMarker> - explicit `.devdir` file to indicate a project root.
+=item * L<Path::IsDev::Heuristic::DevDirMarker> - explicit C<.devdir> file to indicate a project root.
 
 =item * L<Path::IsDev::Heuristic::META> - C<META.yml>/C<META.json>
 
@@ -278,13 +278,13 @@ Just remember, a B<Negative> Heuristic B<excludes the path it is associated with
 
 =item * L<Path::IsDev::Heuristic::TestDir> - A directory called either C<t/> or C<xt/>
 
-=item * L<Path::IsDev::Heuristic::Tool::DZil> - A `dist.ini` file
+=item * L<Path::IsDev::Heuristic::Tool::DZil> - A C<dist.ini> file
 
-=item * L<Path::IsDev::Heuristic::Tool::MakeMaker> - A `Makefile.PL` file
+=item * L<Path::IsDev::Heuristic::Tool::MakeMaker> - A C<Makefile.PL> file
 
-=item * L<Path::IsDev::Heuristic::Tool::ModuleBuild> - A `Build.PL` file
+=item * L<Path::IsDev::Heuristic::Tool::ModuleBuild> - A C<Build.PL> file
 
-=item * L<Path::IsDev::Heuristic::VCS::Git> - A `.git` directory
+=item * L<Path::IsDev::Heuristic::VCS::Git> - A C<.git> directory
 
 =back
 

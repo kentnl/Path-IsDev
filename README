@@ -216,7 +216,7 @@ HEURISTICS
     *   Path::IsDev::Heuristic::Changelog - Files matching Changes,
         Changelog, and similar, case insensitive, extensions optional.
 
-    *   Path::IsDev::Heuristic::DevDirMarker - explicit `.devdir` file to
+    *   Path::IsDev::Heuristic::DevDirMarker - explicit ".devdir" file to
         indicate a project root.
 
     *   Path::IsDev::Heuristic::META - "META.yml"/"META.json"
@@ -229,13 +229,13 @@ HEURISTICS
     *   Path::IsDev::Heuristic::TestDir - A directory called either "t/" or
         "xt/"
 
-    *   Path::IsDev::Heuristic::Tool::DZil - A `dist.ini` file
+    *   Path::IsDev::Heuristic::Tool::DZil - A "dist.ini" file
 
-    *   Path::IsDev::Heuristic::Tool::MakeMaker - A `Makefile.PL` file
+    *   Path::IsDev::Heuristic::Tool::MakeMaker - A "Makefile.PL" file
 
-    *   Path::IsDev::Heuristic::Tool::ModuleBuild - A `Build.PL` file
+    *   Path::IsDev::Heuristic::Tool::ModuleBuild - A "Build.PL" file
 
-    *   Path::IsDev::Heuristic::VCS::Git - A `.git` directory
+    *   Path::IsDev::Heuristic::VCS::Git - A ".git" directory
 
 ADVANCED USAGE
   Custom Sets
