@@ -117,7 +117,7 @@ This module operates on a very simplistic level, and its easy for false-positive
 
 There are two types of Heuristics, Postive/Confirming Heuristics, and Negative/Disconfirming Heuristics.
 
-Positive Hueristics and Negative Heuristics are based solely on the presense of specific marker files in a directory, or special marker directories.
+Positive Heuristics and Negative Heuristics are based solely on the presense of specific marker files in a directory, or special marker directories.
 
 For instance, the files C<META.yml>, C<Makefile.PL>, and C<Build.PL> are all B<Positive Heuristic> markers, because their presence
 often indicates a "root" of a development tree.
@@ -266,25 +266,25 @@ Just remember, a B<Negative> Heuristic B<excludes the path it is associated with
 
 =over 4
 
-=item * L<Path::IsDev::Heuristic::Changelog> - Files matching Changes, Changelog, and similar, case insensitive, extensions optional.
+=item * L<< C<Changelog> |Path::IsDev::Heuristic::Changelog >> - Files matching Changes, Changelog, and similar, case insensitive, extensions optional.
 
-=item * L<Path::IsDev::Heuristic::DevDirMarker> - explicit C<.devdir> file to indicate a project root.
+=item * L<< C<DevDirMarker> |Path::IsDev::Heuristic::DevDirMarker >> - explicit C<.devdir> file to indicate a project root.
 
-=item * L<Path::IsDev::Heuristic::META> - C<META.yml>/C<META.json>
+=item * L< C<META> |Path::IsDev::Heuristic::META >> - C<META.yml>/C<META.json>
 
-=item * L<Path::IsDev::Heuristic::MYMETA> - C<MYMETA.yml>/C<MYMETA.json>
+=item * L<< C<MYMETA> |Path::IsDev::Heuristic::MYMETA >> - C<MYMETA.yml>/C<MYMETA.json>
 
-=item * L<Path::IsDev::Heuristic::Makefile> - Any C<Makefile> format documented supported by GNU Make
+=item * L<< C<Makefile> |Path::IsDev::Heuristic::Makefile >> - Any C<Makefile> format documented supported by GNU Make
 
-=item * L<Path::IsDev::Heuristic::TestDir> - A directory called either C<t/> or C<xt/>
+=item * L<< C<TestDir> |Path::IsDev::Heuristic::TestDir >> - A directory called either C<t/> or C<xt/>
 
-=item * L<Path::IsDev::Heuristic::Tool::DZil> - A C<dist.ini> file
+=item * L<< C<Tool::DZil> |Path::IsDev::Heuristic::Tool::DZil >> - A C<dist.ini> file
 
-=item * L<Path::IsDev::Heuristic::Tool::MakeMaker> - A C<Makefile.PL> file
+=item * L<< C<Tool::MakeMaker> |Path::IsDev::Heuristic::Tool::MakeMaker >> - A C<Makefile.PL> file
 
-=item * L<Path::IsDev::Heuristic::Tool::ModuleBuild> - A C<Build.PL> file
+=item * L<< C<Tool::ModuleBuild> |Path::IsDev::Heuristic::Tool::ModuleBuild >> - A C<Build.PL> file
 
-=item * L<Path::IsDev::Heuristic::VCS::Git> - A C<.git> directory
+=item * L<< C<VCS::Git> |Path::IsDev::Heuristic::VCS::Git >> - A C<.git> directory
 
 =back
 

@@ -62,7 +62,7 @@ UNDERSTANDING AND DEBUGGING THIS MODULE
     There are two types of Heuristics, Postive/Confirming Heuristics, and
     Negative/Disconfirming Heuristics.
 
-    Positive Hueristics and Negative Heuristics are based solely on the
+    Positive Heuristics and Negative Heuristics are based solely on the
     presense of specific marker files in a directory, or special marker
     directories.
 
@@ -213,29 +213,26 @@ HEURISTICS
         `.path_isdev_ignore`
 
   Positive Heuristics bundled with this distribution
-    *   Path::IsDev::Heuristic::Changelog - Files matching Changes,
-        Changelog, and similar, case insensitive, extensions optional.
+    *   "Changelog" - Files matching Changes, Changelog, and similar, case
+        insensitive, extensions optional.
 
-    *   Path::IsDev::Heuristic::DevDirMarker - explicit ".devdir" file to
-        indicate a project root.
+    *   "DevDirMarker" - explicit ".devdir" file to indicate a project root.
 
-    *   Path::IsDev::Heuristic::META - "META.yml"/"META.json"
+    *    "META" > - "META.yml"/"META.json"
 
-    *   Path::IsDev::Heuristic::MYMETA - "MYMETA.yml"/"MYMETA.json"
+    *   "MYMETA" - "MYMETA.yml"/"MYMETA.json"
 
-    *   Path::IsDev::Heuristic::Makefile - Any "Makefile" format documented
-        supported by GNU Make
+    *   "Makefile" - Any "Makefile" format documented supported by GNU Make
 
-    *   Path::IsDev::Heuristic::TestDir - A directory called either "t/" or
-        "xt/"
+    *   "TestDir" - A directory called either "t/" or "xt/"
 
-    *   Path::IsDev::Heuristic::Tool::DZil - A "dist.ini" file
+    *   "Tool::DZil" - A "dist.ini" file
 
-    *   Path::IsDev::Heuristic::Tool::MakeMaker - A "Makefile.PL" file
+    *   "Tool::MakeMaker" - A "Makefile.PL" file
 
-    *   Path::IsDev::Heuristic::Tool::ModuleBuild - A "Build.PL" file
+    *   "Tool::ModuleBuild" - A "Build.PL" file
 
-    *   Path::IsDev::Heuristic::VCS::Git - A ".git" directory
+    *   "VCS::Git" - A ".git" directory
 
 ADVANCED USAGE
   Custom Sets
@@ -303,4 +300,11 @@ COPYRIGHT AND LICENSE
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
+
+POD ERRORS
+    Hey! The above document had some coding errors, which are explained
+    below:
+
+    Around line 273:
+        L<> starts or ends with whitespace
 
