@@ -72,7 +72,7 @@ UNDERSTANDING AND DEBUGGING THIS MODULE
 
     And for instance, the directories "t/", "xt/" and ".git/" are also
     Positive Heuristic markers, because these structures are common in
-    "perl" develpoment trees, and uncommon in install trees.
+    "perl" development trees, and uncommon in install trees.
 
     However, these markers sometimes go wrong, for instance, consider you
     have a "local::lib" or "perlbrew" install in $HOME
@@ -209,8 +209,7 @@ HEURISTICS
     Just remember, a Negative Heuristic excludes the path it is associated
     with
 
-    *   Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile -
-        `.path_isdev_ignore`
+    *   "IsDev::IgnoreFile"
 
   Positive Heuristics bundled with this distribution
     *   "Changelog" - Files matching "Changes", "Changelog", and similar,
@@ -304,6 +303,9 @@ COPYRIGHT AND LICENSE
 POD ERRORS
     Hey! The above document had some coding errors, which are explained
     below:
+
+    Around line 261:
+        Unterminated L< ... > sequence
 
     Around line 273:
         L<> starts or ends with whitespace

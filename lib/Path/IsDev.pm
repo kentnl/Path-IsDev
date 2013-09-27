@@ -123,7 +123,7 @@ For instance, the files C<META.yml>, C<Makefile.PL>, and C<Build.PL> are all B<P
 often indicates a "root" of a development tree.
 
 And for instance, the directories C<t/>, C<xt/> and C<.git/> are also B<Positive Heuristic> markers, because these structures
-are common in C<perl> develpoment trees, and uncommon in install trees.
+are common in C<perl> development trees, and uncommon in install trees.
 
 However, these markers sometimes go wrong, for instance, consider you have a C<local::lib> or C<perlbrew> install in C<$HOME>
 
@@ -258,7 +258,7 @@ Just remember, a B<Negative> Heuristic B<excludes the path it is associated with
 
 =over 4
 
-=item * L<Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile> - `.path_isdev_ignore`
+=item * L<< C<IsDev::IgnoreFile> |Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile>> - C<.path_isdev_ignore>
 
 =back
 
