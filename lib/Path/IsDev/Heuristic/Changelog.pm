@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Heuristic::Changelog::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::Changelog::VERSION = '0.4.0';
+  $Path::IsDev::Heuristic::Changelog::VERSION = '0.3.4';
 }
 
 # ABSTRACT: Determine if a path contains a C<Changelog> (or similar)
@@ -40,7 +40,7 @@ Path::IsDev::Heuristic::Changelog - Determine if a path contains a C<Changelog> 
 
 =head1 VERSION
 
-version 0.4.0
+version 0.3.4
 
 =head1 DESCRIPTION
 

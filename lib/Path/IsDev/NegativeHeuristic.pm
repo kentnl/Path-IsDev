@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::NegativeHeuristic::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::NegativeHeuristic::VERSION = '0.4.0';
+  $Path::IsDev::NegativeHeuristic::VERSION = '0.3.4';
 }
 
 # ABSTRACT: Anti-Heuristic Base class
@@ -82,7 +82,7 @@ Path::IsDev::NegativeHeuristic - Anti-Heuristic Base class
 
 =head1 VERSION
 
-version 0.4.0
+version 0.3.4
 
 =head1 METHODS
 
