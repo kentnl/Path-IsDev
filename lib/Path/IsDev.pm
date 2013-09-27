@@ -117,15 +117,15 @@ This module operates on a very simplistic level, and its easy for false-positive
 
 There are two types of Heuristics, Postive/Confirming Heuristics, and Negative/Disconfirming Heuristics.
 
-Positive Heuristics and Negative Heuristics are based solely on the presense of specific marker files in a directory, or special marker directories.
+Positive Heuristics and Negative Heuristics are based solely on the presence of specific marker files in a directory, or special marker directories.
 
 For instance, the files C<META.yml>, C<Makefile.PL>, and C<Build.PL> are all B<Positive Heuristic> markers, because their presence
 often indicates a "root" of a development tree.
 
 And for instance, the directories C<t/>, C<xt/> and C<.git/> are also B<Positive Heuristic> markers, because these structures
-are common in C<perl> developoment trees, and uncommon in install trees.
+are common in C<perl> develpoment trees, and uncommon in install trees.
 
-However, these markers sometimes go wrong, for instance, conside you have a C<local::lib> or C<perlbrew> install in C<$HOME>
+However, these markers sometimes go wrong, for instance, consider you have a C<local::lib> or C<perlbrew> install in C<$HOME>
 
     $HOME/
     $HOME/lib/
@@ -266,7 +266,7 @@ Just remember, a B<Negative> Heuristic B<excludes the path it is associated with
 
 =over 4
 
-=item * L<< C<Changelog> |Path::IsDev::Heuristic::Changelog >> - Files matching Changes, Changelog, and similar, case insensitive, extensions optional.
+=item * L<< C<Changelog> |Path::IsDev::Heuristic::Changelog >> - Files matching C<Changes>, C<Changelog>, and similar, case insensitive, extensions optional.
 
 =item * L<< C<DevDirMarker> |Path::IsDev::Heuristic::DevDirMarker >> - explicit C<.devdir> file to indicate a project root.
 
