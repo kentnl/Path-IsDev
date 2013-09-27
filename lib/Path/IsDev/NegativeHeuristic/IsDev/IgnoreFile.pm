@@ -10,6 +10,8 @@ BEGIN {
   $Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::VERSION = '0.4.0';
 }
 
+# ABSTRACT: An explicit exclusion file heuristic
+
 
 use parent 'Path::IsDev::NegativeHeuristic';
 
@@ -27,7 +29,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile
+Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile - An explicit exclusion file heuristic
 
 =head1 VERSION
 
