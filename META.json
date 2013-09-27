@@ -122,6 +122,14 @@
          "file" : "lib/Path/IsDev/HeuristicSet/Basic.pm",
          "version" : "v0.3.4"
       },
+      "Path::IsDev::NegativeHeuristic" : {
+         "file" : "lib/Path/IsDev/NegativeHeuristic.pm",
+         "version" : "v0.3.4"
+      },
+      "Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile" : {
+         "file" : "lib/Path/IsDev/NegativeHeuristic/IsDev/IgnoreFile.pm",
+         "version" : "v0.3.4"
+      },
       "Path::IsDev::Object" : {
          "file" : "lib/Path/IsDev/Object.pm",
          "version" : "v0.3.4"

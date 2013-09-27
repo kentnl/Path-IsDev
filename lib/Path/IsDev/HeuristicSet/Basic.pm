@@ -14,9 +14,8 @@ BEGIN {
 
 use parent 'Path::IsDev::HeuristicSet';
 
-
 sub negative_heuristics {
-    return qw( IsDev::IgnoreFile );
+  return qw( IsDev::IgnoreFile );
 }
 
 
@@ -27,7 +26,6 @@ sub heuristics {
     VCS::Git
   );
 }
-
 
 1;
 

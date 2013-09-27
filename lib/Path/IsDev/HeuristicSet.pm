@@ -22,6 +22,7 @@ sub _expand_heuristic {
   my ( $self, $hn ) = @_;
   return _com_mn( 'Path::IsDev::Heuristic', $hn );
 }
+
 sub _expand_negative_heuristic {
   my ( $self, $hn ) = @_;
   return _com_mn( 'Path::IsDev::NegativeHeuristic', $hn );
@@ -40,9 +41,9 @@ sub modules {
   }
   my @out;
   if ( $self->can('negative_heuristics') ) {
-      for my $heur ( $self->negative_heuristics ) {
-          push @out, $self->_expand_negative_heuristic($heur);
-      }
+    for my $heur ( $self->negative_heuristics ) {
+      push @out, $self->_expand_negative_heuristic($heur);
+    }
   }
   for my $heur ( $self->heuristics ) {
     push @out, $self->_expand_heuristic($heur);
@@ -53,11 +54,11 @@ sub modules {
 
 sub matches {
   my ( $self, $path ) = @_;
-  tests: for my $module ( $self->modules ) {
+tests: for my $module ( $self->modules ) {
     $self->_load_module($module);
     if ( $module->can('excludes') ) {
-        return if $module->excludes( $path );
-        next tests;
+      return if $module->excludes($path);
+      next tests;
     }
     next unless $module->matches($path);
     my $name = $module->name;
