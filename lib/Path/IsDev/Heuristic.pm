@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Heuristic::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::VERSION = '0.3.4';
+  $Path::IsDev::Heuristic::VERSION = '0.4.0';
 }
 
 # ABSTRACT: Heuristic Base class
@@ -82,7 +82,7 @@ Path::IsDev::Heuristic - Heuristic Base class
 
 =head1 VERSION
 
-version 0.3.4
+version 0.4.0
 
 =head1 METHODS
 

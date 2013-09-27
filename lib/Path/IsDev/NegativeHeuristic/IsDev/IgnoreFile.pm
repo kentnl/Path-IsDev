@@ -7,7 +7,7 @@ BEGIN {
   $Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::VERSION = '0.3.4';
+  $Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::VERSION = '0.4.0';
 }
 
 
@@ -31,7 +31,7 @@ Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile
 
 =head1 VERSION
 
-version 0.3.4
+version 0.4.0
 
 =head1 SYNOPSIS
 
