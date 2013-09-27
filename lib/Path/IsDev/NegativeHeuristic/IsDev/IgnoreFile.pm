@@ -6,6 +6,16 @@ package Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile;
 
 # ABSTRACT: An explicit exclusion file heuristic
 
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile",
+    "interface":"single_class",
+    "inherits":"Path::IsDev::NegativeHeuristic"
+}
+
+=end MetaPOD::JSON
+
 =head1 SYNOPSIS
 
 In a C<::HeuristicSet>:
