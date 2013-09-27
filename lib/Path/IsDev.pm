@@ -14,6 +14,7 @@ BEGIN {
 
 
 
+
 use Sub::Exporter -setup => { exports => [ is_dev => \&_build_is_dev, ], };
 
 our $ENV_KEY_DEBUG = 'PATH_ISDEV_DEBUG';
@@ -107,6 +108,185 @@ it using
     use Path::IsDev qw( is_dev );
 
 That is, no C<set> specification is applicable, so you'll only get the "default".
+
+=head1 UNDERSTANDING AND DEBUGGING THIS MODULE
+
+Understanding how this module works, is critical to understand where you can use it, and the consequences of using it.
+
+This module operates on a very simplistic level, and its easy for false-positives to occur.
+
+There are two types of Heuristics, Postive/Confirming Heuristics, and Negative/Disconfirming Heuristics.
+
+Positive Hueristics and Negative Heuristics are based solely on the presense of specific marker files in a directory, or special marker directories.
+
+For instance, the files C<META.yml>, C<Makefile.PL>, and C<Build.PL> are all B<Positive Heuristic> markers, because their presence
+often indicates a "root" of a development tree.
+
+And for instance, the directories C<t/>, C<xt/> and C<.git/> are also B<Positive Heuristic> markers, because these structures
+are common in C<perl> developoment trees, and uncommon in install trees.
+
+However, these markers sometimes go wrong, for instance, conside you have a C<local::lib> or C<perlbrew> install in C<$HOME>
+
+    $HOME/
+    $HOME/lib/
+    $HOME/perl5/perls/perl-5.19.3/lib/site_perl/
+
+Etc.
+
+Under normal circumstances, neither C<$HOME> nor those 3 paths are considered C<dev>.
+
+However, all it takes to cause a false positive, is for somebody to install a C<t> or C<xt> directory, or a marker file in one of the
+above directories for C<path_isdev($dir)> to return true.
+
+This may not be a problem, at least, until you use C<Path::FindDev> which combines C<Path::IsDev> with recursive up-level traversal.
+
+    $HOME/
+    $HOME/lib/
+    $HOME/perl5/perls/perl-5.19.3/lib/site_perl/
+
+    find_dev('$HOME/perl5/perls/perl-5.19.3/lib/site_perl/') # returns false, because it is not inside a dev directory
+
+    mkdir $HOME/t
+
+    find_dev('$HOME/perl5/perls/perl-5.19.3/lib/site_perl/') # returns $HOME, because $HOME/t exists.
+
+And it is this kind of problem that usually catches people off guard.
+
+    PATH_ISDEV_DEBUG=1 perl -Ilib -MPath::FindDev=find_dev -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
+
+    [Path::IsDev=0] {
+    [Path::IsDev=0]  set               => Basic
+    [Path::IsDev=0]  set_prefix        => Path::IsDev::HeuristicSet
+    [Path::IsDev=0]  set_module        => Path::IsDev::HeuristicSet::Basic
+    [Path::IsDev=0]  loaded_set_module => Path::IsDev::HeuristicSet::Basic
+    [Path::IsDev=0] }
+    [Path::IsDev=0] Matching /home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent/perl5/perlbrew/perls/perl-5.19.3/lib
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent/perl5/perlbrew/perls/perl-5.19.3
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent/perl5/perlbrew/perls
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent/perl5/perlbrew
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent/perl5
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent
+    [Path::IsDev=0] /home/kent/META.yml exists for Path::IsDev::Heuristic::META
+    [Path::IsDev=0] ::META matched path /home/kent
+    /home/kent
+
+Whoops!.
+
+    [Path::IsDev=0] /home/kent/META.yml exists for Path::IsDev::Heuristic::META
+
+No wonder!
+
+    rm /home/kent/META.yml
+
+    PATH_ISDEV_DEBUG=1 perl -Ilib -MPath::FindDev=find_dev -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
+    [Path::IsDev=0] {
+    [Path::IsDev=0]  set               => Basic
+    [Path::IsDev=0]  set_prefix        => Path::IsDev::HeuristicSet
+    [Path::IsDev=0]  set_module        => Path::IsDev::HeuristicSet::Basic
+    [Path::IsDev=0]  loaded_set_module => Path::IsDev::HeuristicSet::Basic
+    [Path::IsDev=0] }
+    [Path::IsDev=0] Matching /home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent/perl5/perlbrew/perls/perl-5.19.3/lib
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent/perl5/perlbrew/perls/perl-5.19.3
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent/perl5/perlbrew/perls
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent/perl5/perlbrew
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent/perl5
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent
+    [Path::IsDev=0] /home/kent/t exists for::TestDir
+    [Path::IsDev=0] ::TestDir matched path /home/kent
+
+Double whoops!
+
+    [Path::IsDev=0] /home/kent/t exists for::TestDir
+
+And you could keep doing that until you rule out all the bad heuristics in your tree.
+
+Or, you could use a negative heuristic.
+
+    touch /home/kent/.path_isdev_ignore
+
+    PATH_ISDEV_DEBUG=1 perl -Ilib -MPath::FindDev=find_dev -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
+    [Path::IsDev=0] {
+    [Path::IsDev=0]  set               => Basic
+    [Path::IsDev=0]  set_prefix        => Path::IsDev::HeuristicSet
+    [Path::IsDev=0]  set_module        => Path::IsDev::HeuristicSet::Basic
+    [Path::IsDev=0]  loaded_set_module => Path::IsDev::HeuristicSet::Basic
+    [Path::IsDev=0] }
+    [Path::IsDev=0] Matching /home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent/perl5/perlbrew/perls/perl-5.19.3/lib
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent/perl5/perlbrew/perls/perl-5.19.3
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent/perl5/perlbrew/perls
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent/perl5/perlbrew
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent/perl5
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home/kent
+    [Path::IsDev=0] /home/kent/.path_isdev_ignore exists for Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile
+    [Path::IsDev=0] Negative ::IsDev::IgnoreFile excludes path /home/kent
+    [Path::IsDev=0] no match found
+    [Path::IsDev=0] Matching /home
+    [Path::IsDev=0] no match found
+
+Success!
+
+    [Path::IsDev=0] Matching /home/kent
+    [Path::IsDev=0] /home/kent/.path_isdev_ignore exists for Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile
+    [Path::IsDev=0] Negative ::IsDev::IgnoreFile excludes path /home/kent
+
+=head1 HEURISTICS
+
+=head2 Negative Heuristics bundled with this distribution
+
+Just remember, a B<Negative> Heuristic B<excludes the path it is associated with>
+
+=over 4
+
+=item * L<Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile> - `.path_isdev_ignore`
+
+=back
+
+=head2 Positive Heuristics bundled with this distribution
+
+=over 4
+
+=item * L<Path::IsDev::Heuristic::Changelog> - Files matching Changes, Changelog, and similar, case insensitive, extensions optional.
+
+=item * L<Path::IsDev::Heuristic::DevDirMarker> - explicit `.devdir` file to indicate a project root.
+
+=item * L<Path::IsDev::Heuristic::META> - C<META.yml>/C<META.json>
+
+=item * L<Path::IsDev::Heuristic::MYMETA> - C<MYMETA.yml>/C<MYMETA.json>
+
+=item * L<Path::IsDev::Heuristic::Makefile> - Any C<Makefile> format documented supported by GNU Make
+
+=item * L<Path::IsDev::Heuristic::TestDir> - A directory called either C<t/> or C<xt/>
+
+=item * L<Path::IsDev::Heuristic::Tool::DZil> - A `dist.ini` file
+
+=item * L<Path::IsDev::Heuristic::Tool::MakeMaker> - A `Makefile.PL` file
+
+=item * L<Path::IsDev::Heuristic::Tool::ModuleBuild> - A `Build.PL` file
+
+=item * L<Path::IsDev::Heuristic::VCS::Git> - A `.git` directory
+
+=back
 
 =head1 ADVANCED USAGE
 

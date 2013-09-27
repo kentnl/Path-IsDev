@@ -13,6 +13,7 @@ BEGIN {
 # ABSTRACT: Base class for sets of heuristics
 
 
+
 sub _croak      { require Carp;            goto &Carp::croak }
 sub _use_module { require Module::Runtime; goto &Module::Runtime::use_module }
 sub _debug      { require Path::IsDev;     goto &Path::IsDev::debug }
@@ -54,11 +55,14 @@ sub modules {
 
 sub matches {
   my ( $self, $path ) = @_;
-tests: for my $module ( $self->modules ) {
+TESTS: for my $module ( $self->modules ) {
     $self->_load_module($module);
     if ( $module->can('excludes') ) {
-      return if $module->excludes($path);
-      next tests;
+      if ( $module->excludes($path) ) {
+        _debug( $module->name . q[ excludes path ] . $path );
+        return;
+      }
+      next TESTS;
     }
     next unless $module->matches($path);
     my $name = $module->name;
@@ -83,6 +87,30 @@ Path::IsDev::HeuristicSet - Base class for sets of heuristics
 =head1 VERSION
 
 version 0.3.4
+
+=head1 SYNOPSIS
+
+    package Path::IsDev::HeuristicSet::Author::KENTNL;
+
+    use parent 'Path::IsDev::HeuristicSet';
+
+    sub heuristics {
+        return 'META', 'VSC::Git'
+    }
+
+    sub negative_heuristics {
+        return 'IsDev::IgnoreFile'
+    }
+
+Or alternatively:
+
+    sub modules {
+        return ( 'Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile', 'Path::IsDev::Heuristic::META', 'Path::IsDev::Heuristic::VCS::Git', )
+    }
+
+And the real work is done by:
+
+    Path::IsDev::HeuristicSet::Author::KENTNL->matches($path);
 
 =head1 METHODS
 
