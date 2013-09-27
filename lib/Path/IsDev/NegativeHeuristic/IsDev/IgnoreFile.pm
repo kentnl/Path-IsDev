@@ -65,6 +65,17 @@ Files valid for triggering this heuristic:
 
     .path_isdev_ignore
 
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile",
+    "interface":"single_class",
+    "inherits":"Path::IsDev::NegativeHeuristic"
+}
+
+
+=end MetaPOD::JSON
+
 =head1 AUTHOR
 
 Kent Fredric <kentfredric@gmail.com>
