@@ -33,6 +33,8 @@ lib/Path/IsDev/Heuristic/Tool/ModuleBuild.pm
 lib/Path/IsDev/Heuristic/VCS/Git.pm
 lib/Path/IsDev/HeuristicSet.pm
 lib/Path/IsDev/HeuristicSet/Basic.pm
+lib/Path/IsDev/NegativeHeuristic.pm
+lib/Path/IsDev/NegativeHeuristic/IsDev/IgnoreFile.pm
 lib/Path/IsDev/Object.pm
 maint-travis-ci/README.mkdn
 maint-travis-ci/merge_travis_yml.pl

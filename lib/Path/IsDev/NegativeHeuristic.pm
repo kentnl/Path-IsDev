@@ -1,15 +1,15 @@
 use strict;
 use warnings;
 
-package Path::IsDev::Heuristic;
+package Path::IsDev::NegativeHeuristic;
 BEGIN {
-  $Path::IsDev::Heuristic::AUTHORITY = 'cpan:KENTNL';
+  $Path::IsDev::NegativeHeuristic::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::VERSION = '0.4.0';
+  $Path::IsDev::NegativeHeuristic::VERSION = '0.4.0';
 }
 
-# ABSTRACT: Heuristic Base class
+# ABSTRACT: Anti-Heuristic Base class
 
 
 sub _path    { require Path::Tiny;   goto &Path::Tiny::path }
@@ -21,12 +21,12 @@ sub _debug   { require Path::IsDev;  goto &Path::IsDev::debug }
 sub name {
   my $name = shift;
   $name = _blessed($name) if _blessed($name);
-  $name =~ s/\APath::IsDev::Heuristic:/:/msx;
+  $name =~ s/\APath::IsDev::NegativeHeuristic:/Negative :/msx;
   return $name;
 }
 
 
-sub _file_matches {
+sub _file_excludes {
   my ( $self, $path ) = @_;
   my $root = _path($path);
   for my $file ( $self->files ) {
@@ -40,7 +40,7 @@ sub _file_matches {
 }
 
 
-sub _dir_matches {
+sub _dir_excludes {
   my ( $self, $path ) = @_;
   my $root = _path($path);
   for my $file ( $self->dirs ) {
@@ -54,16 +54,16 @@ sub _dir_matches {
 }
 
 
-sub matches {
+sub excludes {
   my ( $self, $path ) = @_;
   if ( not $self->can('files') and not $self->can('dirs') ) {
     return _croak("Heuristic $self did not implement one of : matches, files, dirs");
   }
   if ( $self->can('files') ) {
-    return 1 if $self->_file_matches($path);
+    return 1 if $self->_file_excludes($path);
   }
   if ( $self->can('dirs') ) {
-    return 1 if $self->_dir_matches($path);
+    return 1 if $self->_dir_excludes($path);
   }
   return;
 }
@@ -78,7 +78,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Heuristic - Heuristic Base class
+Path::IsDev::NegativeHeuristic - Anti-Heuristic Base class
 
 =head1 VERSION
 
@@ -91,39 +91,39 @@ version 0.4.0
 Returns the name to use in debugging.
 
 By default, this is derived from the classes name
-with the C<PIDH> prefix removed:
+with the C<PIDNH> prefix removed:
 
-    Path::IsDev::Heuristic::Tool::Dzil->name() # → ::Tool::Dzil
+    Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile->name() # → Negative ::IsDev::IgnoreFile
 
-=head2 C<matches>
+=head2 C<excludes>
 
-Determines if the current heuristic matches a given path
+Determines if the current negative heuristic excludes a given path
 
-    my $result = $heuristic->matches( $path );
+    my $result = $heuristic->excludes( $path );
 
 The default implementation takes values from C<< ->files >> and C<< ->dirs >>
 and returns true as soon as any match satisfies.
 
 =head1 PRIVATE METHODS
 
-=head2 C<_file_matches>
+=head2 C<_file_excludess>
 
-Glue layer between C<< ->matches >> and C<< ->files >>
+Glue layer between C<< ->excludes >> and C<< ->files >>
 
     # iterate $heuristic->files looking for a match
-    $heurisitic->_file_matches($path);
+    $heurisitic->_file_excludes($path);
 
-=head2 C<_dir_matches>
+=head2 C<_dir_excludes>
 
-Glue layer between C<< ->matches >> and C<< ->dirs >>
+Glue layer between C<< ->excludes >> and C<< ->dirs >>
 
     # iterate $heuristic->dirs looking for a match
-    $heurisitic->_dir_matches($path);
+    $heurisitic->_dir_excludes($path);
 
 =begin MetaPOD::JSON v1.1.0
 
 {
-    "namespace":"Path::IsDev::Heuristic",
+    "namespace":"Path::IsDev::NegativeHeuristic",
     "interface":"single_class"
 }
 

@@ -6,13 +6,18 @@ BEGIN {
   $Path::IsDev::HeuristicSet::Basic::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::HeuristicSet::Basic::VERSION = '0.3.3';
+  $Path::IsDev::HeuristicSet::Basic::VERSION = '0.4.0';
 }
 
 # ABSTRACT: Basic C<IsDev> set of Heuristics
 
 
 use parent 'Path::IsDev::HeuristicSet';
+
+
+sub negative_heuristics {
+  return qw( IsDev::IgnoreFile );
+}
 
 
 sub heuristics {
@@ -37,9 +42,19 @@ Path::IsDev::HeuristicSet::Basic - Basic C<IsDev> set of Heuristics
 
 =head1 VERSION
 
-version 0.3.3
+version 0.4.0
 
 =head1 METHODS
+
+=head2 C<negative_heuristics>
+
+Excluding heuristics in this set are
+
+=over 4
+
+=item 1. L<< C<IsDev::IgnoreFile>|Path::IsDev::NegativeHeuristic::IgnoreFile >>
+
+=back
 
 =head2 C<heuristics>
 

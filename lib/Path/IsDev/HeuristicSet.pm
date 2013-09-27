@@ -7,10 +7,11 @@ BEGIN {
   $Path::IsDev::HeuristicSet::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::HeuristicSet::VERSION = '0.3.3';
+  $Path::IsDev::HeuristicSet::VERSION = '0.4.0';
 }
 
 # ABSTRACT: Base class for sets of heuristics
+
 
 
 sub _croak      { require Carp;            goto &Carp::croak }
@@ -21,6 +22,11 @@ sub _com_mn     { require Module::Runtime; goto &Module::Runtime::compose_module
 sub _expand_heuristic {
   my ( $self, $hn ) = @_;
   return _com_mn( 'Path::IsDev::Heuristic', $hn );
+}
+
+sub _expand_negative_heuristic {
+  my ( $self, $hn ) = @_;
+  return _com_mn( 'Path::IsDev::NegativeHeuristic', $hn );
 }
 
 sub _load_module {
@@ -35,6 +41,11 @@ sub modules {
     return _croak("set $self failed to declare one of: modules, heuristics");
   }
   my @out;
+  if ( $self->can('negative_heuristics') ) {
+    for my $heur ( $self->negative_heuristics ) {
+      push @out, $self->_expand_negative_heuristic($heur);
+    }
+  }
   for my $heur ( $self->heuristics ) {
     push @out, $self->_expand_heuristic($heur);
   }
@@ -44,8 +55,15 @@ sub modules {
 
 sub matches {
   my ( $self, $path ) = @_;
-  for my $module ( $self->modules ) {
+TESTS: for my $module ( $self->modules ) {
     $self->_load_module($module);
+    if ( $module->can('excludes') ) {
+      if ( $module->excludes($path) ) {
+        _debug( $module->name . q[ excludes path ] . $path );
+        return;
+      }
+      next TESTS;
+    }
     next unless $module->matches($path);
     my $name = $module->name;
     _debug( $name . q[ matched path ] . $path );
@@ -68,7 +86,31 @@ Path::IsDev::HeuristicSet - Base class for sets of heuristics
 
 =head1 VERSION
 
-version 0.3.3
+version 0.4.0
+
+=head1 SYNOPSIS
+
+    package Path::IsDev::HeuristicSet::Author::KENTNL;
+
+    use parent 'Path::IsDev::HeuristicSet';
+
+    sub heuristics {
+        return 'META', 'VSC::Git'
+    }
+
+    sub negative_heuristics {
+        return 'IsDev::IgnoreFile'
+    }
+
+Or alternatively:
+
+    sub modules {
+        return ( 'Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile', 'Path::IsDev::Heuristic::META', 'Path::IsDev::Heuristic::VCS::Git', )
+    }
+
+And the real work is done by:
+
+    Path::IsDev::HeuristicSet::Author::KENTNL->matches($path);
 
 =head1 METHODS
 
