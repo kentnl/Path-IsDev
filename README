@@ -233,6 +233,11 @@ HEURISTICS
 
     *   "VCS::Git" - A ".git" directory
 
+HEURISTIC SETS
+  Heuristic Sets Bundled with this distribution
+    *   "Basic" - The basic heuristic set that contains most, if not all
+        heuristics.
+
 ADVANCED USAGE
   Custom Sets
     "Path::IsDev" has a system of "sets" of Heuristics, in order to allow

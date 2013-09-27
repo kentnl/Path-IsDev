@@ -258,7 +258,7 @@ Just remember, a B<Negative> Heuristic B<excludes the path it is associated with
 
 =over 4
 
-=item * L<< C<IsDev::IgnoreFile> |Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile >> - C<.path_isdev_ignore>
+=item * L<< C<IsDev::IgnoreFile>|Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile >> - C<.path_isdev_ignore>
 
 =back
 
@@ -266,25 +266,35 @@ Just remember, a B<Negative> Heuristic B<excludes the path it is associated with
 
 =over 4
 
-=item * L<< C<Changelog> |Path::IsDev::Heuristic::Changelog >> - Files matching C<Changes>, C<Changelog>, and similar, case insensitive, extensions optional.
+=item * L<< C<Changelog>|Path::IsDev::Heuristic::Changelog >> - Files matching C<Changes>, C<Changelog>, and similar, case insensitive, extensions optional.
 
-=item * L<< C<DevDirMarker> |Path::IsDev::Heuristic::DevDirMarker >> - explicit C<.devdir> file to indicate a project root.
+=item * L<< C<DevDirMarker>|Path::IsDev::Heuristic::DevDirMarker >> - explicit C<.devdir> file to indicate a project root.
 
-=item * L<< C<META> |Path::IsDev::Heuristic::META >> - C<META.yml>/C<META.json>
+=item * L<< C<META>|Path::IsDev::Heuristic::META >> - C<META.yml>/C<META.json>
 
-=item * L<< C<MYMETA> |Path::IsDev::Heuristic::MYMETA >> - C<MYMETA.yml>/C<MYMETA.json>
+=item * L<< C<MYMETA>|Path::IsDev::Heuristic::MYMETA >> - C<MYMETA.yml>/C<MYMETA.json>
 
-=item * L<< C<Makefile> |Path::IsDev::Heuristic::Makefile >> - Any C<Makefile> format documented supported by GNU Make
+=item * L<< C<Makefile>|Path::IsDev::Heuristic::Makefile >> - Any C<Makefile> format documented supported by GNU Make
 
-=item * L<< C<TestDir> |Path::IsDev::Heuristic::TestDir >> - A directory called either C<t/> or C<xt/>
+=item * L<< C<TestDir>|Path::IsDev::Heuristic::TestDir >> - A directory called either C<t/> or C<xt/>
 
-=item * L<< C<Tool::DZil> |Path::IsDev::Heuristic::Tool::DZil >> - A C<dist.ini> file
+=item * L<< C<Tool::DZil>|Path::IsDev::Heuristic::Tool::DZil >> - A C<dist.ini> file
 
-=item * L<< C<Tool::MakeMaker> |Path::IsDev::Heuristic::Tool::MakeMaker >> - A C<Makefile.PL> file
+=item * L<< C<Tool::MakeMaker>|Path::IsDev::Heuristic::Tool::MakeMaker >> - A C<Makefile.PL> file
 
-=item * L<< C<Tool::ModuleBuild> |Path::IsDev::Heuristic::Tool::ModuleBuild >> - A C<Build.PL> file
+=item * L<< C<Tool::ModuleBuild>|Path::IsDev::Heuristic::Tool::ModuleBuild >> - A C<Build.PL> file
 
-=item * L<< C<VCS::Git> |Path::IsDev::Heuristic::VCS::Git >> - A C<.git> directory
+=item * L<< C<VCS::Git>|Path::IsDev::Heuristic::VCS::Git >> - A C<.git> directory
+
+=back
+
+=head1 HEURISTIC SETS
+
+=head2 Heuristic Sets Bundled with this distribution 
+
+=over 4
+
+=item * L<< C<Basic>|Path::IsDev::HeuristicSet::Basic >> - The basic heuristic set that contains most, if not all heuristics.
 
 =back
 
