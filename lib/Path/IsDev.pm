@@ -290,7 +290,7 @@ Just remember, a B<Negative> Heuristic B<excludes the path it is associated with
 
 =head1 HEURISTIC SETS
 
-=head2 Heuristic Sets Bundled with this distribution 
+=head2 Heuristic Sets Bundled with this distribution
 
 =over 4
 
