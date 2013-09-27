@@ -1,6 +1,6 @@
 Release history for Path-IsDev
 
-0.4.0 2013-09-27T17:40:50Z
+0.4.0 2013-09-27T17:40:58Z
  [00 Major Changes - Negative Heuristics]
  - Now has a system to indicate negative heuristics, to mark  given
    directories as "not dev", which cause other postive heuristics to be
