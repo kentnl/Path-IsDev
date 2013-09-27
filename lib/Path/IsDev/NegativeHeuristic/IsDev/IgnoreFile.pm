@@ -53,6 +53,8 @@ However:
 
 =item * Its children can still be deemed C<dev> directories
 
+=back
+
 =head1 METHODS
 
 =head2 C<files>
