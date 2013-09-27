@@ -17,6 +17,32 @@ package Path::IsDev::HeuristicSet;
 
 =cut
 
+=head1 SYNOPSIS
+
+    package Path::IsDev::HeuristicSet::Author::KENTNL;
+
+    use parent 'Path::IsDev::HeuristicSet';
+
+    sub heuristics {
+        return 'META', 'VSC::Git'
+    }
+
+    sub negative_heuristics {
+        return 'IsDev::IgnoreFile'
+    }
+
+Or alternatively:
+
+    sub modules {
+        return ( 'Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile', 'Path::IsDev::Heuristic::META', 'Path::IsDev::Heuristic::VCS::Git', )
+    }
+
+And the real work is done by:
+
+    Path::IsDev::HeuristicSet::Author::KENTNL->matches($path);
+
+=cut
+
 sub _croak      { require Carp;            goto &Carp::croak }
 sub _use_module { require Module::Runtime; goto &Module::Runtime::use_module }
 sub _debug      { require Path::IsDev;     goto &Path::IsDev::debug }
@@ -25,6 +51,11 @@ sub _com_mn     { require Module::Runtime; goto &Module::Runtime::compose_module
 sub _expand_heuristic {
   my ( $self, $hn ) = @_;
   return _com_mn( 'Path::IsDev::Heuristic', $hn );
+}
+
+sub _expand_negative_heuristic {
+  my ( $self, $hn ) = @_;
+  return _com_mn( 'Path::IsDev::NegativeHeuristic', $hn );
 }
 
 sub _load_module {
@@ -46,6 +77,11 @@ sub modules {
     return _croak("set $self failed to declare one of: modules, heuristics");
   }
   my @out;
+  if ( $self->can('negative_heuristics') ) {
+    for my $heur ( $self->negative_heuristics ) {
+      push @out, $self->_expand_negative_heuristic($heur);
+    }
+  }
   for my $heur ( $self->heuristics ) {
     push @out, $self->_expand_heuristic($heur);
   }
@@ -64,8 +100,15 @@ Determine if the C<HeuristicSet> contains a match.
 
 sub matches {
   my ( $self, $path ) = @_;
-  for my $module ( $self->modules ) {
+TESTS: for my $module ( $self->modules ) {
     $self->_load_module($module);
+    if ( $module->can('excludes') ) {
+      if ( $module->excludes($path) ) {
+        _debug( $module->name . q[ excludes path ] . $path );
+        return;
+      }
+      next TESTS;
+    }
     next unless $module->matches($path);
     my $name = $module->name;
     _debug( $name . q[ matched path ] . $path );
