@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::HeuristicSet::Basic::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::HeuristicSet::Basic::VERSION = '0.3.4';
+  $Path::IsDev::HeuristicSet::Basic::VERSION = '0.4.0';
 }
 
 # ABSTRACT: Basic C<IsDev> set of Heuristics
@@ -42,7 +42,7 @@ Path::IsDev::HeuristicSet::Basic - Basic C<IsDev> set of Heuristics
 
 =head1 VERSION
 
-version 0.3.4
+version 0.4.0
 
 =head1 METHODS
 
