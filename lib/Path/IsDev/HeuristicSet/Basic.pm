@@ -19,6 +19,22 @@ package Path::IsDev::HeuristicSet::Basic;
 
 use parent 'Path::IsDev::HeuristicSet';
 
+=method C<negative_heuristics>
+
+Excluding heuristics in this set are
+
+=over 4
+
+=item 1. L<< C<IsDev::IgnoreFile>|Path::IsDev::NegativeHeuristic::IgnoreFile >>
+
+=back
+
+=cut
+
+sub negative_heuristics {
+  return qw( IsDev::IgnoreFile );
+}
+
 =method C<heuristics>
 
 Heuristics included in this set:
