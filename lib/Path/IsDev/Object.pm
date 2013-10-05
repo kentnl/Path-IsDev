@@ -91,6 +91,8 @@ An accessor which returns a module name after loading it.
 my $instances   = {};
 my $instance_id = 0;
 
+sub _carp { require Carp; goto &Carp::carp; }
+
 =p_method C<_instance_id>
 
 An opportunistic sequence number for help with debug messages.
@@ -182,7 +184,7 @@ sub _matches {
     }
   );
   if ( !!$result != !!$object->result ) {
-    warn "Result and Result Object missmatch";
+    _carp(q[Result and Result Object missmatch]);
   }
   return $object;
 }
