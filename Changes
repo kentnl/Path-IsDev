@@ -1,6 +1,8 @@
 Release history for Path-IsDev
 
 {{$NEXT}}
+
+0.5.0 2013-10-05T15:00:12Z
  [00 Major Changes - Result Object]
  - Internals now re-written slightly to pass around a result object that
    communicates state.
