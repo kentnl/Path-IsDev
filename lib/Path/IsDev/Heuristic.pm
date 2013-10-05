@@ -43,7 +43,7 @@ sub name {
 Glue layer between C<< ->matches >> and C<< ->files >>
 
     # iterate $heuristic->files looking for a match
-    $heurisitic->_file_matches($path);
+    $heurisitic->_file_matches( $result_object );
 
 =cut
 
@@ -69,7 +69,7 @@ sub _file_matches {
 Glue layer between C<< ->matches >> and C<< ->dirs >>
 
     # iterate $heuristic->dirs looking for a match
-    $heurisitic->_dir_matches($path);
+    $heurisitic->_dir_matches( $result_object );
 
 
 =cut

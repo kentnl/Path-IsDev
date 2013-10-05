@@ -39,7 +39,7 @@ Or alternatively:
 
 And the real work is done by:
 
-    Path::IsDev::HeuristicSet::Author::KENTNL->matches($path);
+    Path::IsDev::HeuristicSet::Author::KENTNL->matches( $result_object );
 
 =cut
 
@@ -92,8 +92,8 @@ sub modules {
 
 Determine if the C<HeuristicSet> contains a match.
 
-    if( $hs->matches($path) ) {
-        # one of hs->modules() matched $path
+    if( $hs->matches( $result_object ) ) {
+        # one of hs->modules() matched $result_object->path
     }
 
 =cut

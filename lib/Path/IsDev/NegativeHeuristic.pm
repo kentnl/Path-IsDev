@@ -43,7 +43,7 @@ sub name {
 Glue layer between C<< ->excludes >> and C<< ->files >>
 
     # iterate $heuristic->files looking for a match
-    $heurisitic->_file_excludes($path);
+    $heurisitic->_file_excludes( $result_object );
 
 =cut
 
@@ -68,7 +68,7 @@ sub _file_excludes {
 Glue layer between C<< ->excludes >> and C<< ->dirs >>
 
     # iterate $heuristic->dirs looking for a match
-    $heurisitic->_dir_excludes($path);
+    $heurisitic->_dir_excludes( $result_object );
 
 
 =cut
@@ -93,7 +93,7 @@ sub _dir_excludes {
 
 Determines if the current negative heuristic excludes a given path
 
-    my $result = $heuristic->excludes( $path );
+    my $result = $heuristic->excludes( $result_object );
 
 The default implementation takes values from C<< ->files >> and C<< ->dirs >>
 and returns true as soon as any match satisfies.
