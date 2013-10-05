@@ -34,6 +34,7 @@ etc.
 
 use parent 'Path::IsDev::Heuristic';
 
+sub _debug   { require Path::IsDev;  goto &Path::IsDev::debug }
 =method C<matches>
 
 Indicators for this heuristic is the existence of a file such as:
@@ -50,6 +51,7 @@ sub matches {
   for my $child ( $result_object->path->children ) {
     next unless -f $child;
     if ( $child->basename =~ /\AChange(s|log)(|[.][^.\s]+)\z/isxm ) {
+      _debug("$child matches expression for $self");
       $result_object->add_reason( $self, 1, { child_matches_expression => $child } );
       $result_object->result(1);
       return 1;
