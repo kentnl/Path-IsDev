@@ -12,8 +12,8 @@ BEGIN {
 # ABSTRACT: Anti-Heuristic Base class
 
 
+
 sub _croak   { require Carp;         goto &Carp::croak }
-sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 sub _debug   { require Path::IsDev;  goto &Path::IsDev::debug }
 
 use Role::Tiny::With;
@@ -83,6 +83,12 @@ Path::IsDev::NegativeHeuristic - Anti-Heuristic Base class
 =head1 VERSION
 
 version 0.5.1
+
+=head1 SYNOPSIS
+
+This class exists for compatibility.
+
+New code should C<with> C<::Role::NegativeHeuristic::>*
 
 =head1 METHODS
 
