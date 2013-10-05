@@ -1,7 +1,7 @@
 
 use strict;
 use warnings;
- 
+
 package Path::IsDev::Role::HeuristicSet::Simple;
 BEGIN {
   $Path::IsDev::Role::HeuristicSet::Simple::AUTHORITY = 'cpan:KENTNL';
