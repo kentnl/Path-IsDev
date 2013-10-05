@@ -36,6 +36,7 @@ lib/Path/IsDev/HeuristicSet/Basic.pm
 lib/Path/IsDev/NegativeHeuristic.pm
 lib/Path/IsDev/NegativeHeuristic/IsDev/IgnoreFile.pm
 lib/Path/IsDev/Object.pm
+lib/Path/IsDev/Result.pm
 maint-travis-ci/README.mkdn
 maint-travis-ci/merge_travis_yml.pl
 maint-travis-ci/sterilize_env.pl
@@ -44,6 +45,7 @@ maint-travis-ci/yamls/sterile.yaml
 perlcritic.rc
 t/00-compile.t
 t/000-report-versions-tiny.t
+t/Path-IsDev-Object/_matches.t
 t/Path-IsDev-Object/basic.t
 t/Path-IsDev/is_dev/Changelog.t
 t/Path-IsDev/is_dev/DZil.t

@@ -7,7 +7,7 @@ BEGIN {
   $Path::IsDev::HeuristicSet::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::HeuristicSet::VERSION = '0.4.0';
+  $Path::IsDev::HeuristicSet::VERSION = '0.4.1';
 }
 
 # ABSTRACT: Base class for sets of heuristics
@@ -54,19 +54,19 @@ sub modules {
 
 
 sub matches {
-  my ( $self, $path ) = @_;
+  my ( $self, $result_object ) = @_;
 TESTS: for my $module ( $self->modules ) {
     $self->_load_module($module);
     if ( $module->can('excludes') ) {
-      if ( $module->excludes($path) ) {
-        _debug( $module->name . q[ excludes path ] . $path );
+      if ( $module->excludes($result_object) ) {
+        _debug( $module->name . q[ excludes path ] . $result_object->path );
         return;
       }
       next TESTS;
     }
-    next unless $module->matches($path);
+    next unless $module->matches($result_object);
     my $name = $module->name;
-    _debug( $name . q[ matched path ] . $path );
+    _debug( $name . q[ matched path ] . $result_object->path );
     return 1;
   }
   return;
@@ -86,7 +86,7 @@ Path::IsDev::HeuristicSet - Base class for sets of heuristics
 
 =head1 VERSION
 
-version 0.4.0
+version 0.4.1
 
 =head1 SYNOPSIS
 
@@ -110,7 +110,7 @@ Or alternatively:
 
 And the real work is done by:
 
-    Path::IsDev::HeuristicSet::Author::KENTNL->matches($path);
+    Path::IsDev::HeuristicSet::Author::KENTNL->matches( $result_object );
 
 =head1 METHODS
 
@@ -124,8 +124,8 @@ Default implementation expands results from C<< ->heuristics >>
 
 Determine if the C<HeuristicSet> contains a match.
 
-    if( $hs->matches($path) ) {
-        # one of hs->modules() matched $path
+    if( $hs->matches( $result_object ) ) {
+        # one of hs->modules() matched $result_object->path
     }
 
 =begin MetaPOD::JSON v1.1.0

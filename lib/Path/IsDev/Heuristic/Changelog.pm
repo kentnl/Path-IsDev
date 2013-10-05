@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Heuristic::Changelog::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::Changelog::VERSION = '0.4.0';
+  $Path::IsDev::Heuristic::Changelog::VERSION = '0.4.1';
 }
 
 # ABSTRACT: Determine if a path contains a C<Changelog> (or similar)
@@ -14,15 +14,19 @@ BEGIN {
 
 
 use parent 'Path::IsDev::Heuristic';
-sub _path { require Path::Tiny; goto &Path::Tiny::path }
 
 
 sub matches {
-  my ( $self, $path ) = @_;
-  for my $child ( _path($path)->children ) {
+  my ( $self, $result_object ) = @_;
+  for my $child ( $result_object->path->children ) {
     next unless -f $child;
-    return 1 if $child->basename =~ /\AChange(s|log)(|[.][^.\s]+)\z/isxm;
+    if ( $child->basename =~ /\AChange(s|log)(|[.][^.\s]+)\z/isxm ) {
+      $result_object->add_reason( $self, 1, { child_matches_expression => $child } );
+      $result_object->result(1);
+      return 1;
+    }
   }
+  $result_object->add_reason( $self, 0, { no_children_matched_expression => 1 } );
   return;
 }
 
@@ -40,7 +44,7 @@ Path::IsDev::Heuristic::Changelog - Determine if a path contains a C<Changelog> 
 
 =head1 VERSION
 
-version 0.4.0
+version 0.4.1
 
 =head1 DESCRIPTION
 
