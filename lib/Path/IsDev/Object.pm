@@ -38,6 +38,8 @@ use Class::Tiny 0.010 {
 my $instances   = {};
 my $instance_id = 0;
 
+sub _carp { require Carp; goto &Carp::carp; }
+
 
 sub _instance_id {
   my ($self) = @_;
@@ -93,7 +95,7 @@ sub _matches {
     }
   );
   if ( !!$result != !!$object->result ) {
-    warn "Result and Result Object missmatch";
+    _carp(q[Result and Result Object missmatch]);
   }
   return $object;
 }
