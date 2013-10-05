@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Role::NegativeHeuristic::AnyFile::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Role::NegativeHeuristic::AnyFile::VERSION = '0.5.1';
+  $Path::IsDev::Role::NegativeHeuristic::AnyFile::VERSION = '0.6.0';
 }
 
 # ABSTRACT: Negative Heuristic if a path contains one of any of a list of files
@@ -58,7 +58,7 @@ Path::IsDev::Role::NegativeHeuristic::AnyFile - Negative Heuristic if a path con
 
 =head1 VERSION
 
-version 0.5.1
+version 0.6.0
 
 =head1 SYNOPSIS
 

@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Role::Heuristic::RegexpFile::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Role::Heuristic::RegexpFile::VERSION = '0.5.1';
+  $Path::IsDev::Role::Heuristic::RegexpFile::VERSION = '0.6.0';
 }
 
 # ABSTRACT: Positive Heuristic when a path has a child file matching an expression
@@ -59,7 +59,7 @@ Path::IsDev::Role::Heuristic::RegexpFile - Positive Heuristic when a path has a 
 
 =head1 VERSION
 
-version 0.5.1
+version 0.6.0
 
 =head1 SYNOPSIS
 

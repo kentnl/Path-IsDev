@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Heuristic::META::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::META::VERSION = '0.5.1';
+  $Path::IsDev::Heuristic::META::VERSION = '0.6.0';
 }
 
 
@@ -32,7 +32,7 @@ Path::IsDev::Heuristic::META - Determine if a path contains META.(json|yml)
 
 =head1 VERSION
 
-version 0.5.1
+version 0.6.0
 
 =head1 METHODS
 

@@ -7,7 +7,7 @@ BEGIN {
   $Path::IsDev::HeuristicSet::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::HeuristicSet::VERSION = '0.5.1';
+  $Path::IsDev::HeuristicSet::VERSION = '0.6.0';
 }
 
 # ABSTRACT: Base class for sets of heuristics
@@ -54,9 +54,13 @@ Path::IsDev::HeuristicSet - Base class for sets of heuristics
 
 =head1 VERSION
 
-version 0.5.1
+version 0.6.0
 
 =head1 SYNOPSIS
+
+This class exists now for compatibility reasons.
+
+You should instead C<with> a C<::Role::HeuristicSet>*
 
     package Path::IsDev::HeuristicSet::Author::KENTNL;
 

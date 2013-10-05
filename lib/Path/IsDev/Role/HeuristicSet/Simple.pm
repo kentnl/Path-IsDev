@@ -7,7 +7,7 @@ BEGIN {
   $Path::IsDev::Role::HeuristicSet::Simple::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Role::HeuristicSet::Simple::VERSION = '0.5.1';
+  $Path::IsDev::Role::HeuristicSet::Simple::VERSION = '0.6.0';
 }
 
 # ABSTRACT: Simple excludes/includes set
@@ -46,7 +46,7 @@ Path::IsDev::Role::HeuristicSet::Simple - Simple excludes/includes set
 
 =head1 VERSION
 
-version 0.5.1
+version 0.6.0
 
 =head1 ROLE REQUIRES
 

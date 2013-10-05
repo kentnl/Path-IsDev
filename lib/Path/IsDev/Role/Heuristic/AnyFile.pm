@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Role::Heuristic::AnyFile::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Role::Heuristic::AnyFile::VERSION = '0.5.1';
+  $Path::IsDev::Role::Heuristic::AnyFile::VERSION = '0.6.0';
 }
 
 # ABSTRACT: Positive Heuristic if a path contains one of any of a list of files
@@ -59,7 +59,7 @@ Path::IsDev::Role::Heuristic::AnyFile - Positive Heuristic if a path contains on
 
 =head1 VERSION
 
-version 0.5.1
+version 0.6.0
 
 =head1 SYNOPSIS
 
