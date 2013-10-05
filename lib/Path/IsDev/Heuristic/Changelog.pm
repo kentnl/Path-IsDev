@@ -6,30 +6,19 @@ BEGIN {
   $Path::IsDev::Heuristic::Changelog::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::Changelog::VERSION = '0.5.0';
+  $Path::IsDev::Heuristic::Changelog::VERSION = '0.5.1';
 }
 
 # ABSTRACT: Determine if a path contains a C<Changelog> (or similar)
 
 
 
-use parent 'Path::IsDev::Heuristic';
+use Role::Tiny::With;
+with 'Path::IsDev::Role::Heuristic::RegexpFile';
 
-sub _debug   { require Path::IsDev;  goto &Path::IsDev::debug }
 
-sub matches {
-  my ( $self, $result_object ) = @_;
-  for my $child ( $result_object->path->children ) {
-    next unless -f $child;
-    if ( $child->basename =~ /\AChange(s|log)(|[.][^.\s]+)\z/isxm ) {
-      _debug("$child matches expression for $self");
-      $result_object->add_reason( $self, 1, { child_matches_expression => $child } );
-      $result_object->result(1);
-      return 1;
-    }
-  }
-  $result_object->add_reason( $self, 0, { no_children_matched_expression => 1 } );
-  return;
+sub basename_regexp {
+  return qr/\AChange(s|log)(|[.][^.\s]+)\z/isxm;
 }
 
 1;
@@ -46,7 +35,7 @@ Path::IsDev::Heuristic::Changelog - Determine if a path contains a C<Changelog> 
 
 =head1 VERSION
 
-version 0.5.0
+version 0.5.1
 
 =head1 DESCRIPTION
 
@@ -63,7 +52,7 @@ etc.
 
 =head1 METHODS
 
-=head2 C<matches>
+=head2 C<basename_regexp>
 
 Indicators for this heuristic is the existence of a file such as:
 
@@ -77,7 +66,7 @@ Indicators for this heuristic is the existence of a file such as:
 {
     "namespace":"Path::IsDev::Heuristic::Changelog",
     "interface":"single_class",
-    "inherits":"Path::IsDev::Heuristic"
+    "does":"Path::IsDev::Role::Heuristic::RegexpFile"
 }
 
 

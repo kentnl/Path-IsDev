@@ -6,13 +6,15 @@ BEGIN {
   $Path::IsDev::Heuristic::TestDir::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::TestDir::VERSION = '0.5.0';
+  $Path::IsDev::Heuristic::TestDir::VERSION = '0.5.1';
 }
 
 # ABSTRACT: Determine if a path contains a t/ or xt/ directory
 
 
-use parent 'Path::IsDev::Heuristic';
+use Role::Tiny::With;
+
+with 'Path::IsDev::Role::Heuristic::AnyDir';
 
 
 sub dirs { return qw( t xt ) }
@@ -31,7 +33,7 @@ Path::IsDev::Heuristic::TestDir - Determine if a path contains a t/ or xt/ direc
 
 =head1 VERSION
 
-version 0.5.0
+version 0.5.1
 
 =head1 METHODS
 
@@ -47,7 +49,7 @@ Directories relevant to this heuristic:
 {
     "namespace":"Path::IsDev::Heuristic::TestDir",
     "interface":"single_class",
-    "inherits":"Path::IsDev::Heuristic"
+    "does":"Path::IsDev::Role::Heuristic::AnyDir"
 }
 
 

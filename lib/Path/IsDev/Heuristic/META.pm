@@ -6,13 +6,14 @@ BEGIN {
   $Path::IsDev::Heuristic::META::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::META::VERSION = '0.5.0';
+  $Path::IsDev::Heuristic::META::VERSION = '0.5.1';
 }
 
 
 # ABSTRACT: Determine if a path contains META.(json|yml)
 
-use parent 'Path::IsDev::Heuristic';
+use Role::Tiny::With;
+with 'Path::IsDev::Role::Heuristic::AnyFile';
 
 
 sub files { return qw( META.json META.yml ) }
@@ -31,7 +32,7 @@ Path::IsDev::Heuristic::META - Determine if a path contains META.(json|yml)
 
 =head1 VERSION
 
-version 0.5.0
+version 0.5.1
 
 =head1 METHODS
 
@@ -47,7 +48,7 @@ files relevant to this heuristic:
 {
     "namespace":"Path::IsDev::Heuristic::META",
     "interface":"single_class",
-    "inherits":"Path::IsDev::Heuristic"
+    "does":"Path::IsDev::Role::Heuristic::AnyFile"
 }
 
 

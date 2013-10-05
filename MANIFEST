@@ -37,6 +37,10 @@ lib/Path/IsDev/NegativeHeuristic.pm
 lib/Path/IsDev/NegativeHeuristic/IsDev/IgnoreFile.pm
 lib/Path/IsDev/Object.pm
 lib/Path/IsDev/Result.pm
+lib/Path/IsDev/Role/Heuristic.pm
+lib/Path/IsDev/Role/Heuristic/AnyDir.pm
+lib/Path/IsDev/Role/Heuristic/AnyFile.pm
+lib/Path/IsDev/Role/Heuristic/RegexpFile.pm
 maint-travis-ci/README.mkdn
 maint-travis-ci/merge_travis_yml.pl
 maint-travis-ci/sterilize_env.pl

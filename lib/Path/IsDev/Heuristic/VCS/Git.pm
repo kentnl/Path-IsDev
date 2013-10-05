@@ -6,13 +6,14 @@ BEGIN {
   $Path::IsDev::Heuristic::VCS::Git::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::VCS::Git::VERSION = '0.5.0';
+  $Path::IsDev::Heuristic::VCS::Git::VERSION = '0.5.1';
 }
 
 
 # ABSTRACT: Determine if a path contains a C<.git> repository
 
-use parent 'Path::IsDev::Heuristic';
+use Role::Tiny::With;
+with 'Path::IsDev::Role::Heuristic::AnyDir';
 
 
 sub dirs { return qw( .git ) }
@@ -31,7 +32,7 @@ Path::IsDev::Heuristic::VCS::Git - Determine if a path contains a C<.git> reposi
 
 =head1 VERSION
 
-version 0.5.0
+version 0.5.1
 
 =head1 METHODS
 
@@ -46,7 +47,7 @@ Directories relevant to this heuristic:
 {
     "namespace":"Path::IsDev::Heuristic::VCS::Git",
     "interface":"single_class",
-    "inherits":"Path::IsDev::Heuristic"
+    "does":"Path::IsDev::Role::Heuristic::AnyDir"
 }
 
 

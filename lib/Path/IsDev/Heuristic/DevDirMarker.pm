@@ -6,14 +6,15 @@ BEGIN {
   $Path::IsDev::Heuristic::DevDirMarker::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::DevDirMarker::VERSION = '0.5.0';
+  $Path::IsDev::Heuristic::DevDirMarker::VERSION = '0.5.1';
 }
 
 # ABSTRACT: Determine if a path contains a C<.devdir> file
 
 
 
-use parent 'Path::IsDev::Heuristic';
+use Role::Tiny::With qw( with );
+with 'Path::IsDev::Role::Heuristic::AnyFile';
 
 
 sub files { return qw( .devdir ) }
@@ -32,7 +33,7 @@ Path::IsDev::Heuristic::DevDirMarker - Determine if a path contains a C<.devdir>
 
 =head1 VERSION
 
-version 0.5.0
+version 0.5.1
 
 =head1 DESCRIPTION
 
@@ -54,9 +55,9 @@ Files relevant for this heuristic:
 =begin MetaPOD::JSON v1.1.0
 
 {
-    "namespace":"Path::IsDev::Heuristic::TestDir",
+    "namespace":"Path::IsDev::Heuristic::DevDirMarker",
     "interface":"single_class",
-    "inherits":"Path::IsDev::Heuristic"
+    "does":"Path::IsDev::Role::Heuristic::AnyFile"
 }
 
 
