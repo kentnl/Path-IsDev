@@ -20,6 +20,10 @@ package Path::IsDev::HeuristicSet;
 
 =head1 SYNOPSIS
 
+This class exists now for compatibility reasons.
+
+You should instead C<with> a C<::Role::HeuristicSet>*
+
     package Path::IsDev::HeuristicSet::Author::KENTNL;
 
     use parent 'Path::IsDev::HeuristicSet';
