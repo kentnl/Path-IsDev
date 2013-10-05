@@ -52,6 +52,7 @@ sub add_reason {
     }
   }
   push @{ $self->reasons }, $context;
+  return $self;
 }
 
 1;
@@ -77,7 +78,7 @@ version 0.5.0
     my $result = Path::IsDev::Result->new( path => '/some/path/that/exists' ):
 
     if ( $heuristcset->matches( $result ) ) {
-        print Dumper($result);    
+        print Dumper($result);
     }
 
 =head1 DESCRIPTION
@@ -97,7 +98,7 @@ at the point you need it.
 =head2 C<add_reason>
 
 Call this method from a heuristic to record checking of the heuristic
-and the relevant metadata.
+and the relevant meta-data.
 
     $result->add_reason( $heuristic, $matchvalue, \%contextinfo );
 
