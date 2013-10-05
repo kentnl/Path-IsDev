@@ -99,19 +99,19 @@ Determine if the C<HeuristicSet> contains a match.
 =cut
 
 sub matches {
-  my ( $self, $path ) = @_;
+  my ( $self, $result_object ) = @_;
 TESTS: for my $module ( $self->modules ) {
     $self->_load_module($module);
     if ( $module->can('excludes') ) {
-      if ( $module->excludes($path) ) {
-        _debug( $module->name . q[ excludes path ] . $path );
+      if ( $module->excludes($result_object) ) {
+        _debug( $module->name . q[ excludes path ] . $result_object->path );
         return;
       }
       next TESTS;
     }
-    next unless $module->matches($path);
+    next unless $module->matches($result_object);
     my $name = $module->name;
-    _debug( $name . q[ matched path ] . $path );
+    _debug( $name . q[ matched path ] . $result_object->path );
     return 1;
   }
   return;

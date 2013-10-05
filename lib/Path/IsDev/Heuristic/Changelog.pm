@@ -33,7 +33,6 @@ etc.
 =cut
 
 use parent 'Path::IsDev::Heuristic';
-sub _path { require Path::Tiny; goto &Path::Tiny::path }
 
 =method C<matches>
 
@@ -47,11 +46,16 @@ Indicators for this heuristic is the existence of a file such as:
 =cut
 
 sub matches {
-  my ( $self, $path ) = @_;
-  for my $child ( _path($path)->children ) {
+  my ( $self, $result_object ) = @_;
+  for my $child ( $result_object->path->children ) {
     next unless -f $child;
-    return 1 if $child->basename =~ /\AChange(s|log)(|[.][^.\s]+)\z/isxm;
+    if ( $child->basename =~ /\AChange(s|log)(|[.][^.\s]+)\z/isxm ) {
+      $result_object->add_reason( $self, 1, { child_matches_expression => $child } );
+      $result_object->result(1);
+      return 1;
+    }
   }
+  $result_object->add_reason( $self, 0, { no_children_matched_expression => 1 } );
   return;
 }
 

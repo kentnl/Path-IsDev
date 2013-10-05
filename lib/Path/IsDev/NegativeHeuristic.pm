@@ -16,7 +16,6 @@ package Path::IsDev::NegativeHeuristic;
 
 =cut
 
-sub _path    { require Path::Tiny;   goto &Path::Tiny::path }
 sub _croak   { require Carp;         goto &Carp::croak }
 sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 sub _debug   { require Path::IsDev;  goto &Path::IsDev::debug }
@@ -49,14 +48,17 @@ Glue layer between C<< ->excludes >> and C<< ->files >>
 =cut
 
 sub _file_excludes {
-  my ( $self, $path ) = @_;
-  my $root = _path($path);
+  my ( $self, $result_object ) = @_;
+  my $root = $result_object->path;
   for my $file ( $self->files ) {
     my $stat = $root->child($file);
-    next unless -e $stat;
-    next unless -f $stat;
-    _debug("$stat exists for $self");
-    return 1;
+    if ( -e $stat and -f $stat ) {
+      _debug("$stat exists for $self");
+      $result_object->add_reason( $self, 1, { 'exclude_file_exists?' => $stat } );
+      $result_object->result(undef);
+      return 1;
+    }
+    $result_object->add_reason( $self, 0, { 'exclude_file_exists?' => $stat } );
   }
   return;
 }
@@ -72,14 +74,17 @@ Glue layer between C<< ->excludes >> and C<< ->dirs >>
 =cut
 
 sub _dir_excludes {
-  my ( $self, $path ) = @_;
-  my $root = _path($path);
+  my ( $self, $result_object ) = @_;
+  my $root = $result_object->path;
   for my $file ( $self->dirs ) {
     my $stat = $root->child($file);
-    next unless -e $stat;
-    next unless -d $stat;
-    _debug( "$stat exists for" . $self->name );
-    return 1;
+    if ( -e $stat and -d $stat ) {
+      _debug( "$stat exists for" . $self->name );
+      $result_object->add_reason( $self, 1, { 'exclude_dir_exists?' => $stat } );
+      $result_object->result(undef);
+      return 1;
+    }
+    $result_object->add_reason( $self, 0, { 'exclude_dir_exists?' => $stat } );
   }
   return;
 }
@@ -96,15 +101,15 @@ and returns true as soon as any match satisfies.
 =cut
 
 sub excludes {
-  my ( $self, $path ) = @_;
+  my ( $self, $result_object ) = @_;
   if ( not $self->can('files') and not $self->can('dirs') ) {
     return _croak("Heuristic $self did not implement one of : matches, files, dirs");
   }
   if ( $self->can('files') ) {
-    return 1 if $self->_file_excludes($path);
+    return 1 if $self->_file_excludes($result_object);
   }
   if ( $self->can('dirs') ) {
-    return 1 if $self->_dir_excludes($path);
+    return 1 if $self->_dir_excludes($result_object);
   }
   return;
 }

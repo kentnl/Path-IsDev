@@ -142,7 +142,7 @@ sub _with_debug {
 
 =p_method C<BUILD>
 
-C<BUILD> is an implementation detail of C<Moo>/C<Moose>.
+C<BUILD> is an implementation detail of C<Class::Tiny>.
 
 This module hooks C<BUILD> to give a self report of the object
 to C<*STDERR> after C<< ->new >> when under C<$DEBUG>
@@ -171,18 +171,33 @@ Determine if a given path satisfies the C<set>
 
 =cut
 
+sub _matches {
+  my ( $self, $path ) = @_;
+  require Path::IsDev::Result;
+  my $object = Path::IsDev::Result->new( path => $path );
+  my $result;
+  $self->_with_debug(
+    sub {
+      $result = $self->loaded_set_module->matches($object);
+    }
+  );
+  if ( !!$result != !!$object->result ) {
+    warn "Result and Result Object missmatch";
+  }
+  return $object;
+}
+
 sub matches {
   my ( $self, $path ) = @_;
   $self->_debug( 'Matching ' . $path );
-  my $result = $self->_with_debug(
-    sub {
-      $self->loaded_set_module->matches($path);
-    }
-  );
-  if ( not $result ) {
+
+  my $object = $self->_matches($path);
+
+  if ( not $object->result ) {
     $self->_debug('no match found');
   }
-  return $result;
+
+  return $object->result;
 }
 
 1;

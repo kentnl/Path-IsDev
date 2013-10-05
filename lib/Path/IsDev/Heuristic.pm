@@ -16,7 +16,6 @@ package Path::IsDev::Heuristic;
 
 =cut
 
-sub _path    { require Path::Tiny;   goto &Path::Tiny::path }
 sub _croak   { require Carp;         goto &Carp::croak }
 sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 sub _debug   { require Path::IsDev;  goto &Path::IsDev::debug }
@@ -49,15 +48,19 @@ Glue layer between C<< ->matches >> and C<< ->files >>
 =cut
 
 sub _file_matches {
-  my ( $self, $path ) = @_;
-  my $root = _path($path);
+  my ( $self, $result_object ) = @_;
+  my $root = $result_object->path;
   for my $file ( $self->files ) {
     my $stat = $root->child($file);
-    next unless -e $stat;
-    next unless -f $stat;
-    _debug("$stat exists for $self");
-    return 1;
+    if ( -e $stat and -f $stat ) {
+      _debug("$stat exists for $self");
+      $result_object->add_reason( $self, 1, { 'file_exists?' => $stat } );
+      $result_object->result(1);
+      return 1;
+    }
+    $result_object->add_reason( $self, 0, { 'file_exists?' => $stat } );
   }
+  $result_object->result(undef);
   return;
 }
 
@@ -72,15 +75,19 @@ Glue layer between C<< ->matches >> and C<< ->dirs >>
 =cut
 
 sub _dir_matches {
-  my ( $self, $path ) = @_;
-  my $root = _path($path);
+  my ( $self, $result_object ) = @_;
+  my $root = $result_object->path;
   for my $file ( $self->dirs ) {
     my $stat = $root->child($file);
-    next unless -e $stat;
-    next unless -d $stat;
-    _debug( "$stat exists for" . $self->name );
-    return 1;
+    if ( -e $stat and -d $stat ) {
+      _debug( "$stat exists for" . $self->name );
+      $result_object->add_reason( $self, 1, { 'dir_exists?' => $stat } );
+      $result_object->result(1);
+      return 1;
+    }
+    $result_object->add_reason( $self, 0, { 'dir_exists?' => $stat } );
   }
+  $result_object->result(undef);
   return;
 }
 
@@ -88,7 +95,7 @@ sub _dir_matches {
 
 Determines if the current heuristic matches a given path
 
-    my $result = $heuristic->matches( $path );
+    my $matched = $heuristic->matches( $result_object );
 
 The default implementation takes values from C<< ->files >> and C<< ->dirs >>
 and returns true as soon as any match satisfies.
@@ -96,15 +103,15 @@ and returns true as soon as any match satisfies.
 =cut
 
 sub matches {
-  my ( $self, $path ) = @_;
+  my ( $self, $result_object ) = @_;
   if ( not $self->can('files') and not $self->can('dirs') ) {
     return _croak("Heuristic $self did not implement one of : matches, files, dirs");
   }
   if ( $self->can('files') ) {
-    return 1 if $self->_file_matches($path);
+    return 1 if $self->_file_matches($result_object);
   }
   if ( $self->can('dirs') ) {
-    return 1 if $self->_dir_matches($path);
+    return 1 if $self->_dir_matches($result_object);
   }
   return;
 }
