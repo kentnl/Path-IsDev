@@ -34,6 +34,7 @@ sub _matches_dirs {
   return;
 }
 
+
 sub matches {
   my ( $self, $result_object ) = @_;
   return $self->_matches_dirs($result_object);
@@ -80,6 +81,23 @@ version 0.5.1
 Any consuming classes must implement this method
 
     returns : A list of directory basenames to match
+
+=head1 METHODS
+
+=head2 C<matches>
+
+Implements L<< C<matches> for C<Path::IsDev::Role::Heuristic>|Path::IsDev::Role::Heuristic/matches >>
+
+    if ( $class->matches($result_object) ) {
+      # one of the items in $class->dirs matched a directory
+      # $result_object has been modified to reflect that
+      # _debug has been done where relevant
+    }
+    else {
+      # no matches
+      # $result_object has been modified with diagnostic data
+      # _debug has been done where relevant
+    }
 
 =begin MetaPOD::JSON v1.1.0
 

@@ -47,7 +47,7 @@ version 0.5.1
 
 Implementing roles must provide this method.
 
-    return : 1 / undef 
+    return : 1 / undef
              1     -> this path is a development directory as far as this heuristic is concerned
              undef -> this path is not a development directory as far as this heuristic is concerned
 

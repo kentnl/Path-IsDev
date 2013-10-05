@@ -79,7 +79,7 @@ version 0.5.1
 
 Consuming classes must provide this method.
 
-    returns : a regexp ref that will be matched on all of $PATH->children's $_->basename 
+    returns : a regexp ref that will be matched on all of $PATH->children's $_->basename
 
 =begin MetaPOD::JSON v1.1.0
 
