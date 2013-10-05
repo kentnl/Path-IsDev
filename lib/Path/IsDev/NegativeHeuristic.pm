@@ -16,13 +16,8 @@ sub _croak   { require Carp;         goto &Carp::croak }
 sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 sub _debug   { require Path::IsDev;  goto &Path::IsDev::debug }
 
-
-sub name {
-  my $name = shift;
-  $name = _blessed($name) if _blessed($name);
-  $name =~ s/\APath::IsDev::NegativeHeuristic:/Negative :/msx;
-  return $name;
-}
+use Role::Tiny::With;
+with 'Path::IsDev::Role::NegativeHeuristic';
 
 
 sub _file_excludes {
@@ -91,15 +86,6 @@ version 0.5.1
 
 =head1 METHODS
 
-=head2 C<name>
-
-Returns the name to use in debugging.
-
-By default, this is derived from the classes name
-with the C<PIDNH> prefix removed:
-
-    Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile->name() # → Negative ::IsDev::IgnoreFile
-
 =head2 C<excludes>
 
 Determines if the current negative heuristic excludes a given path
@@ -129,7 +115,8 @@ Glue layer between C<< ->excludes >> and C<< ->dirs >>
 
 {
     "namespace":"Path::IsDev::NegativeHeuristic",
-    "interface":"single_class"
+    "interface":"single_class",
+    "does":"Path::IsDev::Role::NegativeHeuristic"
 }
 
 

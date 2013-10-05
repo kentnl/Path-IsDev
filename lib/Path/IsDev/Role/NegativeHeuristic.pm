@@ -1,15 +1,15 @@
 use strict;
 use warnings;
 
-package Path::IsDev::Role::Heuristic;
+package Path::IsDev::Role::NegativeHeuristic;
 BEGIN {
-  $Path::IsDev::Role::Heuristic::AUTHORITY = 'cpan:KENTNL';
+  $Path::IsDev::Role::NegativeHeuristic::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Role::Heuristic::VERSION = '0.5.1';
+  $Path::IsDev::Role::NegativeHeuristic::VERSION = '0.5.1';
 }
 
-# ABSTRACT: Base role for Heuristic things.
+# ABSTRACT: Base role for Negative Heuristic things.
 
 use Role::Tiny;
 
@@ -20,12 +20,12 @@ sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 sub name {
   my $name = shift;
   $name = _blessed($name) if _blessed($name);
-  $name =~ s/\APath::IsDev::Heuristic:/:/msx;
+  $name =~ s/\APath::IsDev::NegativeHeuristic:/Negative :/msx;
   return $name;
 }
 
 
-requires 'matches';
+requires 'excludes';
 
 1;
 
@@ -37,7 +37,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Role::Heuristic - Base role for Heuristic things.
+Path::IsDev::Role::NegativeHeuristic - Base role for Negative Heuristic things.
 
 =head1 VERSION
 
@@ -45,13 +45,13 @@ version 0.5.1
 
 =head1 ROLE REQUIRES
 
-=head2 C<matches>
+=head2 C<excludes>
 
-Implementing roles must provide this method.
+Implementing classes must provide this method.
 
     return : 1 / undef
-             1     -> this path is a development directory as far as this heuristic is concerned
-             undef -> this path is not a development directory as far as this heuristic is concerned
+             1     -> this path is not a development directory as far as this heuristic is concerned
+             undef -> this path is a development directory as far as this heuristic is concerned
 
     args : ( $class , $result_object )
         $class         -> method will be invoked on packages, not objects
@@ -66,12 +66,12 @@ Returns the name to use in debugging.
 By default, this is derived from the classes name
 with the C<PIDH> prefix removed:
 
-    Path::IsDev::Heuristic::Tool::Dzil->name() # → ::Tool::Dzil
+    Path::IsDev::NegativeHeuristic::Tool::Dzil->name() # → ::Tool::Dzil
 
 =begin MetaPOD::JSON v1.1.0
 
 {
-    "namespace":"Path::IsDev::Role::Heuristic",
+    "namespace":"Path::IsDev::Role::NegativeHeuristic",
     "interface":"role"
 }
 

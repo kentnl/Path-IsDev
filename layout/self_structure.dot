@@ -36,7 +36,10 @@ strict digraph Perl {
 		"Path::IsDev::Role::Heuristic::AnyDir" [label="{{<port1> role}|<port2> Path::IsDev::Role::Heuristic::AnyDir}", shape=Mrecord, style=solid, color="#15b01a", fontsize=7, height="0.1"];
 		"Path::IsDev::Role::Heuristic::AnyFile" [label="{{<port1> role}|<port2> Path::IsDev::Role::Heuristic::AnyFile}", shape=Mrecord, style=solid, color="#15b01a", fontsize=7, height="0.1"];
 		"Path::IsDev::Role::Heuristic::RegexpFile" [label="{{<port1> role}|<port2> Path::IsDev::Role::Heuristic::RegexpFile}", shape=Mrecord, style=solid, color="#15b01a", fontsize=7, height="0.1"];
+		"Path::IsDev::Role::NegativeHeuristic" [label="{{<port1> role}|<port2> Path::IsDev::Role::NegativeHeuristic}", shape=Mrecord, style=solid, color="#15b01a", fontsize=7, height="0.1"];
+		"Path::IsDev::Role::NegativeHeuristic::AnyFile" [label="{{<port1> role}|<port2> Path::IsDev::Role::NegativeHeuristic::AnyFile}", shape=Mrecord, style=solid, color="#15b01a", fontsize=7, height="0.1"];
 		"Path::IsDev::Role::Heuristic" -> "Path::IsDev::Heuristic" [arrowhead=open, arrowsize="0.5", color="#653700", dir=forward, fontsize=6, headclip=1, label="consumed by", samehead=head, tailclip=1, weight=5];
+		"Path::IsDev::Role::NegativeHeuristic" -> "Path::IsDev::NegativeHeuristic" [arrowhead=open, arrowsize="0.5", color="#653700", dir=forward, fontsize=6, headclip=1, label="consumed by", samehead=head, tailclip=1, weight=5];
 		"Path::IsDev::Role::Heuristic::RegexpFile" -> "Path::IsDev::Heuristic::Changelog" [arrowhead=open, arrowsize="0.5", color="#653700", dir=forward, fontsize=6, headclip=1, label="consumed by", samehead=head, tailclip=1, weight=5];
 		"Path::IsDev::Role::Heuristic::AnyFile" -> "Path::IsDev::Heuristic::DevDirMarker" [arrowhead=open, arrowsize="0.5", color="#653700", dir=forward, fontsize=6, headclip=1, label="consumed by", samehead=head, tailclip=1, weight=5];
 		"Path::IsDev::Role::Heuristic::AnyFile" -> "Path::IsDev::Heuristic::META" [arrowhead=open, arrowsize="0.5", color="#653700", dir=forward, fontsize=6, headclip=1, label="consumed by", samehead=head, tailclip=1, weight=5];
@@ -48,10 +51,11 @@ strict digraph Perl {
 		"Path::IsDev::Role::Heuristic::AnyFile" -> "Path::IsDev::Heuristic::Tool::MakeMaker" [arrowhead=open, arrowsize="0.5", color="#653700", dir=forward, fontsize=6, headclip=1, label="consumed by", samehead=head, tailclip=1, weight=5];
 		"Path::IsDev::Role::Heuristic::AnyFile" -> "Path::IsDev::Heuristic::Tool::ModuleBuild" [arrowhead=open, arrowsize="0.5", color="#653700", dir=forward, fontsize=6, headclip=1, label="consumed by", samehead=head, tailclip=1, weight=5];
 		"Path::IsDev::Role::Heuristic::AnyDir" -> "Path::IsDev::Heuristic::VCS::Git" [arrowhead=open, arrowsize="0.5", color="#653700", dir=forward, fontsize=6, headclip=1, label="consumed by", samehead=head, tailclip=1, weight=5];
-		"Path::IsDev::NegativeHeuristic" -> "Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile" [arrowhead=open, arrowsize="0.5", color="#ff81c0", dir=forward, fontsize=6, headclip=1, label="inherited by", samehead=head, tailclip=1, weight=10];
+		"Path::IsDev::Role::NegativeHeuristic::AnyFile" -> "Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile" [arrowhead=open, arrowsize="0.5", color="#653700", dir=forward, fontsize=6, headclip=1, label="consumed by", samehead=head, tailclip=1, weight=5];
 		"Path::IsDev::Role::Heuristic" -> "Path::IsDev::Role::Heuristic::AnyDir" [arrowhead=open, arrowsize="0.5", color="#653700", dir=forward, fontsize=6, headclip=1, label="consumed by", samehead=head, tailclip=1, weight=5];
 		"Path::IsDev::Role::Heuristic" -> "Path::IsDev::Role::Heuristic::AnyFile" [arrowhead=open, arrowsize="0.5", color="#653700", dir=forward, fontsize=6, headclip=1, label="consumed by", samehead=head, tailclip=1, weight=5];
 		"Path::IsDev::Role::Heuristic" -> "Path::IsDev::Role::Heuristic::RegexpFile" [arrowhead=open, arrowsize="0.5", color="#653700", dir=forward, fontsize=6, headclip=1, label="consumed by", samehead=head, tailclip=1, weight=5];
+		"Path::IsDev::Role::NegativeHeuristic" -> "Path::IsDev::Role::NegativeHeuristic::AnyFile" [arrowhead=open, arrowsize="0.5", color="#653700", dir=forward, fontsize=6, headclip=1, label="consumed by", samehead=head, tailclip=1, weight=5];
 	}
 	"Class::Tiny::Object" [label="<port1> Class::Tiny::Object"];
 	"Class::Tiny::Object" -> "Path::IsDev::Object" [arrowhead=open, arrowsize="0.5", color="#ff81c0", dir=forward, fontsize=6, headclip=1, label="inherited by", samehead=head, tailclip=1, weight=10];

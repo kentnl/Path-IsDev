@@ -12,9 +12,9 @@ BEGIN {
 # ABSTRACT: Heuristic Base class
 
 
-sub _croak   { require Carp;         goto &Carp::croak }
-sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
-sub _debug   { require Path::IsDev;  goto &Path::IsDev::debug }
+
+sub _croak { require Carp;        goto &Carp::croak }
+sub _debug { require Path::IsDev; goto &Path::IsDev::debug }
 
 use Role::Tiny::With;
 with 'Path::IsDev::Role::Heuristic';
@@ -85,6 +85,12 @@ Path::IsDev::Heuristic - Heuristic Base class
 =head1 VERSION
 
 version 0.5.1
+
+=head1 SYNOPSIS
+
+This module exists mostly as a compatibility shim.
+
+All new Heuristics should simply C<with> the applicable role.
 
 =head1 METHODS
 

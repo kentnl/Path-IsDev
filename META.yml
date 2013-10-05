@@ -87,6 +87,12 @@ provides:
   Path::IsDev::Role::Heuristic::RegexpFile:
     file: lib/Path/IsDev/Role/Heuristic/RegexpFile.pm
     version: v0.5.1
+  Path::IsDev::Role::NegativeHeuristic:
+    file: lib/Path/IsDev/Role/NegativeHeuristic.pm
+    version: v0.5.1
+  Path::IsDev::Role::NegativeHeuristic::AnyFile:
+    file: lib/Path/IsDev/Role/NegativeHeuristic/AnyFile.pm
+    version: v0.5.1
 requires:
   Carp: 0
   Class::Tiny: 0.010
