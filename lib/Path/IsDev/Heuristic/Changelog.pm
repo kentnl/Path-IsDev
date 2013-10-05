@@ -22,7 +22,7 @@ sub matches {
   for my $child ( $result_object->path->children ) {
     next unless -f $child;
     if ( $child->basename =~ /\AChange(s|log)(|[.][^.\s]+)\z/isxm ) {
-      _debug("$child matches expression");
+      _debug("$child matches expression for $self");
       $result_object->add_reason( $self, 1, { child_matches_expression => $child } );
       $result_object->result(1);
       return 1;
