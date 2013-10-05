@@ -15,6 +15,7 @@ BEGIN {
 
 use parent 'Path::IsDev::Heuristic';
 
+sub _debug   { require Path::IsDev;  goto &Path::IsDev::debug }
 
 sub matches {
   my ( $self, $result_object ) = @_;
