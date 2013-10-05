@@ -49,7 +49,6 @@
             "Role::Tiny::With" : "0",
             "Scalar::Util" : "0",
             "Sub::Exporter" : "0",
-            "parent" : "0",
             "perl" : "v5.10.0",
             "strict" : "0",
             "warnings" : "0"
@@ -156,6 +155,14 @@
          "file" : "lib/Path/IsDev/Role/Heuristic/RegexpFile.pm",
          "version" : "v0.5.1"
       },
+      "Path::IsDev::Role::HeuristicSet" : {
+         "file" : "lib/Path/IsDev/Role/HeuristicSet.pm",
+         "version" : "v0.5.1"
+      },
+      "Path::IsDev::Role::HeuristicSet::Simple" : {
+         "file" : "lib/Path/IsDev/Role/HeuristicSet/Simple.pm",
+         "version" : "v0.5.1"
+      },
       "Path::IsDev::Role::NegativeHeuristic" : {
          "file" : "lib/Path/IsDev/Role/NegativeHeuristic.pm",
          "version" : "v0.5.1"
@@ -206,7 +213,6 @@
          "Test::More" : "0.98",
          "Test::Pod" : "1.48",
          "Test::Pod::Coverage" : "1.08",
-         "parent" : "0.228",
          "strict" : "1.08",
          "version" : "0.9904",
          "warnings" : "1.18"

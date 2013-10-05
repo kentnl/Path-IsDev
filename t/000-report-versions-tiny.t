@@ -64,7 +64,6 @@ eval { $v .= pmver('Scalar::Util','any version') };
 eval { $v .= pmver('Sub::Exporter','any version') };
 eval { $v .= pmver('Test::Fatal','any version') };
 eval { $v .= pmver('Test::More','0.98') };
-eval { $v .= pmver('parent','any version') };
 eval { $v .= pmver('strict','any version') };
 eval { $v .= pmver('warnings','any version') };
 

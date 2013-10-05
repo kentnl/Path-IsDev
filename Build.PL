@@ -31,7 +31,6 @@ my %module_build_args = (
     "Role::Tiny::With" => 0,
     "Scalar::Util" => 0,
     "Sub::Exporter" => 0,
-    "parent" => 0,
     "perl" => "v5.10.0",
     "strict" => 0,
     "warnings" => 0

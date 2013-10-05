@@ -12,7 +12,8 @@ BEGIN {
 # ABSTRACT: Basic C<IsDev> set of Heuristics
 
 
-use parent 'Path::IsDev::HeuristicSet';
+use Role::Tiny::With;
+with 'Path::IsDev::Role::HeuristicSet::Simple';
 
 
 sub negative_heuristics {
@@ -89,7 +90,7 @@ Heuristics included in this set:
 {
     "namespace":"Path::IsDev::HeuristicSet::Basic",
     "interface":"single_class",
-    "inherits":"Path::IsDev::HeuristicSet"
+    "does":"Path::IsDev::Role::HeuristicSet::Simple"
 }
 
 

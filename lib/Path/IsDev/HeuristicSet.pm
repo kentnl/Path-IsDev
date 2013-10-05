@@ -15,24 +15,10 @@ BEGIN {
 
 
 sub _croak      { require Carp;            goto &Carp::croak }
-sub _use_module { require Module::Runtime; goto &Module::Runtime::use_module }
 sub _debug      { require Path::IsDev;     goto &Path::IsDev::debug }
-sub _com_mn     { require Module::Runtime; goto &Module::Runtime::compose_module_name; }
 
-sub _expand_heuristic {
-  my ( $self, $hn ) = @_;
-  return _com_mn( 'Path::IsDev::Heuristic', $hn );
-}
-
-sub _expand_negative_heuristic {
-  my ( $self, $hn ) = @_;
-  return _com_mn( 'Path::IsDev::NegativeHeuristic', $hn );
-}
-
-sub _load_module {
-  my ( $self, $module ) = @_;
-  return _use_module($module);
-}
+use Role::Tiny::With;
+with 'Path::IsDev::Role::HeuristicSet';
 
 
 sub modules {
@@ -53,24 +39,6 @@ sub modules {
 }
 
 
-sub matches {
-  my ( $self, $result_object ) = @_;
-TESTS: for my $module ( $self->modules ) {
-    $self->_load_module($module);
-    if ( $module->can('excludes') ) {
-      if ( $module->excludes($result_object) ) {
-        _debug( $module->name . q[ excludes path ] . $result_object->path );
-        return;
-      }
-      next TESTS;
-    }
-    next unless $module->matches($result_object);
-    my $name = $module->name;
-    _debug( $name . q[ matched path ] . $result_object->path );
-    return 1;
-  }
-  return;
-}
 
 1;
 
@@ -120,19 +88,12 @@ Returns the list of fully qualified module names that comprise this heuristic.
 
 Default implementation expands results from C<< ->heuristics >>
 
-=head2 C<matches>
-
-Determine if the C<HeuristicSet> contains a match.
-
-    if( $hs->matches( $result_object ) ) {
-        # one of hs->modules() matched $result_object->path
-    }
-
 =begin MetaPOD::JSON v1.1.0
 
 {
     "namespace":"Path::IsDev::HeuristicSet",
-    "interface":"single_class"
+    "interface":"single_class",
+    "does":"Path::IsDev::Role::HeuristicSet"
 }
 
 

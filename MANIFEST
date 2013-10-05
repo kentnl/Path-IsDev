@@ -41,6 +41,8 @@ lib/Path/IsDev/Role/Heuristic.pm
 lib/Path/IsDev/Role/Heuristic/AnyDir.pm
 lib/Path/IsDev/Role/Heuristic/AnyFile.pm
 lib/Path/IsDev/Role/Heuristic/RegexpFile.pm
+lib/Path/IsDev/Role/HeuristicSet.pm
+lib/Path/IsDev/Role/HeuristicSet/Simple.pm
 lib/Path/IsDev/Role/NegativeHeuristic.pm
 lib/Path/IsDev/Role/NegativeHeuristic/AnyFile.pm
 maint-travis-ci/README.mkdn
