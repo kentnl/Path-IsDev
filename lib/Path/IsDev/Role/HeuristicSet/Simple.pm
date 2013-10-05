@@ -62,7 +62,7 @@ and return a list of shorthand Heuristics.
 =head2 C<negative_heuristics>
 
 Consuming classes must provide this method,
-and return a list of shorthand Negative Heurisitics.
+and return a list of shorthand Negative Heuristics.
 
     sub negative_heuristics {
         return qw( IsDev::IgnoreFile )
