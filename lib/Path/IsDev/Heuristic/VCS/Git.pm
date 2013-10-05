@@ -8,7 +8,7 @@ package Path::IsDev::Heuristic::VCS::Git;
 {
     "namespace":"Path::IsDev::Heuristic::VCS::Git",
     "interface":"single_class",
-    "inherits":"Path::IsDev::Heuristic"
+    "does":"Path::IsDev::Role::Heuristic::AnyDir"
 }
 
 =end MetaPOD::JSON
@@ -17,7 +17,8 @@ package Path::IsDev::Heuristic::VCS::Git;
 
 # ABSTRACT: Determine if a path contains a C<.git> repository
 
-use parent 'Path::IsDev::Heuristic';
+use Role::Tiny::With;
+with 'Path::IsDev::Role::Heuristic::AnyDir';
 
 =method C<dirs>
 

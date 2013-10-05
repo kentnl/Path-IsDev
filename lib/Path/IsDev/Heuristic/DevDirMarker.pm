@@ -20,16 +20,17 @@ with a Perl C<CPAN> dist, but are instead working on a project in a different la
 =begin MetaPOD::JSON v1.1.0
 
 {
-    "namespace":"Path::IsDev::Heuristic::TestDir",
+    "namespace":"Path::IsDev::Heuristic::DevDirMarker",
     "interface":"single_class",
-    "inherits":"Path::IsDev::Heuristic"
+    "does":"Path::IsDev::Role::Heuristic::AnyFile"
 }
 
 =end MetaPOD::JSON
 
 =cut
 
-use parent 'Path::IsDev::Heuristic';
+use Role::Tiny::With qw( with );
+with 'Path::IsDev::Role::Heuristic::AnyFile';
 
 =method C<files>
 

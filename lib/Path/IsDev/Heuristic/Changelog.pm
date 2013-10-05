@@ -25,17 +25,17 @@ etc.
 {
     "namespace":"Path::IsDev::Heuristic::Changelog",
     "interface":"single_class",
-    "inherits":"Path::IsDev::Heuristic"
+    "does":"Path::IsDev::Role::Heuristic::RegexpFile"
 }
 
 =end MetaPOD::JSON
 
 =cut
 
-use parent 'Path::IsDev::Heuristic';
+use Role::Tiny::With;
+with 'Path::IsDev::Role::Heuristic::RegexpFile';
 
-sub _debug   { require Path::IsDev;  goto &Path::IsDev::debug }
-=method C<matches>
+=method C<basename_regexp>
 
 Indicators for this heuristic is the existence of a file such as:
 
@@ -46,19 +46,8 @@ Indicators for this heuristic is the existence of a file such as:
 
 =cut
 
-sub matches {
-  my ( $self, $result_object ) = @_;
-  for my $child ( $result_object->path->children ) {
-    next unless -f $child;
-    if ( $child->basename =~ /\AChange(s|log)(|[.][^.\s]+)\z/isxm ) {
-      _debug("$child matches expression for $self");
-      $result_object->add_reason( $self, 1, { child_matches_expression => $child } );
-      $result_object->result(1);
-      return 1;
-    }
-  }
-  $result_object->add_reason( $self, 0, { no_children_matched_expression => 1 } );
-  return;
+sub basename_regexp {
+  return qr/\AChange(s|log)(|[.][^.\s]+)\z/isxm;
 }
 
 1;

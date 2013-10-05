@@ -8,7 +8,7 @@ package Path::IsDev::Heuristic::META;
 {
     "namespace":"Path::IsDev::Heuristic::META",
     "interface":"single_class",
-    "inherits":"Path::IsDev::Heuristic"
+    "does":"Path::IsDev::Role::Heuristic::AnyFile"
 }
 
 =end MetaPOD::JSON
@@ -17,7 +17,8 @@ package Path::IsDev::Heuristic::META;
 
 # ABSTRACT: Determine if a path contains META.(json|yml)
 
-use parent 'Path::IsDev::Heuristic';
+use Role::Tiny::With;
+with 'Path::IsDev::Role::Heuristic::AnyFile';
 
 =method C<files>
 

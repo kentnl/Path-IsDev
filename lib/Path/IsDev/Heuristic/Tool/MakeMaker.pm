@@ -8,7 +8,7 @@ package Path::IsDev::Heuristic::Tool::MakeMaker;
 {
     "namespace":"Path::IsDev::Heuristic::Tool::MakeMaker",
     "interface":"single_class",
-    "inherits":"Path::IsDev::Heuristic"
+    "does":"Path::IsDev::Role::Heuristic::AnyFile"
 }
 
 =end MetaPOD::JSON
@@ -17,7 +17,9 @@ package Path::IsDev::Heuristic::Tool::MakeMaker;
 
 # ABSTRACT: Determine if a path is an C<EUMM> Tooled source directory
 
-use parent 'Path::IsDev::Heuristic';
+use Role::Tiny::With;
+
+with 'Path::IsDev::Role::Heuristic::AnyFile';
 
 =method C<files>
 

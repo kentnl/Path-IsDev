@@ -8,7 +8,7 @@ package Path::IsDev::Heuristic::Makefile;
 {
     "namespace":"Path::IsDev::Heuristic::Makefile",
     "interface":"single_class",
-    "inherits":"Path::IsDev::Heuristic"
+    "does":"Path::IsDev::Role::Heuristic::AnyFile"
 }
 
 =end MetaPOD::JSON
@@ -17,7 +17,8 @@ package Path::IsDev::Heuristic::Makefile;
 
 # ABSTRACT: Determine if a path contains a C<Makefile>
 
-use parent 'Path::IsDev::Heuristic';
+use Role::Tiny::With;
+with 'Path::IsDev::Role::Heuristic::AnyFile';
 
 =method C<files>
 

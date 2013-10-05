@@ -8,7 +8,7 @@ package Path::IsDev::Heuristic::Tool::Dzil;
 {
     "namespace":"Path::IsDev::Heuristic::Tool::Dzil",
     "interface":"single_class",
-    "inherits":"Path::IsDev::Heuristic"
+    "does":"Path::IsDev::Role::Heuristic::AnyFile"
 }
 
 =end MetaPOD::JSON
@@ -17,7 +17,9 @@ package Path::IsDev::Heuristic::Tool::Dzil;
 
 # ABSTRACT: Determine if a path is a Dist::Zilla Source tree
 
-use parent 'Path::IsDev::Heuristic';
+use Role::Tiny::With;
+
+with 'Path::IsDev::Role::Heuristic::AnyFile';
 
 =method C<files>
 

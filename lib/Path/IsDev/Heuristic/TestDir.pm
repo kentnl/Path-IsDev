@@ -10,14 +10,16 @@ package Path::IsDev::Heuristic::TestDir;
 {
     "namespace":"Path::IsDev::Heuristic::TestDir",
     "interface":"single_class",
-    "inherits":"Path::IsDev::Heuristic"
+    "does":"Path::IsDev::Role::Heuristic::AnyDir"
 }
 
 =end MetaPOD::JSON
 
 =cut
 
-use parent 'Path::IsDev::Heuristic';
+use Role::Tiny::With;
+
+with 'Path::IsDev::Role::Heuristic::AnyDir';
 
 =method C<dirs>
 

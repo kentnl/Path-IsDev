@@ -10,7 +10,7 @@ package Path::IsDev::Heuristic::MYMETA;
 {
     "namespace":"Path::IsDev::Heuristic::MYMETA",
     "interface":"single_class",
-    "inherits":"Path::IsDev::Heuristic"
+    "does":"Path::IsDev::Role::Heuristic::AnyFile"
 }
 
 =end MetaPOD::JSON
@@ -26,7 +26,8 @@ Granted, this heuristic is expected to be B<never> needed, as in order to create
 
 =cut
 
-use parent 'Path::IsDev::Heuristic';
+use Role::Tiny::With;
+with 'Path::IsDev::Role::Heuristic::AnyFile';
 
 =method C<files>
 

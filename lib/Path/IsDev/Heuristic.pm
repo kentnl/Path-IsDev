@@ -9,7 +9,8 @@ package Path::IsDev::Heuristic;
 
 {
     "namespace":"Path::IsDev::Heuristic",
-    "interface":"single_class"
+    "interface":"single_class",
+    "does":"Path::IsDev::Role::Heuristic"
 }
 
 =end MetaPOD::JSON
@@ -20,23 +21,8 @@ sub _croak   { require Carp;         goto &Carp::croak }
 sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 sub _debug   { require Path::IsDev;  goto &Path::IsDev::debug }
 
-=method C<name>
-
-Returns the name to use in debugging.
-
-By default, this is derived from the classes name
-with the C<PIDH> prefix removed:
-
-    Path::IsDev::Heuristic::Tool::Dzil->name() # → ::Tool::Dzil
-
-=cut
-
-sub name {
-  my $name = shift;
-  $name = _blessed($name) if _blessed($name);
-  $name =~ s/\APath::IsDev::Heuristic:/:/msx;
-  return $name;
-}
+use Role::Tiny::With;
+with 'Path::IsDev::Role::Heuristic';
 
 =p_method C<_file_matches>
 
