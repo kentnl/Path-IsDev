@@ -10,14 +10,15 @@ package Path::IsDev::HeuristicSet::Basic;
 {
     "namespace":"Path::IsDev::HeuristicSet::Basic",
     "interface":"single_class",
-    "inherits":"Path::IsDev::HeuristicSet"
+    "does":"Path::IsDev::Role::HeuristicSet::Simple"
 }
 
 =end MetaPOD::JSON
 
 =cut
 
-use parent 'Path::IsDev::HeuristicSet';
+use Role::Tiny::With;
+with 'Path::IsDev::Role::HeuristicSet::Simple';
 
 =method C<negative_heuristics>
 
