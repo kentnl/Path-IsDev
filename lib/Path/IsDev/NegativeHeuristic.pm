@@ -17,8 +17,15 @@ package Path::IsDev::NegativeHeuristic;
 
 =cut
 
+=head1 SYNOPSIS
+
+This class exists for compatibility.
+
+New code should C<with> C<::Role::NegativeHeuristic::>*
+
+=cut
+
 sub _croak   { require Carp;         goto &Carp::croak }
-sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 sub _debug   { require Path::IsDev;  goto &Path::IsDev::debug }
 
 use Role::Tiny::With;
