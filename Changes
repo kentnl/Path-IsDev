@@ -1,6 +1,20 @@
 Release history for Path-IsDev
 
-0.5.0 2013-10-05T14:12:57Z
+0.5.0 2013-10-05T14:22:20Z
+ [00 Major Changes - Result Object]
+ - Internals now re-written slightly to pass around a result object that
+   communicates state.
+ - Everywhere $path was previously used, $result_object->path is now used
+   instead.
+ - $result_object->path guaranteed to exist and be a ref of some kind.
+ - $result_object->path automatically upgraded to Path::Tiny if provided as
+   a string
+ - ->matches() and ->excludes() can now record results of heuristics by
+   invoking $result_object->add_reason()
+ - Path::IsDev::Object->_matches($path) now exists and returns a Result
+   Object for $path
+ - Dumping result object will give you as much info as turning debugging on
+   would
 
 0.4.0 2013-09-27T17:48:00Z
  [00 Major Changes - Negative Heuristics]
