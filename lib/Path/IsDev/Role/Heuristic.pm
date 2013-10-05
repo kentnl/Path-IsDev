@@ -22,6 +22,7 @@ sub name {
   return $name;
 }
 
+
 requires 'matches';
 
 1;
@@ -39,6 +40,20 @@ Path::IsDev::Role::Heuristic
 =head1 VERSION
 
 version 0.5.1
+
+=head1 ROLE REQUIRES
+
+=head2 C<matches>
+
+Implementing roles must provide this method.
+
+    return : 1 / undef 
+             1     -> this path is a development directory as far as this heuristic is concerned
+             undef -> this path is not a development directory as far as this heuristic is concerned
+
+    args : ( $class , $result_object )
+        $class         -> method will be invoked on packages, not objects
+        $result_object -> will be a Path::IsDev::Result
 
 =head1 METHODS
 

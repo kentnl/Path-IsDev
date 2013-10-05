@@ -9,10 +9,13 @@ BEGIN {
   $Path::IsDev::Role::Heuristic::AnyFile::VERSION = '0.5.1';
 }
 
+# ABSTRACT: Positive Heuristic if a path contains one of any of a list of files
+
 
 sub _debug { require Path::IsDev; goto &Path::IsDev::debug }
 
 use Role::Tiny;
+
 
 sub _matches_files {
   my ( $self, $result_object ) = @_;
@@ -37,6 +40,8 @@ sub matches {
 }
 
 with 'Path::IsDev::Role::Heuristic';
+
+
 requires 'files';
 
 1;
@@ -49,11 +54,32 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Role::Heuristic::AnyFile
+Path::IsDev::Role::Heuristic::AnyFile - Positive Heuristic if a path contains one of any of a list of files
 
 =head1 VERSION
 
 version 0.5.1
+
+=head1 SYNOPSIS
+
+    package Some::Heuristic;
+    use Role::Tiny::With;
+    with 'Path::IsDev::Role::Heuristic::AnyFile';
+
+    # Match if $PATH contains any of the named children as files
+    sub files {
+        return qw( Foo Bar Baz .bashrc )
+    }
+
+    1;
+
+=head1 ROLE REQUIRES
+
+=head2 C<files>
+
+Any consuming classes must implement this method
+
+    returns : A list of file basenames to match
 
 =begin MetaPOD::JSON v1.1.0
 

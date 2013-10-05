@@ -9,10 +9,13 @@ BEGIN {
   $Path::IsDev::Role::Heuristic::RegexpFile::VERSION = '0.5.1';
 }
 
+# ABSTRACT: Positive Heuristic when a path has a child file matching an expression
+
 
 sub _debug { require Path::IsDev; goto &Path::IsDev::debug }
 
 use Role::Tiny;
+
 
 sub _matches_basename_regexp {
   my ( $self, $result_object ) = @_;
@@ -37,6 +40,8 @@ sub matches {
 }
 
 with 'Path::IsDev::Role::Heuristic';
+
+
 requires 'basename_regexp';
 
 1;
@@ -49,11 +54,32 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Role::Heuristic::RegexpFile
+Path::IsDev::Role::Heuristic::RegexpFile - Positive Heuristic when a path has a child file matching an expression
 
 =head1 VERSION
 
 version 0.5.1
+
+=head1 SYNOPSIS
+
+    package Some::Heuristic;
+    use Role::Tiny::With;
+    with 'Path::IsDev::Role::Heuristic::RegexpFile';
+
+    # Match if $PATH contains a child like $PATH/.bashrc or $PATH/.bash_profile
+    sub basename_regexp {
+        return qr/ \A [.] bash/xism;
+    }
+
+    1;
+
+=head1 ROLE REQUIRES
+
+=head2 C<basename_regexp>
+
+Consuming classes must provide this method.
+
+    returns : a regexp ref that will be matched on all of $PATH->children's $_->basename 
 
 =begin MetaPOD::JSON v1.1.0
 

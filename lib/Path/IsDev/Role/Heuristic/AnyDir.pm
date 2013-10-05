@@ -9,10 +9,13 @@ BEGIN {
   $Path::IsDev::Role::Heuristic::AnyDir::VERSION = '0.5.1';
 }
 
+# ABSTRACT: Positive Heuristic if a path contains one of any of a list of directories
+
 
 sub _debug { require Path::IsDev; goto &Path::IsDev::debug }
 
 use Role::Tiny;
+
 
 sub _matches_dirs {
   my ( $self, $result_object ) = @_;
@@ -37,6 +40,8 @@ sub matches {
 }
 
 with 'Path::IsDev::Role::Heuristic';
+
+
 requires 'dirs';
 
 1;
@@ -49,11 +54,32 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Role::Heuristic::AnyDir
+Path::IsDev::Role::Heuristic::AnyDir - Positive Heuristic if a path contains one of any of a list of directories
 
 =head1 VERSION
 
 version 0.5.1
+
+=head1 SYNOPSIS
+
+    package Some::Heuristic;
+    use Role::Tiny::With;
+    with 'Path::IsDev::Role::Heuristic::AnyDir';
+
+    # Match if $PATH contains any of the named children as dirs
+    sub dirs {
+        return qw( .git .build )
+    }
+
+    1;
+
+=head1 ROLE REQUIRES
+
+=head2 C<dirs>
+
+Any consuming classes must implement this method
+
+    returns : A list of directory basenames to match
 
 =begin MetaPOD::JSON v1.1.0
 
