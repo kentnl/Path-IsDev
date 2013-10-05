@@ -23,55 +23,58 @@ name: Path-IsDev
 provides:
   Path::IsDev:
     file: lib/Path/IsDev.pm
-    version: v0.4.0
+    version: v0.5.0
   Path::IsDev::Heuristic:
     file: lib/Path/IsDev/Heuristic.pm
-    version: v0.4.0
+    version: v0.5.0
   Path::IsDev::Heuristic::Changelog:
     file: lib/Path/IsDev/Heuristic/Changelog.pm
-    version: v0.4.0
+    version: v0.5.0
   Path::IsDev::Heuristic::DevDirMarker:
     file: lib/Path/IsDev/Heuristic/DevDirMarker.pm
-    version: v0.4.0
+    version: v0.5.0
   Path::IsDev::Heuristic::META:
     file: lib/Path/IsDev/Heuristic/META.pm
-    version: v0.4.0
+    version: v0.5.0
   Path::IsDev::Heuristic::MYMETA:
     file: lib/Path/IsDev/Heuristic/MYMETA.pm
-    version: v0.4.0
+    version: v0.5.0
   Path::IsDev::Heuristic::Makefile:
     file: lib/Path/IsDev/Heuristic/Makefile.pm
-    version: v0.4.0
+    version: v0.5.0
   Path::IsDev::Heuristic::TestDir:
     file: lib/Path/IsDev/Heuristic/TestDir.pm
-    version: v0.4.0
+    version: v0.5.0
   Path::IsDev::Heuristic::Tool::Dzil:
     file: lib/Path/IsDev/Heuristic/Tool/Dzil.pm
-    version: v0.4.0
+    version: v0.5.0
   Path::IsDev::Heuristic::Tool::MakeMaker:
     file: lib/Path/IsDev/Heuristic/Tool/MakeMaker.pm
-    version: v0.4.0
+    version: v0.5.0
   Path::IsDev::Heuristic::Tool::ModuleBuild:
     file: lib/Path/IsDev/Heuristic/Tool/ModuleBuild.pm
-    version: v0.4.0
+    version: v0.5.0
   Path::IsDev::Heuristic::VCS::Git:
     file: lib/Path/IsDev/Heuristic/VCS/Git.pm
-    version: v0.4.0
+    version: v0.5.0
   Path::IsDev::HeuristicSet:
     file: lib/Path/IsDev/HeuristicSet.pm
-    version: v0.4.0
+    version: v0.5.0
   Path::IsDev::HeuristicSet::Basic:
     file: lib/Path/IsDev/HeuristicSet/Basic.pm
-    version: v0.4.0
+    version: v0.5.0
   Path::IsDev::NegativeHeuristic:
     file: lib/Path/IsDev/NegativeHeuristic.pm
-    version: v0.4.0
+    version: v0.5.0
   Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile:
     file: lib/Path/IsDev/NegativeHeuristic/IsDev/IgnoreFile.pm
-    version: v0.4.0
+    version: v0.5.0
   Path::IsDev::Object:
     file: lib/Path/IsDev/Object.pm
-    version: v0.4.0
+    version: v0.5.0
+  Path::IsDev::Result:
+    file: lib/Path/IsDev/Result.pm
+    version: v0.5.0
 requires:
   Carp: 0
   Class::Tiny: 0.010
@@ -87,7 +90,7 @@ resources:
   bugtracker: https://github.com/kentfredric/Path-IsDev/issues
   homepage: https://github.com/kentfredric/Path-IsDev
   repository: https://github.com/kentfredric/Path-IsDev.git
-version: 0.4.0
+version: 0.5.0
 x_BuiltWith:
   modules:
     Carp: 1.32
@@ -101,7 +104,7 @@ x_BuiltWith:
     IPC::Open3: 1.15
     Module::Build: 0.4007
     Module::Runtime: 0.013
-    Path::Tiny: 0.037
+    Path::Tiny: 0.038
     Pod::Coverage::TrustPod: 0.100002
     Scalar::Util: 1.32
     Sub::Exporter: 0.986
@@ -128,7 +131,7 @@ x_BuiltWith:
     myarchname: x86_64-linux
     osname: linux
   platform: linux
-  uname: 'Linux 3.11.1-gentoo x86_64 GenuineIntel GNU/Linux'
+  uname: 'Linux 3.11.2-gentoo x86_64 GenuineIntel GNU/Linux'
 x_Dist_Zilla:
   perl:
     version: 5.019003
@@ -144,7 +147,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::GithubMeta
       name: '@Author::KENTNL/GithubMeta'
-      version: 0.38
+      version: 0.42
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: '@Author::KENTNL/MetaProvides::Package/AUTOVIV/:InstallModulesPM'
@@ -211,7 +214,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::ReportVersions::Tiny
       name: '@Author::KENTNL/ReportVersions::Tiny'
-      version: 1.09
+      version: 1.10
     -
       class: Dist::Zilla::Plugin::Test::Kwalitee
       name: '@Author::KENTNL/Test::Kwalitee'
@@ -346,7 +349,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Twitter
       name: '@Author::KENTNL/Twitter'
-      version: 0.021
+      version: 0.022
     -
       class: Dist::Zilla::Plugin::Prereqs::MatchInstalled
       config:

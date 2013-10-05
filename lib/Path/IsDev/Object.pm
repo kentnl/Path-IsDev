@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Object::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Object::VERSION = '0.4.0';
+  $Path::IsDev::Object::VERSION = '0.5.0';
 }
 
 # ABSTRACT: Object Oriented guts for C<IsDev> export
@@ -37,6 +37,8 @@ use Class::Tiny 0.010 {
 
 my $instances   = {};
 my $instance_id = 0;
+
+sub _carp { require Carp; goto &Carp::carp; }
 
 
 sub _instance_id {
@@ -82,18 +84,33 @@ sub BUILD {
 }
 
 
+sub _matches {
+  my ( $self, $path ) = @_;
+  require Path::IsDev::Result;
+  my $object = Path::IsDev::Result->new( path => $path );
+  my $result;
+  $self->_with_debug(
+    sub {
+      $result = $self->loaded_set_module->matches($object);
+    }
+  );
+  if ( !!$result != !!$object->result ) {
+    _carp(q[Result and Result Object missmatch]);
+  }
+  return $object;
+}
+
 sub matches {
   my ( $self, $path ) = @_;
   $self->_debug( 'Matching ' . $path );
-  my $result = $self->_with_debug(
-    sub {
-      $self->loaded_set_module->matches($path);
-    }
-  );
-  if ( not $result ) {
+
+  my $object = $self->_matches($path);
+
+  if ( not $object->result ) {
     $self->_debug('no match found');
   }
-  return $result;
+
+  return $object->result;
 }
 
 1;
@@ -110,7 +127,7 @@ Path::IsDev::Object - Object Oriented guts for C<IsDev> export
 
 =head1 VERSION
 
-version 0.4.0
+version 0.5.0
 
 =head1 SYNOPSIS
 
@@ -190,7 +207,7 @@ to get debug info.
 
 =head2 C<BUILD>
 
-C<BUILD> is an implementation detail of C<Moo>/C<Moose>.
+C<BUILD> is an implementation detail of C<Class::Tiny>.
 
 This module hooks C<BUILD> to give a self report of the object
 to C<*STDERR> after C<< ->new >> when under C<$DEBUG>

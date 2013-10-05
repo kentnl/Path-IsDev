@@ -6,13 +6,12 @@ BEGIN {
   $Path::IsDev::NegativeHeuristic::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::NegativeHeuristic::VERSION = '0.4.0';
+  $Path::IsDev::NegativeHeuristic::VERSION = '0.5.0';
 }
 
 # ABSTRACT: Anti-Heuristic Base class
 
 
-sub _path    { require Path::Tiny;   goto &Path::Tiny::path }
 sub _croak   { require Carp;         goto &Carp::croak }
 sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 sub _debug   { require Path::IsDev;  goto &Path::IsDev::debug }
@@ -27,43 +26,49 @@ sub name {
 
 
 sub _file_excludes {
-  my ( $self, $path ) = @_;
-  my $root = _path($path);
+  my ( $self, $result_object ) = @_;
+  my $root = $result_object->path;
   for my $file ( $self->files ) {
     my $stat = $root->child($file);
-    next unless -e $stat;
-    next unless -f $stat;
-    _debug("$stat exists for $self");
-    return 1;
+    if ( -e $stat and -f $stat ) {
+      _debug("$stat exists for $self");
+      $result_object->add_reason( $self, 1, { 'exclude_file_exists?' => $stat } );
+      $result_object->result(undef);
+      return 1;
+    }
+    $result_object->add_reason( $self, 0, { 'exclude_file_exists?' => $stat } );
   }
   return;
 }
 
 
 sub _dir_excludes {
-  my ( $self, $path ) = @_;
-  my $root = _path($path);
+  my ( $self, $result_object ) = @_;
+  my $root = $result_object->path;
   for my $file ( $self->dirs ) {
     my $stat = $root->child($file);
-    next unless -e $stat;
-    next unless -d $stat;
-    _debug( "$stat exists for" . $self->name );
-    return 1;
+    if ( -e $stat and -d $stat ) {
+      _debug( "$stat exists for" . $self->name );
+      $result_object->add_reason( $self, 1, { 'exclude_dir_exists?' => $stat } );
+      $result_object->result(undef);
+      return 1;
+    }
+    $result_object->add_reason( $self, 0, { 'exclude_dir_exists?' => $stat } );
   }
   return;
 }
 
 
 sub excludes {
-  my ( $self, $path ) = @_;
+  my ( $self, $result_object ) = @_;
   if ( not $self->can('files') and not $self->can('dirs') ) {
     return _croak("Heuristic $self did not implement one of : matches, files, dirs");
   }
   if ( $self->can('files') ) {
-    return 1 if $self->_file_excludes($path);
+    return 1 if $self->_file_excludes($result_object);
   }
   if ( $self->can('dirs') ) {
-    return 1 if $self->_dir_excludes($path);
+    return 1 if $self->_dir_excludes($result_object);
   }
   return;
 }
@@ -82,7 +87,7 @@ Path::IsDev::NegativeHeuristic - Anti-Heuristic Base class
 
 =head1 VERSION
 
-version 0.4.0
+version 0.5.0
 
 =head1 METHODS
 
@@ -99,7 +104,7 @@ with the C<PIDNH> prefix removed:
 
 Determines if the current negative heuristic excludes a given path
 
-    my $result = $heuristic->excludes( $path );
+    my $result = $heuristic->excludes( $result_object );
 
 The default implementation takes values from C<< ->files >> and C<< ->dirs >>
 and returns true as soon as any match satisfies.
@@ -111,14 +116,14 @@ and returns true as soon as any match satisfies.
 Glue layer between C<< ->excludes >> and C<< ->files >>
 
     # iterate $heuristic->files looking for a match
-    $heurisitic->_file_excludes($path);
+    $heurisitic->_file_excludes( $result_object );
 
 =head2 C<_dir_excludes>
 
 Glue layer between C<< ->excludes >> and C<< ->dirs >>
 
     # iterate $heuristic->dirs looking for a match
-    $heurisitic->_dir_excludes($path);
+    $heurisitic->_dir_excludes( $result_object );
 
 =begin MetaPOD::JSON v1.1.0
 
