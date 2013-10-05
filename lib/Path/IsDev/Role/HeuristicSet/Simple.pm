@@ -53,7 +53,7 @@ version 0.5.1
 =head2 C<heuristics>
 
 Consuming classes must provide this method,
-and return a list of shorthand Heurisitics.
+and return a list of shorthand Heuristics.
 
     sub heuristics {
         return qw( MYMETA )
@@ -75,7 +75,7 @@ and return a list of shorthand Negative Heurisitics.
 Returns the list of fully qualified module names that comprise this heuristic.
 
 expands results from C<< ->heuristics >> and C<< ->negative_heuristics >>,
-with negative ones preceeding positive.
+with negative ones preceding positive.
 
 =begin MetaPOD::JSON v1.1.0
 
