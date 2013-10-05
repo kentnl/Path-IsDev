@@ -9,7 +9,8 @@ package Path::IsDev::NegativeHeuristic;
 
 {
     "namespace":"Path::IsDev::NegativeHeuristic",
-    "interface":"single_class"
+    "interface":"single_class",
+    "does":"Path::IsDev::Role::NegativeHeuristic"
 }
 
 =end MetaPOD::JSON
@@ -20,23 +21,8 @@ sub _croak   { require Carp;         goto &Carp::croak }
 sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 sub _debug   { require Path::IsDev;  goto &Path::IsDev::debug }
 
-=method C<name>
-
-Returns the name to use in debugging.
-
-By default, this is derived from the classes name
-with the C<PIDNH> prefix removed:
-
-    Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile->name() # → Negative ::IsDev::IgnoreFile
-
-=cut
-
-sub name {
-  my $name = shift;
-  $name = _blessed($name) if _blessed($name);
-  $name =~ s/\APath::IsDev::NegativeHeuristic:/Negative :/msx;
-  return $name;
-}
+use Role::Tiny::With;
+with 'Path::IsDev::Role::NegativeHeuristic';
 
 =p_method C<_file_excludess>
 

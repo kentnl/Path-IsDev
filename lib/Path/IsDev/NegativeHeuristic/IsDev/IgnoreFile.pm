@@ -11,7 +11,7 @@ package Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile;
 {
     "namespace":"Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile",
     "interface":"single_class",
-    "inherits":"Path::IsDev::NegativeHeuristic"
+    "does":"Path::IsDev::Role::NegativeHeuristic::AnyFile"
 }
 
 =end MetaPOD::JSON
@@ -40,9 +40,10 @@ However:
 
 =cut
 
-use parent 'Path::IsDev::NegativeHeuristic';
+use Role::Tiny::With;
+with 'Path::IsDev::Role::NegativeHeuristic::AnyFile';
 
-=method C<files>
+=method C<excludes_files>
 
 Files valid for triggering this heuristic:
 
@@ -50,7 +51,7 @@ Files valid for triggering this heuristic:
 
 =cut
 
-sub files {
+sub excludes_files {
   return ('.path_isdev_ignore');
 }
 1;
