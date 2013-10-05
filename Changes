@@ -1,6 +1,6 @@
 Release history for Path-IsDev
 
-0.5.0 2013-10-05T14:26:39Z
+0.5.0 2013-10-05T14:27:02Z
  [00 Major Changes - Result Object]
  - Internals now re-written slightly to pass around a result object that
    communicates state.
