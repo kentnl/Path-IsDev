@@ -5,6 +5,16 @@ package Path::IsDev::Result;
 
 # ABSTRACT: Result container
 
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Path::IsDev::Result",
+    "interface":"class",
+    "inherits":"Class::Tiny::Object"
+}
+
+=end MetaPOD::JSON
+
 =head1 SYNOPSIS
 
     use Path::IsDev::Result;

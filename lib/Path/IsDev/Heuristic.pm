@@ -17,9 +17,16 @@ package Path::IsDev::Heuristic;
 
 =cut
 
-sub _croak   { require Carp;         goto &Carp::croak }
-sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
-sub _debug   { require Path::IsDev;  goto &Path::IsDev::debug }
+=head1 SYNOPSIS
+
+This module exists mostly as a compatibility shim.
+
+All new Heuristics should simply C<with> the applicable role.
+
+=cut
+
+sub _croak { require Carp;        goto &Carp::croak }
+sub _debug { require Path::IsDev; goto &Path::IsDev::debug }
 
 use Role::Tiny::With;
 with 'Path::IsDev::Role::Heuristic';

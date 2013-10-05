@@ -3,6 +3,8 @@ use warnings;
 
 package Path::IsDev::Role::Heuristic;
 
+# ABSTRACT: Base role for Heuristic things.
+
 use Role::Tiny;
 
 =begin MetaPOD::JSON v1.1.0
@@ -35,6 +37,20 @@ sub name {
   $name =~ s/\APath::IsDev::Heuristic:/:/msx;
   return $name;
 }
+
+=requires C<matches>
+
+Implementing roles must provide this method.
+
+    return : 1 / undef
+             1     -> this path is a development directory as far as this heuristic is concerned
+             undef -> this path is not a development directory as far as this heuristic is concerned
+
+    args : ( $class , $result_object )
+        $class         -> method will be invoked on packages, not objects
+        $result_object -> will be a Path::IsDev::Result
+
+=cut
 
 requires 'matches';
 
