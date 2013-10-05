@@ -17,7 +17,7 @@ my %module_build_args = (
     "Kent Fredric <kentfredric\@gmail.com>"
   ],
   "dist_name" => "Path-IsDev",
-  "dist_version" => "0.5.0",
+  "dist_version" => "0.6.0",
   "license" => "perl",
   "module_name" => "Path::IsDev",
   "recommends" => {},
@@ -27,9 +27,10 @@ my %module_build_args = (
     "Class::Tiny" => "0.010",
     "Module::Runtime" => 0,
     "Path::Tiny" => 0,
+    "Role::Tiny" => 0,
+    "Role::Tiny::With" => 0,
     "Scalar::Util" => 0,
     "Sub::Exporter" => 0,
-    "parent" => 0,
     "perl" => "v5.10.0",
     "strict" => 0,
     "warnings" => 0

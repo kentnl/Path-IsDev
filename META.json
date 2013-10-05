@@ -45,9 +45,10 @@
             "Class::Tiny" : "0.010",
             "Module::Runtime" : "0",
             "Path::Tiny" : "0",
+            "Role::Tiny" : "0",
+            "Role::Tiny::With" : "0",
             "Scalar::Util" : "0",
             "Sub::Exporter" : "0",
-            "parent" : "0",
             "perl" : "v5.10.0",
             "strict" : "0",
             "warnings" : "0"
@@ -68,75 +69,107 @@
    "provides" : {
       "Path::IsDev" : {
          "file" : "lib/Path/IsDev.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
       },
       "Path::IsDev::Heuristic" : {
          "file" : "lib/Path/IsDev/Heuristic.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
       },
       "Path::IsDev::Heuristic::Changelog" : {
          "file" : "lib/Path/IsDev/Heuristic/Changelog.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
       },
       "Path::IsDev::Heuristic::DevDirMarker" : {
          "file" : "lib/Path/IsDev/Heuristic/DevDirMarker.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
       },
       "Path::IsDev::Heuristic::META" : {
          "file" : "lib/Path/IsDev/Heuristic/META.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
       },
       "Path::IsDev::Heuristic::MYMETA" : {
          "file" : "lib/Path/IsDev/Heuristic/MYMETA.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
       },
       "Path::IsDev::Heuristic::Makefile" : {
          "file" : "lib/Path/IsDev/Heuristic/Makefile.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
       },
       "Path::IsDev::Heuristic::TestDir" : {
          "file" : "lib/Path/IsDev/Heuristic/TestDir.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
       },
       "Path::IsDev::Heuristic::Tool::Dzil" : {
          "file" : "lib/Path/IsDev/Heuristic/Tool/Dzil.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
       },
       "Path::IsDev::Heuristic::Tool::MakeMaker" : {
          "file" : "lib/Path/IsDev/Heuristic/Tool/MakeMaker.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
       },
       "Path::IsDev::Heuristic::Tool::ModuleBuild" : {
          "file" : "lib/Path/IsDev/Heuristic/Tool/ModuleBuild.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
       },
       "Path::IsDev::Heuristic::VCS::Git" : {
          "file" : "lib/Path/IsDev/Heuristic/VCS/Git.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
       },
       "Path::IsDev::HeuristicSet" : {
          "file" : "lib/Path/IsDev/HeuristicSet.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
       },
       "Path::IsDev::HeuristicSet::Basic" : {
          "file" : "lib/Path/IsDev/HeuristicSet/Basic.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
       },
       "Path::IsDev::NegativeHeuristic" : {
          "file" : "lib/Path/IsDev/NegativeHeuristic.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
       },
       "Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile" : {
          "file" : "lib/Path/IsDev/NegativeHeuristic/IsDev/IgnoreFile.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
       },
       "Path::IsDev::Object" : {
          "file" : "lib/Path/IsDev/Object.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
       },
       "Path::IsDev::Result" : {
          "file" : "lib/Path/IsDev/Result.pm",
-         "version" : "v0.5.0"
+         "version" : "v0.6.0"
+      },
+      "Path::IsDev::Role::Heuristic" : {
+         "file" : "lib/Path/IsDev/Role/Heuristic.pm",
+         "version" : "v0.6.0"
+      },
+      "Path::IsDev::Role::Heuristic::AnyDir" : {
+         "file" : "lib/Path/IsDev/Role/Heuristic/AnyDir.pm",
+         "version" : "v0.6.0"
+      },
+      "Path::IsDev::Role::Heuristic::AnyFile" : {
+         "file" : "lib/Path/IsDev/Role/Heuristic/AnyFile.pm",
+         "version" : "v0.6.0"
+      },
+      "Path::IsDev::Role::Heuristic::RegexpFile" : {
+         "file" : "lib/Path/IsDev/Role/Heuristic/RegexpFile.pm",
+         "version" : "v0.6.0"
+      },
+      "Path::IsDev::Role::HeuristicSet" : {
+         "file" : "lib/Path/IsDev/Role/HeuristicSet.pm",
+         "version" : "v0.6.0"
+      },
+      "Path::IsDev::Role::HeuristicSet::Simple" : {
+         "file" : "lib/Path/IsDev/Role/HeuristicSet/Simple.pm",
+         "version" : "v0.6.0"
+      },
+      "Path::IsDev::Role::NegativeHeuristic" : {
+         "file" : "lib/Path/IsDev/Role/NegativeHeuristic.pm",
+         "version" : "v0.6.0"
+      },
+      "Path::IsDev::Role::NegativeHeuristic::AnyFile" : {
+         "file" : "lib/Path/IsDev/Role/NegativeHeuristic/AnyFile.pm",
+         "version" : "v0.6.0"
       }
    },
    "release_status" : "stable",
@@ -151,8 +184,11 @@
          "web" : "https://github.com/kentfredric/Path-IsDev"
       }
    },
-   "version" : "0.5.0",
+   "version" : "0.6.0",
    "x_BuiltWith" : {
+      "failures" : {
+         "Role::Tiny::With" : "Module::MetaData could not parse a version from /home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl/5.19.3/Role/Tiny/With.pm"
+      },
       "modules" : {
          "Carp" : "1.32",
          "Class::Tiny" : "0.011",
@@ -167,6 +203,7 @@
          "Module::Runtime" : "0.013",
          "Path::Tiny" : "0.038",
          "Pod::Coverage::TrustPod" : "0.100002",
+         "Role::Tiny" : "1.003002",
          "Scalar::Util" : "1.32",
          "Sub::Exporter" : "0.986",
          "Test::CPAN::Changes" : "0.23",
@@ -176,7 +213,6 @@
          "Test::More" : "0.98",
          "Test::Pod" : "1.48",
          "Test::Pod::Coverage" : "1.08",
-         "parent" : "0.228",
          "strict" : "1.08",
          "version" : "0.9904",
          "warnings" : "1.18"

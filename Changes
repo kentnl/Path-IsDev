@@ -1,5 +1,19 @@
 Release history for Path-IsDev
 
+0.6.0 2013-10-05T17:56:06Z
+ [00 Major Changes - Role Apocalypse]
+ - All internals that could be rewritten to invoke roles instead of
+   inheritance, have been done so.
+ - Base classes for existing things still exist, and should still work,
+   however, they're on borrowed time.
+
+ [Dependencies::Added / runtime requires]
+ - Role::Tiny
+ - Role::Tiny::With
+
+ [Dependencies::Removed / runtime requires]
+ - parent
+
 0.5.0 2013-10-05T15:00:12Z
  [00 Major Changes - Result Object]
  - Internals now re-written slightly to pass around a result object that

@@ -6,13 +6,14 @@ BEGIN {
   $Path::IsDev::HeuristicSet::Basic::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::HeuristicSet::Basic::VERSION = '0.5.0';
+  $Path::IsDev::HeuristicSet::Basic::VERSION = '0.6.0';
 }
 
 # ABSTRACT: Basic C<IsDev> set of Heuristics
 
 
-use parent 'Path::IsDev::HeuristicSet';
+use Role::Tiny::With;
+with 'Path::IsDev::Role::HeuristicSet::Simple';
 
 
 sub negative_heuristics {
@@ -42,7 +43,7 @@ Path::IsDev::HeuristicSet::Basic - Basic C<IsDev> set of Heuristics
 
 =head1 VERSION
 
-version 0.5.0
+version 0.6.0
 
 =head1 METHODS
 
@@ -89,7 +90,7 @@ Heuristics included in this set:
 {
     "namespace":"Path::IsDev::HeuristicSet::Basic",
     "interface":"single_class",
-    "inherits":"Path::IsDev::HeuristicSet"
+    "does":"Path::IsDev::Role::HeuristicSet::Simple"
 }
 
 

@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Result::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Result::VERSION = '0.5.0';
+  $Path::IsDev::Result::VERSION = '0.6.0';
 }
 
 # ABSTRACT: Result container
@@ -69,7 +69,7 @@ Path::IsDev::Result - Result container
 
 =head1 VERSION
 
-version 0.5.0
+version 0.6.0
 
 =head1 SYNOPSIS
 
@@ -109,6 +109,17 @@ and the relevant meta-data.
 =head2 C<result>
 
 =head2 C<reasons>
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Path::IsDev::Result",
+    "interface":"class",
+    "inherits":"Class::Tiny::Object"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 AUTHOR
 

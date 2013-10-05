@@ -7,16 +7,17 @@ BEGIN {
   $Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::VERSION = '0.5.0';
+  $Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::VERSION = '0.6.0';
 }
 
 # ABSTRACT: An explicit exclusion file heuristic
 
 
-use parent 'Path::IsDev::NegativeHeuristic';
+use Role::Tiny::With;
+with 'Path::IsDev::Role::NegativeHeuristic::AnyFile';
 
 
-sub files {
+sub excludes_files {
   return ('.path_isdev_ignore');
 }
 1;
@@ -33,7 +34,7 @@ Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile - An explicit exclusion file h
 
 =head1 VERSION
 
-version 0.5.0
+version 0.6.0
 
 =head1 SYNOPSIS
 
@@ -59,7 +60,7 @@ However:
 
 =head1 METHODS
 
-=head2 C<files>
+=head2 C<excludes_files>
 
 Files valid for triggering this heuristic:
 
@@ -70,7 +71,7 @@ Files valid for triggering this heuristic:
 {
     "namespace":"Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile",
     "interface":"single_class",
-    "inherits":"Path::IsDev::NegativeHeuristic"
+    "does":"Path::IsDev::Role::NegativeHeuristic::AnyFile"
 }
 
 

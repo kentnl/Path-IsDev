@@ -6,23 +6,18 @@ BEGIN {
   $Path::IsDev::NegativeHeuristic::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::NegativeHeuristic::VERSION = '0.5.0';
+  $Path::IsDev::NegativeHeuristic::VERSION = '0.6.0';
 }
 
 # ABSTRACT: Anti-Heuristic Base class
 
 
+
 sub _croak   { require Carp;         goto &Carp::croak }
-sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 sub _debug   { require Path::IsDev;  goto &Path::IsDev::debug }
 
-
-sub name {
-  my $name = shift;
-  $name = _blessed($name) if _blessed($name);
-  $name =~ s/\APath::IsDev::NegativeHeuristic:/Negative :/msx;
-  return $name;
-}
+use Role::Tiny::With;
+with 'Path::IsDev::Role::NegativeHeuristic';
 
 
 sub _file_excludes {
@@ -87,18 +82,15 @@ Path::IsDev::NegativeHeuristic - Anti-Heuristic Base class
 
 =head1 VERSION
 
-version 0.5.0
+version 0.6.0
+
+=head1 SYNOPSIS
+
+This class exists for compatibility.
+
+New code should C<with> C<::Role::NegativeHeuristic::>*
 
 =head1 METHODS
-
-=head2 C<name>
-
-Returns the name to use in debugging.
-
-By default, this is derived from the classes name
-with the C<PIDNH> prefix removed:
-
-    Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile->name() # → Negative ::IsDev::IgnoreFile
 
 =head2 C<excludes>
 
@@ -129,7 +121,8 @@ Glue layer between C<< ->excludes >> and C<< ->dirs >>
 
 {
     "namespace":"Path::IsDev::NegativeHeuristic",
-    "interface":"single_class"
+    "interface":"single_class",
+    "does":"Path::IsDev::Role::NegativeHeuristic"
 }
 
 
