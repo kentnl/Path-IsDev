@@ -5,6 +5,17 @@ package Path::IsDev::Role::Heuristic;
 
 use Role::Tiny;
 
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Path::IsDev::Role::Heuristic",
+    "interface":"role"
+}
+
+=end MetaPOD::JSON
+
+=cut
+
 sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 
 =method C<name>
