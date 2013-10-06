@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Heuristic::Tool::Dzil::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::Tool::Dzil::VERSION = '0.6.0';
+  $Path::IsDev::Heuristic::Tool::Dzil::VERSION = '0.6.1';
 }
 
 
@@ -33,7 +33,7 @@ Path::IsDev::Heuristic::Tool::Dzil - Determine if a path is a Dist::Zilla Source
 
 =head1 VERSION
 
-version 0.6.0
+version 0.6.1
 
 =head1 METHODS
 

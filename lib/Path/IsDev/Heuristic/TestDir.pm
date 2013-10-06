@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Heuristic::TestDir::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::TestDir::VERSION = '0.6.0';
+  $Path::IsDev::Heuristic::TestDir::VERSION = '0.6.1';
 }
 
 # ABSTRACT: Determine if a path contains a t/ or xt/ directory
@@ -33,7 +33,7 @@ Path::IsDev::Heuristic::TestDir - Determine if a path contains a t/ or xt/ direc
 
 =head1 VERSION
 
-version 0.6.0
+version 0.6.1
 
 =head1 METHODS
 

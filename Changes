@@ -1,5 +1,7 @@
 Release history for Path-IsDev
 
+0.6.1 2013-10-06T08:41:49Z
+
 0.6.0 2013-10-05T17:56:06Z
  [00 Major Changes - Role Apocalypse]
  - All internals that could be rewritten to invoke roles instead of
