@@ -20,7 +20,9 @@ sub _fhd  { require File::HomeDir; return 'File::HomeDir' }
 sub excludes_dirs {
     my @out;
     for my  $dir (qw( home desktop docs music pics videos data )) {
-        push @out, _fhd->"my_$dir";
+        my $method = _fhd()->can("my_$dir");
+        next unless $method;
+        push @out, _fhd()->$method;
     }
     return _uniq(@out);
 }
