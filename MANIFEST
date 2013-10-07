@@ -34,6 +34,7 @@ lib/Path/IsDev/Heuristic/VCS/Git.pm
 lib/Path/IsDev/HeuristicSet.pm
 lib/Path/IsDev/HeuristicSet/Basic.pm
 lib/Path/IsDev/NegativeHeuristic.pm
+lib/Path/IsDev/NegativeHeuristic/HomeDir.pm
 lib/Path/IsDev/NegativeHeuristic/IsDev/IgnoreFile.pm
 lib/Path/IsDev/Object.pm
 lib/Path/IsDev/Result.pm
@@ -44,6 +45,7 @@ lib/Path/IsDev/Role/Heuristic/RegexpFile.pm
 lib/Path/IsDev/Role/HeuristicSet.pm
 lib/Path/IsDev/Role/HeuristicSet/Simple.pm
 lib/Path/IsDev/Role/NegativeHeuristic.pm
+lib/Path/IsDev/Role/NegativeHeuristic/AnyDir.pm
 lib/Path/IsDev/Role/NegativeHeuristic/AnyFile.pm
 maint-travis-ci/README.mkdn
 maint-travis-ci/merge_travis_yml.pl

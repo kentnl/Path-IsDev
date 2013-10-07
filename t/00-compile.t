@@ -3,7 +3,7 @@ use warnings;
 
 # this test was generated with Dist::Zilla::Plugin::Test::Compile 2.034
 
-use Test::More  tests => 26 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
+use Test::More  tests => 28 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
 
 
 
@@ -23,6 +23,7 @@ my @module_files = (
     'Path/IsDev/HeuristicSet.pm',
     'Path/IsDev/HeuristicSet/Basic.pm',
     'Path/IsDev/NegativeHeuristic.pm',
+    'Path/IsDev/NegativeHeuristic/HomeDir.pm',
     'Path/IsDev/NegativeHeuristic/IsDev/IgnoreFile.pm',
     'Path/IsDev/Object.pm',
     'Path/IsDev/Result.pm',
@@ -33,6 +34,7 @@ my @module_files = (
     'Path/IsDev/Role/HeuristicSet.pm',
     'Path/IsDev/Role/HeuristicSet/Simple.pm',
     'Path/IsDev/Role/NegativeHeuristic.pm',
+    'Path/IsDev/Role/NegativeHeuristic/AnyDir.pm',
     'Path/IsDev/Role/NegativeHeuristic/AnyFile.pm'
 );
 

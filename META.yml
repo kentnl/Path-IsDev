@@ -66,6 +66,9 @@ provides:
   Path::IsDev::NegativeHeuristic:
     file: lib/Path/IsDev/NegativeHeuristic.pm
     version: v0.6.1
+  Path::IsDev::NegativeHeuristic::HomeDir:
+    file: lib/Path/IsDev/NegativeHeuristic/HomeDir.pm
+    version: v0.6.1
   Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile:
     file: lib/Path/IsDev/NegativeHeuristic/IsDev/IgnoreFile.pm
     version: v0.6.1
@@ -96,12 +99,17 @@ provides:
   Path::IsDev::Role::NegativeHeuristic:
     file: lib/Path/IsDev/Role/NegativeHeuristic.pm
     version: v0.6.1
+  Path::IsDev::Role::NegativeHeuristic::AnyDir:
+    file: lib/Path/IsDev/Role/NegativeHeuristic/AnyDir.pm
+    version: v0.6.1
   Path::IsDev::Role::NegativeHeuristic::AnyFile:
     file: lib/Path/IsDev/Role/NegativeHeuristic/AnyFile.pm
     version: v0.6.1
 requires:
   Carp: 0
   Class::Tiny: 0.010
+  File::HomeDir: 0
+  List::MoreUtils: 0
   Module::Runtime: 0
   Path::Tiny: 0
   Role::Tiny: 0
@@ -124,11 +132,13 @@ x_BuiltWith:
     Class::Tiny: 0.011
     Dist::Zilla::PluginBundle::Author::KENTNL: 1.9.0
     Dist::Zilla::PluginBundle::Author::KENTNL::Lite: 1.7.2
+    File::HomeDir: 1.00
     File::Spec: 3.44
     File::Temp: 0.2302
     FindBin: 1.51
     IO::Handle: 1.35
     IPC::Open3: 1.15
+    List::MoreUtils: 0.33
     Module::Build: 0.4007
     Module::Runtime: 0.013
     Path::Tiny: 0.038
