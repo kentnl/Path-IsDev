@@ -67,7 +67,7 @@ version 0.6.1
     with 'Path::IsDev::Role::NegativeHeuristic::AnyFile';
 
     # Match if $PATH contains any of the named children as files
-    sub files {
+    sub excludes_files {
         return qw( Foo Bar Baz .bashrc )
     }
 

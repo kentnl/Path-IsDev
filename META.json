@@ -232,7 +232,7 @@
          "osname" : "linux"
       },
       "platform" : "linux",
-      "uname" : "Linux 3.11.2-gentoo x86_64 GenuineIntel GNU/Linux"
+      "uname" : "Linux 3.11.3-gentoo x86_64 GenuineIntel GNU/Linux"
    },
    "x_Dist_Zilla" : {
       "perl" : {
