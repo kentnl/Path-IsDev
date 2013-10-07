@@ -39,7 +39,7 @@ sub excludes {
   return $self->_excludes_dirs($result_object);
 }
 
-with 'Path::IsDev::Role::Heuristic';
+with 'Path::IsDev::Role::NegativeHeuristic';
 
 
 requires 'excludes_dirs';
