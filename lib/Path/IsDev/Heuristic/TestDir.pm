@@ -16,6 +16,7 @@ use Role::Tiny::With;
 
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::Dir';
 
+
 sub dirs {
   return qw( xt t );
 }
@@ -48,12 +49,18 @@ version 1.000000
 
 =head1 METHODS
 
-=head2 C<matches>
+=head2 C<dirs>
 
 Directories relevant to this heuristic:
 
     t/
     xt/
+
+=head2 C<matches>
+
+    if ( $heuristic->matches( $result_object ) ) {
+        # one of the directories in ->dirs exists 
+    }
 
 =begin MetaPOD::JSON v1.1.0
 

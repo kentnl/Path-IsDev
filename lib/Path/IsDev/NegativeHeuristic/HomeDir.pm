@@ -18,6 +18,7 @@ sub _uniq (@) {
   return grep { not $seen{$_}++ } @_;
 }
 
+
 use Role::Tiny::With;
 with 'Path::IsDev::Role::NegativeHeuristic', 'Path::IsDev::Role::Matcher::FullPath::Is::Any';
 
@@ -51,6 +52,20 @@ Path::IsDev::NegativeHeuristic::HomeDir - User home directories are not developm
 =head1 VERSION
 
 version 1.000000
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Path::IsDev::NegativeHeuristic::HomeDir",
+    "interface":"single_class",
+    "does": [
+        "Path::IsDev::Role::NegativeHeuristic",
+        "Path::IsDev::Role::Matcher::FullPath::Is::Any"
+    ]
+}
+
+
+=end MetaPOD::JSON
 
 =head1 AUTHOR
 

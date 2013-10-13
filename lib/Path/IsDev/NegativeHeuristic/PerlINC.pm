@@ -17,6 +17,7 @@ sub _uniq (@) {
   return grep { not $seen{$_}++ } @_;
 }
 
+
 use Role::Tiny::With;
 use Config;
 
@@ -47,6 +48,20 @@ Path::IsDev::NegativeHeuristic::PerlINC - White-list paths in C<Config.pm> as be
 =head1 VERSION
 
 version 1.000000
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Path::IsDev::NegativeHeuristic::PerlINC",
+    "interface":"single_class",
+    "does": [
+        "Path::IsDev::Role::NegativeHeuristic",
+        "Path::IsDev::Role::Matcher::FullPath::Is::Any"
+    ]
+}
+
+
+=end MetaPOD::JSON
 
 =head1 AUTHOR
 

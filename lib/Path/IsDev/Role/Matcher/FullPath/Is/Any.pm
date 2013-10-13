@@ -16,6 +16,7 @@ sub _path { require Path::Tiny; goto &Path::Tiny::path }
 
 use Role::Tiny;
 
+
 sub _fullpath_is {
   my ( $self, $result_object, $this, $comparator ) = @_;
 
@@ -85,6 +86,16 @@ Note, this is usually invoked on directories anyway.
     if ( $self->fullpath_is_any( $result_object, '/usr/', '/usr/bin/foo' )) {
 
     }
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Path::IsDev::Role::Matcher::FullPath::Is::Any",
+    "interface":"role"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 AUTHOR
 
