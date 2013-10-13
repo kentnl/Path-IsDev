@@ -12,9 +12,10 @@ BEGIN {
 
 # ABSTRACT: User home directories are not development roots
 
+## no critic (RequireArgUnpacking, ProhibitSubroutinePrototypes)
 sub _uniq (@) {
   my %seen = ();
-  grep { not $seen{$_}++ } @_;
+  return grep { not $seen{$_}++ } @_;
 }
 
 use Role::Tiny::With;
