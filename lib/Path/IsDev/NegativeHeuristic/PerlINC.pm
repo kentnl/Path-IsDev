@@ -9,7 +9,7 @@ BEGIN {
   $Path::IsDev::NegativeHeuristic::PerlINC::VERSION = '1.000000';
 }
 
-# ABSTRACT: Whitelist paths in Config.pm as being non-dev roots.
+# ABSTRACT: White-list paths in C<Config.pm> as being non-development roots.
 
 ## no critic (RequireArgUnpacking, ProhibitSubroutinePrototypes)
 sub _uniq (@) {
@@ -42,7 +42,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::NegativeHeuristic::PerlINC - Whitelist paths in Config.pm as being non-dev roots.
+Path::IsDev::NegativeHeuristic::PerlINC - White-list paths in C<Config.pm> as being non-development roots.
 
 =head1 VERSION
 

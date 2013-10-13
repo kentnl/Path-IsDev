@@ -9,7 +9,7 @@ BEGIN {
   $Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File::VERSION = '1.000000';
 }
 
-# ABSTRACT: Match if any children have basenames that match a regexp and are files
+# ABSTRACT: Match if any children have C<basename>s that match a regexp and are files
 
 use Role::Tiny;
 with 'Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp';
@@ -56,7 +56,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File - Match if any children have basenames that match a regexp and are files
+Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File - Match if any children have C<basename>s that match a regexp and are files
 
 =head1 VERSION
 

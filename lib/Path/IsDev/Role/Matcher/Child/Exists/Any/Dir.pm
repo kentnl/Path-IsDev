@@ -9,7 +9,7 @@ BEGIN {
   $Path::IsDev::Role::Matcher::Child::Exists::Any::Dir::VERSION = '1.000000';
 }
 
-# ABSTRACT: Positive Heuristic if a path contains one of any of a list of dirs
+# ABSTRACT: Match if a path contains one of any of a list of directories
 
 
 use Role::Tiny;
@@ -50,7 +50,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Role::Matcher::Child::Exists::Any::Dir - Positive Heuristic if a path contains one of any of a list of dirs
+Path::IsDev::Role::Matcher::Child::Exists::Any::Dir - Match if a path contains one of any of a list of directories
 
 =head1 VERSION
 
