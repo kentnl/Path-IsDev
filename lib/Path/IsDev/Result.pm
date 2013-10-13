@@ -21,6 +21,7 @@ use Class::Tiny 'path', 'result', {
 sub _path  { require Path::Tiny; goto &Path::Tiny::path }
 sub _croak { require Carp;       goto &Carp::croak }
 
+## no critic (RequireArgUnpacking)
 sub _pp {
   require Data::Dump;
   local $Data::Dumper::Indent     = 1;
@@ -29,7 +30,7 @@ sub _pp {
   local $Data::Dumper::Terse      = 1;
   local $Data::Dumper::Quotekeys  = 0;
   local $Data::Dumper::Sparseseen = 1;
-  return split /\n/, Data::Dump::pp(@_);
+  return split /\n/msx, Data::Dump::pp(@_);
 }
 
 sub _debug {
@@ -51,6 +52,7 @@ sub BUILD {
     return _croak(q[<path> parameter must exist for heuristics to be performed]);
   }
   $self->path( $self->path->absolute );
+  return $self;
 }
 
 
@@ -61,7 +63,7 @@ sub add_reason {
   # $self->_debug( " > " . $_) for _pp($context);
   my ($heuristic_type);
 
-  if ( $heuristic_name->can("heuristic_type") ) {
+  if ( $heuristic_name->can(q[heuristic_type]) ) {
     $heuristic_type = $heuristic_name->heuristic_type;
   }
 
