@@ -37,7 +37,7 @@ sub _load_module {
 
 
 sub matches {
-    my ( $self, $result_object ) = @_;
+  my ( $self, $result_object ) = @_;
 TESTS: for my $module ( $self->modules ) {
     $self->_load_module($module);
     if ( $module->can('excludes') ) {

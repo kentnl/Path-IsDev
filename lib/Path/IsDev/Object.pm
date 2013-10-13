@@ -105,7 +105,6 @@ sub _matches {
 sub matches {
   my ( $self, $path ) = @_;
 
-
   my $object = $self->_matches($path);
 
   if ( not $object->result ) {

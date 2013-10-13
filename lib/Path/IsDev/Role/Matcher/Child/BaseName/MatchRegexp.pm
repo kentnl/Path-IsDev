@@ -15,32 +15,32 @@ BEGIN {
 use Role::Tiny;
 
 sub _this_child_matchregexp {
-    my ( $self, $result_object, $child, $regexp ) = @_;
-    my $ctx = { 
-        'child' => "$child", 
-        'child_basename' => $child->basename, 
-        expression => $regexp,
-        tests => [] 
-    };
-    my $tests = $ctx->{tests};
+  my ( $self, $result_object, $child, $regexp ) = @_;
+  my $ctx = {
+    'child'          => "$child",
+    'child_basename' => $child->basename,
+    expression       => $regexp,
+    tests            => []
+  };
+  my $tests = $ctx->{tests};
 
-    if ( $child->basename =~ $regexp ) {
-        push @{$tests} , { 'child_basename_matches_expression?' => 1 };
-        $result_object->add_reason( $self, 1, $child->basename . " matches $regexp", $ctx );
-        return 1;
-    }
-    push @{$tests} , { 'child_basename_matches_expression?' => 0 };
-    $result_object->add_reason( $self, 0, $child->basename . " does not match $regexp",  $ctx );
-    return;
+  if ( $child->basename =~ $regexp ) {
+    push @{$tests}, { 'child_basename_matches_expression?' => 1 };
+    $result_object->add_reason( $self, 1, $child->basename . " matches $regexp", $ctx );
+    return 1;
+  }
+  push @{$tests}, { 'child_basename_matches_expression?' => 0 };
+  $result_object->add_reason( $self, 0, $child->basename . " does not match $regexp", $ctx );
+  return;
 }
 
 
 sub child_basename_matchregexp {
-    my ( $self, $result_object, $regexp ) = @_;
-    for my $child ( $result_object->path->children ) {
-        return 1 if $self->_this_child_matchregexp( $result_object, $child, $regexp );        
-    }
-    return;
+  my ( $self, $result_object, $regexp ) = @_;
+  for my $child ( $result_object->path->children ) {
+    return 1 if $self->_this_child_matchregexp( $result_object, $child, $regexp );
+  }
+  return;
 }
 
 1;

@@ -25,7 +25,7 @@ sub name {
 }
 
 sub heuristic_type {
-    return 'negative heuristic';
+  return 'negative heuristic';
 }
 
 

@@ -14,21 +14,20 @@ BEGIN {
 
 use Role::Tiny::With;
 
-with 'Path::IsDev::Role::Heuristic',
-  'Path::IsDev::Role::Matcher::Child::Exists::Any::Dir';
+with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::Dir';
 
 sub dirs {
-    return qw( xt t );
+  return qw( xt t );
 }
 
 
 sub matches {
-    my ( $self, $result_object ) = @_;
-    if ( $self->child_exists_any_dir( $result_object, $self->dirs ) ) {
-        $result_object->result(1);
-        return 1;
-    }
-    return;
+  my ( $self, $result_object ) = @_;
+  if ( $self->child_exists_any_dir( $result_object, $self->dirs ) ) {
+    $result_object->result(1);
+    return 1;
+  }
+  return;
 }
 
 1;

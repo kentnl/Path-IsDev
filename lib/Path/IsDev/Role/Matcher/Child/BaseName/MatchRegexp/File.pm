@@ -17,19 +17,19 @@ with 'Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp';
 
 sub _this_child_isfile {
   my ( $self, $result_object, $child ) = @_;
-  my $ctx = { 
-        'child' => "$child", 
-        tests => [] 
+  my $ctx = {
+    'child' => "$child",
+    tests   => []
   };
   my $tests = $ctx->{tests};
 
   if ( -f $child ) {
-    push @{$tests} , { 'child_isfile?' => 1 };
+    push @{$tests}, { 'child_isfile?' => 1 };
     $result_object->add_reason( $self, 1, "$child is a file", $ctx );
     return 1;
   }
-   push @{$tests} , { 'child_isfile?' => 0 };
-   $result_object->add_reason( $self, 0, "$child is not a file", $ctx );
+  push @{$tests}, { 'child_isfile?' => 0 };
+  $result_object->add_reason( $self, 0, "$child is not a file", $ctx );
 
   return;
 }

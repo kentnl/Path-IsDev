@@ -25,17 +25,17 @@ sub name {
 }
 
 sub heuristic_type {
-    return 'positive heuristic';
+  return 'positive heuristic';
 }
+
 sub _debug {
-    require Path::IsDev;
-    shift;
-    goto &Path::IsDev::debug;
+  require Path::IsDev;
+  shift;
+  goto &Path::IsDev::debug;
 }
 
 
 requires 'matches';
-
 
 1;
 

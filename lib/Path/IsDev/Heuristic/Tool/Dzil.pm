@@ -12,23 +12,19 @@ BEGIN {
 
 # ABSTRACT: Determine if a path is a Dist::Zilla Source tree
 
-
 use Role::Tiny::With qw( with );
-with 'Path::IsDev::Role::Heuristic',
-  'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
-
+with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
 
 
 sub files { return qw( dist.ini ) }
 
-
 sub matches {
-    my ( $self, $result_object ) = @_;
-    if ( $self->child_exists_any_file( $result_object, $self->files ) ) {
-        $result_object->result(1);
-        return 1;
-    }
-    return;
+  my ( $self, $result_object ) = @_;
+  if ( $self->child_exists_any_file( $result_object, $self->files ) ) {
+    $result_object->result(1);
+    return 1;
+  }
+  return;
 }
 
 1;

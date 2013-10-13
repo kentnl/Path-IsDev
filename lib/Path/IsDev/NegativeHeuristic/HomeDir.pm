@@ -1,7 +1,7 @@
 
 use strict;
 use warnings;
- 
+
 package Path::IsDev::NegativeHeuristic::HomeDir;
 BEGIN {
   $Path::IsDev::NegativeHeuristic::HomeDir::AUTHORITY = 'cpan:KENTNL';
@@ -13,29 +13,27 @@ BEGIN {
 # ABSTRACT: User home directories are not development roots
 
 sub _uniq (@) {
-    my %seen = ();
-    grep { not $seen{$_}++ } @_;
+  my %seen = ();
+  grep { not $seen{$_}++ } @_;
 }
 
-
 use Role::Tiny::With;
-with 'Path::IsDev::Role::NegativeHeuristic','Path::IsDev::Role::Matcher::FullPath::Is::Any';
+with 'Path::IsDev::Role::NegativeHeuristic', 'Path::IsDev::Role::Matcher::FullPath::Is::Any';
 
-sub _fhd  { require File::HomeDir; return 'File::HomeDir' }
-
+sub _fhd { require File::HomeDir; return 'File::HomeDir' }
 
 sub excludes {
-    my ( $self, $result_object ) = @_;
-    my @sources;
-        push @sources, _fhd()->my_home;
-        push @sources, _fhd()->my_desktop;
-        push @sources, _fhd()->my_music;
-        push @sources, _fhd()->my_pictures;
-        push @sources, _fhd()->my_videos;
-        push @sources, _fhd()->my_data;
+  my ( $self, $result_object ) = @_;
+  my @sources;
+  push @sources, _fhd()->my_home;
+  push @sources, _fhd()->my_desktop;
+  push @sources, _fhd()->my_music;
+  push @sources, _fhd()->my_pictures;
+  push @sources, _fhd()->my_videos;
+  push @sources, _fhd()->my_data;
 
-    return unless $self->fullpath_is_any( $result_object, _uniq @sources );
-    return 1;
+  return unless $self->fullpath_is_any( $result_object, _uniq @sources );
+  return 1;
 }
 1;
 

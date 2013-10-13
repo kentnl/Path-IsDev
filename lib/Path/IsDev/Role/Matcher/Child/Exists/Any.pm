@@ -1,6 +1,6 @@
 use strict;
 use warnings;
- 
+
 package Path::IsDev::Role::Matcher::Child::Exists::Any;
 BEGIN {
   $Path::IsDev::Role::Matcher::Child::Exists::Any::AUTHORITY = 'cpan:KENTNL';
@@ -16,31 +16,30 @@ use Role::Tiny;
 
 
 sub child_exists {
-    my ( $self, $result_object, $child ) = @_;
+  my ( $self, $result_object, $child ) = @_;
 
-    my $child_path = $result_object->path->child($child);
+  my $child_path = $result_object->path->child($child);
 
-    my $ctx = { 'child_name' => $child, child_path => "$child_path", tests => [] };
-    my $tests = $ctx->{tests};
+  my $ctx = { 'child_name' => $child, child_path => "$child_path", tests => [] };
+  my $tests = $ctx->{tests};
 
-    if ( -e $child_path ) {
-        push @{$tests}, { 'child_path_exists?' =>  1  };
-        $result_object->add_reason(  $self, 1, "$child exists", $ctx );
-        return 1;
-    }
-    push @{$tests}, { 'child_path_exists?' =>  0  };
-    $result_object->add_reason(  $self, 0, "$child does not exist", $ctx );
-    return;
+  if ( -e $child_path ) {
+    push @{$tests}, { 'child_path_exists?' => 1 };
+    $result_object->add_reason( $self, 1, "$child exists", $ctx );
+    return 1;
+  }
+  push @{$tests}, { 'child_path_exists?' => 0 };
+  $result_object->add_reason( $self, 0, "$child does not exist", $ctx );
+  return;
 }
 
 
-
 sub child_exists_any {
-    my ( $self, $result_object, @children ) = @_;
-    for my $child ( @children ) {
-        return 1 if $self->child_exists( $result_object, $child );
-    }
-    return;
+  my ( $self, $result_object, @children ) = @_;
+  for my $child (@children) {
+    return 1 if $self->child_exists( $result_object, $child );
+  }
+  return;
 }
 
 1;
@@ -64,13 +63,13 @@ version 1.000000
 =head2 C<child_exists>
 
     if( $self->child_exists( $result_object, 'some/child/path' ) ) {
-        
+
     }
 
 =head2 C<child_exists_any>
 
     if( $self->child_exists_any( $result_object, 'some/child/path', 'some/other', 'another' ) ) {
-        
+
     }
 
 =begin MetaPOD::JSON v1.1.0

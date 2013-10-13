@@ -1,7 +1,7 @@
 
 use strict;
 use warnings;
- 
+
 package Path::IsDev::Role::Matcher::FullPath::Is::Any;
 BEGIN {
   $Path::IsDev::Role::Matcher::FullPath::Is::Any::AUTHORITY = 'cpan:KENTNL';
@@ -17,47 +17,47 @@ sub _path { require Path::Tiny; goto &Path::Tiny::path }
 use Role::Tiny;
 
 sub _fullpath_is {
-    my ( $self, $result_object, $this, $comparator ) = @_;
+  my ( $self, $result_object, $this, $comparator ) = @_;
 
-    my $context = {};
+  my $context = {};
 
-    $context->{tests} = [];
+  $context->{tests} = [];
 
-    $context->{test_path} = "$comparator";
-    
-    my $path = _path($comparator);
+  $context->{test_path} = "$comparator";
 
-    if ( not $path->exists ) {
-        push @{ $context->{tests} },  { 'test_path_exists?' => 0 };
-        $result_object->add_reason( $self, 0, "comparative path $comparator does not exist", $context );
-        return;
-    }
+  my $path = _path($comparator);
 
-    push @{ $context->{tests} }, { 'test_path_exists?' => 1 };
+  if ( not $path->exists ) {
+    push @{ $context->{tests} }, { 'test_path_exists?' => 0 };
+    $result_object->add_reason( $self, 0, "comparative path $comparator does not exist", $context );
+    return;
+  }
 
-    my $realpath = $path->realpath;
+  push @{ $context->{tests} }, { 'test_path_exists?' => 1 };
 
-    $context->{source_realpath} = "$this";
-    $context->{test_realpath}   = "$realpath";
+  my $realpath = $path->realpath;
 
-    if ( not $realpath eq $this ) {
-        push @{ $context->{tests} } , { 'test_realpath_eq_source_realpath?' => 0 } ;
-        $result_object->add_reason( $self, 0, "$this ne $realpath", $context );
-        return;
-    }
-    push @{ $context->{tests} },  {'test_realpath_eq_source_realpath?' => 1 } ;
-    $result_object->add_reason( $self, 1,"$this eq $realpath", $context );
-    return 1;
+  $context->{source_realpath} = "$this";
+  $context->{test_realpath}   = "$realpath";
+
+  if ( not $realpath eq $this ) {
+    push @{ $context->{tests} }, { 'test_realpath_eq_source_realpath?' => 0 };
+    $result_object->add_reason( $self, 0, "$this ne $realpath", $context );
+    return;
+  }
+  push @{ $context->{tests} }, { 'test_realpath_eq_source_realpath?' => 1 };
+  $result_object->add_reason( $self, 1, "$this eq $realpath", $context );
+  return 1;
 }
 
 
 sub fullpath_is_any {
-    my ( $self, $result_object, @dirnames ) = @_;
-    my $current = $result_object->path->realpath;
-    for my $dirname ( @dirnames ) {
-        return 1 if $self->_fullpath_is( $result_object, $current, $dirname  );
-    }
-    return;
+  my ( $self, $result_object, @dirnames ) = @_;
+  my $current = $result_object->path->realpath;
+  for my $dirname (@dirnames) {
+    return 1 if $self->_fullpath_is( $result_object, $current, $dirname );
+  }
+  return;
 }
 
 1;

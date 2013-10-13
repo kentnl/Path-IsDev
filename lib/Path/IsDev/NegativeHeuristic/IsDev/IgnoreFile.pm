@@ -14,19 +14,19 @@ BEGIN {
 
 
 use Role::Tiny::With;
-with 'Path::IsDev::Role::NegativeHeuristic', 
-     'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
+with 'Path::IsDev::Role::NegativeHeuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
 
 
 sub excludes_files {
   return ('.path_isdev_ignore');
 }
+
 sub excludes {
-    my ( $self, $result_object ) = @_;
-    if ( my $result = $self->child_exists_any_file( $result_object, $self->excludes_files ) ) {
-        return 1;
-    }
-    return;
+  my ( $self, $result_object ) = @_;
+  if ( my $result = $self->child_exists_any_file( $result_object, $self->excludes_files ) ) {
+    return 1;
+  }
+  return;
 }
 1;
 

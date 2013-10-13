@@ -15,34 +15,30 @@ BEGIN {
 use Role::Tiny;
 with 'Path::IsDev::Role::Matcher::Child::Exists::Any';
 
-
 sub child_exists_dir {
-    my ( $self, $result_object, $child ) = @_;
-    
-    my $ctx = { 'child_name' => $child, child_path => $result_object->path->child($child)->stringify, tests => [] };
-    my $tests = $ctx->{tests};
+  my ( $self, $result_object, $child ) = @_;
 
-    if ( -d $result_object->path->child($child) ) {
-        push @{$tests}, { 'child_path_isdir?' =>  1  };
-        $result_object->add_reason(  $self, 1, $result_object->path->child($child) . " is a dir", $ctx );
-        return 1;
-    }
-    push @{$tests}, { 'child_path_isdir?' =>  0  };
-    $result_object->add_reason(  $self, 0,$result_object->path->child($child) . " is not a dir", $ctx );
+  my $ctx = { 'child_name' => $child, child_path => $result_object->path->child($child)->stringify, tests => [] };
+  my $tests = $ctx->{tests};
 
-    return;
+  if ( -d $result_object->path->child($child) ) {
+    push @{$tests}, { 'child_path_isdir?' => 1 };
+    $result_object->add_reason( $self, 1, $result_object->path->child($child) . " is a dir", $ctx );
+    return 1;
+  }
+  push @{$tests}, { 'child_path_isdir?' => 0 };
+  $result_object->add_reason( $self, 0, $result_object->path->child($child) . " is not a dir", $ctx );
+
+  return;
 }
 
 sub child_exists_any_dir {
-    my ( $self, $result_object, @children ) = @_;
-    for my $child ( @children ) {
-        return 1 if $self->child_exists( $result_object, $child ) and $self->child_exists_dir( $result_object, $child  );
-    }
-    return;
+  my ( $self, $result_object, @children ) = @_;
+  for my $child (@children) {
+    return 1 if $self->child_exists( $result_object, $child ) and $self->child_exists_dir( $result_object, $child );
+  }
+  return;
 }
-
-
-
 
 1;
 

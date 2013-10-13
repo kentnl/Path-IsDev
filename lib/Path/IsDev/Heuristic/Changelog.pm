@@ -17,18 +17,17 @@ use Role::Tiny::With;
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File';
 
 
-
 sub basename_regexp {
   return qr/\AChange(s|log)(|[.][^.\s]+)\z/isxm;
 }
 
 sub matches {
-    my ( $self, $result_object ) = @_;
-    if ( $self->child_basename_matchregexp_file( $result_object, $self->basename_regexp ) ) {
-        $result_object->result(1);
-        return 1;
-    }
-    return;
+  my ( $self, $result_object ) = @_;
+  if ( $self->child_basename_matchregexp_file( $result_object, $self->basename_regexp ) ) {
+    $result_object->result(1);
+    return 1;
+  }
+  return;
 }
 
 1;

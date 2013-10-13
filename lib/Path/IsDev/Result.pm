@@ -20,20 +20,24 @@ use Class::Tiny 'path', 'result', {
 
 sub _path  { require Path::Tiny; goto &Path::Tiny::path }
 sub _croak { require Carp;       goto &Carp::croak }
-sub _pp    { require Data::Dump; 
-    local $Data::Dumper::Indent = 1;
-    local $Data::Dumper::Purity = 0;
-    local $Data::Dumper::Useqq  = 1;
-    local $Data::Dumper::Terse  = 1;
-    local $Data::Dumper::Quotekeys = 0;
-    local $Data::Dumper::Sparseseen = 1;
-    return split /\n/, Data::Dump::pp(@_);
+
+sub _pp {
+  require Data::Dump;
+  local $Data::Dumper::Indent     = 1;
+  local $Data::Dumper::Purity     = 0;
+  local $Data::Dumper::Useqq      = 1;
+  local $Data::Dumper::Terse      = 1;
+  local $Data::Dumper::Quotekeys  = 0;
+  local $Data::Dumper::Sparseseen = 1;
+  return split /\n/, Data::Dump::pp(@_);
 }
+
 sub _debug {
-    require Path::IsDev;
-    shift;
-    goto &Path::IsDev::debug;
+  require Path::IsDev;
+  shift;
+  goto &Path::IsDev::debug;
 }
+
 
 sub BUILD {
   my ( $self, $args ) = @_;
@@ -52,19 +56,20 @@ sub BUILD {
 
 sub add_reason {
   my ( $self, $heuristic_name, $heuristic_result, $summary, $context ) = @_;
-  $self->_debug( "$heuristic_name => $heuristic_result : $summary ");
+  $self->_debug("$heuristic_name => $heuristic_result : $summary ");
+
   # $self->_debug( " > " . $_) for _pp($context);
   my ($heuristic_type);
 
   if ( $heuristic_name->can("heuristic_type") ) {
-      $heuristic_type = $heuristic_name->heuristic_type;
+    $heuristic_type = $heuristic_name->heuristic_type;
   }
 
-  my $reason = {  
-        heuristic => $heuristic_name,
-        result    => $heuristic_result,
-        ( defined $heuristic_type ? ( type => $heuristic_type ) : () ),
-        %{$context||{}}
+  my $reason = {
+    heuristic => $heuristic_name,
+    result    => $heuristic_result,
+    ( defined $heuristic_type ? ( type => $heuristic_type ) : () ),
+    %{ $context || {} }
   };
   push @{ $self->reasons }, $reason;
   return $self;

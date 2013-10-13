@@ -16,31 +16,29 @@ use Role::Tiny;
 with 'Path::IsDev::Role::Matcher::Child::Exists::Any';
 
 sub child_exists_file {
-    my ( $self, $result_object, $child ) = @_;
-    
-    my $ctx = { 'child_name' => $child, child_path => $result_object->path->child($child)->stringify, tests => [] };
-    my $tests = $ctx->{tests};
+  my ( $self, $result_object, $child ) = @_;
 
-    if ( -f $result_object->path->child($child) ) {
-        push @{$tests}, { 'child_path_isfile?' =>  1  };
-        $result_object->add_reason(  $self, 1, $result_object->path->child($child) . " is a file",  $ctx );
-        return 1;
-    }
-    push @{$tests}, { 'child_path_isfile?' =>  1  };
-    $result_object->add_reason(  $self, 0, $result_object->path->child($child) . " is not a file",  $ctx );
+  my $ctx = { 'child_name' => $child, child_path => $result_object->path->child($child)->stringify, tests => [] };
+  my $tests = $ctx->{tests};
 
-    return;
+  if ( -f $result_object->path->child($child) ) {
+    push @{$tests}, { 'child_path_isfile?' => 1 };
+    $result_object->add_reason( $self, 1, $result_object->path->child($child) . " is a file", $ctx );
+    return 1;
+  }
+  push @{$tests}, { 'child_path_isfile?' => 1 };
+  $result_object->add_reason( $self, 0, $result_object->path->child($child) . " is not a file", $ctx );
+
+  return;
 }
 
 sub child_exists_any_file {
-    my ( $self, $result_object, @children ) = @_;
-    for my $child ( @children ) {
-        return 1 if $self->child_exists( $result_object, $child ) and $self->child_exists_file( $result_object, $child  );
-    }
-    return;
+  my ( $self, $result_object, @children ) = @_;
+  for my $child (@children) {
+    return 1 if $self->child_exists( $result_object, $child ) and $self->child_exists_file( $result_object, $child );
+  }
+  return;
 }
-
-
 
 1;
 

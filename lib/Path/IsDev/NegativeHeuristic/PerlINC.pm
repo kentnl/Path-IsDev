@@ -1,6 +1,6 @@
 use strict;
 use warnings;
- 
+
 package Path::IsDev::NegativeHeuristic::PerlINC;
 BEGIN {
   $Path::IsDev::NegativeHeuristic::PerlINC::AUTHORITY = 'cpan:KENTNL';
@@ -12,24 +12,23 @@ BEGIN {
 # ABSTRACT: Whitelist paths in Config.pm as being non-dev roots.
 
 sub _uniq (@) {
-    my %seen = ();
-    grep { not $seen{$_}++ } @_;
+  my %seen = ();
+  grep { not $seen{$_}++ } @_;
 }
-
 
 use Role::Tiny::With;
 use Config;
 
-with 'Path::IsDev::Role::NegativeHeuristic','Path::IsDev::Role::Matcher::FullPath::Is::Any';
+with 'Path::IsDev::Role::NegativeHeuristic', 'Path::IsDev::Role::Matcher::FullPath::Is::Any';
 
 sub excludes {
-    my ( $self, $result_object ) = @_;
-    my @sources;
+  my ( $self, $result_object ) = @_;
+  my @sources;
 
-    push @sources, $Config{archlibexp}, $Config{privlibexp}, $Config{sitelibexp}, $Config{vendorlibexp};
+  push @sources, $Config{archlibexp}, $Config{privlibexp}, $Config{sitelibexp}, $Config{vendorlibexp};
 
-    return unless $self->fullpath_is_any( $result_object, _uniq grep { defined and length } @sources );
-    return 1;
+  return unless $self->fullpath_is_any( $result_object, _uniq grep { defined and length } @sources );
+  return 1;
 }
 
 1;
