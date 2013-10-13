@@ -59,7 +59,7 @@ Directories relevant to this heuristic:
 =head2 C<matches>
 
     if ( $heuristic->matches( $result_object ) ) {
-        # one of the directories in ->dirs exists 
+        # one of the directories in ->dirs exists
     }
 
 =begin MetaPOD::JSON v1.1.0
