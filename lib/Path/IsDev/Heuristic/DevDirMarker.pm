@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Heuristic::DevDirMarker::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::DevDirMarker::VERSION = '0.6.1';
+  $Path::IsDev::Heuristic::DevDirMarker::VERSION = '1.000000';
 }
 
 # ABSTRACT: Determine if a path contains a C<.devdir> file
@@ -14,10 +14,22 @@ BEGIN {
 
 
 use Role::Tiny::With qw( with );
-with 'Path::IsDev::Role::Heuristic::AnyFile';
+with 'Path::IsDev::Role::Heuristic',
+  'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
 
 
-sub files { return qw( .devdir ) }
+sub files {
+    return qw( .devdir );
+}
+
+sub matches {
+    my ( $self, $result_object ) = @_;
+    if ( $self->child_exists_any_file( $result_object, $self->files ) ) {
+        $result_object->result(1);
+        return 1;
+    }
+    return;
+}
 
 1;
 
@@ -33,7 +45,7 @@ Path::IsDev::Heuristic::DevDirMarker - Determine if a path contains a C<.devdir>
 
 =head1 VERSION
 
-version 0.6.1
+version 1.000000
 
 =head1 DESCRIPTION
 
@@ -46,9 +58,9 @@ with a Perl C<CPAN> dist, but are instead working on a project in a different la
 
 =head1 METHODS
 
-=head2 C<files>
+=head2 C<matches>
 
-Files relevant for this heuristic:
+Matches files named:
 
     .devdir
 
@@ -57,7 +69,10 @@ Files relevant for this heuristic:
 {
     "namespace":"Path::IsDev::Heuristic::DevDirMarker",
     "interface":"single_class",
-    "does":"Path::IsDev::Role::Heuristic::AnyFile"
+    "does":[
+        "Path::IsDev::Role::Heuristic",
+        "Path::IsDev::Role::Matcher::Child::Exists::Any::File"
+    ]
 }
 
 

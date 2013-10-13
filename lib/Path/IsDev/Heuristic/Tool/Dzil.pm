@@ -6,18 +6,30 @@ BEGIN {
   $Path::IsDev::Heuristic::Tool::Dzil::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::Tool::Dzil::VERSION = '0.6.1';
+  $Path::IsDev::Heuristic::Tool::Dzil::VERSION = '1.000000';
 }
 
 
 # ABSTRACT: Determine if a path is a Dist::Zilla Source tree
 
-use Role::Tiny::With;
 
-with 'Path::IsDev::Role::Heuristic::AnyFile';
+use Role::Tiny::With qw( with );
+with 'Path::IsDev::Role::Heuristic',
+  'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
+
 
 
 sub files { return qw( dist.ini ) }
+
+
+sub matches {
+    my ( $self, $result_object ) = @_;
+    if ( $self->child_exists_any_file( $result_object, $self->files ) ) {
+        $result_object->result(1);
+        return 1;
+    }
+    return;
+}
 
 1;
 
@@ -33,7 +45,7 @@ Path::IsDev::Heuristic::Tool::Dzil - Determine if a path is a Dist::Zilla Source
 
 =head1 VERSION
 
-version 0.6.1
+version 1.000000
 
 =head1 METHODS
 
@@ -48,7 +60,10 @@ Files relevant to this heuristic:
 {
     "namespace":"Path::IsDev::Heuristic::Tool::Dzil",
     "interface":"single_class",
-    "does":"Path::IsDev::Role::Heuristic::AnyFile"
+    "does":[
+        "Path::IsDev::Role::Heuristic",
+        "Path::IsDev::Role::Matcher::Child::Exists::Any::File"
+    ]
 }
 
 

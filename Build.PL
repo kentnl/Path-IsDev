@@ -17,7 +17,7 @@ my %module_build_args = (
     "Kent Fredric <kentfredric\@gmail.com>"
   ],
   "dist_name" => "Path-IsDev",
-  "dist_version" => "0.6.1",
+  "dist_version" => "1.000000",
   "license" => "perl",
   "module_name" => "Path::IsDev",
   "recommends" => {},
@@ -25,15 +25,15 @@ my %module_build_args = (
   "requires" => {
     "Carp" => 0,
     "Class::Tiny" => "0.010",
+    "Data::Dump" => 0,
     "File::HomeDir" => 0,
-    "List::MoreUtils" => 0,
     "Module::Runtime" => 0,
     "Path::Tiny" => 0,
     "Role::Tiny" => 0,
     "Role::Tiny::With" => 0,
     "Scalar::Util" => 0,
     "Sub::Exporter" => 0,
-    "perl" => "v5.10.0",
+    "perl" => "5.006",
     "strict" => 0,
     "warnings" => 0
   },
@@ -45,7 +45,7 @@ my %module_build_args = (
     "IO::Handle" => 0,
     "IPC::Open3" => 0,
     "Test::Fatal" => 0,
-    "Test::More" => "0.98"
+    "Test::More" => "0.99"
   }
 );
 

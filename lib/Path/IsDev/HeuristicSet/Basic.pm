@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::HeuristicSet::Basic::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::HeuristicSet::Basic::VERSION = '0.6.1';
+  $Path::IsDev::HeuristicSet::Basic::VERSION = '1.000000';
 }
 
 # ABSTRACT: Basic C<IsDev> set of Heuristics
@@ -17,7 +17,7 @@ with 'Path::IsDev::Role::HeuristicSet::Simple';
 
 
 sub negative_heuristics {
-  return qw( IsDev::IgnoreFile );
+  return qw( IsDev::IgnoreFile HomeDir PerlINC );
 }
 
 
@@ -43,7 +43,7 @@ Path::IsDev::HeuristicSet::Basic - Basic C<IsDev> set of Heuristics
 
 =head1 VERSION
 
-version 0.6.1
+version 1.000000
 
 =head1 METHODS
 
@@ -53,7 +53,11 @@ Excluding heuristics in this set are
 
 =over 4
 
-=item 1. L<< C<IsDev::IgnoreFile>|Path::IsDev::NegativeHeuristic::IgnoreFile >>
+=item 1. L<< C<IsDev::IgnoreFile>|Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile >>
+
+=item 2. L<< C<HomeDir>|Path::IsDev::NegativeHeuristic::HomeDir >>
+
+=item 3. L<< C<PerlINC>|Path::IsDev::NegativeHeuristic::PerlINC >>
 
 =back
 

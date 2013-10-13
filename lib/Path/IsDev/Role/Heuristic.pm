@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Role::Heuristic::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Role::Heuristic::VERSION = '0.6.1';
+  $Path::IsDev::Role::Heuristic::VERSION = '1.000000';
 }
 
 # ABSTRACT: Base role for Heuristic things.
@@ -24,8 +24,18 @@ sub name {
   return $name;
 }
 
+sub heuristic_type {
+    return 'positive heuristic';
+}
+sub _debug {
+    require Path::IsDev;
+    shift;
+    goto &Path::IsDev::debug;
+}
+
 
 requires 'matches';
+
 
 1;
 
@@ -41,7 +51,7 @@ Path::IsDev::Role::Heuristic - Base role for Heuristic things.
 
 =head1 VERSION
 
-version 0.6.1
+version 1.000000
 
 =head1 ROLE REQUIRES
 

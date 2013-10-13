@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Result::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Result::VERSION = '0.6.1';
+  $Path::IsDev::Result::VERSION = '1.000000';
 }
 
 # ABSTRACT: Result container
@@ -20,7 +20,20 @@ use Class::Tiny 'path', 'result', {
 
 sub _path  { require Path::Tiny; goto &Path::Tiny::path }
 sub _croak { require Carp;       goto &Carp::croak }
-
+sub _pp    { require Data::Dump; 
+    local $Data::Dumper::Indent = 1;
+    local $Data::Dumper::Purity = 0;
+    local $Data::Dumper::Useqq  = 1;
+    local $Data::Dumper::Terse  = 1;
+    local $Data::Dumper::Quotekeys = 0;
+    local $Data::Dumper::Sparseseen = 1;
+    return split /\n/, Data::Dump::pp(@_);
+}
+sub _debug {
+    require Path::IsDev;
+    shift;
+    goto &Path::IsDev::debug;
+}
 
 sub BUILD {
   my ( $self, $args ) = @_;
@@ -33,25 +46,27 @@ sub BUILD {
   if ( not -e $self->path ) {
     return _croak(q[<path> parameter must exist for heuristics to be performed]);
   }
+  $self->path( $self->path->absolute );
 }
-my %type_map = (
-  'Path::IsDev::Heuristic'         => 'positive heuristic',
-  'Path::IsDev::NegativeHeuristic' => 'negative heuristic',
-);
 
 
 sub add_reason {
-  my ( $self, $heuristic_name, $heuristic_result, $context ) = @_;
-  $context ||= {};
-  $context->{heuristic} = $heuristic_name;
-  $context->{result}    = $heuristic_result;
+  my ( $self, $heuristic_name, $heuristic_result, $summary, $context ) = @_;
+  $self->_debug( "$heuristic_name => $heuristic_result : $summary ");
+  # $self->_debug( " > " . $_) for _pp($context);
+  my ($heuristic_type);
 
-  for my $type ( sort keys %type_map ) {
-    if ( $heuristic_name->isa($type) ) {
-      $context->{type} = $type_map{$type};
-    }
+  if ( $heuristic_name->can("heuristic_type") ) {
+      $heuristic_type = $heuristic_name->heuristic_type;
   }
-  push @{ $self->reasons }, $context;
+
+  my $reason = {  
+        heuristic => $heuristic_name,
+        result    => $heuristic_result,
+        ( defined $heuristic_type ? ( type => $heuristic_type ) : () ),
+        %{$context||{}}
+  };
+  push @{ $self->reasons }, $reason;
   return $self;
 }
 
@@ -69,7 +84,7 @@ Path::IsDev::Result - Result container
 
 =head1 VERSION
 
-version 0.6.1
+version 1.000000
 
 =head1 SYNOPSIS
 
@@ -100,7 +115,7 @@ at the point you need it.
 Call this method from a heuristic to record checking of the heuristic
 and the relevant meta-data.
 
-    $result->add_reason( $heuristic, $matchvalue, \%contextinfo );
+    $result->add_reason( $heuristic, $matchvalue, $reason_summary, \%contextinfo );
 
 =head1 ATTRIBUTES
 

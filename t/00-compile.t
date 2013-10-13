@@ -1,15 +1,14 @@
 use strict;
 use warnings;
 
-# this test was generated with Dist::Zilla::Plugin::Test::Compile 2.034
+# this test was generated with Dist::Zilla::Plugin::Test::Compile 2.036
 
-use Test::More  tests => 28 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
+use Test::More  tests => 27 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
 
 
 
 my @module_files = (
     'Path/IsDev.pm',
-    'Path/IsDev/Heuristic.pm',
     'Path/IsDev/Heuristic/Changelog.pm',
     'Path/IsDev/Heuristic/DevDirMarker.pm',
     'Path/IsDev/Heuristic/META.pm',
@@ -20,27 +19,29 @@ my @module_files = (
     'Path/IsDev/Heuristic/Tool/MakeMaker.pm',
     'Path/IsDev/Heuristic/Tool/ModuleBuild.pm',
     'Path/IsDev/Heuristic/VCS/Git.pm',
-    'Path/IsDev/HeuristicSet.pm',
     'Path/IsDev/HeuristicSet/Basic.pm',
-    'Path/IsDev/NegativeHeuristic.pm',
     'Path/IsDev/NegativeHeuristic/HomeDir.pm',
     'Path/IsDev/NegativeHeuristic/IsDev/IgnoreFile.pm',
+    'Path/IsDev/NegativeHeuristic/PerlINC.pm',
     'Path/IsDev/Object.pm',
     'Path/IsDev/Result.pm',
     'Path/IsDev/Role/Heuristic.pm',
-    'Path/IsDev/Role/Heuristic/AnyDir.pm',
-    'Path/IsDev/Role/Heuristic/AnyFile.pm',
-    'Path/IsDev/Role/Heuristic/RegexpFile.pm',
     'Path/IsDev/Role/HeuristicSet.pm',
     'Path/IsDev/Role/HeuristicSet/Simple.pm',
-    'Path/IsDev/Role/NegativeHeuristic.pm',
-    'Path/IsDev/Role/NegativeHeuristic/AnyDir.pm',
-    'Path/IsDev/Role/NegativeHeuristic/AnyFile.pm'
+    'Path/IsDev/Role/Matcher/Child/BaseName/MatchRegexp.pm',
+    'Path/IsDev/Role/Matcher/Child/BaseName/MatchRegexp/File.pm',
+    'Path/IsDev/Role/Matcher/Child/Exists/Any.pm',
+    'Path/IsDev/Role/Matcher/Child/Exists/Any/Dir.pm',
+    'Path/IsDev/Role/Matcher/Child/Exists/Any/File.pm',
+    'Path/IsDev/Role/Matcher/FullPath/Is/Any.pm',
+    'Path/IsDev/Role/NegativeHeuristic.pm'
 );
 
 
 
 # no fake home requested
+
+my $inc_switch = q[-Mblib];
 
 use File::Spec;
 use IPC::Open3;
@@ -53,7 +54,7 @@ for my $lib (@module_files)
     open my $stdin, '<', File::Spec->devnull or die "can't open devnull: $!";
     my $stderr = IO::Handle->new;
 
-    my $pid = open3($stdin, '>&STDERR', $stderr, $^X, '-Mblib', '-e', "require q[$lib]");
+    my $pid = open3($stdin, '>&STDERR', $stderr, $^X, $inc_switch, '-e', "require q[$lib]");
     binmode $stderr, ':crlf' if $^O eq 'MSWin32';
     my @_warnings = <$stderr>;
     waitpid($pid, 0);

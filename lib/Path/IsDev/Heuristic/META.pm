@@ -6,17 +6,29 @@ BEGIN {
   $Path::IsDev::Heuristic::META::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::META::VERSION = '0.6.1';
+  $Path::IsDev::Heuristic::META::VERSION = '1.000000';
 }
 
 
 # ABSTRACT: Determine if a path contains META.(json|yml)
 
 use Role::Tiny::With;
-with 'Path::IsDev::Role::Heuristic::AnyFile';
+with 'Path::IsDev::Role::Heuristic',
+  'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
 
 
-sub files { return qw( META.json META.yml ) }
+sub files {
+    return qw( META.json META.yml );
+}
+
+sub matches {
+    my ( $self, $result_object ) = @_;
+    if ( $self->child_exists_any_file( $result_object, $self->files ) ) {
+        $result_object->result(1);
+        return 1;
+    }
+    return;
+}
 
 1;
 
@@ -32,11 +44,11 @@ Path::IsDev::Heuristic::META - Determine if a path contains META.(json|yml)
 
 =head1 VERSION
 
-version 0.6.1
+version 1.000000
 
 =head1 METHODS
 
-=head2 C<files>
+=head2 C<matches>
 
 files relevant to this heuristic:
 
@@ -48,7 +60,10 @@ files relevant to this heuristic:
 {
     "namespace":"Path::IsDev::Heuristic::META",
     "interface":"single_class",
-    "does":"Path::IsDev::Role::Heuristic::AnyFile"
+    "does":[
+        "Path::IsDev::Role::Heuristic",
+        "Path::IsDev::Role::Matcher::Child::Exists::Any::File"
+    ]
 }
 
 

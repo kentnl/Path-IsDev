@@ -7,18 +7,26 @@ BEGIN {
   $Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::VERSION = '0.6.1';
+  $Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::VERSION = '1.000000';
 }
 
 # ABSTRACT: An explicit exclusion file heuristic
 
 
 use Role::Tiny::With;
-with 'Path::IsDev::Role::NegativeHeuristic::AnyFile';
+with 'Path::IsDev::Role::NegativeHeuristic', 
+     'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
 
 
 sub excludes_files {
   return ('.path_isdev_ignore');
+}
+sub excludes {
+    my ( $self, $result_object ) = @_;
+    if ( my $result = $self->child_exists_any_file( $result_object, $self->excludes_files ) ) {
+        return 1;
+    }
+    return;
 }
 1;
 
@@ -34,7 +42,7 @@ Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile - An explicit exclusion file h
 
 =head1 VERSION
 
-version 0.6.1
+version 1.000000
 
 =head1 SYNOPSIS
 
@@ -71,7 +79,10 @@ Files valid for triggering this heuristic:
 {
     "namespace":"Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile",
     "interface":"single_class",
-    "does":"Path::IsDev::Role::NegativeHeuristic::AnyFile"
+    "does":[
+        "Path::IsDev::Role::NegativeHeuristic",
+        "Path::IsDev::Role::Matcher::Child::Exists::Any::File"
+    ]
 }
 
 

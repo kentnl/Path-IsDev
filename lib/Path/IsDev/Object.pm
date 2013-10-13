@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Object::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Object::VERSION = '0.6.1';
+  $Path::IsDev::Object::VERSION = '1.000000';
 }
 
 # ABSTRACT: Object Oriented guts for C<IsDev> export
@@ -91,6 +91,8 @@ sub _matches {
   my $result;
   $self->_with_debug(
     sub {
+
+      $self->_debug( 'Matching ' . $object->path );
       $result = $self->loaded_set_module->matches($object);
     }
   );
@@ -102,7 +104,7 @@ sub _matches {
 
 sub matches {
   my ( $self, $path ) = @_;
-  $self->_debug( 'Matching ' . $path );
+
 
   my $object = $self->_matches($path);
 
@@ -127,7 +129,7 @@ Path::IsDev::Object - Object Oriented guts for C<IsDev> export
 
 =head1 VERSION
 
-version 0.6.1
+version 1.000000
 
 =head1 SYNOPSIS
 

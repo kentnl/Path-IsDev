@@ -10,11 +10,11 @@ build_requires:
   IPC::Open3: 0
   Module::Build: 0.4007
   Test::Fatal: 0
-  Test::More: 0.98
+  Test::More: 0.99
 configure_requires:
   Module::Build: 0.4007
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132661'
+generated_by: 'Dist::Zilla version 4.300039, CPAN::Meta::Converter version 2.132830'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -23,134 +23,131 @@ name: Path-IsDev
 provides:
   Path::IsDev:
     file: lib/Path/IsDev.pm
-    version: v0.6.1
-  Path::IsDev::Heuristic:
-    file: lib/Path/IsDev/Heuristic.pm
-    version: v0.6.1
+    version: 1.000000
   Path::IsDev::Heuristic::Changelog:
     file: lib/Path/IsDev/Heuristic/Changelog.pm
-    version: v0.6.1
+    version: 1.000000
   Path::IsDev::Heuristic::DevDirMarker:
     file: lib/Path/IsDev/Heuristic/DevDirMarker.pm
-    version: v0.6.1
+    version: 1.000000
   Path::IsDev::Heuristic::META:
     file: lib/Path/IsDev/Heuristic/META.pm
-    version: v0.6.1
+    version: 1.000000
   Path::IsDev::Heuristic::MYMETA:
     file: lib/Path/IsDev/Heuristic/MYMETA.pm
-    version: v0.6.1
+    version: 1.000000
   Path::IsDev::Heuristic::Makefile:
     file: lib/Path/IsDev/Heuristic/Makefile.pm
-    version: v0.6.1
+    version: 1.000000
   Path::IsDev::Heuristic::TestDir:
     file: lib/Path/IsDev/Heuristic/TestDir.pm
-    version: v0.6.1
+    version: 1.000000
   Path::IsDev::Heuristic::Tool::Dzil:
     file: lib/Path/IsDev/Heuristic/Tool/Dzil.pm
-    version: v0.6.1
+    version: 1.000000
   Path::IsDev::Heuristic::Tool::MakeMaker:
     file: lib/Path/IsDev/Heuristic/Tool/MakeMaker.pm
-    version: v0.6.1
+    version: 1.000000
   Path::IsDev::Heuristic::Tool::ModuleBuild:
     file: lib/Path/IsDev/Heuristic/Tool/ModuleBuild.pm
-    version: v0.6.1
+    version: 1.000000
   Path::IsDev::Heuristic::VCS::Git:
     file: lib/Path/IsDev/Heuristic/VCS/Git.pm
-    version: v0.6.1
-  Path::IsDev::HeuristicSet:
-    file: lib/Path/IsDev/HeuristicSet.pm
-    version: v0.6.1
+    version: 1.000000
   Path::IsDev::HeuristicSet::Basic:
     file: lib/Path/IsDev/HeuristicSet/Basic.pm
-    version: v0.6.1
-  Path::IsDev::NegativeHeuristic:
-    file: lib/Path/IsDev/NegativeHeuristic.pm
-    version: v0.6.1
+    version: 1.000000
   Path::IsDev::NegativeHeuristic::HomeDir:
     file: lib/Path/IsDev/NegativeHeuristic/HomeDir.pm
-    version: v0.6.1
+    version: 1.000000
   Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile:
     file: lib/Path/IsDev/NegativeHeuristic/IsDev/IgnoreFile.pm
-    version: v0.6.1
+    version: 1.000000
+  Path::IsDev::NegativeHeuristic::PerlINC:
+    file: lib/Path/IsDev/NegativeHeuristic/PerlINC.pm
+    version: 1.000000
   Path::IsDev::Object:
     file: lib/Path/IsDev/Object.pm
-    version: v0.6.1
+    version: 1.000000
   Path::IsDev::Result:
     file: lib/Path/IsDev/Result.pm
-    version: v0.6.1
+    version: 1.000000
   Path::IsDev::Role::Heuristic:
     file: lib/Path/IsDev/Role/Heuristic.pm
-    version: v0.6.1
-  Path::IsDev::Role::Heuristic::AnyDir:
-    file: lib/Path/IsDev/Role/Heuristic/AnyDir.pm
-    version: v0.6.1
-  Path::IsDev::Role::Heuristic::AnyFile:
-    file: lib/Path/IsDev/Role/Heuristic/AnyFile.pm
-    version: v0.6.1
-  Path::IsDev::Role::Heuristic::RegexpFile:
-    file: lib/Path/IsDev/Role/Heuristic/RegexpFile.pm
-    version: v0.6.1
+    version: 1.000000
   Path::IsDev::Role::HeuristicSet:
     file: lib/Path/IsDev/Role/HeuristicSet.pm
-    version: v0.6.1
+    version: 1.000000
   Path::IsDev::Role::HeuristicSet::Simple:
     file: lib/Path/IsDev/Role/HeuristicSet/Simple.pm
-    version: v0.6.1
+    version: 1.000000
+  Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp:
+    file: lib/Path/IsDev/Role/Matcher/Child/BaseName/MatchRegexp.pm
+    version: 1.000000
+  Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File:
+    file: lib/Path/IsDev/Role/Matcher/Child/BaseName/MatchRegexp/File.pm
+    version: 1.000000
+  Path::IsDev::Role::Matcher::Child::Exists::Any:
+    file: lib/Path/IsDev/Role/Matcher/Child/Exists/Any.pm
+    version: 1.000000
+  Path::IsDev::Role::Matcher::Child::Exists::Any::Dir:
+    file: lib/Path/IsDev/Role/Matcher/Child/Exists/Any/Dir.pm
+    version: 1.000000
+  Path::IsDev::Role::Matcher::Child::Exists::Any::File:
+    file: lib/Path/IsDev/Role/Matcher/Child/Exists/Any/File.pm
+    version: 1.000000
+  Path::IsDev::Role::Matcher::FullPath::Is::Any:
+    file: lib/Path/IsDev/Role/Matcher/FullPath/Is/Any.pm
+    version: 1.000000
   Path::IsDev::Role::NegativeHeuristic:
     file: lib/Path/IsDev/Role/NegativeHeuristic.pm
-    version: v0.6.1
-  Path::IsDev::Role::NegativeHeuristic::AnyDir:
-    file: lib/Path/IsDev/Role/NegativeHeuristic/AnyDir.pm
-    version: v0.6.1
-  Path::IsDev::Role::NegativeHeuristic::AnyFile:
-    file: lib/Path/IsDev/Role/NegativeHeuristic/AnyFile.pm
-    version: v0.6.1
+    version: 1.000000
 requires:
   Carp: 0
   Class::Tiny: 0.010
+  Data::Dump: 0
   File::HomeDir: 0
-  List::MoreUtils: 0
   Module::Runtime: 0
   Path::Tiny: 0
   Role::Tiny: 0
   Role::Tiny::With: 0
   Scalar::Util: 0
   Sub::Exporter: 0
-  perl: v5.10.0
+  perl: 5.006
   strict: 0
   warnings: 0
 resources:
   bugtracker: https://github.com/kentfredric/Path-IsDev/issues
   homepage: https://github.com/kentfredric/Path-IsDev
   repository: https://github.com/kentfredric/Path-IsDev.git
-version: 0.6.1
+version: 1.000000
 x_BuiltWith:
   failures:
     Role::Tiny::With: 'Module::MetaData could not parse a version from /home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl/5.19.3/Role/Tiny/With.pm'
   modules:
     Carp: 1.32
     Class::Tiny: 0.011
-    Dist::Zilla::PluginBundle::Author::KENTNL: 1.9.0
+    Data::Dump: 1.22
+    Dist::Zilla::PluginBundle::Author::KENTNL: 2.000000
     Dist::Zilla::PluginBundle::Author::KENTNL::Lite: 1.7.2
     File::HomeDir: 1.00
     File::Spec: 3.44
-    File::Temp: 0.2302
+    File::Temp: 0.2304
     FindBin: 1.51
     IO::Handle: 1.35
     IPC::Open3: 1.15
-    List::MoreUtils: 0.33
     Module::Build: 0.4007
     Module::Runtime: 0.013
-    Path::Tiny: 0.038
+    Path::Tiny: 0.041
     Pod::Coverage::TrustPod: 0.100002
     Role::Tiny: 1.003002
-    Scalar::Util: 1.32
+    Scalar::Util: 1.33
     Sub::Exporter: 0.986
-    Test::CPAN::Changes: 0.23
+    Test::CPAN::Changes: 0.25
     Test::CPAN::Meta: 0.23
     Test::Fatal: 0.013
     Test::Kwalitee: 1.15
-    Test::More: 0.98
+    Test::More: 0.99
     Test::Pod: 1.48
     Test::Pod::Coverage: 1.08
     strict: 1.08
@@ -168,7 +165,7 @@ x_BuiltWith:
     myarchname: x86_64-linux
     osname: linux
   platform: linux
-  uname: 'Linux 3.11.3-gentoo x86_64 GenuineIntel GNU/Linux'
+  uname: 'Linux 3.11.4-gentoo x86_64 GenuineIntel GNU/Linux'
 x_Dist_Zilla:
   perl:
     version: 5.019003
@@ -268,12 +265,13 @@ x_Dist_Zilla:
       class: Dist::Zilla::Plugin::Test::Compile
       config:
         Dist::Zilla::Plugin::Test::Compile:
+          filename: t/00-compile.t
           module_finder:
             - ':InstallModules'
           script_finder:
             - ':ExecFiles'
       name: '@Author::KENTNL/Test::Compile'
-      version: 2.034
+      version: 2.036
     -
       class: Dist::Zilla::Plugin::Test::Perl::Critic
       name: '@Author::KENTNL/Test::Perl::Critic'
@@ -326,7 +324,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Author::KENTNL::MinimumPerl
       name: '@Author::KENTNL/Author::KENTNL::MinimumPerl'
-      version: 1.9.0
+      version: 2.000000
     -
       class: Dist::Zilla::Plugin::Authority
       name: '@Author::KENTNL/Authority'

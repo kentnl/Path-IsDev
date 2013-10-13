@@ -6,17 +6,28 @@ BEGIN {
   $Path::IsDev::Heuristic::Tool::ModuleBuild::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::Tool::ModuleBuild::VERSION = '0.6.1';
+  $Path::IsDev::Heuristic::Tool::ModuleBuild::VERSION = '1.000000';
 }
 
 
 # ABSTRACT: Determine if a path is a Module::Build Source tree
 
-use Role::Tiny::With;
-with 'Path::IsDev::Role::Heuristic::AnyFile';
+use Role::Tiny::With qw( with );
+with 'Path::IsDev::Role::Heuristic',
+  'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
+
 
 
 sub files { return qw( Build.PL ) }
+
+sub matches {
+    my ( $self, $result_object ) = @_;
+    if ( $self->child_exists_any_file( $result_object, $self->files ) ) {
+        $result_object->result(1);
+        return 1;
+    }
+    return;
+}
 
 1;
 
@@ -32,7 +43,7 @@ Path::IsDev::Heuristic::Tool::ModuleBuild - Determine if a path is a Module::Bui
 
 =head1 VERSION
 
-version 0.6.1
+version 1.000000
 
 =head1 METHODS
 
@@ -47,7 +58,10 @@ Files relevant to this heuristic:
 {
     "namespace":"Path::IsDev::Heuristic::Tool::ModuleBuild",
     "interface":"single_class",
-    "does":"Path::IsDev::Role::Heuristic::AnyFile"
+     "does":[
+        "Path::IsDev::Role::Heuristic",
+        "Path::IsDev::Role::Matcher::Child::Exists::Any::File"
+    ]
 }
 
 

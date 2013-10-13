@@ -7,26 +7,36 @@ BEGIN {
   $Path::IsDev::NegativeHeuristic::HomeDir::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::NegativeHeuristic::HomeDir::VERSION = '0.6.1';
+  $Path::IsDev::NegativeHeuristic::HomeDir::VERSION = '1.000000';
 }
+
+# ABSTRACT: User home directories are not development roots
+
+sub _uniq (@) {
+    my %seen = ();
+    grep { not $seen{$_}++ } @_;
+}
+
 
 use Role::Tiny::With;
+with 'Path::IsDev::Role::NegativeHeuristic','Path::IsDev::Role::Matcher::FullPath::Is::Any';
 
-with 'Path::IsDev::Role::NegativeHeuristic::AnyDir';
-
-sub _uniq { require List::MoreUtils; goto &List::MoreUtils::uniq }
 sub _fhd  { require File::HomeDir; return 'File::HomeDir' }
 
-sub excludes_dirs {
-    my @out;
-    for my  $dir (qw( home desktop docs music pics videos data )) {
-        my $method = _fhd()->can("my_$dir");
-        next unless $method;
-        push @out, _fhd()->$method;
-    }
-    return _uniq(@out);
-}
 
+sub excludes {
+    my ( $self, $result_object ) = @_;
+    my @sources;
+        push @sources, _fhd()->my_home;
+        push @sources, _fhd()->my_desktop;
+        push @sources, _fhd()->my_music;
+        push @sources, _fhd()->my_pictures;
+        push @sources, _fhd()->my_videos;
+        push @sources, _fhd()->my_data;
+
+    return unless $self->fullpath_is_any( $result_object, _uniq @sources );
+    return 1;
+}
 1;
 
 __END__
@@ -37,11 +47,11 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::NegativeHeuristic::HomeDir
+Path::IsDev::NegativeHeuristic::HomeDir - User home directories are not development roots
 
 =head1 VERSION
 
-version 0.6.1
+version 1.000000
 
 =head1 AUTHOR
 
