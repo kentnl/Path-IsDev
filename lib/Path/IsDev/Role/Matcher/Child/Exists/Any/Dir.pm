@@ -18,16 +18,18 @@ with 'Path::IsDev::Role::Matcher::Child::Exists::Any';
 sub child_exists_dir {
   my ( $self, $result_object, $child ) = @_;
 
-  my $ctx = { 'child_name' => $child, child_path => $result_object->path->child($child)->stringify, tests => [] };
+  my $child_path =  $result_object->path->child($child);
+  my $ctx = { 'child_name' => $child, child_path => "$child_path", tests => [] };
   my $tests = $ctx->{tests};
 
-  if ( -d $result_object->path->child($child) ) {
+
+  if ( -d $child_path ) {
     push @{$tests}, { 'child_path_isdir?' => 1 };
-    $result_object->add_reason( $self, 1, $result_object->path->child($child) . " is a dir", $ctx );
+    $result_object->add_reason( $self, 1, "$child_path is a dir", $ctx );
     return 1;
   }
   push @{$tests}, { 'child_path_isdir?' => 0 };
-  $result_object->add_reason( $self, 0, $result_object->path->child($child) . " is not a dir", $ctx );
+  $result_object->add_reason( $self, 0, "$child_path is not a dir", $ctx );
 
   return;
 }
