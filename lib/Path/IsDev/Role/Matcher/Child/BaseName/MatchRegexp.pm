@@ -59,6 +59,14 @@ Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp - Positive Heuristic wh
 
 version 1.000000
 
+=head1 METHODS
+
+=head2 C<child_basename_matchregexp>
+
+    if ( $self->child_basename_matchregexp( $result_object, qr/^Change(.*)$/i ) ) {
+        # result_object->path() contains at least one child that matches the regexp
+    }
+
 =begin MetaPOD::JSON v1.1.0
 
 {

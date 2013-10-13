@@ -9,7 +9,10 @@ BEGIN {
   $Path::IsDev::Role::Matcher::Child::Exists::Any::VERSION = '1.000000';
 }
 
+# ABSTRACT: Match if any of a list of children exists
+
 use Role::Tiny;
+
 
 
 sub child_exists {
@@ -30,6 +33,8 @@ sub child_exists {
     return;
 }
 
+
+
 sub child_exists_any {
     my ( $self, $result_object, @children ) = @_;
     for my $child ( @children ) {
@@ -48,11 +53,25 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Role::Matcher::Child::Exists::Any
+Path::IsDev::Role::Matcher::Child::Exists::Any - Match if any of a list of children exists
 
 =head1 VERSION
 
 version 1.000000
+
+=head1 METHODS
+
+=head2 C<child_exists>
+
+    if( $self->child_exists( $result_object, 'some/child/path' ) ) {
+        
+    }
+
+=head2 C<child_exists_any>
+
+    if( $self->child_exists_any( $result_object, 'some/child/path', 'some/other', 'another' ) ) {
+        
+    }
 
 =begin MetaPOD::JSON v1.1.0
 

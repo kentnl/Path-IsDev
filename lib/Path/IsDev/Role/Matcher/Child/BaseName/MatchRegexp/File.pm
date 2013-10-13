@@ -9,6 +9,8 @@ BEGIN {
   $Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File::VERSION = '1.000000';
 }
 
+# ABSTRACT: Match if any children have basenames that match a regexp and are files
+
 use Role::Tiny;
 with 'Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp';
 
@@ -32,6 +34,7 @@ sub _this_child_isfile {
   return;
 }
 
+
 sub child_basename_matchregexp_file {
   my ( $self, $result_object, $regexp ) = @_;
   for my $child ( $result_object->path->children ) {
@@ -53,11 +56,19 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File
+Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File - Match if any children have basenames that match a regexp and are files
 
 =head1 VERSION
 
 version 1.000000
+
+=head1 METHODS
+
+=head2 C<child_basename_matchregexp_file>
+
+    if ( $self->child_basename_matchregexp_file( $result_object, qr/^Change(.*)$/i ) ) {
+        # result_object->path() contains at least one child that is a file and matches the regexp
+    }
 
 =begin MetaPOD::JSON v1.1.0
 

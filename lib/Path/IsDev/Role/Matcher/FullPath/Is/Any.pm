@@ -10,6 +10,8 @@ BEGIN {
   $Path::IsDev::Role::Matcher::FullPath::Is::Any::VERSION = '1.000000';
 }
 
+# ABSTRACT: Match if the current directory is the same directory from a list of absolute paths.
+
 sub _path { require Path::Tiny; goto &Path::Tiny::path }
 
 use Role::Tiny;
@@ -48,6 +50,7 @@ sub _fullpath_is {
     return 1;
 }
 
+
 sub fullpath_is_any {
     my ( $self, $result_object, @dirnames ) = @_;
     my $current = $result_object->path->realpath;
@@ -67,11 +70,21 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Role::Matcher::FullPath::Is::Any
+Path::IsDev::Role::Matcher::FullPath::Is::Any - Match if the current directory is the same directory from a list of absolute paths.
 
 =head1 VERSION
 
 version 1.000000
+
+=head1 METHODS
+
+=head2 C<fullpath_is_any>
+
+Note, this is usually invoked on directories anyway.
+
+    if ( $self->fullpath_is_any( $result_object, '/usr/', '/usr/bin/foo' )) {
+
+    }
 
 =head1 AUTHOR
 
