@@ -138,7 +138,7 @@ x_BuiltWith:
     IPC::Open3: 1.15
     Module::Build: 0.4007
     Module::Runtime: 0.013
-    Path::Tiny: 0.041
+    Path::Tiny: 0.043
     Pod::Coverage::TrustPod: 0.100002
     Role::Tiny: 1.003002
     Scalar::Util: 1.33
@@ -252,7 +252,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Test::Kwalitee
       name: '@Author::KENTNL/Test::Kwalitee'
-      version: 2.06
+      version: 2.07
     -
       class: Dist::Zilla::Plugin::EOLTests
       name: '@Author::KENTNL/EOLTests'
