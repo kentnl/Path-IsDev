@@ -108,18 +108,18 @@ UNDERSTANDING AND DEBUGGING THIS MODULE
         PATH_ISDEV_DEBUG=1 perl -Ilib -MPath::FindDev=find_dev -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
 
         ...
-        [Path::IsDev=0] Path::IsDev::Heuristic::Tool::Dzil => 0 : dist.ini does not exist 
-        [Path::IsDev=0] Path::IsDev::Heuristic::Tool::MakeMaker => 0 : Makefile.PL does not exist 
-        [Path::IsDev=0] Path::IsDev::Heuristic::Tool::ModuleBuild => 0 : Build.PL does not exist 
-        [Path::IsDev=0] Path::IsDev::Heuristic::META => 0 : META.json does not exist 
-        [Path::IsDev=0] Path::IsDev::Heuristic::META => 1 : META.yml exists 
-        [Path::IsDev=0] Path::IsDev::Heuristic::META => 1 : /home/kent/perl5/META.yml is a file 
+        [Path::IsDev=0] Path::IsDev::Heuristic::Tool::Dzil => 0 : dist.ini does not exist
+        [Path::IsDev=0] Path::IsDev::Heuristic::Tool::MakeMaker => 0 : Makefile.PL does not exist
+        [Path::IsDev=0] Path::IsDev::Heuristic::Tool::ModuleBuild => 0 : Build.PL does not exist
+        [Path::IsDev=0] Path::IsDev::Heuristic::META => 0 : META.json does not exist
+        [Path::IsDev=0] Path::IsDev::Heuristic::META => 1 : META.yml exists
+        [Path::IsDev=0] Path::IsDev::Heuristic::META => 1 : /home/kent/perl5/META.yml is a file
         [Path::IsDev=0] ::META matched path /home/kent/perl5
         /home/kent/perl5
 
     Whoops!.
 
-        [Path::IsDev=0] Path::IsDev::Heuristic::META => 1 : META.yml exists 
+        [Path::IsDev=0] Path::IsDev::Heuristic::META => 1 : META.yml exists
         [Path::IsDev=0] Path::IsDev::Heuristic::META => 1 : /home/kent/perl5/META.yml is a file
 
     No wonder!
@@ -131,15 +131,15 @@ UNDERSTANDING AND DEBUGGING THIS MODULE
         ...
         [Path::IsDev=0] Matching /home/kent/perl5
         ...
-        [Path::IsDev=0] Path::IsDev::Heuristic::TestDir => 0 : xt does not exist 
-        [Path::IsDev=0] Path::IsDev::Heuristic::TestDir => 1 : t exists 
-        [Path::IsDev=0] Path::IsDev::Heuristic::TestDir => 1 : /home/kent/perl5/t is a dir 
+        [Path::IsDev=0] Path::IsDev::Heuristic::TestDir => 0 : xt does not exist
+        [Path::IsDev=0] Path::IsDev::Heuristic::TestDir => 1 : t exists
+        [Path::IsDev=0] Path::IsDev::Heuristic::TestDir => 1 : /home/kent/perl5/t is a dir
         [Path::IsDev=0] ::TestDir matched path /home/kent/perl5
         /home/kent/perl5
 
     Double whoops!
 
-        [Path::IsDev=0] Path::IsDev::Heuristic::TestDir => 1 : t exists 
+        [Path::IsDev=0] Path::IsDev::Heuristic::TestDir => 1 : t exists
         [Path::IsDev=0] Path::IsDev::Heuristic::TestDir => 1 : /home/kent/perl5/t is a dir
 
     And you could keep doing that until you rule out all the bad heuristics
@@ -152,8 +152,8 @@ UNDERSTANDING AND DEBUGGING THIS MODULE
         PATH_ISDEV_DEBUG=1 perl -Ilib -MPath::FindDev=find_dev -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
         ...
         [Path::IsDev=0] Matching /home/kent/perl5
-        [Path::IsDev=0] Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile => 1 : .path_isdev_ignore exists 
-        [Path::IsDev=0] Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile => 1 : /home/kent/perl5/.path_isdev_ignore is a file 
+        [Path::IsDev=0] Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile => 1 : .path_isdev_ignore exists
+        [Path::IsDev=0] Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile => 1 : /home/kent/perl5/.path_isdev_ignore is a file
         [Path::IsDev=0] Negative ::IsDev::IgnoreFile excludes path /home/kent/perl5
         [Path::IsDev=0] no match found
         ...
@@ -163,7 +163,7 @@ UNDERSTANDING AND DEBUGGING THIS MODULE
 
     Success!
 
-        [Path::IsDev=0] Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile => 1 : .path_isdev_ignore exists 
+        [Path::IsDev=0] Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile => 1 : .path_isdev_ignore exists
         [Path::IsDev=0] Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile => 1 : /home/kent/perl5/.path_isdev_ignore is a file
 
 HEURISTICS
