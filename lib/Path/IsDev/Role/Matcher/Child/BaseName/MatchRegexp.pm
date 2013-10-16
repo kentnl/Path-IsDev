@@ -9,10 +9,11 @@ BEGIN {
   $Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::VERSION = '1.000000';
 }
 
-# ABSTRACT: Positive Heuristic when a path has a child file matching an expression
+# ABSTRACT: Match when a path has a child file matching an expression
 
 
 use Role::Tiny;
+
 
 sub _this_child_matchregexp {
   my ( $self, $result_object, $child, $regexp ) = @_;
@@ -35,6 +36,7 @@ sub _this_child_matchregexp {
 }
 
 
+
 sub child_basename_matchregexp {
   my ( $self, $result_object, $regexp ) = @_;
   for my $child ( $result_object->path->children ) {
@@ -53,7 +55,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp - Positive Heuristic when a path has a child file matching an expression
+Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp - Match when a path has a child file matching an expression
 
 =head1 VERSION
 
@@ -63,8 +65,20 @@ version 1.000000
 
 =head2 C<child_basename_matchregexp>
 
+    $class->child_basename_matchregexp( $result_object, $regexp );
+
+Given a regexp C<$regexp>, match if any of C<< $result_object->path->children >> match the given regexp.
+
     if ( $self->child_basename_matchregexp( $result_object, qr/^Change(.*)$/i ) ) {
         # result_object->path() contains at least one child that matches the regexp
+    }
+
+=head1 PRIVATE METHODS
+
+=head2 C<_this_child_matchregexp>
+
+    if ( $class->_this_child_matchregexp( $result_object, $child_path, $regexp ) ) {
+        ...
     }
 
 =begin MetaPOD::JSON v1.1.0

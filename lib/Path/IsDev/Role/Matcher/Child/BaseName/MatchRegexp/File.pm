@@ -15,6 +15,7 @@ use Role::Tiny;
 with 'Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp';
 
 
+
 sub _this_child_isfile {
   my ( $self, $result_object, $child ) = @_;
   my $ctx = {
@@ -66,8 +67,21 @@ version 1.000000
 
 =head2 C<child_basename_matchregexp_file>
 
+    $class->child_basename_matchregexp_file( $result_object, $regexp );
+
+Given a regexp C<$regexp>, match if any of C<< $result_object->path->children >> match the given regexp,
+on the condition that those that match are also files.
+
     if ( $self->child_basename_matchregexp_file( $result_object, qr/^Change(.*)$/i ) ) {
         # result_object->path() contains at least one child that is a file and matches the regexp
+    }
+
+=head1 PRIVATE METHODS
+
+=head2 C<_this_child_isfile>
+
+    if ( $class->_this_child_isfile( $result_object, $child_path ) ) {
+        ...
     }
 
 =begin MetaPOD::JSON v1.1.0
