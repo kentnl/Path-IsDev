@@ -56,7 +56,7 @@ sub modules {
   my ($self) = @_;
   my @out;
   for my $heur ( $self->negative_heuristics ) {
-      push @out, $self->_expand_negative_heuristic($heur);
+    push @out, $self->_expand_negative_heuristic($heur);
   }
   for my $heur ( $self->heuristics ) {
     push @out, $self->_expand_heuristic($heur);
