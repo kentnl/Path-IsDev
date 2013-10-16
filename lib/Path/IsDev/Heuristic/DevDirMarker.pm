@@ -22,7 +22,10 @@ with a Perl C<CPAN> dist, but are instead working on a project in a different la
 {
     "namespace":"Path::IsDev::Heuristic::DevDirMarker",
     "interface":"single_class",
-    "does":"Path::IsDev::Role::Heuristic::AnyFile"
+    "does":[
+        "Path::IsDev::Role::Heuristic",
+        "Path::IsDev::Role::Matcher::Child::Exists::Any::File"
+    ]
 }
 
 =end MetaPOD::JSON
@@ -30,17 +33,34 @@ with a Perl C<CPAN> dist, but are instead working on a project in a different la
 =cut
 
 use Role::Tiny::With qw( with );
-with 'Path::IsDev::Role::Heuristic::AnyFile';
+with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
 
 =method C<files>
 
-Files relevant for this heuristic:
+Matches files named:
 
     .devdir
 
 =cut
 
-sub files { return qw( .devdir ) }
+sub files {
+  return qw( .devdir );
+}
+
+=method C<matches>
+
+Matches if any of the files in C<files> exist as children of the C<path>
+
+=cut
+
+sub matches {
+  my ( $self, $result_object ) = @_;
+  if ( $self->child_exists_any_file( $result_object, $self->files ) ) {
+    $result_object->result(1);
+    return 1;
+  }
+  return;
+}
 
 1;
 
