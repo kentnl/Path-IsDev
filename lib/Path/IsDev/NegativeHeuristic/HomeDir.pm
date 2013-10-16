@@ -24,8 +24,8 @@ with 'Path::IsDev::Role::NegativeHeuristic', 'Path::IsDev::Role::Matcher::FullPa
 
 sub _fhd { require File::HomeDir; return 'File::HomeDir' }
 
-sub excludes {
-  my ( $self, $result_object ) = @_;
+
+sub paths {
   my @sources;
   push @sources, _fhd()->my_home;
   push @sources, _fhd()->my_desktop;
@@ -33,8 +33,13 @@ sub excludes {
   push @sources, _fhd()->my_pictures;
   push @sources, _fhd()->my_videos;
   push @sources, _fhd()->my_data;
+  return _uniq grep { defined and length } @sources;
+}
 
-  return unless $self->fullpath_is_any( $result_object, _uniq @sources );
+
+sub excludes {
+  my ( $self, $result_object ) = @_;
+  return unless $self->fullpath_is_any( $result_object, $self->paths );
   return 1;
 }
 1;
@@ -52,6 +57,24 @@ Path::IsDev::NegativeHeuristic::HomeDir - User home directories are not developm
 =head1 VERSION
 
 version 1.000000
+
+=head1 METHODS
+
+=head2 C<paths>
+
+Excludes any values returned by L<< C<File::HomeDir>|File::HomeDir >>
+
+    uniq grep { defined and length }
+      File::HomeDir->my_home,
+      File::HomeDir->my_desktop,
+      File::HomeDir->my_music,
+      File::HomeDir->my_pictures,
+      File::HomeDir->my_videos,
+      File::HomeDir->my_data;
+
+=head2 C<excludes>
+
+Excludes any path that matches a realpath of a L<< C<File::HomeDir> path|File::HomeDir >>
 
 =begin MetaPOD::JSON v1.1.0
 

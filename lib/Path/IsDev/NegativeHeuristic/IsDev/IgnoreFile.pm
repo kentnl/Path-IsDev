@@ -21,6 +21,7 @@ sub excludes_files {
   return ('.path_isdev_ignore');
 }
 
+
 sub excludes {
   my ( $self, $result_object ) = @_;
   if ( my $result = $self->child_exists_any_file( $result_object, $self->excludes_files ) ) {
@@ -73,6 +74,10 @@ However:
 Files valid for triggering this heuristic:
 
     .path_isdev_ignore
+
+=head2 C<excludes>
+
+Returns an exclusion if any of C<excludes_files> exists, and are files.
 
 =begin MetaPOD::JSON v1.1.0
 

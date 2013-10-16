@@ -23,13 +23,18 @@ use Config;
 
 with 'Path::IsDev::Role::NegativeHeuristic', 'Path::IsDev::Role::Matcher::FullPath::Is::Any';
 
+
+sub paths {
+  my @sources;
+  push @sources, $Config{archlibexp}, $Config{privlibexp}, $Config{sitelibexp}, $Config{vendorlibexp};
+  return _uniq grep { defined and length } @sources;
+}
+
+
 sub excludes {
   my ( $self, $result_object ) = @_;
-  my @sources;
 
-  push @sources, $Config{archlibexp}, $Config{privlibexp}, $Config{sitelibexp}, $Config{vendorlibexp};
-
-  return unless $self->fullpath_is_any( $result_object, _uniq grep { defined and length } @sources );
+  return unless $self->fullpath_is_any( $result_object, $self->paths );
   return 1;
 }
 
@@ -48,6 +53,18 @@ Path::IsDev::NegativeHeuristic::PerlINC - White-list paths in C<Config.pm> as be
 =head1 VERSION
 
 version 1.000000
+
+=head1 METHODS
+
+=head2 C<paths>
+
+Returns a unique list comprised of all the C<*exp> library paths from L<< C<Config.pm>|Config >>
+
+    uniq grep { defined and length } $Config{archlibexp}, $Config{privlibexp}, $Config{sitelibexp}, $Config{vendorlibexp};
+
+=head2 C<excludes>
+
+Excludes a path if its full path is any of C<paths>
 
 =begin MetaPOD::JSON v1.1.0
 

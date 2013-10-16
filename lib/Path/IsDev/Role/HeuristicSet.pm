@@ -18,6 +18,7 @@ sub _debug      { require Path::IsDev;     goto &Path::IsDev::debug }
 
 use Role::Tiny;
 
+
 requires 'modules';
 
 sub _expand_heuristic {
@@ -70,6 +71,12 @@ Path::IsDev::Role::HeuristicSet - Role for sets of Heuristics.
 =head1 VERSION
 
 version 1.000000
+
+=head1 ROLE REQUIRES
+
+=head2 C<modules>
+
+Please provide a method that returns a list of modules that comprise heuristics.
 
 =head1 METHODS
 
