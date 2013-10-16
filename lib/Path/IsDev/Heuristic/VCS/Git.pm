@@ -8,7 +8,10 @@ package Path::IsDev::Heuristic::VCS::Git;
 {
     "namespace":"Path::IsDev::Heuristic::VCS::Git",
     "interface":"single_class",
-    "does":"Path::IsDev::Role::Heuristic::AnyDir"
+    "does":[
+        "Path::IsDev::Role::Heuristic",
+        "Path::IsDev::Role::Matcher::Child::Exists::Any::Dir"
+    ]
 }
 
 =end MetaPOD::JSON
@@ -18,7 +21,8 @@ package Path::IsDev::Heuristic::VCS::Git;
 # ABSTRACT: Determine if a path contains a C<.git> repository
 
 use Role::Tiny::With;
-with 'Path::IsDev::Role::Heuristic::AnyDir';
+
+with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::Dir';
 
 =method C<dirs>
 
@@ -29,6 +33,21 @@ Directories relevant to this heuristic:
 =cut
 
 sub dirs { return qw( .git ) }
+
+=method C<matches>
+
+Return a match if any children of C<path> exist called C<.git> and are directories
+
+=cut
+
+sub matches {
+  my ( $self, $result_object ) = @_;
+  if ( $self->child_exists_any_dir( $result_object, $self->dirs ) ) {
+    $result_object->result(1);
+    return 1;
+  }
+  return;
+}
 
 1;
 
