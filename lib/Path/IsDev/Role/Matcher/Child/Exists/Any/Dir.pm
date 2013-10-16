@@ -15,6 +15,7 @@ BEGIN {
 use Role::Tiny;
 with 'Path::IsDev::Role::Matcher::Child::Exists::Any';
 
+
 sub child_exists_dir {
   my ( $self, $result_object, $child ) = @_;
 
@@ -33,6 +34,7 @@ sub child_exists_dir {
 
   return;
 }
+
 
 sub child_exists_any_dir {
   my ( $self, $result_object, @children ) = @_;
@@ -57,6 +59,20 @@ Path::IsDev::Role::Matcher::Child::Exists::Any::Dir - Match if a path contains o
 =head1 VERSION
 
 version 1.000000
+
+=head1 METHODS
+
+=head2 C<child_exists_dir>
+
+    $class->child_exists_dir( $result_object, $childname );
+
+Return match if C<$childname> exists as a directory child of C<< $result_object->path >>,
+
+=head2 C<child_exists_any_dir>
+
+    $class->child_exists_any_dir( $result_object, @childnames );
+
+Return match if any of C<@childnames> exist under C<< $result_object->path >> and are directories.
 
 =begin MetaPOD::JSON v1.1.0
 

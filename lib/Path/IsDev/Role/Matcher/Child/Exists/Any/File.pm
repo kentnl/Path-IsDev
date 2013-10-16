@@ -15,6 +15,7 @@ BEGIN {
 use Role::Tiny;
 with 'Path::IsDev::Role::Matcher::Child::Exists::Any';
 
+
 sub child_exists_file {
   my ( $self, $result_object, $child ) = @_;
 
@@ -32,6 +33,7 @@ sub child_exists_file {
 
   return;
 }
+
 
 sub child_exists_any_file {
   my ( $self, $result_object, @children ) = @_;
@@ -56,6 +58,20 @@ Path::IsDev::Role::Matcher::Child::Exists::Any::File - Match if a path contains 
 =head1 VERSION
 
 version 1.000000
+
+=head1 METHODS
+
+=head2 C<child_exists_file>
+
+    $class->child_exists_file( $result_object, $childname );
+
+Return match if C<$childname> exists as a file child of C<< $result_object->path >>
+
+=head2 C<child_exists_any_file>
+
+    $class->child_exists_any_file( $result_object, @childnames );
+
+Return match if any of C<@childnames> exist under C<< $result_object->path >> and are files.
 
 =begin MetaPOD::JSON v1.1.0
 

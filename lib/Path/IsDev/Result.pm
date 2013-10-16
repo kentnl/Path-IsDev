@@ -116,7 +116,7 @@ For example:
     sub Foo::matches  {
         my ( $self , $result_object ) = @_;
         if ( $result_object->path->child('bar')->exists ) {
-            $result_object->add_reason( $self, 1, "child 'bar' exists" , { 
+            $result_object->add_reason( $self, 1, "child 'bar' exists" , {
                 child => 'bar',
                 'exists?' => 1,
                 child_path => $result_object->path->child('bar')

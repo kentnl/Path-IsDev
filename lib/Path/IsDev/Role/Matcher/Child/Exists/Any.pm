@@ -62,15 +62,15 @@ version 1.000000
 
 =head2 C<child_exists>
 
-    if( $self->child_exists( $result_object, 'some/child/path' ) ) {
+    $class->child_exists( $result_object, $path );
 
-    }
+Return match if C<$path> exists as a child of C<< $result_object->path >>
 
 =head2 C<child_exists_any>
 
-    if( $self->child_exists_any( $result_object, 'some/child/path', 'some/other', 'another' ) ) {
+    $class->child_exists_any( $result_object, @childnames );
 
-    }
+Return match if any of C<@childnames> exist under C<< $result_object->path >>.
 
 =begin MetaPOD::JSON v1.1.0
 

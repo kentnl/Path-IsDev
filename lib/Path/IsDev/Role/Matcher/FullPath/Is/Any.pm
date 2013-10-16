@@ -17,6 +17,8 @@ sub _path { require Path::Tiny; goto &Path::Tiny::path }
 use Role::Tiny;
 
 
+
+
 sub _fullpath_is {
   my ( $self, $result_object, $this, $comparator ) = @_;
 
@@ -86,6 +88,18 @@ Note, this is usually invoked on directories anyway.
     if ( $self->fullpath_is_any( $result_object, '/usr/', '/usr/bin/foo' )) {
 
     }
+
+Matches if any of the provided paths C<realpath>'s correspond to C<< $result_object->path->realpath >>
+
+=head1 PRIVATE METHODS
+
+=head2 C<_fullpath_is>
+
+    $class->_fullpath_is( $result_object, $source_path, $comparison_path );
+
+Does not match if C<$comparison_path> does not exist.
+
+Otherwise, compare C<$source_path> vs C<< $comparison_path->realpath >>, and return if they match.
 
 =begin MetaPOD::JSON v1.1.0
 
