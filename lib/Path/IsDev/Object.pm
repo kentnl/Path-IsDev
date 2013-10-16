@@ -180,6 +180,8 @@ sub _matches {
   my $result;
   $self->_with_debug(
     sub {
+
+      $self->_debug( 'Matching ' . $object->path );
       $result = $self->loaded_set_module->matches($object);
     }
   );
@@ -189,9 +191,18 @@ sub _matches {
   return $object;
 }
 
+=method C<matches>
+
+Determine if a given path satisfies the C<set>
+
+    if( $o->matches($path) ){
+        print "We have a match!";
+    }
+
+=cut
+
 sub matches {
   my ( $self, $path ) = @_;
-  $self->_debug( 'Matching ' . $path );
 
   my $object = $self->_matches($path);
 
