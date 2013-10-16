@@ -50,7 +50,6 @@ sub pmver {
 
 eval { $v .= pmver('Carp','any version') };
 eval { $v .= pmver('Class::Tiny','0.010') };
-eval { $v .= pmver('Data::Dump','any version') };
 eval { $v .= pmver('File::HomeDir','any version') };
 eval { $v .= pmver('File::Spec','any version') };
 eval { $v .= pmver('File::Temp','any version') };

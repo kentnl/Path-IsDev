@@ -19,6 +19,7 @@ sub files {
   return qw( GNUmakefile makefile Makefile );
 }
 
+
 sub matches {
   my ( $self, $result_object ) = @_;
   if ( $self->child_exists_any_file( $result_object, $self->files ) ) {
@@ -46,13 +47,17 @@ version 1.000000
 
 =head1 METHODS
 
-=head2 C<matches>
+=head2 C<files>
 
 Files relevant to this heuristic:
 
     GNUmakefile
     makefile
     Makefile
+
+=head2 C<matches>
+
+Matches if any of the files in C<files> exist as children of the C<path>
 
 =begin MetaPOD::JSON v1.1.0
 

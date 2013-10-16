@@ -43,7 +43,6 @@
          "requires" : {
             "Carp" : "0",
             "Class::Tiny" : "0.010",
-            "Data::Dump" : "0",
             "File::HomeDir" : "0",
             "Module::Runtime" : "0",
             "Path::Tiny" : "0",
@@ -198,7 +197,6 @@
       "modules" : {
          "Carp" : "1.32",
          "Class::Tiny" : "0.011",
-         "Data::Dump" : "1.22",
          "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.000000",
          "Dist::Zilla::PluginBundle::Author::KENTNL::Lite" : "1.7.2",
          "File::HomeDir" : "1.00",

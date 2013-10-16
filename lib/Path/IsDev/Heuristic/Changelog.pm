@@ -21,6 +21,7 @@ sub basename_regexp {
   return qr/\AChange(s|log)(|[.][^.\s]+)\z/isxm;
 }
 
+
 sub matches {
   my ( $self, $result_object ) = @_;
   if ( $self->child_basename_matchregexp_file( $result_object, $self->basename_regexp ) ) {
@@ -69,6 +70,10 @@ Indicators for this heuristic is the existence of a file such as:
     Changes.anyext      (i)
     Changelog           (i)
     Changelog.anyext    (i)
+
+=head2 C<matches>
+
+Returns a match if any child of C<path> exists matching the regexp C<basename_regexp>
 
 =begin MetaPOD::JSON v1.1.0
 

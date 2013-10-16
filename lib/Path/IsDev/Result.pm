@@ -18,26 +18,9 @@ use Class::Tiny 'path', 'result', {
   reasons => sub { [] }
 };
 
-sub _path  { require Path::Tiny; goto &Path::Tiny::path }
-sub _croak { require Carp;       goto &Carp::croak }
-
-## no critic (RequireArgUnpacking)
-sub _pp {
-  require Data::Dump;
-  local $Data::Dumper::Indent     = 1;
-  local $Data::Dumper::Purity     = 0;
-  local $Data::Dumper::Useqq      = 1;
-  local $Data::Dumper::Terse      = 1;
-  local $Data::Dumper::Quotekeys  = 0;
-  local $Data::Dumper::Sparseseen = 1;
-  return split /\n/msx, Data::Dump::pp(@_);
-}
-
-sub _debug {
-  require Path::IsDev;
-  shift;
-  goto &Path::IsDev::debug;
-}
+sub _path  { require Path::Tiny;  goto &Path::Tiny::path }
+sub _croak { require Carp;        goto &Carp::croak }
+sub _debug { require Path::IsDev; shift; goto &Path::IsDev::debug }
 
 
 sub BUILD {
@@ -58,7 +41,11 @@ sub BUILD {
 
 sub add_reason {
   my ( $self, $heuristic_name, $heuristic_result, $summary, $context ) = @_;
-  $self->_debug("$heuristic_name => $heuristic_result : $summary ");
+  my $name = $heuristic_name;
+  if ( $name->can('name') ) {
+    $name = $name->name;
+  }
+  $self->_debug("$name => $heuristic_result : $summary ");
 
   # $self->_debug( " > " . $_) for _pp($context);
   my ($heuristic_type);
@@ -123,6 +110,28 @@ Call this method from a heuristic to record checking of the heuristic
 and the relevant meta-data.
 
     $result->add_reason( $heuristic, $matchvalue, $reason_summary, \%contextinfo );
+
+For example:
+
+    sub Foo::matches  {
+        my ( $self , $result_object ) = @_;
+        if ( $result_object->path->child('bar')->exists ) {
+            $result_object->add_reason( $self, 1, "child 'bar' exists" , { 
+                child => 'bar',
+                'exists?' => 1,
+                child_path => $result_object->path->child('bar')
+            });
+            $result_object->result(1);
+            return 1;
+        }
+        return;
+    }
+
+Note that here, C<$matchvalue> should be the result of the relevant matching logic, not the global impact.
+
+For instance, C<excludes> compositions should still add reasons of C<< $matchvalue == 1 >>, but they should not
+set C<< $result_object->result(1) >>. ( In fact, setting C<result> is the job of the individual heuristic, not the matchers
+that are folded into it )
 
 =head1 ATTRIBUTES
 

@@ -25,7 +25,6 @@ my %module_build_args = (
   "requires" => {
     "Carp" => 0,
     "Class::Tiny" => "0.010",
-    "Data::Dump" => 0,
     "File::HomeDir" => 0,
     "Module::Runtime" => 0,
     "Path::Tiny" => 0,
