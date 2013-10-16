@@ -130,7 +130,7 @@ For example:
 Note that here, C<$matchvalue> should be the result of the relevant matching logic, not the global impact.
 
 For instance, C<excludes> compositions should still add reasons of C<< $matchvalue == 1 >>, but they should not
-set C<< $result_object->result(1) >>. ( In fact, setting C<result> is the job of the individual heuristic, not the matchers
+set C<< $result_object->result(1) >>. ( In fact, setting C<result> is the job of the individual heuristic, not the matches
 that are folded into it )
 
 =head1 ATTRIBUTES

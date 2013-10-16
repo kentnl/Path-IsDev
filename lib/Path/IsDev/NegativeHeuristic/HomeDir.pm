@@ -74,7 +74,7 @@ Excludes any values returned by L<< C<File::HomeDir>|File::HomeDir >>
 
 =head2 C<excludes>
 
-Excludes any path that matches a realpath of a L<< C<File::HomeDir> path|File::HomeDir >>
+Excludes any path that matches a C<realpath> of a L<< C<File::HomeDir> path|File::HomeDir >>
 
 =begin MetaPOD::JSON v1.1.0
 

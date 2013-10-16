@@ -63,7 +63,7 @@ Implementing classes must provide this method.
 
 Additionally, consuming classes B<should> set C<< $result_object->result( undef ) >> prior to returning true.
 
-Compositing roles B<should> also invoke C<< $result_object->add_reason( $self, $result_value, $descriptive_reason_for_result, \%contextinfo ) >>.
+Composing roles B<should> also invoke C<< $result_object->add_reason( $self, $result_value, $descriptive_reason_for_result, \%contextinfo ) >>.
 
 See L<< C<Path::IsDev::Result> for details|Path::IsDev::Result >>
 
