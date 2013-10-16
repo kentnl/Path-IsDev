@@ -22,6 +22,12 @@ sub _debug      { require Path::IsDev;     goto &Path::IsDev::debug }
 
 use Role::Tiny;
 
+=requires C<modules>
+
+Please provide a method that returns a list of modules that comprise heuristics.
+
+=cut
+
 requires 'modules';
 
 sub _expand_heuristic {

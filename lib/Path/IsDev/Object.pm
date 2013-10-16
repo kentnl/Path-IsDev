@@ -131,6 +131,17 @@ sub _debug {
   return *STDERR->printf( qq{[Path::IsDev=%s] %s\n}, $id, $message );
 }
 
+=p_method C<_with_debug>
+
+Wrap calls to Path::IsDev::debug to have a prefix with an object identifier.
+
+    $ob->_with_debug(sub{
+        # Path::Tiny::debug now localised.
+
+    });
+
+=cut
+
 sub _with_debug {
   my ( $self, $code ) = @_;
   require Path::IsDev;
@@ -163,13 +174,13 @@ sub BUILD {
   return $self;
 }
 
-=method C<matches>
+=p_method C<_matches>
 
-Determine if a given path satisfies the C<set>
+    my $result = $o->matches( $path );
 
-    if( $o->matches($path) ){
-        print "We have a match!";
-    }
+$result here will be a constructed C<Path::IsDev::Result>.
+
+Note this method may be handy for debugging, but you should still call C<matches> for all real code.
 
 =cut
 

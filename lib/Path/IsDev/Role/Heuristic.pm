@@ -53,7 +53,7 @@ sub heuristic_type {
 
 =requires C<matches>
 
-Implementing roles must provide this method.
+Implementing classes must provide this method.
 
     return : 1 / undef
              1     -> this path is a development directory as far as this heuristic is concerned
@@ -62,6 +62,13 @@ Implementing roles must provide this method.
     args : ( $class , $result_object )
         $class         -> method will be invoked on packages, not objects
         $result_object -> will be a Path::IsDev::Result
+
+
+Additionally, consuming classes B<should> set C<< $result_object->result( 1 ) >> prior to returning true.
+
+Composing roles B<should> also invoke C<< $result_object->add_reason( $self, $result_value, $descriptive_reason_for_result, \%contextinfo ) >>.
+
+See L<< C<Path::IsDev::Result> for details|Path::IsDev::Result >>
 
 =cut
 
