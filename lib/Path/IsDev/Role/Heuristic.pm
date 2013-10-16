@@ -5,6 +5,8 @@ package Path::IsDev::Role::Heuristic;
 
 # ABSTRACT: Base role for Heuristic things.
 
+sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
+
 use Role::Tiny;
 
 =begin MetaPOD::JSON v1.1.0
@@ -18,8 +20,6 @@ use Role::Tiny;
 
 =cut
 
-sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
-
 =method C<name>
 
 Returns the name to use in debugging.
@@ -27,14 +27,15 @@ Returns the name to use in debugging.
 By default, this is derived from the classes name
 with the C<PIDH> prefix removed:
 
-    Path::IsDev::Heuristic::Tool::Dzil->name() # → ::Tool::Dzil
+    Path::IsDev::Heuristic::Tool::Dzil->name()
+    → "+ ::Tool::Dzil"
 
 =cut
 
 sub name {
   my $name = shift;
   $name = _blessed($name) if _blessed($name);
-  $name =~ s/\APath::IsDev::Heuristic:/:/msx;
+  $name =~ s/\APath::IsDev::Heuristic:/+ :/msx;
   return $name;
 }
 

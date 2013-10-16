@@ -5,6 +5,8 @@ package Path::IsDev::Role::NegativeHeuristic;
 
 # ABSTRACT: Base role for Negative Heuristic things.
 
+sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
+
 use Role::Tiny;
 
 =begin MetaPOD::JSON v1.1.0
@@ -18,23 +20,22 @@ use Role::Tiny;
 
 =cut
 
-sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
-
 =method C<name>
 
 Returns the name to use in debugging.
 
 By default, this is derived from the classes name
-with the C<PIDH> prefix removed:
+with the C<PIDNH> prefix removed:
 
-    Path::IsDev::NegativeHeuristic::Tool::Dzil->name() # → ::Tool::Dzil
+    Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile->name()
+    → "- ::IsDev::IgnoreFile"
 
 =cut
 
 sub name {
   my $name = shift;
   $name = _blessed($name) if _blessed($name);
-  $name =~ s/\APath::IsDev::NegativeHeuristic:/Negative :/msx;
+  $name =~ s/\APath::IsDev::NegativeHeuristic:/- :/msx;
   return $name;
 }
 
