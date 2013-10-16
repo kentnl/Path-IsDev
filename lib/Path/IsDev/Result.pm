@@ -70,6 +70,8 @@ sub BUILD {
   if ( not -e $self->path ) {
     return _croak(q[<path> parameter must exist for heuristics to be performed]);
   }
+  $self->path( $self->path->absolute );
+  return $self;
 }
 
 =method C<add_reason>
