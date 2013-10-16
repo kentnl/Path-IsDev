@@ -21,6 +21,7 @@ sub files {
   return qw( MYMETA.json MYMETA.yml );
 }
 
+
 sub matches {
   my ( $self, $result_object ) = @_;
   if ( $self->child_exists_any_file( $result_object, $self->files ) ) {
@@ -55,12 +56,16 @@ Granted, this heuristic is expected to be B<never> needed, as in order to create
 
 =head1 METHODS
 
-=head2 C<matches>
+=head2 C<files>
 
 Files relevant to this heuristic
 
     MYMETA.json
     MYMETA.yml
+
+=head2 C<matches>
+
+Matches if any of the files in C<files> exist as children of the C<path>
 
 =begin MetaPOD::JSON v1.1.0
 

@@ -19,6 +19,7 @@ with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists:
 
 sub dirs { return qw( .git ) }
 
+
 sub matches {
   my ( $self, $result_object ) = @_;
   if ( $self->child_exists_any_dir( $result_object, $self->dirs ) ) {
@@ -51,6 +52,10 @@ version 1.000000
 Directories relevant to this heuristic:
 
     .git
+
+=head2 C<matches>
+
+Return a match if any children of C<path> exist called C<.git> and are directories
 
 =begin MetaPOD::JSON v1.1.0
 
