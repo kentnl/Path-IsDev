@@ -51,8 +51,9 @@ use Class::Tiny 'path', 'result', {
   reasons => sub { [] }
 };
 
-sub _path  { require Path::Tiny; goto &Path::Tiny::path }
-sub _croak { require Carp;       goto &Carp::croak }
+sub _path  { require Path::Tiny;  goto &Path::Tiny::path }
+sub _croak { require Carp;        goto &Carp::croak }
+sub _debug { require Path::IsDev; shift; goto &Path::IsDev::debug }
 
 =method C<BUILD>
 
