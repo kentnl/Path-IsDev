@@ -26,14 +26,18 @@ Excluding heuristics in this set are
 
 =over 4
 
-=item 1. L<< C<IsDev::IgnoreFile>|Path::IsDev::NegativeHeuristic::IgnoreFile >>
+=item 1. L<< C<IsDev::IgnoreFile>|Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile >>
+
+=item 2. L<< C<HomeDir>|Path::IsDev::NegativeHeuristic::HomeDir >>
+
+=item 3. L<< C<PerlINC>|Path::IsDev::NegativeHeuristic::PerlINC >>
 
 =back
 
 =cut
 
 sub negative_heuristics {
-  return qw( IsDev::IgnoreFile );
+  return qw( IsDev::IgnoreFile HomeDir PerlINC );
 }
 
 =method C<heuristics>
