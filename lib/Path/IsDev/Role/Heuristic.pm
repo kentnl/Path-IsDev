@@ -38,6 +38,18 @@ sub name {
   return $name;
 }
 
+=method C<heuristic_type>
+
+Returns a description of the general heuristic type
+
+    positive heuristic
+
+=cut
+
+sub heuristic_type {
+  return 'positive heuristic';
+}
+
 =requires C<matches>
 
 Implementing roles must provide this method.

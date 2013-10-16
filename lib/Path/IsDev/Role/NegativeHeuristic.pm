@@ -38,6 +38,18 @@ sub name {
   return $name;
 }
 
+=method C<heuristic_type>
+
+Returns a description of the general heuristic type
+
+    negative heuristic
+
+=cut
+
+sub heuristic_type {
+  return 'negative heuristic';
+}
+
 =requires C<excludes>
 
 Implementing classes must provide this method.
