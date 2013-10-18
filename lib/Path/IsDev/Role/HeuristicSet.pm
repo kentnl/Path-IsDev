@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Role::HeuristicSet::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Role::HeuristicSet::VERSION = '0.6.0';
+  $Path::IsDev::Role::HeuristicSet::VERSION = '1.000000';
 }
 
 # ABSTRACT: Role for sets of Heuristics.
@@ -17,6 +17,7 @@ sub _com_mn     { require Module::Runtime; goto &Module::Runtime::compose_module
 sub _debug      { require Path::IsDev;     goto &Path::IsDev::debug }
 
 use Role::Tiny;
+
 
 requires 'modules';
 
@@ -37,7 +38,7 @@ sub _load_module {
 
 
 sub matches {
-    my ( $self, $result_object ) = @_;
+  my ( $self, $result_object ) = @_;
 TESTS: for my $module ( $self->modules ) {
     $self->_load_module($module);
     if ( $module->can('excludes') ) {
@@ -69,7 +70,13 @@ Path::IsDev::Role::HeuristicSet - Role for sets of Heuristics.
 
 =head1 VERSION
 
-version 0.6.0
+version 1.000000
+
+=head1 ROLE REQUIRES
+
+=head2 C<modules>
+
+Please provide a method that returns a list of modules that comprise heuristics.
 
 =head1 METHODS
 

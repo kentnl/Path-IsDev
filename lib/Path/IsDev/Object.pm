@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Object::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Object::VERSION = '0.6.0';
+  $Path::IsDev::Object::VERSION = '1.000000';
 }
 
 # ABSTRACT: Object Oriented guts for C<IsDev> export
@@ -59,6 +59,7 @@ sub _debug {
   return *STDERR->printf( qq{[Path::IsDev=%s] %s\n}, $id, $message );
 }
 
+
 sub _with_debug {
   my ( $self, $code ) = @_;
   require Path::IsDev;
@@ -91,6 +92,8 @@ sub _matches {
   my $result;
   $self->_with_debug(
     sub {
+
+      $self->_debug( 'Matching ' . $object->path );
       $result = $self->loaded_set_module->matches($object);
     }
   );
@@ -100,9 +103,9 @@ sub _matches {
   return $object;
 }
 
+
 sub matches {
   my ( $self, $path ) = @_;
-  $self->_debug( 'Matching ' . $path );
 
   my $object = $self->_matches($path);
 
@@ -127,7 +130,7 @@ Path::IsDev::Object - Object Oriented guts for C<IsDev> export
 
 =head1 VERSION
 
-version 0.6.0
+version 1.000000
 
 =head1 SYNOPSIS
 
@@ -205,12 +208,29 @@ The debugger callback.
 
 to get debug info.
 
+=head2 C<_with_debug>
+
+Wrap calls to Path::IsDev::debug to have a prefix with an object identifier.
+
+    $ob->_with_debug(sub{
+        # Path::Tiny::debug now localised.
+
+    });
+
 =head2 C<BUILD>
 
 C<BUILD> is an implementation detail of C<Class::Tiny>.
 
 This module hooks C<BUILD> to give a self report of the object
 to C<*STDERR> after C<< ->new >> when under C<$DEBUG>
+
+=head2 C<_matches>
+
+    my $result = $o->matches( $path );
+
+$result here will be a constructed C<Path::IsDev::Result>.
+
+Note this method may be handy for debugging, but you should still call C<matches> for all real code.
 
 =begin MetaPOD::JSON v1.1.0
 

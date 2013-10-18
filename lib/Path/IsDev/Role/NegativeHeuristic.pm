@@ -6,22 +6,27 @@ BEGIN {
   $Path::IsDev::Role::NegativeHeuristic::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Role::NegativeHeuristic::VERSION = '0.6.0';
+  $Path::IsDev::Role::NegativeHeuristic::VERSION = '1.000000';
 }
 
 # ABSTRACT: Base role for Negative Heuristic things.
 
+sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
+
 use Role::Tiny;
 
-
-sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 
 
 sub name {
   my $name = shift;
   $name = _blessed($name) if _blessed($name);
-  $name =~ s/\APath::IsDev::NegativeHeuristic:/Negative :/msx;
+  $name =~ s/\APath::IsDev::NegativeHeuristic:/- :/msx;
   return $name;
+}
+
+
+sub heuristic_type {
+  return 'negative heuristic';
 }
 
 
@@ -41,7 +46,7 @@ Path::IsDev::Role::NegativeHeuristic - Base role for Negative Heuristic things.
 
 =head1 VERSION
 
-version 0.6.0
+version 1.000000
 
 =head1 ROLE REQUIRES
 
@@ -57,6 +62,12 @@ Implementing classes must provide this method.
         $class         -> method will be invoked on packages, not objects
         $result_object -> will be a Path::IsDev::Result
 
+Additionally, consuming classes B<should> set C<< $result_object->result( undef ) >> prior to returning true.
+
+Composing roles B<should> also invoke C<< $result_object->add_reason( $self, $result_value, $descriptive_reason_for_result, \%contextinfo ) >>.
+
+See L<< C<Path::IsDev::Result> for details|Path::IsDev::Result >>
+
 =head1 METHODS
 
 =head2 C<name>
@@ -64,9 +75,16 @@ Implementing classes must provide this method.
 Returns the name to use in debugging.
 
 By default, this is derived from the classes name
-with the C<PIDH> prefix removed:
+with the C<PIDNH> prefix removed:
 
-    Path::IsDev::NegativeHeuristic::Tool::Dzil->name() # → ::Tool::Dzil
+    Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile->name()
+    → "- ::IsDev::IgnoreFile"
+
+=head2 C<heuristic_type>
+
+Returns a description of the general heuristic type
+
+    negative heuristic
 
 =begin MetaPOD::JSON v1.1.0
 

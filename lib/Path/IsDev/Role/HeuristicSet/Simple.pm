@@ -7,7 +7,7 @@ BEGIN {
   $Path::IsDev::Role::HeuristicSet::Simple::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Role::HeuristicSet::Simple::VERSION = '0.6.0';
+  $Path::IsDev::Role::HeuristicSet::Simple::VERSION = '1.000000';
 }
 
 # ABSTRACT: Simple excludes/includes set
@@ -24,7 +24,7 @@ sub modules {
   my ($self) = @_;
   my @out;
   for my $heur ( $self->negative_heuristics ) {
-      push @out, $self->_expand_negative_heuristic($heur);
+    push @out, $self->_expand_negative_heuristic($heur);
   }
   for my $heur ( $self->heuristics ) {
     push @out, $self->_expand_heuristic($heur);
@@ -46,7 +46,7 @@ Path::IsDev::Role::HeuristicSet::Simple - Simple excludes/includes set
 
 =head1 VERSION
 
-version 0.6.0
+version 1.000000
 
 =head1 ROLE REQUIRES
 

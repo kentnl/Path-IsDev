@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Result::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Result::VERSION = '0.6.0';
+  $Path::IsDev::Result::VERSION = '1.000000';
 }
 
 # ABSTRACT: Result container
@@ -18,8 +18,9 @@ use Class::Tiny 'path', 'result', {
   reasons => sub { [] }
 };
 
-sub _path  { require Path::Tiny; goto &Path::Tiny::path }
-sub _croak { require Carp;       goto &Carp::croak }
+sub _path  { require Path::Tiny;  goto &Path::Tiny::path }
+sub _croak { require Carp;        goto &Carp::croak }
+sub _debug { require Path::IsDev; shift; goto &Path::IsDev::debug }
 
 
 sub BUILD {
@@ -33,25 +34,33 @@ sub BUILD {
   if ( not -e $self->path ) {
     return _croak(q[<path> parameter must exist for heuristics to be performed]);
   }
+  $self->path( $self->path->absolute );
+  return $self;
 }
-my %type_map = (
-  'Path::IsDev::Heuristic'         => 'positive heuristic',
-  'Path::IsDev::NegativeHeuristic' => 'negative heuristic',
-);
 
 
 sub add_reason {
-  my ( $self, $heuristic_name, $heuristic_result, $context ) = @_;
-  $context ||= {};
-  $context->{heuristic} = $heuristic_name;
-  $context->{result}    = $heuristic_result;
-
-  for my $type ( sort keys %type_map ) {
-    if ( $heuristic_name->isa($type) ) {
-      $context->{type} = $type_map{$type};
-    }
+  my ( $self, $heuristic_name, $heuristic_result, $summary, $context ) = @_;
+  my $name = $heuristic_name;
+  if ( $name->can('name') ) {
+    $name = $name->name;
   }
-  push @{ $self->reasons }, $context;
+  $self->_debug("$name => $heuristic_result : $summary ");
+
+  # $self->_debug( " > " . $_) for _pp($context);
+  my ($heuristic_type);
+
+  if ( $heuristic_name->can(q[heuristic_type]) ) {
+    $heuristic_type = $heuristic_name->heuristic_type;
+  }
+
+  my $reason = {
+    heuristic => $heuristic_name,
+    result    => $heuristic_result,
+    ( defined $heuristic_type ? ( type => $heuristic_type ) : () ),
+    %{ $context || {} }
+  };
+  push @{ $self->reasons }, $reason;
   return $self;
 }
 
@@ -69,7 +78,7 @@ Path::IsDev::Result - Result container
 
 =head1 VERSION
 
-version 0.6.0
+version 1.000000
 
 =head1 SYNOPSIS
 
@@ -100,7 +109,29 @@ at the point you need it.
 Call this method from a heuristic to record checking of the heuristic
 and the relevant meta-data.
 
-    $result->add_reason( $heuristic, $matchvalue, \%contextinfo );
+    $result->add_reason( $heuristic, $matchvalue, $reason_summary, \%contextinfo );
+
+For example:
+
+    sub Foo::matches  {
+        my ( $self , $result_object ) = @_;
+        if ( $result_object->path->child('bar')->exists ) {
+            $result_object->add_reason( $self, 1, "child 'bar' exists" , {
+                child => 'bar',
+                'exists?' => 1,
+                child_path => $result_object->path->child('bar')
+            });
+            $result_object->result(1);
+            return 1;
+        }
+        return;
+    }
+
+Note that here, C<$matchvalue> should be the result of the relevant matching logic, not the global impact.
+
+For instance, C<excludes> compositions should still add reasons of C<< $matchvalue == 1 >>, but they should not
+set C<< $result_object->result(1) >>. ( In fact, setting C<result> is the job of the individual heuristic, not the matches
+that are folded into it )
 
 =head1 ATTRIBUTES
 
