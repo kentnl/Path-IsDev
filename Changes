@@ -1,6 +1,6 @@
 Release history for Path-IsDev
 
-1.000000 2013-10-18T09:50:14Z
+1.000000 2013-10-18T09:55:20Z
  [00 Supermajor Changes - Breaking Everything]
  - This release comes with many significant changes that are likely to
    break any closely built dependencies.
