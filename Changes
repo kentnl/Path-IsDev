@@ -1,6 +1,21 @@
 Release history for Path-IsDev
 
-1.000000 2013-10-16T07:40:38Z
+1.000000 2013-10-18T09:40:06Z
+ [00 Supermajor Changes - Breaking Everything]
+ - This release comes with many significant changes that are likely to break any closely built dependencies.
+ - External export interface contains no visible changes, but underyling plumbing is under heavy construction.
+
+ [01 Role Refactory]
+ - Any existing code that relied on previous roles or base classes will be BROKEN by this release.
+ - Roles again reimplemented and split to be more horizonal instead of vertically integrated.
+
+ [02 Base class removal]
+ - Base classes that we're deprecated in 0.6.0 are gone now.
+
+ [03 Version Schema Change]
+ - Version scheme is now Y.nnnnnn . If this is a problem for you, this means you're a downstream who doesn't normalise versions yet. Please learn to normalise, perl upstream break your assumptions.
+ - Versions will retain semantic difference, just there more "perl internals" friendly.
+
 
 0.6.0 2013-10-05T17:56:06Z
  [00 Major Changes - Role Apocalypse]

@@ -19,9 +19,9 @@ with 'Path::IsDev::Role::Matcher::Child::Exists::Any';
 sub child_exists_file {
   my ( $self, $result_object, $child ) = @_;
 
-  my $child_path =  $result_object->path->child($child);
-  my $ctx = { 'child_name' => $child, child_path => "$child_path", tests => [] };
-  my $tests = $ctx->{tests};
+  my $child_path = $result_object->path->child($child);
+  my $ctx        = { 'child_name' => $child, child_path => "$child_path", tests => [] };
+  my $tests      = $ctx->{tests};
 
   if ( -f $child_path ) {
     push @{$tests}, { 'child_path_isfile?' => 1 };

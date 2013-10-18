@@ -36,7 +36,6 @@ sub _this_child_matchregexp {
 }
 
 
-
 sub child_basename_matchregexp {
   my ( $self, $result_object, $regexp ) = @_;
   for my $child ( $result_object->path->children ) {

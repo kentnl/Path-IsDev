@@ -24,6 +24,7 @@ sub name {
   return $name;
 }
 
+
 sub heuristic_type {
   return 'negative heuristic';
 }

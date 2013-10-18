@@ -136,10 +136,10 @@ x_BuiltWith:
     IPC::Open3: 1.15
     Module::Build: 0.4007
     Module::Runtime: 0.013
-    Path::Tiny: 0.043
+    Path::Tiny: 0.044
     Pod::Coverage::TrustPod: 0.100002
     Role::Tiny: 1.003002
-    Scalar::Util: 1.33
+    Scalar::Util: 1.34
     Sub::Exporter: 0.986
     Test::CPAN::Changes: 0.25
     Test::CPAN::Meta: 0.23
@@ -269,7 +269,7 @@ x_Dist_Zilla:
           script_finder:
             - ':ExecFiles'
       name: '@Author::KENTNL/Test::Compile'
-      version: 2.036
+      version: 2.037
     -
       class: Dist::Zilla::Plugin::Test::Perl::Critic
       name: '@Author::KENTNL/Test::Perl::Critic'
@@ -346,7 +346,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::CheckExtraTests
       name: '@Author::KENTNL/CheckExtraTests'
-      version: 0.011
+      version: 0.013
     -
       class: Dist::Zilla::Plugin::TestRelease
       name: '@Author::KENTNL/TestRelease'

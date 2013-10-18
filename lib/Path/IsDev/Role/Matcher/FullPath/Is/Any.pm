@@ -18,7 +18,6 @@ use Role::Tiny;
 
 
 
-
 sub _fullpath_is {
   my ( $self, $result_object, $this, $comparator ) = @_;
 

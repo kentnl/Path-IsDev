@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-# this test was generated with Dist::Zilla::Plugin::Test::Compile 2.036
+# this test was generated with Dist::Zilla::Plugin::Test::Compile 2.037
 
 use Test::More  tests => 27 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
 
@@ -41,7 +41,7 @@ my @module_files = (
 
 # no fake home requested
 
-my $inc_switch = q[-Mblib];
+my $inc_switch = -d 'blib' ? '-Mblib' : '-Ilib';
 
 use File::Spec;
 use IPC::Open3;

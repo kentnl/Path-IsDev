@@ -104,7 +104,6 @@ sub _matches {
 }
 
 
-
 sub matches {
   my ( $self, $path ) = @_;
 

@@ -22,7 +22,6 @@ sub files {
 }
 
 
-
 sub matches {
   my ( $self, $result_object ) = @_;
   if ( $self->child_exists_any_file( $result_object, $self->files ) ) {
