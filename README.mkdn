@@ -4,7 +4,7 @@ Path::IsDev - Determine if a given Path resembles a development source tree
 
 # VERSION
 
-version 1.000000
+version 1.000001
 
 # SYNOPSIS
 
@@ -164,26 +164,26 @@ Success!
 
 Just remember, a __Negative__ Heuristic __excludes the path it is associated with__
 
-- [`IsDev::IgnoreFile`](http://search.cpan.org/perldoc?Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile) - `.path_isdev_ignore`
+- [`IsDev::IgnoreFile`](https://metacpan.org/pod/Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile) - `.path_isdev_ignore`
 
 ## Positive Heuristics bundled with this distribution
 
-- [`Changelog`](http://search.cpan.org/perldoc?Path::IsDev::Heuristic::Changelog) - Files matching `Changes`, `Changelog`, and similar, case insensitive, extensions optional.
-- [`DevDirMarker`](http://search.cpan.org/perldoc?Path::IsDev::Heuristic::DevDirMarker) - explicit `.devdir` file to indicate a project root.
-- [`META`](http://search.cpan.org/perldoc?Path::IsDev::Heuristic::META) - `META.yml`/`META.json`
-- [`MYMETA`](http://search.cpan.org/perldoc?Path::IsDev::Heuristic::MYMETA) - `MYMETA.yml`/`MYMETA.json`
-- [`Makefile`](http://search.cpan.org/perldoc?Path::IsDev::Heuristic::Makefile) - Any `Makefile` format documented supported by GNU Make
-- [`TestDir`](http://search.cpan.org/perldoc?Path::IsDev::Heuristic::TestDir) - A directory called either `t/` or `xt/`
-- [`Tool::DZil`](http://search.cpan.org/perldoc?Path::IsDev::Heuristic::Tool::DZil) - A `dist.ini` file
-- [`Tool::MakeMaker`](http://search.cpan.org/perldoc?Path::IsDev::Heuristic::Tool::MakeMaker) - A `Makefile.PL` file
-- [`Tool::ModuleBuild`](http://search.cpan.org/perldoc?Path::IsDev::Heuristic::Tool::ModuleBuild) - A `Build.PL` file
-- [`VCS::Git`](http://search.cpan.org/perldoc?Path::IsDev::Heuristic::VCS::Git) - A `.git` directory
+- [`Changelog`](https://metacpan.org/pod/Path::IsDev::Heuristic::Changelog) - Files matching `Changes`, `Changelog`, and similar, case insensitive, extensions optional.
+- [`DevDirMarker`](https://metacpan.org/pod/Path::IsDev::Heuristic::DevDirMarker) - explicit `.devdir` file to indicate a project root.
+- [`META`](https://metacpan.org/pod/Path::IsDev::Heuristic::META) - `META.yml`/`META.json`
+- [`MYMETA`](https://metacpan.org/pod/Path::IsDev::Heuristic::MYMETA) - `MYMETA.yml`/`MYMETA.json`
+- [`Makefile`](https://metacpan.org/pod/Path::IsDev::Heuristic::Makefile) - Any `Makefile` format documented supported by GNU Make
+- [`TestDir`](https://metacpan.org/pod/Path::IsDev::Heuristic::TestDir) - A directory called either `t/` or `xt/`
+- [`Tool::DZil`](https://metacpan.org/pod/Path::IsDev::Heuristic::Tool::DZil) - A `dist.ini` file
+- [`Tool::MakeMaker`](https://metacpan.org/pod/Path::IsDev::Heuristic::Tool::MakeMaker) - A `Makefile.PL` file
+- [`Tool::ModuleBuild`](https://metacpan.org/pod/Path::IsDev::Heuristic::Tool::ModuleBuild) - A `Build.PL` file
+- [`VCS::Git`](https://metacpan.org/pod/Path::IsDev::Heuristic::VCS::Git) - A `.git` directory
 
 # HEURISTIC SETS
 
 ## Heuristic Sets Bundled with this distribution
 
-- [`Basic`](http://search.cpan.org/perldoc?Path::IsDev::HeuristicSet::Basic) - The basic heuristic set that contains most, if not all heuristics.
+- [`Basic`](https://metacpan.org/pod/Path::IsDev::HeuristicSet::Basic) - The basic heuristic set that contains most, if not all heuristics.
 
 # ADVANCED USAGE
 
