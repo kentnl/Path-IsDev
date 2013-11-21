@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Heuristic::DevDirMarker::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::DevDirMarker::VERSION = '1.000000';
+  $Path::IsDev::Heuristic::DevDirMarker::VERSION = '1.000001';
 }
 
 # ABSTRACT: Determine if a path contains a C<.devdir> file
@@ -37,7 +37,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
@@ -45,7 +45,7 @@ Path::IsDev::Heuristic::DevDirMarker - Determine if a path contains a C<.devdir>
 
 =head1 VERSION
 
-version 1.000000
+version 1.000001
 
 =head1 DESCRIPTION
 

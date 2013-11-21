@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::VERSION = '1.000000';
+  $Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::VERSION = '1.000001';
 }
 
 # ABSTRACT: Match when a path has a child file matching an expression
@@ -50,7 +50,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
@@ -58,7 +58,7 @@ Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp - Match when a path has
 
 =head1 VERSION
 
-version 1.000000
+version 1.000001
 
 =head1 METHODS
 

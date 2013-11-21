@@ -51,12 +51,9 @@ sub pmver {
 eval { $v .= pmver('Carp','any version') };
 eval { $v .= pmver('Class::Tiny','0.010') };
 eval { $v .= pmver('File::HomeDir','any version') };
-eval { $v .= pmver('File::Spec','any version') };
 eval { $v .= pmver('File::Temp','any version') };
 eval { $v .= pmver('FindBin','any version') };
-eval { $v .= pmver('IO::Handle','any version') };
-eval { $v .= pmver('IPC::Open3','any version') };
-eval { $v .= pmver('Module::Build','0.4007') };
+eval { $v .= pmver('Module::Build','0.4202') };
 eval { $v .= pmver('Module::Runtime','any version') };
 eval { $v .= pmver('Path::Tiny','any version') };
 eval { $v .= pmver('Role::Tiny','any version') };
@@ -64,7 +61,7 @@ eval { $v .= pmver('Role::Tiny::With','any version') };
 eval { $v .= pmver('Scalar::Util','any version') };
 eval { $v .= pmver('Sub::Exporter','any version') };
 eval { $v .= pmver('Test::Fatal','any version') };
-eval { $v .= pmver('Test::More','0.99') };
+eval { $v .= pmver('Test::More','1.001002') };
 eval { $v .= pmver('strict','any version') };
 eval { $v .= pmver('warnings','any version') };
 

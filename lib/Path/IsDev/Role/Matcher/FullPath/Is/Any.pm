@@ -7,7 +7,7 @@ BEGIN {
   $Path::IsDev::Role::Matcher::FullPath::Is::Any::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Role::Matcher::FullPath::Is::Any::VERSION = '1.000000';
+  $Path::IsDev::Role::Matcher::FullPath::Is::Any::VERSION = '1.000001';
 }
 
 # ABSTRACT: Match if the current directory is the same directory from a list of absolute paths.
@@ -68,7 +68,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
@@ -76,7 +76,7 @@ Path::IsDev::Role::Matcher::FullPath::Is::Any - Match if the current directory i
 
 =head1 VERSION
 
-version 1.000000
+version 1.000001
 
 =head1 METHODS
 

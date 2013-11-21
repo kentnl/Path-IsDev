@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Role::Matcher::Child::Exists::Any::File::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Role::Matcher::Child::Exists::Any::File::VERSION = '1.000000';
+  $Path::IsDev::Role::Matcher::Child::Exists::Any::File::VERSION = '1.000001';
 }
 
 # ABSTRACT: Match if a path contains one of any of a list of files
@@ -49,7 +49,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
@@ -57,7 +57,7 @@ Path::IsDev::Role::Matcher::Child::Exists::Any::File - Match if a path contains 
 
 =head1 VERSION
 
-version 1.000000
+version 1.000001
 
 =head1 METHODS
 

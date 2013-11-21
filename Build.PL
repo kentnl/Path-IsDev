@@ -7,17 +7,17 @@ use Module::Build 0.3601;
 
 my %module_build_args = (
   "build_requires" => {
-    "Module::Build" => "0.4007"
+    "Module::Build" => "0.4202"
   },
   "configure_requires" => {
-    "Module::Build" => "0.4007"
+    "Module::Build" => "0.4202"
   },
   "dist_abstract" => "Determine if a given Path resembles a development source tree",
   "dist_author" => [
     "Kent Fredric <kentfredric\@gmail.com>"
   ],
   "dist_name" => "Path-IsDev",
-  "dist_version" => "1.000000",
+  "dist_version" => "1.000001",
   "license" => "perl",
   "module_name" => "Path::IsDev",
   "recommends" => {},
@@ -38,28 +38,26 @@ my %module_build_args = (
   },
   "script_files" => [],
   "test_requires" => {
-    "File::Spec" => 0,
     "File::Temp" => 0,
     "FindBin" => 0,
-    "IO::Handle" => 0,
-    "IPC::Open3" => 0,
     "Test::Fatal" => 0,
-    "Test::More" => "0.99"
+    "Test::More" => "1.001002"
   }
 );
 
 
+my %fallback_build_requires = (
+  "File::Temp" => 0,
+  "FindBin" => 0,
+  "Module::Build" => "0.4202",
+  "Test::Fatal" => 0,
+  "Test::More" => "1.001002"
+);
+
+
 unless ( eval { Module::Build->VERSION(0.4004) } ) {
-  my $tr = delete $module_build_args{test_requires};
-  my $br = $module_build_args{build_requires};
-  for my $mod ( keys %$tr ) {
-    if ( exists $br->{$mod} ) {
-      $br->{$mod} = $tr->{$mod} if $tr->{$mod} > $br->{$mod};
-    }
-    else {
-      $br->{$mod} = $tr->{$mod};
-    }
-  }
+  delete $module_build_args{test_requires};
+  $module_build_args{build_requires} = \%fallback_build_requires;
 }
 
 my $build = Module::Build->new(%module_build_args);
