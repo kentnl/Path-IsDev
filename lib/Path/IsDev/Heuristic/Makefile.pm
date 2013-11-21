@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Heuristic::Makefile::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::Makefile::VERSION = '1.000000';
+  $Path::IsDev::Heuristic::Makefile::VERSION = '1.000001';
 }
 
 
@@ -35,7 +35,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
@@ -43,7 +43,7 @@ Path::IsDev::Heuristic::Makefile - Determine if a path contains a C<Makefile>
 
 =head1 VERSION
 
-version 1.000000
+version 1.000001
 
 =head1 METHODS
 

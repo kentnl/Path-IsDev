@@ -7,7 +7,7 @@ BEGIN {
   $Path::IsDev::NegativeHeuristic::HomeDir::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::NegativeHeuristic::HomeDir::VERSION = '1.000000';
+  $Path::IsDev::NegativeHeuristic::HomeDir::VERSION = '1.000001';
 }
 
 # ABSTRACT: User home directories are not development roots
@@ -48,7 +48,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
@@ -56,7 +56,7 @@ Path::IsDev::NegativeHeuristic::HomeDir - User home directories are not developm
 
 =head1 VERSION
 
-version 1.000000
+version 1.000001
 
 =head1 METHODS
 

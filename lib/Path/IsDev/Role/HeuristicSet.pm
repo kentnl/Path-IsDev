@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Role::HeuristicSet::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Role::HeuristicSet::VERSION = '1.000000';
+  $Path::IsDev::Role::HeuristicSet::VERSION = '1.000001';
 }
 
 # ABSTRACT: Role for sets of Heuristics.
@@ -62,7 +62,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
@@ -70,7 +70,7 @@ Path::IsDev::Role::HeuristicSet - Role for sets of Heuristics.
 
 =head1 VERSION
 
-version 1.000000
+version 1.000001
 
 =head1 ROLE REQUIRES
 
