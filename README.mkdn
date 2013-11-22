@@ -4,7 +4,7 @@ Path::IsDev - Determine if a given Path resembles a development source tree
 
 # VERSION
 
-version 1.000001
+version 1.000002
 
 # SYNOPSIS
 
