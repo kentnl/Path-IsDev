@@ -1,6 +1,6 @@
 Release history for Path-IsDev
 
-1.000002 2013-11-22T01:52:00Z
+1.000002 2013-11-22T01:54:30Z
  [Bug Fixes]
  - Attempt to avoid failures on some Win32's where methods other than
    File::HomeDir->my_home don't work at all.
