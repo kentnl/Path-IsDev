@@ -68,7 +68,7 @@
             "Dist::Zilla::Plugin::TestRelease" : "0",
             "Dist::Zilla::Plugin::Twitter" : "0",
             "Dist::Zilla::Plugin::UploadToCPAN" : "0",
-            "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.003000",
+            "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.004000",
             "Pod::Coverage::TrustPod" : "0",
             "Test::CPAN::Changes" : "0.19",
             "Test::CPAN::Meta" : "0",
@@ -236,7 +236,7 @@
       "modules" : {
          "Carp" : "1.32",
          "Class::Tiny" : "0.012",
-         "Dist::Zilla::Plugin::Author::KENTNL::MinimumPerl" : "2.003000",
+         "Dist::Zilla::Plugin::Author::KENTNL::MinimumPerl" : "2.004000",
          "Dist::Zilla::Plugin::Authority" : "1.006",
          "Dist::Zilla::Plugin::AutoPrereqs" : "5.006",
          "Dist::Zilla::Plugin::CheckExtraTests" : "0.016",
@@ -278,7 +278,7 @@
          "Dist::Zilla::Plugin::TestRelease" : "5.006",
          "Dist::Zilla::Plugin::Twitter" : "0.023",
          "Dist::Zilla::Plugin::UploadToCPAN" : "5.006",
-         "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.003000",
+         "Dist::Zilla::PluginBundle::Author::KENTNL" : "2.004000",
          "Dist::Zilla::PluginBundle::Author::KENTNL::Lite" : "1.7.2",
          "File::HomeDir" : "1.00",
          "File::Temp" : "0.2304",
@@ -651,7 +651,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Author::KENTNL::MinimumPerl",
             "name" : "@Author::KENTNL/Author::KENTNL::MinimumPerl",
-            "version" : "2.003000"
+            "version" : "2.004000"
          },
          {
             "class" : "Dist::Zilla::Plugin::Authority",

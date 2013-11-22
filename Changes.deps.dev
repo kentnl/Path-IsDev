@@ -1,4 +1,6 @@
 1.000002
+ [Changed / develop requires]
+ - Dist::Zilla::PluginBundle::Author::KENTNL 2.002001 → 2.003000
 
 1.000001 2013-11-21T11:49:20Z
  [Added / develop requires]
