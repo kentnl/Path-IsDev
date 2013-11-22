@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Role::Matcher::Child::Exists::Any::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Role::Matcher::Child::Exists::Any::VERSION = '1.000001';
+  $Path::IsDev::Role::Matcher::Child::Exists::Any::VERSION = '1.000002';
 }
 
 # ABSTRACT: Match if any of a list of children exists
@@ -56,7 +56,7 @@ Path::IsDev::Role::Matcher::Child::Exists::Any - Match if any of a list of child
 
 =head1 VERSION
 
-version 1.000001
+version 1.000002
 
 =head1 METHODS
 

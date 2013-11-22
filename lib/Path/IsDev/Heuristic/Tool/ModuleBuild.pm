@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Heuristic::Tool::ModuleBuild::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::Tool::ModuleBuild::VERSION = '1.000001';
+  $Path::IsDev::Heuristic::Tool::ModuleBuild::VERSION = '1.000002';
 }
 
 
@@ -42,7 +42,7 @@ Path::IsDev::Heuristic::Tool::ModuleBuild - Determine if a path is a Module::Bui
 
 =head1 VERSION
 
-version 1.000001
+version 1.000002
 
 =head1 METHODS
 

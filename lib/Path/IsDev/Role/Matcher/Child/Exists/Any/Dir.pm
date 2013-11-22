@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Role::Matcher::Child::Exists::Any::Dir::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Role::Matcher::Child::Exists::Any::Dir::VERSION = '1.000001';
+  $Path::IsDev::Role::Matcher::Child::Exists::Any::Dir::VERSION = '1.000002';
 }
 
 # ABSTRACT: Match if a path contains one of any of a list of directories
@@ -57,7 +57,7 @@ Path::IsDev::Role::Matcher::Child::Exists::Any::Dir - Match if a path contains o
 
 =head1 VERSION
 
-version 1.000001
+version 1.000002
 
 =head1 METHODS
 

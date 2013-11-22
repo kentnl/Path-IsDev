@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Object::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Object::VERSION = '1.000001';
+  $Path::IsDev::Object::VERSION = '1.000002';
 }
 
 # ABSTRACT: Object Oriented guts for C<IsDev> export
@@ -130,7 +130,7 @@ Path::IsDev::Object - Object Oriented guts for C<IsDev> export
 
 =head1 VERSION
 
-version 1.000001
+version 1.000002
 
 =head1 SYNOPSIS
 

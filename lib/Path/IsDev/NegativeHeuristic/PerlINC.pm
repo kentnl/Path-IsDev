@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::NegativeHeuristic::PerlINC::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::NegativeHeuristic::PerlINC::VERSION = '1.000001';
+  $Path::IsDev::NegativeHeuristic::PerlINC::VERSION = '1.000002';
 }
 
 # ABSTRACT: White-list paths in C<Config.pm> as being non-development roots.
@@ -52,7 +52,7 @@ Path::IsDev::NegativeHeuristic::PerlINC - White-list paths in C<Config.pm> as be
 
 =head1 VERSION
 
-version 1.000001
+version 1.000002
 
 =head1 METHODS
 
