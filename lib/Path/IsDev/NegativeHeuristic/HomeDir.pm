@@ -30,8 +30,6 @@ sub _uniq (@) {
 use Role::Tiny::With;
 with 'Path::IsDev::Role::NegativeHeuristic', 'Path::IsDev::Role::Matcher::FullPath::Is::Any';
 
-sub _fhd { require File::HomeDir; return 'File::HomeDir' }
-
 =method C<paths>
 
 Excludes any values returned by L<< C<File::HomeDir>|File::HomeDir >>
@@ -49,12 +47,13 @@ Excludes any values returned by L<< C<File::HomeDir>|File::HomeDir >>
 
 sub paths {
   my @sources;
-  push @sources, _fhd()->my_home;
-  push @sources, _fhd()->my_desktop;
-  push @sources, _fhd()->my_music;
-  push @sources, _fhd()->my_pictures;
-  push @sources, _fhd()->my_videos;
-  push @sources, _fhd()->my_data;
+  require File::HomeDir;
+  push @sources, File::HomeDir->my_home;
+  for my $method (qw( my_home my_desktop my_music my_pictures my_videos my_data )) {
+    if ( $File::HomeDir::IMPLEMENTED_BY->can($method) ) {
+      push @sources, File::HomeDir->$method();
+    }
+  }
   return _uniq grep { defined and length } @sources;
 }
 
