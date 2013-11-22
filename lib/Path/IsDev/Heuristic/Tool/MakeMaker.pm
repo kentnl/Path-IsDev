@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Heuristic::Tool::MakeMaker::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Heuristic::Tool::MakeMaker::VERSION = '1.000001';
+  $Path::IsDev::Heuristic::Tool::MakeMaker::VERSION = '1.000002';
 }
 
 
@@ -42,7 +42,7 @@ Path::IsDev::Heuristic::Tool::MakeMaker - Determine if a path is an C<EUMM> Tool
 
 =head1 VERSION
 
-version 1.000001
+version 1.000002
 
 =head1 METHODS
 

@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Role::NegativeHeuristic::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Role::NegativeHeuristic::VERSION = '1.000001';
+  $Path::IsDev::Role::NegativeHeuristic::VERSION = '1.000002';
 }
 
 # ABSTRACT: Base role for Negative Heuristic things.
@@ -46,7 +46,7 @@ Path::IsDev::Role::NegativeHeuristic - Base role for Negative Heuristic things.
 
 =head1 VERSION
 
-version 1.000001
+version 1.000002
 
 =head1 ROLE REQUIRES
 

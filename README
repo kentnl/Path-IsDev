@@ -3,7 +3,7 @@ NAME
     tree
 
 VERSION
-    version 1.000001
+    version 1.000002
 
 SYNOPSIS
         use Path::IsDev qw(is_dev);

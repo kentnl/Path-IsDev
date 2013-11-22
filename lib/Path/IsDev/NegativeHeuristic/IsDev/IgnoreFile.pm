@@ -7,7 +7,7 @@ BEGIN {
   $Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::VERSION = '1.000001';
+  $Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::VERSION = '1.000002';
 }
 
 # ABSTRACT: An explicit exclusion file heuristic
@@ -43,7 +43,7 @@ Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile - An explicit exclusion file h
 
 =head1 VERSION
 
-version 1.000001
+version 1.000002
 
 =head1 SYNOPSIS
 

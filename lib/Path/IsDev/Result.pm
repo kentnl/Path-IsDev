@@ -6,7 +6,7 @@ BEGIN {
   $Path::IsDev::Result::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $Path::IsDev::Result::VERSION = '1.000001';
+  $Path::IsDev::Result::VERSION = '1.000002';
 }
 
 # ABSTRACT: Result container
@@ -78,7 +78,7 @@ Path::IsDev::Result - Result container
 
 =head1 VERSION
 
-version 1.000001
+version 1.000002
 
 =head1 SYNOPSIS
 
