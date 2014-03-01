@@ -1,24 +1,77 @@
+use 5.008;
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::HeuristicSet::Basic;
-BEGIN {
-  $Path::IsDev::HeuristicSet::Basic::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::HeuristicSet::Basic::VERSION = '1.000002';
-}
+$Path::IsDev::HeuristicSet::Basic::VERSION = '1.001000';
+# ABSTRACT: Basic IsDev set of Heuristics
 
-# ABSTRACT: Basic C<IsDev> set of Heuristics
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
-use Role::Tiny::With;
+
+
+
+
+
+
+
+
+
+
+
+use Role::Tiny::With qw( with );
 with 'Path::IsDev::Role::HeuristicSet::Simple';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub negative_heuristics {
   return qw( IsDev::IgnoreFile HomeDir PerlINC );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub heuristics {
@@ -39,11 +92,11 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::HeuristicSet::Basic - Basic C<IsDev> set of Heuristics
+Path::IsDev::HeuristicSet::Basic - Basic IsDev set of Heuristics
 
 =head1 VERSION
 
-version 1.000002
+version 1.001000
 
 =head1 METHODS
 
@@ -106,7 +159,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

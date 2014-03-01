@@ -1,19 +1,38 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::Heuristic;
-BEGIN {
-  $Path::IsDev::Role::Heuristic::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Role::Heuristic::VERSION = '1.000002';
-}
-
+$Path::IsDev::Role::Heuristic::VERSION = '1.001000';
 # ABSTRACT: Base role for Heuristic things.
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 
-use Role::Tiny;
+use Role::Tiny qw( requires );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -25,9 +44,36 @@ sub name {
 }
 
 
+
+
+
+
+
+
+
 sub heuristic_type {
   return 'positive heuristic';
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 requires 'matches';
@@ -46,7 +92,7 @@ Path::IsDev::Role::Heuristic - Base role for Heuristic things.
 
 =head1 VERSION
 
-version 1.000002
+version 1.001000
 
 =head1 ROLE REQUIRES
 
@@ -102,7 +148,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

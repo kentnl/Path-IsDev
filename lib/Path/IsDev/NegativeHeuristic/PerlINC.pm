@@ -1,15 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::NegativeHeuristic::PerlINC;
-BEGIN {
-  $Path::IsDev::NegativeHeuristic::PerlINC::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::NegativeHeuristic::PerlINC::VERSION = '1.000002';
-}
+$Path::IsDev::NegativeHeuristic::PerlINC::VERSION = '1.001000';
+# ABSTRACT: White-list paths in Config.pm as being non-development roots.
 
-# ABSTRACT: White-list paths in C<Config.pm> as being non-development roots.
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 ## no critic (RequireArgUnpacking, ProhibitSubroutinePrototypes)
 sub _uniq (@) {
@@ -18,10 +16,31 @@ sub _uniq (@) {
 }
 
 
-use Role::Tiny::With;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+use Role::Tiny::With qw( with );
 use Config;
 
 with 'Path::IsDev::Role::NegativeHeuristic', 'Path::IsDev::Role::Matcher::FullPath::Is::Any';
+
+
+
+
+
+
+
 
 
 sub paths {
@@ -29,6 +48,11 @@ sub paths {
   push @sources, $Config{archlibexp}, $Config{privlibexp}, $Config{sitelibexp}, $Config{vendorlibexp};
   return _uniq grep { defined and length } @sources;
 }
+
+
+
+
+
 
 
 sub excludes {
@@ -48,11 +72,11 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::NegativeHeuristic::PerlINC - White-list paths in C<Config.pm> as being non-development roots.
+Path::IsDev::NegativeHeuristic::PerlINC - White-list paths in Config.pm as being non-development roots.
 
 =head1 VERSION
 
-version 1.000002
+version 1.001000
 
 =head1 METHODS
 
@@ -86,7 +110,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

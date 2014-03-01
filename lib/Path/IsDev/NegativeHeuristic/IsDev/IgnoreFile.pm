@@ -1,20 +1,60 @@
-
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile;
-BEGIN {
-  $Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::VERSION = '1.000002';
-}
-
+$Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::VERSION = '1.001000';
 # ABSTRACT: An explicit exclusion file heuristic
 
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Role::Tiny::With;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+use Role::Tiny::With qw( with );
 with 'Path::IsDev::Role::NegativeHeuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
+
+
+
+
+
+
+
 
 
 sub excludes_files {
@@ -22,9 +62,14 @@ sub excludes_files {
 }
 
 
+
+
+
+
+
 sub excludes {
   my ( $self, $result_object ) = @_;
-  if ( my $result = $self->child_exists_any_file( $result_object, $self->excludes_files ) ) {
+  if ( $self->child_exists_any_file( $result_object, $self->excludes_files ) ) {
     return 1;
   }
   return;
@@ -43,7 +88,7 @@ Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile - An explicit exclusion file h
 
 =head1 VERSION
 
-version 1.000002
+version 1.001000
 
 =head1 SYNOPSIS
 
@@ -99,7 +144,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

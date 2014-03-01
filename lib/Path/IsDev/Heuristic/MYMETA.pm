@@ -1,25 +1,58 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Heuristic::MYMETA;
-BEGIN {
-  $Path::IsDev::Heuristic::MYMETA::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Heuristic::MYMETA::VERSION = '1.000002';
-}
-
+$Path::IsDev::Heuristic::MYMETA::VERSION = '1.001000';
 # ABSTRACT: Determine if a path contains MYMETA.(json|yml)
 
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
-use Role::Tiny::With;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+use Role::Tiny::With qw( with );
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
+
+
+
+
+
+
+
+
 
 
 sub files {
   return qw( MYMETA.json MYMETA.yml );
 }
+
+
+
+
+
 
 
 sub matches {
@@ -45,7 +78,7 @@ Path::IsDev::Heuristic::MYMETA - Determine if a path contains MYMETA.(json|yml)
 
 =head1 VERSION
 
-version 1.000002
+version 1.001000
 
 =head1 DESCRIPTION
 
@@ -87,7 +120,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

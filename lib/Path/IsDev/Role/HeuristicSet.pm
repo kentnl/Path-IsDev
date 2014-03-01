@@ -1,40 +1,63 @@
+use 5.008;    # utf8;
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::HeuristicSet;
-BEGIN {
-  $Path::IsDev::Role::HeuristicSet::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Role::HeuristicSet::VERSION = '1.000002';
-}
-
+$Path::IsDev::Role::HeuristicSet::VERSION = '1.001000';
 # ABSTRACT: Role for sets of Heuristics.
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
+
+
+
+
+
+
+
+
+
+
 
 
 sub _use_module { require Module::Runtime; goto &Module::Runtime::use_module }
 sub _com_mn     { require Module::Runtime; goto &Module::Runtime::compose_module_name; }
-sub _debug      { require Path::IsDev;     goto &Path::IsDev::debug }
+## no critic (Subroutines::ProhibitCallsToUnexportedSubs)
+sub _debug { require Path::IsDev; goto &Path::IsDev::debug }
 
-use Role::Tiny;
+use Role::Tiny qw( requires );
+
+
+
+
+
 
 
 requires 'modules';
 
 sub _expand_heuristic {
-  my ( $self, $hn ) = @_;
+  my ( undef, $hn ) = @_;
   return _com_mn( 'Path::IsDev::Heuristic', $hn );
 }
 
 sub _expand_negative_heuristic {
-  my ( $self, $hn ) = @_;
+  my ( undef, $hn ) = @_;
   return _com_mn( 'Path::IsDev::NegativeHeuristic', $hn );
 }
 
 sub _load_module {
-  my ( $self, $module ) = @_;
+  my ( undef, $module ) = @_;
   return _use_module($module);
 }
+
+
+
+
+
+
+
+
+
 
 
 sub matches {
@@ -70,7 +93,7 @@ Path::IsDev::Role::HeuristicSet - Role for sets of Heuristics.
 
 =head1 VERSION
 
-version 1.000002
+version 1.001000
 
 =head1 ROLE REQUIRES
 
@@ -104,7 +127,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

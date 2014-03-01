@@ -1,30 +1,69 @@
+use 5.008;
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Result;
-BEGIN {
-  $Path::IsDev::Result::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Result::VERSION = '1.000002';
-}
-
+$Path::IsDev::Result::VERSION = '1.001000';
 # ABSTRACT: Result container
 
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
-use Class::Tiny 'path', 'result', {
-  reasons => sub { [] }
-};
 
-sub _path  { require Path::Tiny;  goto &Path::Tiny::path }
-sub _croak { require Carp;        goto &Carp::croak }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+use Class::Tiny 'path', 'result', { reasons => sub { [] }, };
+
+sub _path  { require Path::Tiny; goto &Path::Tiny::path }
+sub _croak { require Carp;       goto &Carp::croak }
+## no critic (Subroutines::ProhibitCallsToUnexportedSubs)
 sub _debug { require Path::IsDev; shift; goto &Path::IsDev::debug }
 
 
+
+
+
 sub BUILD {
-  my ( $self, $args ) = @_;
+  my ( $self, ) = @_;
   if ( not $self->path ) {
     return _croak(q[<path> is a mandatory parameter]);
   }
@@ -37,6 +76,36 @@ sub BUILD {
   $self->path( $self->path->absolute );
   return $self;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub add_reason {
@@ -58,7 +127,7 @@ sub add_reason {
     heuristic => $heuristic_name,
     result    => $heuristic_result,
     ( defined $heuristic_type ? ( type => $heuristic_type ) : () ),
-    %{ $context || {} }
+    %{ $context || {} },
   };
   push @{ $self->reasons }, $reason;
   return $self;
@@ -78,7 +147,7 @@ Path::IsDev::Result - Result container
 
 =head1 VERSION
 
-version 1.000002
+version 1.001000
 
 =head1 SYNOPSIS
 
@@ -158,7 +227,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

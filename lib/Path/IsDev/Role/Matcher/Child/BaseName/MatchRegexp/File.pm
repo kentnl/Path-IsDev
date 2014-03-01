@@ -1,18 +1,34 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File;
-BEGIN {
-  $Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File::VERSION = '1.000002';
-}
+$Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File::VERSION = '1.001000';
+# ABSTRACT: Match if any children have basename's that match a regexp and are files
 
-# ABSTRACT: Match if any children have C<basename>s that match a regexp and are files
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Role::Tiny;
+use Role::Tiny qw( with );
 with 'Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -20,10 +36,11 @@ sub _this_child_isfile {
   my ( $self, $result_object, $child ) = @_;
   my $ctx = {
     'child' => "$child",
-    tests   => []
+    tests   => [],
   };
   my $tests = $ctx->{tests};
 
+  ## no critic (ValuesAndExpressions::ProhibitFiletest_f)
   if ( -f $child ) {
     push @{$tests}, { 'child_isfile?' => 1 };
     $result_object->add_reason( $self, 1, "$child is a file", $ctx );
@@ -34,6 +51,18 @@ sub _this_child_isfile {
 
   return;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub child_basename_matchregexp_file {
@@ -57,11 +86,11 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File - Match if any children have C<basename>s that match a regexp and are files
+Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File - Match if any children have basename's that match a regexp and are files
 
 =head1 VERSION
 
-version 1.000002
+version 1.001000
 
 =head1 METHODS
 
@@ -101,7 +130,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -1,19 +1,35 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::Matcher::Child::Exists::Any::File;
-BEGIN {
-  $Path::IsDev::Role::Matcher::Child::Exists::Any::File::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Role::Matcher::Child::Exists::Any::File::VERSION = '1.000002';
-}
-
+$Path::IsDev::Role::Matcher::Child::Exists::Any::File::VERSION = '1.001000';
 # ABSTRACT: Match if a path contains one of any of a list of files
 
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Role::Tiny;
+
+
+
+
+
+
+
+
+
+
+
+
+use Role::Tiny qw( with );
 with 'Path::IsDev::Role::Matcher::Child::Exists::Any';
+
+
+
+
+
+
+
 
 
 sub child_exists_file {
@@ -23,6 +39,8 @@ sub child_exists_file {
   my $ctx        = { 'child_name' => $child, child_path => "$child_path", tests => [] };
   my $tests      = $ctx->{tests};
 
+  # For now, yes, files, not things usable as files
+  ## no critic (ValuesAndExpressions::ProhibitFiletest_f)
   if ( -f $child_path ) {
     push @{$tests}, { 'child_path_isfile?' => 1 };
     $result_object->add_reason( $self, 1, "$child_path is a file", $ctx );
@@ -33,6 +51,13 @@ sub child_exists_file {
 
   return;
 }
+
+
+
+
+
+
+
 
 
 sub child_exists_any_file {
@@ -57,7 +82,7 @@ Path::IsDev::Role::Matcher::Child::Exists::Any::File - Match if a path contains 
 
 =head1 VERSION
 
-version 1.000002
+version 1.001000
 
 =head1 METHODS
 
@@ -90,7 +115,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

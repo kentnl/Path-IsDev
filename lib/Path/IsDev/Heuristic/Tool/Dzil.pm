@@ -1,22 +1,46 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Heuristic::Tool::Dzil;
-BEGIN {
-  $Path::IsDev::Heuristic::Tool::Dzil::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Heuristic::Tool::Dzil::VERSION = '1.000002';
-}
+$Path::IsDev::Heuristic::Tool::Dzil::VERSION = '1.001000';
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # ABSTRACT: Determine if a path is a Dist::Zilla Source tree
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Role::Tiny::With qw( with );
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
 
 
+
+
+
+
+
+
+
 sub files { return qw( dist.ini ) }
+
+
+
+
+
 
 
 sub matches {
@@ -42,7 +66,7 @@ Path::IsDev::Heuristic::Tool::Dzil - Determine if a path is a Dist::Zilla Source
 
 =head1 VERSION
 
-version 1.000002
+version 1.001000
 
 =head1 METHODS
 
@@ -76,7 +100,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

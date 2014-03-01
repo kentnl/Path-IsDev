@@ -1,15 +1,48 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Object;
-BEGIN {
-  $Path::IsDev::Object::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Object::VERSION = '1.000002';
-}
+$Path::IsDev::Object::VERSION = '1.001000';
+# ABSTRACT: Object Oriented guts for IsDev export
 
-# ABSTRACT: Object Oriented guts for C<IsDev> export
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -19,6 +52,13 @@ our $DEBUG = ( exists $ENV{$ENV_KEY_DEBUG} ? $ENV{$ENV_KEY_DEBUG} : undef );
 our $ENV_KEY_DEFAULT = 'PATH_ISDEV_DEFAULT_SET';
 our $DEFAULT =
   ( exists $ENV{$ENV_KEY_DEFAULT} ? $ENV{$ENV_KEY_DEFAULT} : 'Basic' );
+
+
+
+
+
+
+
 
 
 use Class::Tiny 0.010 {
@@ -35,10 +75,37 @@ use Class::Tiny 0.010 {
 };
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 my $instances   = {};
 my $instance_id = 0;
 
 sub _carp { require Carp; goto &Carp::carp; }
+
+
+
+
+
+
+
+
+
+
 
 
 sub _instance_id {
@@ -51,6 +118,15 @@ sub _instance_id {
 }
 
 
+
+
+
+
+
+
+
+
+
 sub _debug {
   my ( $self, $message ) = @_;
 
@@ -58,6 +134,16 @@ sub _debug {
   my $id = $self->_instance_id;
   return *STDERR->printf( qq{[Path::IsDev=%s] %s\n}, $id, $message );
 }
+
+
+
+
+
+
+
+
+
+
 
 
 sub _with_debug {
@@ -70,6 +156,14 @@ sub _with_debug {
   };
   return $code->();
 }
+
+
+
+
+
+
+
+
 
 
 sub BUILD {
@@ -85,35 +179,54 @@ sub BUILD {
 }
 
 
+
+
+
+
+
+
+
+
+
 sub _matches {
   my ( $self, $path ) = @_;
   require Path::IsDev::Result;
-  my $object = Path::IsDev::Result->new( path => $path );
+  my $result_object = Path::IsDev::Result->new( path => $path );
   my $result;
   $self->_with_debug(
     sub {
 
-      $self->_debug( 'Matching ' . $object->path );
-      $result = $self->loaded_set_module->matches($object);
-    }
+      $self->_debug( 'Matching ' . $result_object->path );
+      $result = $self->loaded_set_module->matches($result_object);
+    },
   );
-  if ( !!$result != !!$object->result ) {
+  if ( !!$result != !!$result_object->result ) {
     _carp(q[Result and Result Object missmatch]);
   }
-  return $object;
+  return $result_object;
 }
+
+
+
+
+
+
+
+
+
 
 
 sub matches {
   my ( $self, $path ) = @_;
 
-  my $object = $self->_matches($path);
+  my $result_object = $self->_matches($path);
 
-  if ( not $object->result ) {
+  if ( not $result_object->result ) {
     $self->_debug('no match found');
+    return;
   }
 
-  return $object->result;
+  return $result_object->result;
 }
 
 1;
@@ -126,11 +239,11 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Object - Object Oriented guts for C<IsDev> export
+Path::IsDev::Object - Object Oriented guts for IsDev export
 
 =head1 VERSION
 
-version 1.000002
+version 1.001000
 
 =head1 SYNOPSIS
 
@@ -249,7 +362,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -1,19 +1,35 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::Matcher::Child::Exists::Any::Dir;
-BEGIN {
-  $Path::IsDev::Role::Matcher::Child::Exists::Any::Dir::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Role::Matcher::Child::Exists::Any::Dir::VERSION = '1.000002';
-}
-
+$Path::IsDev::Role::Matcher::Child::Exists::Any::Dir::VERSION = '1.001000';
 # ABSTRACT: Match if a path contains one of any of a list of directories
 
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Role::Tiny;
+
+
+
+
+
+
+
+
+
+
+
+
+use Role::Tiny qw( with );
 with 'Path::IsDev::Role::Matcher::Child::Exists::Any';
+
+
+
+
+
+
+
 
 
 sub child_exists_dir {
@@ -33,6 +49,13 @@ sub child_exists_dir {
 
   return;
 }
+
+
+
+
+
+
+
 
 
 sub child_exists_any_dir {
@@ -57,7 +80,7 @@ Path::IsDev::Role::Matcher::Child::Exists::Any::Dir - Match if a path contains o
 
 =head1 VERSION
 
-version 1.000002
+version 1.001000
 
 =head1 METHODS
 
@@ -65,7 +88,7 @@ version 1.000002
 
     $class->child_exists_dir( $result_object, $childname );
 
-Return match if C<$childname> exists as a directory child of C<< $result_object->path >>,
+Return match if C<$childname> exists as a directory child of C<< $result_object->path >>.
 
 =head2 C<child_exists_any_dir>
 
@@ -90,7 +113,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

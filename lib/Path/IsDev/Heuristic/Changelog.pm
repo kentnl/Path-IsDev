@@ -1,25 +1,64 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Heuristic::Changelog;
-BEGIN {
-  $Path::IsDev::Heuristic::Changelog::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Heuristic::Changelog::VERSION = '1.000002';
-}
+$Path::IsDev::Heuristic::Changelog::VERSION = '1.001000';
+# ABSTRACT: Determine if a path contains a Changelog (or similar)
 
-# ABSTRACT: Determine if a path contains a C<Changelog> (or similar)
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
-use Role::Tiny::With;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+use Role::Tiny::With qw( with );
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File';
 
 
+
+
+
+
+
+
+
+
+
+
 sub basename_regexp {
-  return qr/\AChange(s|log)(|[.][^.\s]+)\z/isxm;
+  ## no critic (RegularExpressions::RequireLineBoundaryMatching)
+  return qr/\AChange(s|log)(|[.][^.\s]+)\z/isx;
 }
+
+
+
+
+
 
 
 sub matches {
@@ -41,11 +80,11 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Heuristic::Changelog - Determine if a path contains a C<Changelog> (or similar)
+Path::IsDev::Heuristic::Changelog - Determine if a path contains a Changelog (or similar)
 
 =head1 VERSION
 
-version 1.000002
+version 1.001000
 
 =head1 DESCRIPTION
 
@@ -92,7 +131,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
