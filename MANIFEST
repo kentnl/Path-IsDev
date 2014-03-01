@@ -67,6 +67,8 @@ maint-travis-ci/travis_enable.pl
 maint-travis-ci/yamls/sterile.mkdn
 maint-travis-ci/yamls/sterile.yaml
 maint-travis-ci/yamls/sterile2.yaml
+maint/perlcritic.rc.gen.pl
+perlcritic.deps
 perlcritic.rc
 t/00-compile/lib_Path_IsDev_HeuristicSet_Basic_pm.t
 t/00-compile/lib_Path_IsDev_Heuristic_Changelog_pm.t
