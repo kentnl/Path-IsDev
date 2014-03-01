@@ -11,7 +11,7 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 
-use Role::Tiny;
+use Role::Tiny qw( requires );
 
 
 

@@ -20,7 +20,7 @@ $Path::IsDev::Heuristic::Tool::MakeMaker::VERSION = '1.000003';
 
 
 
-# ABSTRACT: Determine if a path is an C<EUMM> Tooled source directory
+# ABSTRACT: Determine if a path is an ExtUtils::MakeMaker Tooled source directory
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
@@ -62,7 +62,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Heuristic::Tool::MakeMaker - Determine if a path is an C<EUMM> Tooled source directory
+Path::IsDev::Heuristic::Tool::MakeMaker - Determine if a path is an ExtUtils::MakeMaker Tooled source directory
 
 =head1 VERSION
 
