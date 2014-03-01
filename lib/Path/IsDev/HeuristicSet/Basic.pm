@@ -21,7 +21,7 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
-use Role::Tiny::With;
+use Role::Tiny::With qw( with );
 with 'Path::IsDev::Role::HeuristicSet::Simple';
 
 

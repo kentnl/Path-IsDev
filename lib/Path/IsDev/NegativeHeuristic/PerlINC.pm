@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::NegativeHeuristic::PerlINC;
 $Path::IsDev::NegativeHeuristic::PerlINC::VERSION = '1.000003';
-# ABSTRACT: White-list paths in C<Config.pm> as being non-development roots.
+# ABSTRACT: White-list paths in Config.pm as being non-development roots.
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
@@ -30,7 +30,7 @@ sub _uniq (@) {
 
 
 
-use Role::Tiny::With;
+use Role::Tiny::With qw( with );
 use Config;
 
 with 'Path::IsDev::Role::NegativeHeuristic', 'Path::IsDev::Role::Matcher::FullPath::Is::Any';
@@ -72,7 +72,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::NegativeHeuristic::PerlINC - White-list paths in C<Config.pm> as being non-development roots.
+Path::IsDev::NegativeHeuristic::PerlINC - White-list paths in Config.pm as being non-development roots.
 
 =head1 VERSION
 
