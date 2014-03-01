@@ -5,11 +5,11 @@ use utf8;
 
 package Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File;
 $Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File::VERSION = '1.000003';
-# ABSTRACT: Match if any children have C<basename>s that match a regexp and are files
+# ABSTRACT: Match if any children have basename's that match a regexp and are files
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Role::Tiny;
+use Role::Tiny qw( with );
 with 'Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp';
 
 
@@ -36,10 +36,11 @@ sub _this_child_isfile {
   my ( $self, $result_object, $child ) = @_;
   my $ctx = {
     'child' => "$child",
-    tests   => []
+    tests   => [],
   };
   my $tests = $ctx->{tests};
 
+  ## no critic (ValuesAndExpressions::ProhibitFiletest_f)
   if ( -f $child ) {
     push @{$tests}, { 'child_isfile?' => 1 };
     $result_object->add_reason( $self, 1, "$child is a file", $ctx );
@@ -85,7 +86,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File - Match if any children have C<basename>s that match a regexp and are files
+Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File - Match if any children have basename's that match a regexp and are files
 
 =head1 VERSION
 
