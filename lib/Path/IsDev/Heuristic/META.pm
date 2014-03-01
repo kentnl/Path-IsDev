@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Path::IsDev::Heuristic::META;
-$Path::IsDev::Heuristic::META::VERSION = '1.001000';
+$Path::IsDev::Heuristic::META::VERSION = '1.000003';
 
 
 
@@ -69,7 +69,7 @@ Path::IsDev::Heuristic::META - Determine if a path contains META.(json|yml)
 
 =head1 VERSION
 
-version 1.001000
+version 1.000003
 
 =head1 METHODS
 

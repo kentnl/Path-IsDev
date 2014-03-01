@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Path::IsDev::Role::NegativeHeuristic;
-$Path::IsDev::Role::NegativeHeuristic::VERSION = '1.001000';
+$Path::IsDev::Role::NegativeHeuristic::VERSION = '1.000003';
 # ABSTRACT: Base role for Negative Heuristic things.
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -92,7 +92,7 @@ Path::IsDev::Role::NegativeHeuristic - Base role for Negative Heuristic things.
 
 =head1 VERSION
 
-version 1.001000
+version 1.000003
 
 =head1 ROLE REQUIRES
 

@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Path::IsDev::Role::Matcher::Child::Exists::Any::Dir;
-$Path::IsDev::Role::Matcher::Child::Exists::Any::Dir::VERSION = '1.001000';
+$Path::IsDev::Role::Matcher::Child::Exists::Any::Dir::VERSION = '1.000003';
 # ABSTRACT: Match if a path contains one of any of a list of directories
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -80,7 +80,7 @@ Path::IsDev::Role::Matcher::Child::Exists::Any::Dir - Match if a path contains o
 
 =head1 VERSION
 
-version 1.001000
+version 1.000003
 
 =head1 METHODS
 

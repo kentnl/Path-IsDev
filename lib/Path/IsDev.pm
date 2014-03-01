@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Path::IsDev;
-$Path::IsDev::VERSION = '1.001000';
+$Path::IsDev::VERSION = '1.000003';
 # ABSTRACT: Determine if a given Path resembles a development source tree
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -332,7 +332,7 @@ Path::IsDev - Determine if a given Path resembles a development source tree
 
 =head1 VERSION
 
-version 1.001000
+version 1.000003
 
 =head1 SYNOPSIS
 

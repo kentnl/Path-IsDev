@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Path::IsDev::Heuristic::Tool::MakeMaker;
-$Path::IsDev::Heuristic::Tool::MakeMaker::VERSION = '1.001000';
+$Path::IsDev::Heuristic::Tool::MakeMaker::VERSION = '1.000003';
 
 
 
@@ -66,7 +66,7 @@ Path::IsDev::Heuristic::Tool::MakeMaker - Determine if a path is an ExtUtils::Ma
 
 =head1 VERSION
 
-version 1.001000
+version 1.000003
 
 =head1 METHODS
 
