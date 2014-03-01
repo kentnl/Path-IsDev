@@ -2,18 +2,33 @@ use strict;
 use warnings;
 
 package Path::IsDev::Role::NegativeHeuristic;
-BEGIN {
-  $Path::IsDev::Role::NegativeHeuristic::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Role::NegativeHeuristic::VERSION = '1.000002';
-}
-
+$Path::IsDev::Role::NegativeHeuristic::VERSION = '1.000003';
 # ABSTRACT: Base role for Negative Heuristic things.
 
 sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 
 use Role::Tiny;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -25,9 +40,36 @@ sub name {
 }
 
 
+
+
+
+
+
+
+
 sub heuristic_type {
   return 'negative heuristic';
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 requires 'excludes';
@@ -46,7 +88,7 @@ Path::IsDev::Role::NegativeHeuristic - Base role for Negative Heuristic things.
 
 =head1 VERSION
 
-version 1.000002
+version 1.000003
 
 =head1 ROLE REQUIRES
 
@@ -102,7 +144,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

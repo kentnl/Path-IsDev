@@ -2,12 +2,20 @@ use strict;
 use warnings;
 
 package Path::IsDev::Heuristic::VCS::Git;
-BEGIN {
-  $Path::IsDev::Heuristic::VCS::Git::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Heuristic::VCS::Git::VERSION = '1.000002';
-}
+$Path::IsDev::Heuristic::VCS::Git::VERSION = '1.000003';
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # ABSTRACT: Determine if a path contains a C<.git> repository
@@ -17,7 +25,19 @@ use Role::Tiny::With;
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::Dir';
 
 
+
+
+
+
+
+
+
 sub dirs { return qw( .git ) }
+
+
+
+
+
 
 
 sub matches {
@@ -43,7 +63,7 @@ Path::IsDev::Heuristic::VCS::Git - Determine if a path contains a C<.git> reposi
 
 =head1 VERSION
 
-version 1.000002
+version 1.000003
 
 =head1 METHODS
 
@@ -77,7 +97,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

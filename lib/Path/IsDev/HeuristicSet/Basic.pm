@@ -2,23 +2,72 @@ use strict;
 use warnings;
 
 package Path::IsDev::HeuristicSet::Basic;
-BEGIN {
-  $Path::IsDev::HeuristicSet::Basic::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::HeuristicSet::Basic::VERSION = '1.000002';
-}
-
+$Path::IsDev::HeuristicSet::Basic::VERSION = '1.000003';
 # ABSTRACT: Basic C<IsDev> set of Heuristics
+
+
+
+
+
+
+
+
+
+
+
 
 
 use Role::Tiny::With;
 with 'Path::IsDev::Role::HeuristicSet::Simple';
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 sub negative_heuristics {
   return qw( IsDev::IgnoreFile HomeDir PerlINC );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub heuristics {
@@ -43,7 +92,7 @@ Path::IsDev::HeuristicSet::Basic - Basic C<IsDev> set of Heuristics
 
 =head1 VERSION
 
-version 1.000002
+version 1.000003
 
 =head1 METHODS
 
@@ -106,7 +155,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

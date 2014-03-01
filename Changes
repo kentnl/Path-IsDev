@@ -1,5 +1,7 @@
 Release history for Path-IsDev
 
+1.000003 2014-03-01T06:36:43Z
+
 1.000002 2013-11-22T03:28:04Z
  [Bug Fixes]
  - Attempt to avoid failures on some Win32's where methods other than

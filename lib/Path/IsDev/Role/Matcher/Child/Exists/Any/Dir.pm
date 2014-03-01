@@ -2,18 +2,30 @@ use strict;
 use warnings;
 
 package Path::IsDev::Role::Matcher::Child::Exists::Any::Dir;
-BEGIN {
-  $Path::IsDev::Role::Matcher::Child::Exists::Any::Dir::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Role::Matcher::Child::Exists::Any::Dir::VERSION = '1.000002';
-}
-
+$Path::IsDev::Role::Matcher::Child::Exists::Any::Dir::VERSION = '1.000003';
 # ABSTRACT: Match if a path contains one of any of a list of directories
+
+
+
+
+
+
+
+
+
+
+
 
 
 use Role::Tiny;
 with 'Path::IsDev::Role::Matcher::Child::Exists::Any';
+
+
+
+
+
+
+
 
 
 sub child_exists_dir {
@@ -33,6 +45,13 @@ sub child_exists_dir {
 
   return;
 }
+
+
+
+
+
+
+
 
 
 sub child_exists_any_dir {
@@ -57,7 +76,7 @@ Path::IsDev::Role::Matcher::Child::Exists::Any::Dir - Match if a path contains o
 
 =head1 VERSION
 
-version 1.000002
+version 1.000003
 
 =head1 METHODS
 
@@ -90,7 +109,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

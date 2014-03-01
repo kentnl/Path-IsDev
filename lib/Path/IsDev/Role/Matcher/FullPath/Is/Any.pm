@@ -3,18 +3,35 @@ use strict;
 use warnings;
 
 package Path::IsDev::Role::Matcher::FullPath::Is::Any;
-BEGIN {
-  $Path::IsDev::Role::Matcher::FullPath::Is::Any::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Role::Matcher::FullPath::Is::Any::VERSION = '1.000002';
-}
-
+$Path::IsDev::Role::Matcher::FullPath::Is::Any::VERSION = '1.000003';
 # ABSTRACT: Match if the current directory is the same directory from a list of absolute paths.
 
-sub _path { require Path::Tiny; goto &Path::Tiny::path }
+sub _path {
+    require Path::Tiny;
+    Path::Tiny->VERSION('0.004');
+    goto &Path::Tiny::path
+}
 
 use Role::Tiny;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -53,6 +70,17 @@ sub _fullpath_is {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
 sub fullpath_is_any {
   my ( $self, $result_object, @dirnames ) = @_;
   my $current = $result_object->path->realpath;
@@ -76,7 +104,7 @@ Path::IsDev::Role::Matcher::FullPath::Is::Any - Match if the current directory i
 
 =head1 VERSION
 
-version 1.000002
+version 1.000003
 
 =head1 METHODS
 
@@ -116,7 +144,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

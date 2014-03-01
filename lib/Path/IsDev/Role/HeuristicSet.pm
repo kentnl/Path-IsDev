@@ -2,14 +2,18 @@ use strict;
 use warnings;
 
 package Path::IsDev::Role::HeuristicSet;
-BEGIN {
-  $Path::IsDev::Role::HeuristicSet::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Role::HeuristicSet::VERSION = '1.000002';
-}
-
+$Path::IsDev::Role::HeuristicSet::VERSION = '1.000003';
 # ABSTRACT: Role for sets of Heuristics.
+
+
+
+
+
+
+
+
+
+
 
 
 sub _use_module { require Module::Runtime; goto &Module::Runtime::use_module }
@@ -17,6 +21,11 @@ sub _com_mn     { require Module::Runtime; goto &Module::Runtime::compose_module
 sub _debug      { require Path::IsDev;     goto &Path::IsDev::debug }
 
 use Role::Tiny;
+
+
+
+
+
 
 
 requires 'modules';
@@ -35,6 +44,15 @@ sub _load_module {
   my ( $self, $module ) = @_;
   return _use_module($module);
 }
+
+
+
+
+
+
+
+
+
 
 
 sub matches {
@@ -70,7 +88,7 @@ Path::IsDev::Role::HeuristicSet - Role for sets of Heuristics.
 
 =head1 VERSION
 
-version 1.000002
+version 1.000003
 
 =head1 ROLE REQUIRES
 
@@ -104,7 +122,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

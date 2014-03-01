@@ -2,16 +2,27 @@ use strict;
 use warnings;
 
 package Path::IsDev::Role::Matcher::Child::Exists::Any;
-BEGIN {
-  $Path::IsDev::Role::Matcher::Child::Exists::Any::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Role::Matcher::Child::Exists::Any::VERSION = '1.000002';
-}
-
+$Path::IsDev::Role::Matcher::Child::Exists::Any::VERSION = '1.000003';
 # ABSTRACT: Match if any of a list of children exists
 
 use Role::Tiny;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -32,6 +43,13 @@ sub child_exists {
   $result_object->add_reason( $self, 0, "$child does not exist", $ctx );
   return;
 }
+
+
+
+
+
+
+
 
 
 sub child_exists_any {
@@ -56,7 +74,7 @@ Path::IsDev::Role::Matcher::Child::Exists::Any - Match if any of a list of child
 
 =head1 VERSION
 
-version 1.000002
+version 1.000003
 
 =head1 METHODS
 
@@ -88,7 +106,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

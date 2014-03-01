@@ -1,5 +1,8 @@
 severity = 1
 exclude = RequireTidyCode RequirePodSections ProhibitPostfixControls RequireRcsKeywords RequireExplicitPackage
+exclude += Modules::RequirePerlVersion
+exclude += Modules::RequireVersionVar
+exclude += Documentation::RequirePodSections
 include = Moose::ProhibitMultipleWiths Moose::ProhibitNewMethod Moose::RequireCleanNamespace Moose::RequireMakeImmutable
 color = 1
 verbose = 9

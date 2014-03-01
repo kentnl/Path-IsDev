@@ -3,14 +3,38 @@ use strict;
 use warnings;
 
 package Path::IsDev::Role::HeuristicSet::Simple;
-BEGIN {
-  $Path::IsDev::Role::HeuristicSet::Simple::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Role::HeuristicSet::Simple::VERSION = '1.000002';
-}
-
+$Path::IsDev::Role::HeuristicSet::Simple::VERSION = '1.000003';
 # ABSTRACT: Simple excludes/includes set
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -18,6 +42,14 @@ use Role::Tiny;
 
 with 'Path::IsDev::Role::HeuristicSet';
 requires 'heuristics', 'negative_heuristics';
+
+
+
+
+
+
+
+
 
 
 sub modules {
@@ -46,7 +78,7 @@ Path::IsDev::Role::HeuristicSet::Simple - Simple excludes/includes set
 
 =head1 VERSION
 
-version 1.000002
+version 1.000003
 
 =head1 ROLE REQUIRES
 
@@ -94,7 +126,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

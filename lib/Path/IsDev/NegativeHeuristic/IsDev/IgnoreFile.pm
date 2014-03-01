@@ -3,23 +3,65 @@ use strict;
 use warnings;
 
 package Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile;
-BEGIN {
-  $Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::VERSION = '1.000002';
-}
-
+$Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::VERSION = '1.000003';
 # ABSTRACT: An explicit exclusion file heuristic
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 use Role::Tiny::With;
 with 'Path::IsDev::Role::NegativeHeuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
 
 
+
+
+
+
+
+
+
 sub excludes_files {
   return ('.path_isdev_ignore');
 }
+
+
+
+
+
 
 
 sub excludes {
@@ -43,7 +85,7 @@ Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile - An explicit exclusion file h
 
 =head1 VERSION
 
-version 1.000002
+version 1.000003
 
 =head1 SYNOPSIS
 
@@ -99,7 +141,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

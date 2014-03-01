@@ -2,17 +2,29 @@ use strict;
 use warnings;
 
 package Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File;
-BEGIN {
-  $Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File::VERSION = '1.000002';
-}
-
+$Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File::VERSION = '1.000003';
 # ABSTRACT: Match if any children have C<basename>s that match a regexp and are files
 
 use Role::Tiny;
 with 'Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -34,6 +46,18 @@ sub _this_child_isfile {
 
   return;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub child_basename_matchregexp_file {
@@ -61,7 +85,7 @@ Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File - Match if any ch
 
 =head1 VERSION
 
-version 1.000002
+version 1.000003
 
 =head1 METHODS
 
@@ -101,7 +125,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

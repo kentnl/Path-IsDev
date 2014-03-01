@@ -2,14 +2,33 @@ use strict;
 use warnings;
 
 package Path::IsDev::Heuristic::DevDirMarker;
-BEGIN {
-  $Path::IsDev::Heuristic::DevDirMarker::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Heuristic::DevDirMarker::VERSION = '1.000002';
-}
-
+$Path::IsDev::Heuristic::DevDirMarker::VERSION = '1.000003';
 # ABSTRACT: Determine if a path contains a C<.devdir> file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -17,9 +36,21 @@ use Role::Tiny::With qw( with );
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
 
 
+
+
+
+
+
+
+
 sub files {
   return qw( .devdir );
 }
+
+
+
+
+
 
 
 sub matches {
@@ -45,7 +76,7 @@ Path::IsDev::Heuristic::DevDirMarker - Determine if a path contains a C<.devdir>
 
 =head1 VERSION
 
-version 1.000002
+version 1.000003
 
 =head1 DESCRIPTION
 
@@ -88,7 +119,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

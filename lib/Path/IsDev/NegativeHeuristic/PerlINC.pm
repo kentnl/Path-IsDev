@@ -2,13 +2,7 @@ use strict;
 use warnings;
 
 package Path::IsDev::NegativeHeuristic::PerlINC;
-BEGIN {
-  $Path::IsDev::NegativeHeuristic::PerlINC::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::NegativeHeuristic::PerlINC::VERSION = '1.000002';
-}
-
+$Path::IsDev::NegativeHeuristic::PerlINC::VERSION = '1.000003';
 # ABSTRACT: White-list paths in C<Config.pm> as being non-development roots.
 
 ## no critic (RequireArgUnpacking, ProhibitSubroutinePrototypes)
@@ -18,10 +12,31 @@ sub _uniq (@) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 use Role::Tiny::With;
 use Config;
 
 with 'Path::IsDev::Role::NegativeHeuristic', 'Path::IsDev::Role::Matcher::FullPath::Is::Any';
+
+
+
+
+
+
+
 
 
 sub paths {
@@ -29,6 +44,11 @@ sub paths {
   push @sources, $Config{archlibexp}, $Config{privlibexp}, $Config{sitelibexp}, $Config{vendorlibexp};
   return _uniq grep { defined and length } @sources;
 }
+
+
+
+
+
 
 
 sub excludes {
@@ -52,7 +72,7 @@ Path::IsDev::NegativeHeuristic::PerlINC - White-list paths in C<Config.pm> as be
 
 =head1 VERSION
 
-version 1.000002
+version 1.000003
 
 =head1 METHODS
 
@@ -86,7 +106,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

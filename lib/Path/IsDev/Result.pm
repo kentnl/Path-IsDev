@@ -2,14 +2,47 @@ use strict;
 use warnings;
 
 package Path::IsDev::Result;
-BEGIN {
-  $Path::IsDev::Result::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Result::VERSION = '1.000002';
-}
-
+$Path::IsDev::Result::VERSION = '1.000003';
 # ABSTRACT: Result container
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -21,6 +54,9 @@ use Class::Tiny 'path', 'result', {
 sub _path  { require Path::Tiny;  goto &Path::Tiny::path }
 sub _croak { require Carp;        goto &Carp::croak }
 sub _debug { require Path::IsDev; shift; goto &Path::IsDev::debug }
+
+
+
 
 
 sub BUILD {
@@ -37,6 +73,36 @@ sub BUILD {
   $self->path( $self->path->absolute );
   return $self;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 sub add_reason {
@@ -78,7 +144,7 @@ Path::IsDev::Result - Result container
 
 =head1 VERSION
 
-version 1.000002
+version 1.000003
 
 =head1 SYNOPSIS
 
@@ -158,7 +224,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

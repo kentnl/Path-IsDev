@@ -2,12 +2,20 @@ use strict;
 use warnings;
 
 package Path::IsDev::Heuristic::Makefile;
-BEGIN {
-  $Path::IsDev::Heuristic::Makefile::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Heuristic::Makefile::VERSION = '1.000002';
-}
+$Path::IsDev::Heuristic::Makefile::VERSION = '1.000003';
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # ABSTRACT: Determine if a path contains a C<Makefile>
@@ -15,9 +23,23 @@ use Role::Tiny::With;
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
 
 
+
+
+
+
+
+
+
+
+
 sub files {
   return qw( GNUmakefile makefile Makefile );
 }
+
+
+
+
+
 
 
 sub matches {
@@ -43,7 +65,7 @@ Path::IsDev::Heuristic::Makefile - Determine if a path contains a C<Makefile>
 
 =head1 VERSION
 
-version 1.000002
+version 1.000003
 
 =head1 METHODS
 
@@ -79,7 +101,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

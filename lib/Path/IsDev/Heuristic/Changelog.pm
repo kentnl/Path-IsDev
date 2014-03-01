@@ -2,14 +2,33 @@ use strict;
 use warnings;
 
 package Path::IsDev::Heuristic::Changelog;
-BEGIN {
-  $Path::IsDev::Heuristic::Changelog::AUTHORITY = 'cpan:KENTNL';
-}
-{
-  $Path::IsDev::Heuristic::Changelog::VERSION = '1.000002';
-}
-
+$Path::IsDev::Heuristic::Changelog::VERSION = '1.000003';
 # ABSTRACT: Determine if a path contains a C<Changelog> (or similar)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -17,9 +36,24 @@ use Role::Tiny::With;
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File';
 
 
+
+
+
+
+
+
+
+
+
+
 sub basename_regexp {
   return qr/\AChange(s|log)(|[.][^.\s]+)\z/isxm;
 }
+
+
+
+
+
 
 
 sub matches {
@@ -45,7 +79,7 @@ Path::IsDev::Heuristic::Changelog - Determine if a path contains a C<Changelog> 
 
 =head1 VERSION
 
-version 1.000002
+version 1.000003
 
 =head1 DESCRIPTION
 
@@ -92,7 +126,7 @@ Kent Fredric <kentfredric@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
