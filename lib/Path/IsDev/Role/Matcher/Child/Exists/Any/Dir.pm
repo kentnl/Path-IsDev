@@ -28,7 +28,7 @@ with 'Path::IsDev::Role::Matcher::Child::Exists::Any';
 
     $class->child_exists_dir( $result_object, $childname );
 
-Return match if C<$childname> exists as a directory child of C<< $result_object->path >>,
+Return match if C<$childname> exists as a directory child of C<< $result_object->path >>.
 
 =cut
 
