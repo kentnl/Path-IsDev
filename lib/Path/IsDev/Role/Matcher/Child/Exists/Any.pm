@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::Matcher::Child::Exists::Any;
 
 # ABSTRACT: Match if any of a list of children exists
+
+# AUTHORITY
 
 use Role::Tiny;
 

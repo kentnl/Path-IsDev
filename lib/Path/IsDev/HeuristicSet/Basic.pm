@@ -1,9 +1,13 @@
+use 5.008;
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::HeuristicSet::Basic;
 
 # ABSTRACT: Basic C<IsDev> set of Heuristics
+
+# AUTHORITY
 
 =begin MetaPOD::JSON v1.1.0
 

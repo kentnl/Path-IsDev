@@ -1,10 +1,13 @@
-
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::Matcher::FullPath::Is::Any;
 
 # ABSTRACT: Match if the current directory is the same directory from a list of absolute paths.
+
+# AUTHORITY
 
 sub _path {
   require Path::Tiny;

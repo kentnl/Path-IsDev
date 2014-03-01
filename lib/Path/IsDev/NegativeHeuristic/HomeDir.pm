@@ -1,10 +1,13 @@
-
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::NegativeHeuristic::HomeDir;
 
 # ABSTRACT: User home directories are not development roots
+
+# AUTHORITY
 
 ## no critic (RequireArgUnpacking, ProhibitSubroutinePrototypes)
 sub _uniq (@) {

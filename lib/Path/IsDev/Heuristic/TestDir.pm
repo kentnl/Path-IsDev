@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Heuristic::TestDir;
 
 # ABSTRACT: Determine if a path contains a t/ or xt/ directory
+
+# AUTHORITY
 
 =begin MetaPOD::JSON v1.1.0
 

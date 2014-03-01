@@ -1,9 +1,13 @@
+use 5.008;
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Result;
 
 # ABSTRACT: Result container
+
+# AUTHORITY
 
 =begin MetaPOD::JSON v1.1.0
 

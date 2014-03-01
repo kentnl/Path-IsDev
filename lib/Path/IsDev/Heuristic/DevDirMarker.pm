@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Heuristic::DevDirMarker;
 
 # ABSTRACT: Determine if a path contains a C<.devdir> file
+
+# AUTHORITY
 
 =head1 DESCRIPTION
 

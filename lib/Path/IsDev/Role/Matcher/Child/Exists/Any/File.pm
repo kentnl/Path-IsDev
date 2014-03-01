@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::Matcher::Child::Exists::Any::File;
 
 # ABSTRACT: Match if a path contains one of any of a list of files
+
+# AUTHORITY
 
 =begin MetaPOD::JSON v1.1.0
 

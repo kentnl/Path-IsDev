@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Heuristic::Changelog;
 
 # ABSTRACT: Determine if a path contains a C<Changelog> (or similar)
+
+# AUTHORITY
 
 =head1 DESCRIPTION
 

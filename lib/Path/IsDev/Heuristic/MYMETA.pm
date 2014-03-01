@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Heuristic::MYMETA;
 
 # ABSTRACT: Determine if a path contains MYMETA.(json|yml)
+
+# AUTHORITY
 
 =begin MetaPOD::JSON v1.1.0
 

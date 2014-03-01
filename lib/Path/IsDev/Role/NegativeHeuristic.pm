@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::NegativeHeuristic;
 
 # ABSTRACT: Base role for Negative Heuristic things.
+
+# AUTHORITY
 
 sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 

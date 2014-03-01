@@ -1,5 +1,7 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Heuristic::Tool::Dzil;
 
@@ -19,6 +21,8 @@ package Path::IsDev::Heuristic::Tool::Dzil;
 =cut
 
 # ABSTRACT: Determine if a path is a Dist::Zilla Source tree
+
+# AUTHORITY
 
 use Role::Tiny::With qw( with );
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::File';

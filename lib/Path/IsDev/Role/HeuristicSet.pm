@@ -1,9 +1,13 @@
+use 5.008;    # utf8;
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::HeuristicSet;
 
 # ABSTRACT: Role for sets of Heuristics.
+
+# AUTHORITY
 
 =begin MetaPOD::JSON v1.1.0
 

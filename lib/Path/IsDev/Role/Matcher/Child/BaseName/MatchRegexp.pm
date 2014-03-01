@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp;
 
 # ABSTRACT: Match when a path has a child file matching an expression
+
+# AUTHORITY
 
 =begin MetaPOD::JSON v1.1.0
 

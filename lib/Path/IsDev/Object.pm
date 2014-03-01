@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Object;
 
 # ABSTRACT: Object Oriented guts for C<IsDev> export
+
+# AUTHORITY
 
 =begin MetaPOD::JSON v1.1.0
 

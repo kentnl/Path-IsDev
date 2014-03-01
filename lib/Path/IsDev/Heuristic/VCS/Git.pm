@@ -1,5 +1,7 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Heuristic::VCS::Git;
 
@@ -19,6 +21,8 @@ package Path::IsDev::Heuristic::VCS::Git;
 =cut
 
 # ABSTRACT: Determine if a path contains a C<.git> repository
+
+# AUTHORITY
 
 use Role::Tiny::With;
 

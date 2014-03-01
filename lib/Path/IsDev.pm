@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev;
 
 # ABSTRACT: Determine if a given Path resembles a development source tree
+
+# AUTHORITY
 
 =head1 DESCRIPTION
 

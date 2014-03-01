@@ -1,10 +1,13 @@
-
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::HeuristicSet::Simple;
 
 # ABSTRACT: Simple excludes/includes set
+
+# AUTHORITY
 
 =begin MetaPOD::JSON v1.1.0
 

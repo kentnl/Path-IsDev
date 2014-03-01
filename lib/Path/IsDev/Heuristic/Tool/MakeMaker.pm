@@ -1,5 +1,7 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Heuristic::Tool::MakeMaker;
 
@@ -19,6 +21,8 @@ package Path::IsDev::Heuristic::Tool::MakeMaker;
 =cut
 
 # ABSTRACT: Determine if a path is an C<EUMM> Tooled source directory
+
+# AUTHORITY
 
 use Role::Tiny::With qw( with );
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
