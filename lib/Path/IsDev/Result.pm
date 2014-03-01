@@ -52,11 +52,12 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 use Class::Tiny 'path', 'result', {
-  reasons => sub { [] }
+  reasons => sub { [] },
 };
 
 sub _path  { require Path::Tiny;  goto &Path::Tiny::path }
 sub _croak { require Carp;        goto &Carp::croak }
+## no critic (Subroutines::ProhibitCallsToUnexportedSubs)
 sub _debug { require Path::IsDev; shift; goto &Path::IsDev::debug }
 
 
@@ -64,7 +65,7 @@ sub _debug { require Path::IsDev; shift; goto &Path::IsDev::debug }
 
 
 sub BUILD {
-  my ( $self, $args ) = @_;
+  my ( $self,) = @_;
   if ( not $self->path ) {
     return _croak(q[<path> is a mandatory parameter]);
   }
@@ -128,7 +129,7 @@ sub add_reason {
     heuristic => $heuristic_name,
     result    => $heuristic_result,
     ( defined $heuristic_type ? ( type => $heuristic_type ) : () ),
-    %{ $context || {} }
+    %{ $context || {} },
   };
   push @{ $self->reasons }, $reason;
   return $self;

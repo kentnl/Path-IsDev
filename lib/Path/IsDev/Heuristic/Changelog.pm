@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Heuristic::Changelog;
 $Path::IsDev::Heuristic::Changelog::VERSION = '1.000003';
-# ABSTRACT: Determine if a path contains a C<Changelog> (or similar)
+# ABSTRACT: Determine if a path contains a Changelog (or similar)
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
@@ -36,7 +36,7 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
-use Role::Tiny::With;
+use Role::Tiny::With qw( with );
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File';
 
 
@@ -51,7 +51,7 @@ with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::BaseNam
 
 
 sub basename_regexp {
-  return qr/\AChange(s|log)(|[.][^.\s]+)\z/isxm;
+  return qr/\AChange(s|log)(|[.][^.\s]+)\z/isx;
 }
 
 
@@ -79,7 +79,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Heuristic::Changelog - Determine if a path contains a C<Changelog> (or similar)
+Path::IsDev::Heuristic::Changelog - Determine if a path contains a Changelog (or similar)
 
 =head1 VERSION
 
