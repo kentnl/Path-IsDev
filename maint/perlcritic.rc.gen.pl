@@ -15,9 +15,9 @@ $bundle->configure;
 
 my @stopwords = (
   qw[behaviours pluggable accessor accessors introspectable],    # Spelling
-  qw[basename Config IsDev Makefile devdir],                     # Unquotable abstract terms
+  qw[basename Config IsDev Makefile devdir Changelog],           # Unquotable abstract terms
 );
-for my $var (@stopwords) {
+for my $var ( sort @stopwords ) {
   $bundle->add_or_append_policy_field( 'Documentation::PodSpelling' => ( 'stop_words' => $var ) );
 }
 

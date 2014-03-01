@@ -124,7 +124,7 @@ allow_includes = 1
 
 [Documentation::PodSpelling]
 spell_command = aspell list --lang en_US
-stop_words = behaviours pluggable accessor accessors introspectable basename Config IsDev Makefile
+stop_words = Changelog Config IsDev Makefile accessor accessors basename behaviours devdir introspectable pluggable
 
 [Documentation::ProhibitAdjacentLinks]
 

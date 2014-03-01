@@ -51,6 +51,7 @@ with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::BaseNam
 
 
 sub basename_regexp {
+  ## no critic (RegularExpressions::RequireLineBoundaryMatching)
   return qr/\AChange(s|log)(|[.][^.\s]+)\z/isx;
 }
 

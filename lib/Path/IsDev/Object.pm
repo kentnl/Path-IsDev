@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Object;
 $Path::IsDev::Object::VERSION = '1.000003';
-# ABSTRACT: Object Oriented guts for C<IsDev> export
+# ABSTRACT: Object Oriented guts for IsDev export
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
@@ -191,19 +191,19 @@ sub BUILD {
 sub _matches {
   my ( $self, $path ) = @_;
   require Path::IsDev::Result;
-  my $object = Path::IsDev::Result->new( path => $path );
+  my $result_object = Path::IsDev::Result->new( path => $path );
   my $result;
   $self->_with_debug(
     sub {
 
-      $self->_debug( 'Matching ' . $object->path );
-      $result = $self->loaded_set_module->matches($object);
-    }
+      $self->_debug( 'Matching ' . $result_object->path );
+      $result = $self->loaded_set_module->matches($result_object);
+    },
   );
-  if ( !!$result != !!$object->result ) {
+  if ( !!$result != !!$result_object->result ) {
     _carp(q[Result and Result Object missmatch]);
   }
-  return $object;
+  return $result_object;
 }
 
 
@@ -238,7 +238,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Object - Object Oriented guts for C<IsDev> export
+Path::IsDev::Object - Object Oriented guts for IsDev export
 
 =head1 VERSION
 
