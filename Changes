@@ -1,6 +1,14 @@
 Release history for Path-IsDev
 
 {{$NEXT}}
+ [Dependencies::Stats]
+ - Dependencies changed since 1.000002, see Changes.deps{,.all,.dev} for
+   details
+ - build: -1
+ - configure: +2 -1
+ - develop: +7 ↑1 -9
+ - runtime: +1 ↑2
+ - test: +8 ↓1
 
 1.000002 2013-11-22T03:28:04Z
  [Bug Fixes]
@@ -8,7 +16,8 @@ Release history for Path-IsDev
    File::HomeDir->my_home don't work at all.
 
  [Dependencies::Stats]
- - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - Dependencies changed since 1.000001, see Changes.deps{,.all,.dev} for
+   details
  - develop: ↑1
 
  [Maintenance]
@@ -17,7 +26,8 @@ Release history for Path-IsDev
 
 1.000001 2013-11-21T11:49:20Z
  [Dependencies::Stats]
- - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - Dependencies changed since 1.000000, see Changes.deps{,.all,.dev} for
+   details
  - build: ↑1
  - configure: ↑1
  - develop: +42 ↑1
@@ -84,7 +94,8 @@ Release history for Path-IsDev
  - Test::More increased.
 
  [Dependencies::Stats]
- - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - Dependencies changed since 0.6.0, see Changes.deps{,.all,.dev} for
+   details
  - develop: ↑2
  - runtime: +1 ↓1
  - test: ↑1
@@ -101,7 +112,8 @@ Release history for Path-IsDev
  - No longer requires parent
 
  [Dependencies::Stats]
- - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - Dependencies changed since 0.5.0, see Changes.deps{,.all,.dev} for
+   details
  - runtime: +2 -1
 
 0.5.0 2013-10-05T15:00:12Z
@@ -129,7 +141,8 @@ Release history for Path-IsDev
  - Basic Negative heuristic comes standard with the basic set.
 
  [Dependencies::Stats]
- - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - Dependencies changed since 0.3.3, see Changes.deps{,.all,.dev} for
+   details
  - develop: +2 -3
 
 0.3.3 2013-09-26T07:09:14Z
@@ -140,7 +153,8 @@ Release history for Path-IsDev
  - Now requires File::Spec for testing.
 
  [Dependencies::Stats]
- - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - Dependencies changed since 0.3.2, see Changes.deps{,.all,.dev} for
+   details
  - test: +1
 
 0.3.2 2013-09-18T17:45:37Z
@@ -149,7 +163,8 @@ Release history for Path-IsDev
    only once" warning
 
  [Dependencies::Stats]
- - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - Dependencies changed since 0.3.1, see Changes.deps{,.all,.dev} for
+   details
  - runtime: ↑1
 
 0.3.1 2013-09-18T02:21:11Z
@@ -157,7 +172,8 @@ Release history for Path-IsDev
  - Require a Class::Tiny 0.005 for lazy attrs
 
  [Dependencies::Stats]
- - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - Dependencies changed since 0.3.0, see Changes.deps{,.all,.dev} for
+   details
  - runtime: ↑1
 
 0.3.0 2013-09-16T08:27:21Z
@@ -174,7 +190,8 @@ Release history for Path-IsDev
  - Increased Module::Build to 0.4007
 
  [Dependencies::Stats]
- - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - Dependencies changed since 0.2.3, see Changes.deps{,.all,.dev} for
+   details
  - build: ↑1
  - configure: ↑1
  - develop: +1 ↑1
@@ -186,7 +203,8 @@ Release history for Path-IsDev
  - Need Moo 1.000008 for `builder => sub {}`
 
  [Dependencies::Stats]
- - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - Dependencies changed since 0.2.2, see Changes.deps{,.all,.dev} for
+   details
  - runtime: ↑1
 
  [Tests]
@@ -211,7 +229,8 @@ Release history for Path-IsDev
  - now depends on Moo
 
  [Dependencies::Stats]
- - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - Dependencies changed since 0.1.1, see Changes.deps{,.all,.dev} for
+   details
  - runtime: +1
 
 0.1.1 2013-07-06T15:36:30Z
