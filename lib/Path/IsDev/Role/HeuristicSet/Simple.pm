@@ -41,7 +41,7 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
-use Role::Tiny;
+use Role::Tiny qw( with requires );
 
 with 'Path::IsDev::Role::HeuristicSet';
 requires 'heuristics', 'negative_heuristics';

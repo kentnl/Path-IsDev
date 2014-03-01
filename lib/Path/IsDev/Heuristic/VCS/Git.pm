@@ -20,11 +20,11 @@ $Path::IsDev::Heuristic::VCS::Git::VERSION = '1.000003';
 
 
 
-# ABSTRACT: Determine if a path contains a C<.git> repository
+# ABSTRACT: Determine if a path contains a .git repository
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Role::Tiny::With;
+use Role::Tiny::With qw( with );
 
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::Dir';
 
@@ -63,7 +63,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Heuristic::VCS::Git - Determine if a path contains a C<.git> repository
+Path::IsDev::Heuristic::VCS::Git - Determine if a path contains a .git repository
 
 =head1 VERSION
 
