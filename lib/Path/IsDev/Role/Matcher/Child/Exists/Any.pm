@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::Matcher::Child::Exists::Any;
 $Path::IsDev::Role::Matcher::Child::Exists::Any::VERSION = '1.000003';
 # ABSTRACT: Match if any of a list of children exists
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Role::Tiny;
 

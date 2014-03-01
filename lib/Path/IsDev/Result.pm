@@ -1,9 +1,13 @@
+use 5.008;
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Result;
 $Path::IsDev::Result::VERSION = '1.000003';
 # ABSTRACT: Result container
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 

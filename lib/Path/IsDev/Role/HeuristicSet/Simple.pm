@@ -1,10 +1,13 @@
-
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::HeuristicSet::Simple;
 $Path::IsDev::Role::HeuristicSet::Simple::VERSION = '1.000003';
 # ABSTRACT: Simple excludes/includes set
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 

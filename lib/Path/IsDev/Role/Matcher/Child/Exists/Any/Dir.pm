@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::Matcher::Child::Exists::Any::Dir;
 $Path::IsDev::Role::Matcher::Child::Exists::Any::Dir::VERSION = '1.000003';
 # ABSTRACT: Match if a path contains one of any of a list of directories
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 

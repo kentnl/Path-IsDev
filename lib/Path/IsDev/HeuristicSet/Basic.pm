@@ -1,9 +1,13 @@
+use 5.008;
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::HeuristicSet::Basic;
 $Path::IsDev::HeuristicSet::Basic::VERSION = '1.000003';
 # ABSTRACT: Basic C<IsDev> set of Heuristics
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 

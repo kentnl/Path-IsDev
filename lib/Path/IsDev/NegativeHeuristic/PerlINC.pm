@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::NegativeHeuristic::PerlINC;
 $Path::IsDev::NegativeHeuristic::PerlINC::VERSION = '1.000003';
 # ABSTRACT: White-list paths in C<Config.pm> as being non-development roots.
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 ## no critic (RequireArgUnpacking, ProhibitSubroutinePrototypes)
 sub _uniq (@) {

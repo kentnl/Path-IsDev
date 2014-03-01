@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Object;
 $Path::IsDev::Object::VERSION = '1.000003';
 # ABSTRACT: Object Oriented guts for C<IsDev> export
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 

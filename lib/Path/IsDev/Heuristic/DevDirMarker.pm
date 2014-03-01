@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Heuristic::DevDirMarker;
 $Path::IsDev::Heuristic::DevDirMarker::VERSION = '1.000003';
 # ABSTRACT: Determine if a path contains a C<.devdir> file
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 

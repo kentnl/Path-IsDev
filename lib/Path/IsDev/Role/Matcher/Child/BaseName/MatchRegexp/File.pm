@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File;
 $Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File::VERSION = '1.000003';
 # ABSTRACT: Match if any children have C<basename>s that match a regexp and are files
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Role::Tiny;
 with 'Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp';

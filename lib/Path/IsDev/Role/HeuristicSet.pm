@@ -1,9 +1,13 @@
+use 5.008;    # utf8;
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::HeuristicSet;
 $Path::IsDev::Role::HeuristicSet::VERSION = '1.000003';
 # ABSTRACT: Role for sets of Heuristics.
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 

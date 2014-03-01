@@ -1,10 +1,13 @@
-
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::NegativeHeuristic::HomeDir;
 $Path::IsDev::NegativeHeuristic::HomeDir::VERSION = '1.000003';
 # ABSTRACT: User home directories are not development roots
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 ## no critic (RequireArgUnpacking, ProhibitSubroutinePrototypes)
 sub _uniq (@) {

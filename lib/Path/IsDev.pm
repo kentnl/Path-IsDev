@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev;
 $Path::IsDev::VERSION = '1.000003';
 # ABSTRACT: Determine if a given Path resembles a development source tree
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 

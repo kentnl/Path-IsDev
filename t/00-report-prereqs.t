@@ -117,8 +117,9 @@ my $static_prereqs = do { my $x = {
                                       'Role::Tiny::With' => '0',
                                       'Scalar::Util' => '0',
                                       'Sub::Exporter' => '0',
-                                      'perl' => '5.006',
+                                      'perl' => '5.008',
                                       'strict' => '0',
+                                      'utf8' => '0',
                                       'warnings' => '0'
                                     }
                     },

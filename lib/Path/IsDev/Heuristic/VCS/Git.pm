@@ -1,5 +1,7 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Heuristic::VCS::Git;
 $Path::IsDev::Heuristic::VCS::Git::VERSION = '1.000003';
@@ -19,6 +21,8 @@ $Path::IsDev::Heuristic::VCS::Git::VERSION = '1.000003';
 
 
 # ABSTRACT: Determine if a path contains a C<.git> repository
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 use Role::Tiny::With;
 

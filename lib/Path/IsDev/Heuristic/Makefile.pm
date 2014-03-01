@@ -1,5 +1,7 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Heuristic::Makefile;
 $Path::IsDev::Heuristic::Makefile::VERSION = '1.000003';
@@ -19,6 +21,9 @@ $Path::IsDev::Heuristic::Makefile::VERSION = '1.000003';
 
 
 # ABSTRACT: Determine if a path contains a C<Makefile>
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
+
 use Role::Tiny::With;
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
 

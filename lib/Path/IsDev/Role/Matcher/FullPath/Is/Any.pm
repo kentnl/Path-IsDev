@@ -1,15 +1,18 @@
-
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Role::Matcher::FullPath::Is::Any;
 $Path::IsDev::Role::Matcher::FullPath::Is::Any::VERSION = '1.000003';
 # ABSTRACT: Match if the current directory is the same directory from a list of absolute paths.
 
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
+
 sub _path {
-    require Path::Tiny;
-    Path::Tiny->VERSION('0.004');
-    goto &Path::Tiny::path
+  require Path::Tiny;
+  Path::Tiny->VERSION('0.004');
+  goto &Path::Tiny::path;
 }
 
 use Role::Tiny;

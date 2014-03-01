@@ -1,9 +1,13 @@
+use 5.008;    # utf8
 use strict;
 use warnings;
+use utf8;
 
 package Path::IsDev::Heuristic::Changelog;
 $Path::IsDev::Heuristic::Changelog::VERSION = '1.000003';
 # ABSTRACT: Determine if a path contains a C<Changelog> (or similar)
+
+our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
