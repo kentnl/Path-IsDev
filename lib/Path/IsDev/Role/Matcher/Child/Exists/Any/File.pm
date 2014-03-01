@@ -21,7 +21,7 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
-use Role::Tiny;
+use Role::Tiny qw( with );
 with 'Path::IsDev::Role::Matcher::Child::Exists::Any';
 
 
@@ -39,6 +39,8 @@ sub child_exists_file {
   my $ctx        = { 'child_name' => $child, child_path => "$child_path", tests => [] };
   my $tests      = $ctx->{tests};
 
+  # For now, yes, files, not things usable as files
+  ## no critic (ValuesAndExpressions::ProhibitFiletest_f)
   if ( -f $child_path ) {
     push @{$tests}, { 'child_path_isfile?' => 1 };
     $result_object->add_reason( $self, 1, "$child_path is a file", $ctx );

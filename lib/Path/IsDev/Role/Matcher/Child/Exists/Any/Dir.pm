@@ -21,7 +21,7 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
-use Role::Tiny;
+use Role::Tiny qw( with );
 with 'Path::IsDev::Role::Matcher::Child::Exists::Any';
 
 
@@ -88,7 +88,7 @@ version 1.000003
 
     $class->child_exists_dir( $result_object, $childname );
 
-Return match if C<$childname> exists as a directory child of C<< $result_object->path >>,
+Return match if C<$childname> exists as a directory child of C<< $result_object->path >>.
 
 =head2 C<child_exists_any_dir>
 
