@@ -36,7 +36,7 @@ sub _this_child_matchregexp {
     'child'          => "$child",
     'child_basename' => $child->basename,
     expression       => $regexp,
-    tests            => []
+    tests            => [],
   };
   my $tests = $ctx->{tests};
 

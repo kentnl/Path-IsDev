@@ -22,7 +22,8 @@ package Path::IsDev::Role::HeuristicSet;
 
 sub _use_module { require Module::Runtime; goto &Module::Runtime::use_module }
 sub _com_mn     { require Module::Runtime; goto &Module::Runtime::compose_module_name; }
-sub _debug      { require Path::IsDev;     goto &Path::IsDev::debug }
+## no critic (Subroutines::ProhibitCallsToUnexportedSubs)
+sub _debug { require Path::IsDev; goto &Path::IsDev::debug }
 
 use Role::Tiny qw( requires );
 

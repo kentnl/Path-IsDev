@@ -51,7 +51,8 @@ Indicators for this heuristic is the existence of a file such as:
 =cut
 
 sub basename_regexp {
-  return qr/\AChange(s|log)(|[.][^.\s]+)\z/isxm;
+  ## no critic (RegularExpressions::RequireLineBoundaryMatching)
+  return qr/\AChange(s|log)(|[.][^.\s]+)\z/isx;
 }
 
 =method C<matches>

@@ -36,10 +36,11 @@ sub _this_child_isfile {
   my ( $self, $result_object, $child ) = @_;
   my $ctx = {
     'child' => "$child",
-    tests   => []
+    tests   => [],
   };
   my $tests = $ctx->{tests};
 
+  ## no critic (ValuesAndExpressions::ProhibitFiletest_f)
   if ( -f $child ) {
     push @{$tests}, { 'child_isfile?' => 1 };
     $result_object->add_reason( $self, 1, "$child is a file", $ctx );

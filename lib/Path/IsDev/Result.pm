@@ -51,12 +51,11 @@ at the point you need it.
 
 =cut
 
-use Class::Tiny 'path', 'result', {
-  reasons => sub { [] }
-};
+use Class::Tiny 'path', 'result', { reasons => sub { [] }, };
 
-sub _path  { require Path::Tiny;  goto &Path::Tiny::path }
-sub _croak { require Carp;        goto &Carp::croak }
+sub _path  { require Path::Tiny; goto &Path::Tiny::path }
+sub _croak { require Carp;       goto &Carp::croak }
+## no critic (Subroutines::ProhibitCallsToUnexportedSubs)
 sub _debug { require Path::IsDev; shift; goto &Path::IsDev::debug }
 
 =method C<BUILD>
@@ -128,7 +127,7 @@ sub add_reason {
     heuristic => $heuristic_name,
     result    => $heuristic_result,
     ( defined $heuristic_type ? ( type => $heuristic_type ) : () ),
-    %{ $context || {} }
+    %{ $context || {} },
   };
   push @{ $self->reasons }, $reason;
   return $self;
