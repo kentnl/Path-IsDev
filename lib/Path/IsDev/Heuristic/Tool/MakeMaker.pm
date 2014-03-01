@@ -20,7 +20,7 @@ package Path::IsDev::Heuristic::Tool::MakeMaker;
 
 =cut
 
-# ABSTRACT: Determine if a path is an C<EUMM> Tooled source directory
+# ABSTRACT: Determine if a path is an ExtUtils::MakeMaker Tooled source directory
 
 # AUTHORITY
 

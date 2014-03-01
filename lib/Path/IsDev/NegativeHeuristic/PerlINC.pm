@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::NegativeHeuristic::PerlINC;
 
-# ABSTRACT: White-list paths in C<Config.pm> as being non-development roots.
+# ABSTRACT: White-list paths in Config.pm as being non-development roots.
 
 # AUTHORITY
 

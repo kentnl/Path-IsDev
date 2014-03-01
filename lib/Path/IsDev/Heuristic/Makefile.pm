@@ -20,7 +20,7 @@ package Path::IsDev::Heuristic::Makefile;
 
 =cut
 
-# ABSTRACT: Determine if a path contains a C<Makefile>
+# ABSTRACT: Determine if a path contains a Makefile
 
 # AUTHORITY
 

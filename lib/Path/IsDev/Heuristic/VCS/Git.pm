@@ -20,7 +20,7 @@ package Path::IsDev::Heuristic::VCS::Git;
 
 =cut
 
-# ABSTRACT: Determine if a path contains a C<.git> repository
+# ABSTRACT: Determine if a path contains a .git repository
 
 # AUTHORITY
 

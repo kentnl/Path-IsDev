@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File;
 
-# ABSTRACT: Match if any children have C<basename>s that match a regexp and are files
+# ABSTRACT: Match if any children have basename's that match a regexp and are files
 
 # AUTHORITY
 

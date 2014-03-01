@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Object;
 
-# ABSTRACT: Object Oriented guts for C<IsDev> export
+# ABSTRACT: Object Oriented guts for IsDev export
 
 # AUTHORITY
 

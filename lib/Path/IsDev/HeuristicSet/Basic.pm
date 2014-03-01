@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::HeuristicSet::Basic;
 
-# ABSTRACT: Basic C<IsDev> set of Heuristics
+# ABSTRACT: Basic IsDev set of Heuristics
 
 # AUTHORITY
 

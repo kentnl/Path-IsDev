@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Heuristic::Changelog;
 
-# ABSTRACT: Determine if a path contains a C<Changelog> (or similar)
+# ABSTRACT: Determine if a path contains a Changelog (or similar)
 
 # AUTHORITY
 
