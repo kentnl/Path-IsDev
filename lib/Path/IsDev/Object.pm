@@ -191,19 +191,19 @@ Note this method may be handy for debugging, but you should still call C<matches
 sub _matches {
   my ( $self, $path ) = @_;
   require Path::IsDev::Result;
-  my $object = Path::IsDev::Result->new( path => $path );
+  my $result_object = Path::IsDev::Result->new( path => $path );
   my $result;
   $self->_with_debug(
     sub {
 
-      $self->_debug( 'Matching ' . $object->path );
-      $result = $self->loaded_set_module->matches($object);
-    }
+      $self->_debug( 'Matching ' . $result_object->path );
+      $result = $self->loaded_set_module->matches($result_object);
+    },
   );
-  if ( !!$result != !!$object->result ) {
+  if ( !!$result != !!$result_object->result ) {
     _carp(q[Result and Result Object missmatch]);
   }
-  return $object;
+  return $result_object;
 }
 
 =method C<matches>
@@ -219,13 +219,14 @@ Determine if a given path satisfies the C<set>
 sub matches {
   my ( $self, $path ) = @_;
 
-  my $object = $self->_matches($path);
+  my $result_object = $self->_matches($path);
 
-  if ( not $object->result ) {
+  if ( not $result_object->result ) {
     $self->_debug('no match found');
+    return;
   }
 
-  return $object->result;
+  return $result_object->result;
 }
 
 1;

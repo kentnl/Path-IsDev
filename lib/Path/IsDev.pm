@@ -270,14 +270,14 @@ sub debug {
 sub _build_is_dev {
   my ( undef, undef, $arg ) = @_;
 
-  my $object;
+  my $isdev_object;
   return sub {
     my ($path) = @_;
-    $object ||= do {
+    $isdev_object ||= do {
       require Path::IsDev::Object;
       Path::IsDev::Object->new( %{ $arg || {} } );
     };
-    return $object->matches($path);
+    return $isdev_object->matches($path);
   };
 }
 
