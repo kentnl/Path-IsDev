@@ -35,17 +35,17 @@ Please provide a method that returns a list of modules that comprise heuristics.
 requires 'modules';
 
 sub _expand_heuristic {
-  my ( $self, $hn ) = @_;
+  my ( undef, $hn ) = @_;
   return _com_mn( 'Path::IsDev::Heuristic', $hn );
 }
 
 sub _expand_negative_heuristic {
-  my ( $self, $hn ) = @_;
+  my ( undef, $hn ) = @_;
   return _com_mn( 'Path::IsDev::NegativeHeuristic', $hn );
 }
 
 sub _load_module {
-  my ( $self, $module ) = @_;
+  my ( undef, $module ) = @_;
   return _use_module($module);
 }
 

@@ -268,7 +268,7 @@ sub debug {
 }
 
 sub _build_is_dev {
-  my ( $class, $name, $arg ) = @_;
+  my ( undef, undef, $arg ) = @_;
 
   my $object;
   return sub {

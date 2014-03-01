@@ -69,7 +69,7 @@ Returns an exclusion if any of C<excludes_files> exists, and are files.
 
 sub excludes {
   my ( $self, $result_object ) = @_;
-  if ( my $result = $self->child_exists_any_file( $result_object, $self->excludes_files ) ) {
+  if ( $self->child_exists_any_file( $result_object, $self->excludes_files ) ) {
     return 1;
   }
   return;

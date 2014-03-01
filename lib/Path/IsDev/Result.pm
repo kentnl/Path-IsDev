@@ -64,7 +64,7 @@ sub _debug { require Path::IsDev; shift; goto &Path::IsDev::debug }
 =cut
 
 sub BUILD {
-  my ( $self, $args ) = @_;
+  my ( $self, ) = @_;
   if ( not $self->path ) {
     return _croak(q[<path> is a mandatory parameter]);
   }
