@@ -51,6 +51,8 @@ lib/Path/IsDev/Role/Matcher/Child/Exists/Any/Dir.pm
 lib/Path/IsDev/Role/Matcher/Child/Exists/Any/File.pm
 lib/Path/IsDev/Role/Matcher/FullPath/Is/Any.pm
 lib/Path/IsDev/Role/NegativeHeuristic.pm
+maint-travis-ci/.gitrepo
+maint-travis-ci/.perltidyrc
 maint-travis-ci/README.mkdn
 maint-travis-ci/before_script.pl
 maint-travis-ci/branch_reset.pl
