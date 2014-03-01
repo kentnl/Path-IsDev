@@ -13,8 +13,11 @@ use Perl::Critic::ProfileCompiler::Util qw( create_bundle );
 my $bundle = create_bundle('Example::Author::KENTNL');
 $bundle->configure;
 
-my @stopwords = ( qw[behaviours pluggable accessor accessors introspectable], );
-for my $var (@stopwords) {
+my @stopwords = (
+  qw[behaviours pluggable accessor accessors introspectable],    # Spelling
+  qw[basename Config IsDev Makefile devdir Changelog],           # Unquotable abstract terms
+);
+for my $var ( sort @stopwords ) {
   $bundle->add_or_append_policy_field( 'Documentation::PodSpelling' => ( 'stop_words' => $var ) );
 }
 
