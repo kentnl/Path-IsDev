@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Path::IsDev::Result;
-$Path::IsDev::Result::VERSION = '1.000003';
+$Path::IsDev::Result::VERSION = '1.001000';
 # ABSTRACT: Result container
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -147,7 +147,7 @@ Path::IsDev::Result - Result container
 
 =head1 VERSION
 
-version 1.000003
+version 1.001000
 
 =head1 SYNOPSIS
 

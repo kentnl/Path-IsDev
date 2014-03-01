@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Path::IsDev::Heuristic::DevDirMarker;
-$Path::IsDev::Heuristic::DevDirMarker::VERSION = '1.000003';
+$Path::IsDev::Heuristic::DevDirMarker::VERSION = '1.001000';
 # ABSTRACT: Determine if a path contains a .devdir file
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -81,7 +81,7 @@ Path::IsDev::Heuristic::DevDirMarker - Determine if a path contains a .devdir fi
 
 =head1 VERSION
 
-version 1.000003
+version 1.001000
 
 =head1 DESCRIPTION
 

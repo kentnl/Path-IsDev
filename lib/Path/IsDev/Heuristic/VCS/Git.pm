@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Path::IsDev::Heuristic::VCS::Git;
-$Path::IsDev::Heuristic::VCS::Git::VERSION = '1.000003';
+$Path::IsDev::Heuristic::VCS::Git::VERSION = '1.001000';
 
 
 
@@ -67,7 +67,7 @@ Path::IsDev::Heuristic::VCS::Git - Determine if a path contains a .git repositor
 
 =head1 VERSION
 
-version 1.000003
+version 1.001000
 
 =head1 METHODS
 

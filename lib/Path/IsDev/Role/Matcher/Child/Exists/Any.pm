@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Path::IsDev::Role::Matcher::Child::Exists::Any;
-$Path::IsDev::Role::Matcher::Child::Exists::Any::VERSION = '1.000003';
+$Path::IsDev::Role::Matcher::Child::Exists::Any::VERSION = '1.001000';
 # ABSTRACT: Match if any of a list of children exists
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -78,7 +78,7 @@ Path::IsDev::Role::Matcher::Child::Exists::Any - Match if any of a list of child
 
 =head1 VERSION
 
-version 1.000003
+version 1.001000
 
 =head1 METHODS
 

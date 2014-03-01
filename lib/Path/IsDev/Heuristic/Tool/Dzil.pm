@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Path::IsDev::Heuristic::Tool::Dzil;
-$Path::IsDev::Heuristic::Tool::Dzil::VERSION = '1.000003';
+$Path::IsDev::Heuristic::Tool::Dzil::VERSION = '1.001000';
 
 
 
@@ -66,7 +66,7 @@ Path::IsDev::Heuristic::Tool::Dzil - Determine if a path is a Dist::Zilla Source
 
 =head1 VERSION
 
-version 1.000003
+version 1.001000
 
 =head1 METHODS
 
