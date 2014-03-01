@@ -4,7 +4,7 @@ use warnings;
 use utf8;
 
 package Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp;
-$Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::VERSION = '1.000003';
+$Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::VERSION = '1.001000';
 # ABSTRACT: Match when a path has a child file matching an expression
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -84,7 +84,7 @@ Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp - Match when a path has
 
 =head1 VERSION
 
-version 1.000003
+version 1.001000
 
 =head1 METHODS
 
