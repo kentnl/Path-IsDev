@@ -21,7 +21,7 @@ package Path::IsDev::Role::Matcher::Child::Exists::Any::File;
 
 =cut
 
-use Role::Tiny;
+use Role::Tiny qw( with );
 with 'Path::IsDev::Role::Matcher::Child::Exists::Any';
 
 =method C<child_exists_file>

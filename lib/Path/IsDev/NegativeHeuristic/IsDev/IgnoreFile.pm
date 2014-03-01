@@ -46,7 +46,7 @@ However:
 
 =cut
 
-use Role::Tiny::With;
+use Role::Tiny::With qw( with );
 with 'Path::IsDev::Role::NegativeHeuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
 
 =method C<excludes_files>

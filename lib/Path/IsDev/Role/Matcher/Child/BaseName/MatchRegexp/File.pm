@@ -9,7 +9,7 @@ package Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File;
 
 # AUTHORITY
 
-use Role::Tiny;
+use Role::Tiny qw( with );
 with 'Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp';
 
 =begin MetaPOD::JSON v1.1.0

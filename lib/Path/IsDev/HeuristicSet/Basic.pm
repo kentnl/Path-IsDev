@@ -21,7 +21,7 @@ package Path::IsDev::HeuristicSet::Basic;
 
 =cut
 
-use Role::Tiny::With;
+use Role::Tiny::With qw( with );
 with 'Path::IsDev::Role::HeuristicSet::Simple';
 
 =method C<negative_heuristics>

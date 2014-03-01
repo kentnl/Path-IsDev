@@ -24,7 +24,7 @@ package Path::IsDev::Heuristic::META;
 
 # AUTHORITY
 
-use Role::Tiny::With;
+use Role::Tiny::With qw( with );
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
 
 =method C<files>

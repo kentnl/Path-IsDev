@@ -24,7 +24,7 @@ package Path::IsDev::Heuristic::TestDir;
 
 =cut
 
-use Role::Tiny::With;
+use Role::Tiny::With qw( with );
 
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::Dir';
 

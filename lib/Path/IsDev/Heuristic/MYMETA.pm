@@ -33,7 +33,7 @@ Granted, this heuristic is expected to be B<never> needed, as in order to create
 
 =cut
 
-use Role::Tiny::With;
+use Role::Tiny::With qw( with );
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
 
 =method C<files>

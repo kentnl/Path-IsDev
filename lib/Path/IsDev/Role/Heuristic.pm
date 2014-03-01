@@ -11,7 +11,7 @@ package Path::IsDev::Role::Heuristic;
 
 sub _blessed { require Scalar::Util; goto &Scalar::Util::blessed }
 
-use Role::Tiny;
+use Role::Tiny qw( requires );
 
 =begin MetaPOD::JSON v1.1.0
 

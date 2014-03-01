@@ -36,7 +36,7 @@ etc.
 
 =cut
 
-use Role::Tiny::With;
+use Role::Tiny::With qw( with );
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File';
 
 =method C<basename_regexp>
