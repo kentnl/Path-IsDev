@@ -20,11 +20,11 @@ $Path::IsDev::Heuristic::Makefile::VERSION = '1.000003';
 
 
 
-# ABSTRACT: Determine if a path contains a C<Makefile>
+# ABSTRACT: Determine if a path contains a Makefile
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
-use Role::Tiny::With;
+use Role::Tiny::With qw( with );
 with 'Path::IsDev::Role::Heuristic', 'Path::IsDev::Role::Matcher::Child::Exists::Any::File';
 
 
@@ -66,7 +66,7 @@ __END__
 
 =head1 NAME
 
-Path::IsDev::Heuristic::Makefile - Determine if a path contains a C<Makefile>
+Path::IsDev::Heuristic::Makefile - Determine if a path contains a Makefile
 
 =head1 VERSION
 
