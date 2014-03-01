@@ -219,13 +219,14 @@ sub _matches {
 sub matches {
   my ( $self, $path ) = @_;
 
-  my $object = $self->_matches($path);
+  my $result_object = $self->_matches($path);
 
-  if ( not $object->result ) {
+  if ( not $result_object->result ) {
     $self->_debug('no match found');
+    return;
   }
 
-  return $object->result;
+  return $result_object->result;
 }
 
 1;

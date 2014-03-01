@@ -246,6 +246,18 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 use Sub::Exporter -setup => { exports => [ is_dev => \&_build_is_dev, ], };
 
 our $ENV_KEY_DEBUG = 'PATH_ISDEV_DEBUG';
@@ -268,16 +280,16 @@ sub debug {
 }
 
 sub _build_is_dev {
-  my ( $class, $name, $arg ) = @_;
+  my ( undef, undef, $arg ) = @_;
 
-  my $object;
+  my $isdev_object;
   return sub {
     my ($path) = @_;
-    $object ||= do {
+    $isdev_object ||= do {
       require Path::IsDev::Object;
       Path::IsDev::Object->new( %{ $arg || {} } );
     };
-    return $object->matches($path);
+    return $isdev_object->matches($path);
   };
 }
 
@@ -379,10 +391,11 @@ This module operates on a very simplistic level, and its easy for false-positive
 
 There are two types of Heuristics, Postive/Confirming Heuristics, and Negative/Disconfirming Heuristics.
 
-Positive Heuristics and Negative Heuristics are based solely on the presence of specific marker files in a directory, or special marker directories.
+Positive Heuristics and Negative Heuristics are based solely on the presence of specific marker files in a directory, or special
+marker directories.
 
-For instance, the files C<META.yml>, C<Makefile.PL>, and C<Build.PL> are all B<Positive Heuristic> markers, because their presence
-often indicates a "root" of a development tree.
+For instance, the files C<META.yml>, C<Makefile.PL>, and C<Build.PL> are all B<Positive Heuristic> markers, because their
+presence often indicates a "root" of a development tree.
 
 And for instance, the directories C<t/>, C<xt/> and C<.git/> are also B<Positive Heuristic> markers, because these structures
 are common in C<perl> development trees, and uncommon in install trees.
@@ -397,10 +410,11 @@ Etc.
 
 Under normal circumstances, neither C<$HOME> nor those 3 paths are considered C<dev>.
 
-However, all it takes to cause a false positive, is for somebody to install a C<t> or C<xt> directory, or a marker file in one of the
-above directories for C<path_isdev($dir)> to return true.
+However, all it takes to cause a false positive, is for somebody to install a C<t> or C<xt> directory, or a marker file in one of
+the above directories for C<path_isdev($dir)> to return true.
 
-This may not be a problem, at least, until you use C<Path::FindDev> which combines C<Path::IsDev> with recursive up-level traversal.
+This may not be a problem, at least, until you use C<Path::FindDev> which combines C<Path::IsDev> with recursive up-level
+traversal.
 
     $HOME/
     $HOME/lib/
@@ -414,7 +428,9 @@ This may not be a problem, at least, until you use C<Path::FindDev> which combin
 
 And it is this kind of problem that usually catches people off guard.
 
-    PATH_ISDEV_DEBUG=1 perl -Ilib -MPath::FindDev=find_dev -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
+    PATH_ISDEV_DEBUG=1 \
+        perl -Ilib -MPath::FindDev=find_dev \
+        -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
 
     ...
     [Path::IsDev=0] + ::Tool::Dzil => 0 : dist.ini does not exist
@@ -435,7 +451,9 @@ No wonder!
 
     rm /home/kent/perl5/META.yml
 
-    PATH_ISDEV_DEBUG=1 perl -Ilib -MPath::FindDev=find_dev -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
+    PATH_ISDEV_DEBUG=1 \
+        perl -Ilib -MPath::FindDev=find_dev \
+        -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
 
     ...
     [Path::IsDev=0] Matching /home/kent/perl5
@@ -457,7 +475,9 @@ Or, you could use a negative heuristic.
 
     touch /home/kent/perl5/.path_isdev_ignore
 
-    PATH_ISDEV_DEBUG=1 perl -Ilib -MPath::FindDev=find_dev -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
+    PATH_ISDEV_DEBUG=1 \
+        perl -Ilib -MPath::FindDev=find_dev \
+        -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
     ...
     [Path::IsDev=0] Matching /home/kent/perl5
     [Path::IsDev=0] - ::IsDev::IgnoreFile => 1 : .path_isdev_ignore exists
@@ -490,7 +510,8 @@ Just remember, a B<Negative> Heuristic B<excludes the path it is associated with
 
 =over 4
 
-=item * L<< C<Changelog>|Path::IsDev::Heuristic::Changelog >> - Files matching C<Changes>, C<Changelog>, and similar, case insensitive, extensions optional.
+=item * L<< C<Changelog>|Path::IsDev::Heuristic::Changelog >> - Files matching C<Changes>, C<Changelog>, and similar, case
+insensitive, extensions optional.
 
 =item * L<< C<DevDirMarker>|Path::IsDev::Heuristic::DevDirMarker >> - explicit C<.devdir> file to indicate a project root.
 
@@ -557,19 +578,22 @@ If this poses a security concern for the user, then this security hole can be el
 
 =head1 SECURITY
 
-Its conceivable, than an evil user could construct an evil set, containing arbitrary and vulnerable code,
-and possibly stash that evil set in a poorly secured privileged users @INC
+Its conceivable, than an evil user could construct an evil set, containing arbitrary and vulnerable code, and possibly stash that
+evil set in a poorly secured privileged users @INC
 
-And if they managed to achieve that, if they could poison the privileged users %ENV, they could trick the privileged user into executing arbitrary code.
+And if they managed to achieve that, if they could poison the privileged users %ENV, they could trick the privileged user into
+executing arbitrary code.
 
-Though granted, if you can do either of those 2 things, you're probably security vulnerable anyway, and granted, if you could do either of those 2 things you could do much more evil things by the following:
+Though granted, if you can do either of those 2 things, you're probably security vulnerable anyway, and granted, if you could do
+either of those 2 things you could do much more evil things by the following:
 
     export PERL5OPT="-MEvil::Module"
 
 So with that in understanding, saying this modules default utility is "insecure" is mostly a bogus argument.
 
 And to that effect, this module does nothing to "lock down" that mechanism, and this module encourages you
-to B<NOT> force a set, unless you B<NEED> to, and strongly suggests that forcing a set for the purpose of security will achieve no real improvement in security, while simultaneously reducing utility.
+to B<NOT> force a set, unless you B<NEED> to, and strongly suggests that forcing a set for the purpose of security will achieve
+no real improvement in security, while simultaneously reducing utility.
 
 =begin MetaPOD::JSON v1.1.0
 

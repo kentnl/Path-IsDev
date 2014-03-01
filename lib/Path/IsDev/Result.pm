@@ -51,12 +51,10 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
-use Class::Tiny 'path', 'result', {
-  reasons => sub { [] },
-};
+use Class::Tiny 'path', 'result', { reasons => sub { [] }, };
 
-sub _path  { require Path::Tiny;  goto &Path::Tiny::path }
-sub _croak { require Carp;        goto &Carp::croak }
+sub _path  { require Path::Tiny; goto &Path::Tiny::path }
+sub _croak { require Carp;       goto &Carp::croak }
 ## no critic (Subroutines::ProhibitCallsToUnexportedSubs)
 sub _debug { require Path::IsDev; shift; goto &Path::IsDev::debug }
 
@@ -65,7 +63,7 @@ sub _debug { require Path::IsDev; shift; goto &Path::IsDev::debug }
 
 
 sub BUILD {
-  my ( $self,) = @_;
+  my ( $self, ) = @_;
   if ( not $self->path ) {
     return _croak(q[<path> is a mandatory parameter]);
   }

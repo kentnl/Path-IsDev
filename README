@@ -105,7 +105,9 @@ UNDERSTANDING AND DEBUGGING THIS MODULE
 
     And it is this kind of problem that usually catches people off guard.
 
-        PATH_ISDEV_DEBUG=1 perl -Ilib -MPath::FindDev=find_dev -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
+        PATH_ISDEV_DEBUG=1 \
+            perl -Ilib -MPath::FindDev=find_dev \
+            -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
 
         ...
         [Path::IsDev=0] + ::Tool::Dzil => 0 : dist.ini does not exist
@@ -126,7 +128,9 @@ UNDERSTANDING AND DEBUGGING THIS MODULE
 
         rm /home/kent/perl5/META.yml
 
-        PATH_ISDEV_DEBUG=1 perl -Ilib -MPath::FindDev=find_dev -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
+        PATH_ISDEV_DEBUG=1 \
+            perl -Ilib -MPath::FindDev=find_dev \
+            -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
 
         ...
         [Path::IsDev=0] Matching /home/kent/perl5
@@ -149,7 +153,9 @@ UNDERSTANDING AND DEBUGGING THIS MODULE
 
         touch /home/kent/perl5/.path_isdev_ignore
 
-        PATH_ISDEV_DEBUG=1 perl -Ilib -MPath::FindDev=find_dev -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
+        PATH_ISDEV_DEBUG=1 \
+            perl -Ilib -MPath::FindDev=find_dev \
+            -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
         ...
         [Path::IsDev=0] Matching /home/kent/perl5
         [Path::IsDev=0] - ::IsDev::IgnoreFile => 1 : .path_isdev_ignore exists
