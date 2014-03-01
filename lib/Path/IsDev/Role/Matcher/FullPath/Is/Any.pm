@@ -6,7 +6,11 @@ package Path::IsDev::Role::Matcher::FullPath::Is::Any;
 
 # ABSTRACT: Match if the current directory is the same directory from a list of absolute paths.
 
-sub _path { require Path::Tiny; goto &Path::Tiny::path }
+sub _path {
+  require Path::Tiny;
+  Path::Tiny->VERSION('0.004');
+  goto &Path::Tiny::path;
+}
 
 use Role::Tiny;
 
