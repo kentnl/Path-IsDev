@@ -1,6 +1,8 @@
 Release history for Path-IsDev
 
 {{$NEXT}}
+
+1.001000 2014-03-01T13:22:00Z
  [00 Majorish]
  - Tooling switched to ExtUtils::MakeMaker
 
