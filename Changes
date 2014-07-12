@@ -1,6 +1,9 @@
 Release history for Path-IsDev
 
-1.001001 2014-07-12T17:58:04Z
+1.001001 2014-07-12T18:23:30Z
+ [00 Trivial]
+ - Misc packaging cleanups.
+
  [Dependencies::Stats]
  - Dependencies changed since 1.001000, see misc/*.deps* for details
  - configure: (recommends: ↑1)
