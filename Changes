@@ -1,5 +1,15 @@
 Release history for Path-IsDev
 
+1.001001 2014-07-12T18:23:30Z
+ [00 Trivial]
+ - Misc packaging cleanups.
+
+ [Dependencies::Stats]
+ - Dependencies changed since 1.001000, see misc/*.deps* for details
+ - configure: (recommends: ↑1)
+ - develop: +3 -3 (suggests: +2 -1)
+ - test: (recommends: ↑2)
+
 1.001000 2014-03-01T13:22:00Z
  [00 Majorish]
  - Tooling switched to ExtUtils::MakeMaker
@@ -13,32 +23,27 @@ Release history for Path-IsDev
  - 5.019 - 17 → 16
 
  [Dependencies::Stats]
- - Dependencies changed since 1.000002, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.000002, see misc/*.deps* for details
  - build: -1
- - configure: +2 -1
+ - configure: +1 -1 (recommends: +1)
  - develop: +7 ↑1 -9
  - runtime: +1 ↑2
- - test: +8 ↓1
+ - test: +4 ↓1 (recommends: +4)
 
 1.000002 2013-11-22T03:28:04Z
  [Bug Fixes]
- - Attempt to avoid failures on some Win32's where methods other than
-   File::HomeDir->my_home don't work at all.
+ - Attempt to avoid failures on some Win32's where methods other than File::HomeDir->my_home don't work at all.
 
  [Dependencies::Stats]
- - Dependencies changed since 1.000001, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.000001, see misc/*.deps* for details
  - develop: ↑1
 
  [Maintenance]
- - Split Changes into Changes.{deps,deps.all,deps.dev} for easier reading
-   for maintainers.
+ - Split Changes into Changes.{deps,deps.all,deps.dev} for easier reading for maintainers.
 
 1.000001 2013-11-21T11:49:20Z
  [Dependencies::Stats]
- - Dependencies changed since 1.000000, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 1.000000, see misc/*.deps* for details
  - build: ↑1
  - configure: ↑1
  - develop: +42 ↑1
@@ -60,29 +65,22 @@ Release history for Path-IsDev
 
 1.000000 2013-10-18T09:55:20Z
  [00 Supermajor Changes - Breaking Everything]
- - This release comes with many significant changes that are likely to
-   break any closely built dependencies.
- - External export interface contains no visible changes, but underyling
-   plumbing is under heavy construction.
+ - This release comes with many significant changes that are likely to break any closely built dependencies.
+ - External export interface contains no visible changes, but underyling plumbing is under heavy construction.
 
  [01 Role Refactory]
- - Any existing code that relied on previous roles or base classes will be
-   BROKEN by this release.
- - Roles again reimplemented and split to be more horizonal instead of
-   vertically integrated.
- - This means all Heuristics need to provide a ->matches() or ->excludes()
-   method now, and manually call their composite roles, and manually set
-   $result_object->result(1) where relevant.
+ - Any existing code that relied on previous roles or base classes will be BROKEN by this release.
+ - Roles again reimplemented and split to be more horizonal instead of vertically integrated.
+ - This means all Heuristics need to provide a ->matches() or ->excludes() method now, and manually call their
+   composite roles, and manually set $result_object->result(1) where relevant.
 
  [02 Base class removal]
  - Base classes that we're deprecated in 0.6.0 are gone now.
 
  [03 Version Schema Change]
- - Version scheme is now Y.nnnnnn . If this is a problem for you, this
-   means you're a downstream who doesn't normalise versions yet. Please
-   learn to normalise, perl upstream break your assumptions.
- - Versions will retain semantic difference, just there more "perl
-   internals" friendly.
+ - Version scheme is now Y.nnnnnn . If this is a problem for you, this means you're a downstream who doesn't normalise
+   versions yet. Please learn to normalise, perl upstream break your assumptions.
+ - Versions will retain semantic difference, just there more "perl internals" friendly.
 
  [04 New Heuristic Match Types]
  - Now a Matcher that matches on full paths
@@ -105,56 +103,44 @@ Release history for Path-IsDev
  - Test::More increased.
 
  [Dependencies::Stats]
- - Dependencies changed since 0.6.0, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 0.6.0, see misc/*.deps* for details
  - develop: ↑2
  - runtime: +1 ↓1
  - test: ↑1
 
 0.6.0 2013-10-05T17:56:06Z
  [00 Major Changes - Role Apocalypse]
- - All internals that could be rewritten to invoke roles instead of
-   inheritance, have been done so.
- - Base classes for existing things still exist, and should still work,
-   however, they're on borrowed time.
+ - All internals that could be rewritten to invoke roles instead of inheritance, have been done so.
+ - Base classes for existing things still exist, and should still work, however, they're on borrowed time.
 
  [Dependencies]
  - Now requires Role::Tiny
  - No longer requires parent
 
  [Dependencies::Stats]
- - Dependencies changed since 0.5.0, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 0.5.0, see misc/*.deps* for details
  - runtime: +2 -1
 
 0.5.0 2013-10-05T15:00:12Z
  [00 Major Changes - Result Object]
- - Internals now re-written slightly to pass around a result object that
-   communicates state.
- - Everywhere $path was previously used, $result_object->path is now used
-   instead.
+ - Internals now re-written slightly to pass around a result object that communicates state.
+ - Everywhere $path was previously used, $result_object->path is now used instead.
  - $result_object->path guaranteed to exist and be a ref of some kind.
- - $result_object->path automatically upgraded to Path::Tiny if provided as
-   a string
- - ->matches() and ->excludes() can now record results of heuristics by
-   invoking $result_object->add_reason()
- - Path::IsDev::Object->_matches($path) now exists and returns a Result
-   Object for $path
- - Dumping result object will give you as much info as turning debugging on
-   would
+ - $result_object->path automatically upgraded to Path::Tiny if provided as a string
+ - ->matches() and ->excludes() can now record results of heuristics by invoking $result_object->add_reason()
+ - Path::IsDev::Object->_matches($path) now exists and returns a Result Object for $path
+ - Dumping result object will give you as much info as turning debugging on would
 
 0.4.0 2013-09-27T17:48:00Z
  [00 Major Changes - Negative Heuristics]
- - Now has a system to indicate negative heuristics, to mark  given
-   directories as "not dev", which cause other postive heuristics to be
-   ignored.
+ - Now has a system to indicate negative heuristics, to mark  given directories as "not dev", which cause other postive
+   heuristics to be ignored.
  - One basic negative heuristic added, 'IsDev::IgnoreFile'
  - Basic Negative heuristic comes standard with the basic set.
 
  [Dependencies::Stats]
- - Dependencies changed since 0.3.3, see Changes.deps{,.all,.dev} for
-   details
- - develop: +2 -3
+ - Dependencies changed since 0.3.3, see misc/*.deps* for details
+ - develop: +1 -1 (recommends: -1, suggests: +1 -1)
 
 0.3.3 2013-09-26T07:09:14Z
  [Bugfix]
@@ -164,18 +150,15 @@ Release history for Path-IsDev
  - Now requires File::Spec for testing.
 
  [Dependencies::Stats]
- - Dependencies changed since 0.3.2, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 0.3.2, see misc/*.deps* for details
  - test: +1
 
 0.3.2 2013-09-18T17:45:37Z
  [Bugfix]
- - Require a version 0.010 of Class::Tiny that doesn't exhibit the "used
-   only once" warning
+ - Require a version 0.010 of Class::Tiny that doesn't exhibit the "used only once" warning
 
  [Dependencies::Stats]
- - Dependencies changed since 0.3.1, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 0.3.1, see misc/*.deps* for details
  - runtime: ↑1
 
 0.3.1 2013-09-18T02:21:11Z
@@ -183,17 +166,15 @@ Release history for Path-IsDev
  - Require a Class::Tiny 0.005 for lazy attrs
 
  [Dependencies::Stats]
- - Dependencies changed since 0.3.0, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 0.3.0, see misc/*.deps* for details
  - runtime: ↑1
 
 0.3.0 2013-09-16T08:27:21Z
  [!Major]
  - Now uses Class::Tiny instead of Moo internally.
- - New Heuristic VCS::Git and is part of the Basic set. ( Because I found a
-   few projects where I didn't have any toolkit specific files, but I
-   wanted to find the root anyway, and I assumed my own code would just
-   work, but it wouldn't ... )
+ - New Heuristic VCS::Git and is part of the Basic set. ( Because I found a few projects where I didn't have any
+   toolkit specific files, but I wanted to find the root anyway, and I assumed my own code would just work, but it
+   wouldn't ... )
 
  [Dependencies]
  - Added Class::Tiny
@@ -201,11 +182,10 @@ Release history for Path-IsDev
  - Increased Module::Build to 0.4007
 
  [Dependencies::Stats]
- - Dependencies changed since 0.2.3, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 0.2.3, see misc/*.deps* for details
  - build: ↑1
  - configure: ↑1
- - develop: +1 ↑1
+ - develop: +1 (suggests: ↑1)
  - runtime: +1 -1
  - test: +2 -1
 
@@ -214,8 +194,7 @@ Release history for Path-IsDev
  - Need Moo 1.000008 for `builder => sub {}`
 
  [Dependencies::Stats]
- - Dependencies changed since 0.2.2, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 0.2.2, see misc/*.deps* for details
  - runtime: ↑1
 
  [Tests]
@@ -223,13 +202,11 @@ Release history for Path-IsDev
 
 0.2.2 2013-07-07T15:53:07Z
  [Bugs]
- - Suppress redefine warning caused by localising a sub before sourcing the
-   module that provides it.
+ - Suppress redefine warning caused by localising a sub before sourcing the module that provides it.
 
 0.2.1 2013-07-07T15:27:19Z
  [Internals]
- - Debug messages now include some indicator suggesting which unique object
-   they're comming from.
+ - Debug messages now include some indicator suggesting which unique object they're comming from.
  - invoking `BUILD` with debugging on prints basic introspected data.
 
 0.2.0 2013-07-07T13:52:33Z
@@ -240,8 +217,7 @@ Release history for Path-IsDev
  - now depends on Moo
 
  [Dependencies::Stats]
- - Dependencies changed since 0.1.1, see Changes.deps{,.all,.dev} for
-   details
+ - Dependencies changed since 0.1.1, see misc/*.deps* for details
  - runtime: +1
 
 0.1.1 2013-07-06T15:36:30Z

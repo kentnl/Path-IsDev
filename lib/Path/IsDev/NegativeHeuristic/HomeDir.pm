@@ -4,7 +4,9 @@ use warnings;
 use utf8;
 
 package Path::IsDev::NegativeHeuristic::HomeDir;
-$Path::IsDev::NegativeHeuristic::HomeDir::VERSION = '1.001000';
+
+our $VERSION = '1.001001';
+
 # ABSTRACT: User home directories are not development roots
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -85,7 +87,7 @@ Path::IsDev::NegativeHeuristic::HomeDir - User home directories are not developm
 
 =head1 VERSION
 
-version 1.001000
+version 1.001001
 
 =head1 METHODS
 

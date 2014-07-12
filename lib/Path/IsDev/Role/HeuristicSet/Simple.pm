@@ -4,7 +4,9 @@ use warnings;
 use utf8;
 
 package Path::IsDev::Role::HeuristicSet::Simple;
-$Path::IsDev::Role::HeuristicSet::Simple::VERSION = '1.001000';
+
+our $VERSION = '1.001001';
+
 # ABSTRACT: Simple excludes/includes set
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -81,7 +83,7 @@ Path::IsDev::Role::HeuristicSet::Simple - Simple excludes/includes set
 
 =head1 VERSION
 
-version 1.001000
+version 1.001001
 
 =head1 ROLE REQUIRES
 

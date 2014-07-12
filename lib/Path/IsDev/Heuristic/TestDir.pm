@@ -4,7 +4,9 @@ use warnings;
 use utf8;
 
 package Path::IsDev::Heuristic::TestDir;
-$Path::IsDev::Heuristic::TestDir::VERSION = '1.001000';
+
+our $VERSION = '1.001001';
+
 # ABSTRACT: Determine if a path contains a t/ or xt/ directory
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -72,7 +74,7 @@ Path::IsDev::Heuristic::TestDir - Determine if a path contains a t/ or xt/ direc
 
 =head1 VERSION
 
-version 1.001000
+version 1.001001
 
 =head1 METHODS
 

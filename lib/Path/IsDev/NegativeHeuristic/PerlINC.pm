@@ -4,7 +4,9 @@ use warnings;
 use utf8;
 
 package Path::IsDev::NegativeHeuristic::PerlINC;
-$Path::IsDev::NegativeHeuristic::PerlINC::VERSION = '1.001000';
+
+our $VERSION = '1.001001';
+
 # ABSTRACT: White-list paths in Config.pm as being non-development roots.
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -76,7 +78,7 @@ Path::IsDev::NegativeHeuristic::PerlINC - White-list paths in Config.pm as being
 
 =head1 VERSION
 
-version 1.001000
+version 1.001001
 
 =head1 METHODS
 
