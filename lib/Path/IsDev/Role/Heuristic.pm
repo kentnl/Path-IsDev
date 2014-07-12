@@ -4,7 +4,9 @@ use warnings;
 use utf8;
 
 package Path::IsDev::Role::Heuristic;
-$Path::IsDev::Role::Heuristic::VERSION = '1.001000';
+
+our $VERSION = '1.001001';
+
 # ABSTRACT: Base role for Heuristic things.
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -92,7 +94,7 @@ Path::IsDev::Role::Heuristic - Base role for Heuristic things.
 
 =head1 VERSION
 
-version 1.001000
+version 1.001001
 
 =head1 ROLE REQUIRES
 

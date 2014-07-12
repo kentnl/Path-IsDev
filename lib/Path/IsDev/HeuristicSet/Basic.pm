@@ -4,7 +4,9 @@ use warnings;
 use utf8;
 
 package Path::IsDev::HeuristicSet::Basic;
-$Path::IsDev::HeuristicSet::Basic::VERSION = '1.001000';
+
+our $VERSION = '1.001001';
+
 # ABSTRACT: Basic IsDev set of Heuristics
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -96,7 +98,7 @@ Path::IsDev::HeuristicSet::Basic - Basic IsDev set of Heuristics
 
 =head1 VERSION
 
-version 1.001000
+version 1.001001
 
 =head1 METHODS
 

@@ -4,7 +4,9 @@ use warnings;
 use utf8;
 
 package Path::IsDev::Role::HeuristicSet;
-$Path::IsDev::Role::HeuristicSet::VERSION = '1.001000';
+
+our $VERSION = '1.001001';
+
 # ABSTRACT: Role for sets of Heuristics.
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -93,7 +95,7 @@ Path::IsDev::Role::HeuristicSet - Role for sets of Heuristics.
 
 =head1 VERSION
 
-version 1.001000
+version 1.001001
 
 =head1 ROLE REQUIRES
 

@@ -4,7 +4,9 @@ use warnings;
 use utf8;
 
 package Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile;
-$Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile::VERSION = '1.001000';
+
+our $VERSION = '1.001001';
+
 # ABSTRACT: An explicit exclusion file heuristic
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -88,7 +90,7 @@ Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile - An explicit exclusion file h
 
 =head1 VERSION
 
-version 1.001000
+version 1.001001
 
 =head1 SYNOPSIS
 

@@ -1,5 +1,7 @@
 Release history for Path-IsDev
 
+1.001001 2014-07-12T17:45:49Z
+
 1.001000 2014-03-01T13:22:00Z
  [00 Majorish]
  - Tooling switched to ExtUtils::MakeMaker

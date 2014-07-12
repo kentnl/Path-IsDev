@@ -4,7 +4,9 @@ use warnings;
 use utf8;
 
 package Path::IsDev::Object;
-$Path::IsDev::Object::VERSION = '1.001000';
+
+our $VERSION = '1.001001';
+
 # ABSTRACT: Object Oriented guts for IsDev export
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -243,7 +245,7 @@ Path::IsDev::Object - Object Oriented guts for IsDev export
 
 =head1 VERSION
 
-version 1.001000
+version 1.001001
 
 =head1 SYNOPSIS
 

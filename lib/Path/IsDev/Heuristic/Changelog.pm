@@ -4,7 +4,9 @@ use warnings;
 use utf8;
 
 package Path::IsDev::Heuristic::Changelog;
-$Path::IsDev::Heuristic::Changelog::VERSION = '1.001000';
+
+our $VERSION = '1.001001';
+
 # ABSTRACT: Determine if a path contains a Changelog (or similar)
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
@@ -84,7 +86,7 @@ Path::IsDev::Heuristic::Changelog - Determine if a path contains a Changelog (or
 
 =head1 VERSION
 
-version 1.001000
+version 1.001001
 
 =head1 DESCRIPTION
 
