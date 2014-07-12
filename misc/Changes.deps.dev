@@ -1,4 +1,6 @@
-1.001001
+1.001002
+
+1.001001 2014-07-12T18:23:30Z
  [Added / develop requires]
  - Dist::Zilla::Plugin::BumpVersionAfterRelease
  - Dist::Zilla::Plugin::CopyFilesFromBuild
