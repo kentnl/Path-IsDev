@@ -1,6 +1,9 @@
 Release history for Path-IsDev
 
 {{$NEXT}}
+ [00 Trivial]
+ - Misc packaging cleanups.
+
  [Dependencies::Stats]
  - Dependencies changed since 1.001000, see misc/*.deps* for details
  - configure: (recommends: ↑1)
