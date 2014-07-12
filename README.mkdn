@@ -4,7 +4,7 @@ Path::IsDev - Determine if a given Path resembles a development source tree
 
 # VERSION
 
-version 1.001000
+version 1.001001
 
 # SYNOPSIS
 
@@ -66,10 +66,10 @@ There are two types of Heuristics, Postive/Confirming Heuristics, and Negative/D
 Positive Heuristics and Negative Heuristics are based solely on the presence of specific marker files in a directory, or special
 marker directories.
 
-For instance, the files `META.yml`, `Makefile.PL`, and `Build.PL` are all __Positive Heuristic__ markers, because their
+For instance, the files `META.yml`, `Makefile.PL`, and `Build.PL` are all **Positive Heuristic** markers, because their
 presence often indicates a "root" of a development tree.
 
-And for instance, the directories `t/`, `xt/` and `.git/` are also __Positive Heuristic__ markers, because these structures
+And for instance, the directories `t/`, `xt/` and `.git/` are also **Positive Heuristic** markers, because these structures
 are common in `perl` development trees, and uncommon in install trees.
 
 However, these markers sometimes go wrong, for instance, consider you have a `local::lib` or `perlbrew` install in `$HOME`
@@ -170,7 +170,7 @@ Success!
 
 ## Negative Heuristics bundled with this distribution
 
-Just remember, a __Negative__ Heuristic __excludes the path it is associated with__
+Just remember, a **Negative** Heuristic **excludes the path it is associated with**
 
 - [`IsDev::IgnoreFile`](https://metacpan.org/pod/Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile) - `.path_isdev_ignore`
 
@@ -243,7 +243,7 @@ either of those 2 things you could do much more evil things by the following:
 So with that in understanding, saying this modules default utility is "insecure" is mostly a bogus argument.
 
 And to that effect, this module does nothing to "lock down" that mechanism, and this module encourages you
-to __NOT__ force a set, unless you __NEED__ to, and strongly suggests that forcing a set for the purpose of security will achieve
+to **NOT** force a set, unless you **NEED** to, and strongly suggests that forcing a set for the purpose of security will achieve
 no real improvement in security, while simultaneously reducing utility.
 
 # AUTHOR
