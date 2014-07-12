@@ -5,6 +5,8 @@ use utf8;
 
 package Path::IsDev::Role::Heuristic;
 
+our $VERSION = '1.001001';
+
 # ABSTRACT: Base role for Heuristic things.
 
 # AUTHORITY

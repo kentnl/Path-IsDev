@@ -5,6 +5,8 @@ use utf8;
 
 package Path::IsDev::NegativeHeuristic::HomeDir;
 
+our $VERSION = '1.001001';
+
 # ABSTRACT: User home directories are not development roots
 
 # AUTHORITY

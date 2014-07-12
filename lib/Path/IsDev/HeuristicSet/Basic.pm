@@ -5,6 +5,8 @@ use utf8;
 
 package Path::IsDev::HeuristicSet::Basic;
 
+our $VERSION = '1.001001';
+
 # ABSTRACT: Basic IsDev set of Heuristics
 
 # AUTHORITY

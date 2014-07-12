@@ -5,6 +5,8 @@ use utf8;
 
 package Path::IsDev::Object;
 
+our $VERSION = '1.001001';
+
 # ABSTRACT: Object Oriented guts for IsDev export
 
 # AUTHORITY

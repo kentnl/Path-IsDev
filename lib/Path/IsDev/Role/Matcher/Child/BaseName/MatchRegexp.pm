@@ -5,6 +5,8 @@ use utf8;
 
 package Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp;
 
+our $VERSION = '1.001001';
+
 # ABSTRACT: Match when a path has a child file matching an expression
 
 # AUTHORITY

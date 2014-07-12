@@ -5,6 +5,8 @@ use utf8;
 
 package Path::IsDev::Result;
 
+our $VERSION = '1.001001';
+
 # ABSTRACT: Result container
 
 # AUTHORITY

@@ -5,6 +5,8 @@ use utf8;
 
 package Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile;
 
+our $VERSION = '1.001001';
+
 # ABSTRACT: An explicit exclusion file heuristic
 
 # AUTHORITY

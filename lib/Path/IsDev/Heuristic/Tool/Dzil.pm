@@ -5,6 +5,8 @@ use utf8;
 
 package Path::IsDev::Heuristic::Tool::Dzil;
 
+our $VERSION = '1.001001';
+
 =begin MetaPOD::JSON v1.1.0
 
 {
