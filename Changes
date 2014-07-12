@@ -1,6 +1,6 @@
 Release history for Path-IsDev
 
-1.001001 2014-07-12T17:53:31Z
+1.001001 2014-07-12T17:58:04Z
  [Dependencies::Stats]
  - Dependencies changed since 1.001000, see misc/*.deps* for details
  - configure: (recommends: ↑1)
