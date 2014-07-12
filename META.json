@@ -117,111 +117,111 @@
    "provides" : {
       "Path::IsDev" : {
          "file" : "lib/Path/IsDev.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Heuristic::Changelog" : {
          "file" : "lib/Path/IsDev/Heuristic/Changelog.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Heuristic::DevDirMarker" : {
          "file" : "lib/Path/IsDev/Heuristic/DevDirMarker.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Heuristic::META" : {
          "file" : "lib/Path/IsDev/Heuristic/META.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Heuristic::MYMETA" : {
          "file" : "lib/Path/IsDev/Heuristic/MYMETA.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Heuristic::Makefile" : {
          "file" : "lib/Path/IsDev/Heuristic/Makefile.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Heuristic::TestDir" : {
          "file" : "lib/Path/IsDev/Heuristic/TestDir.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Heuristic::Tool::Dzil" : {
          "file" : "lib/Path/IsDev/Heuristic/Tool/Dzil.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Heuristic::Tool::MakeMaker" : {
          "file" : "lib/Path/IsDev/Heuristic/Tool/MakeMaker.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Heuristic::Tool::ModuleBuild" : {
          "file" : "lib/Path/IsDev/Heuristic/Tool/ModuleBuild.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Heuristic::VCS::Git" : {
          "file" : "lib/Path/IsDev/Heuristic/VCS/Git.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::HeuristicSet::Basic" : {
          "file" : "lib/Path/IsDev/HeuristicSet/Basic.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::NegativeHeuristic::HomeDir" : {
          "file" : "lib/Path/IsDev/NegativeHeuristic/HomeDir.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile" : {
          "file" : "lib/Path/IsDev/NegativeHeuristic/IsDev/IgnoreFile.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::NegativeHeuristic::PerlINC" : {
          "file" : "lib/Path/IsDev/NegativeHeuristic/PerlINC.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Object" : {
          "file" : "lib/Path/IsDev/Object.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Result" : {
          "file" : "lib/Path/IsDev/Result.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Role::Heuristic" : {
          "file" : "lib/Path/IsDev/Role/Heuristic.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Role::HeuristicSet" : {
          "file" : "lib/Path/IsDev/Role/HeuristicSet.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Role::HeuristicSet::Simple" : {
          "file" : "lib/Path/IsDev/Role/HeuristicSet/Simple.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp" : {
          "file" : "lib/Path/IsDev/Role/Matcher/Child/BaseName/MatchRegexp.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File" : {
          "file" : "lib/Path/IsDev/Role/Matcher/Child/BaseName/MatchRegexp/File.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Role::Matcher::Child::Exists::Any" : {
          "file" : "lib/Path/IsDev/Role/Matcher/Child/Exists/Any.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Role::Matcher::Child::Exists::Any::Dir" : {
          "file" : "lib/Path/IsDev/Role/Matcher/Child/Exists/Any/Dir.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Role::Matcher::Child::Exists::Any::File" : {
          "file" : "lib/Path/IsDev/Role/Matcher/Child/Exists/Any/File.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Role::Matcher::FullPath::Is::Any" : {
          "file" : "lib/Path/IsDev/Role/Matcher/FullPath/Is/Any.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       },
       "Path::IsDev::Role::NegativeHeuristic" : {
          "file" : "lib/Path/IsDev/Role/NegativeHeuristic.pm",
-         "version" : "1.001001"
+         "version" : "1.001002"
       }
    },
    "release_status" : "stable",
@@ -236,7 +236,7 @@
          "web" : "https://github.com/kentfredric/Path-IsDev"
       }
    },
-   "version" : "1.001001",
+   "version" : "1.001002",
    "x_BuiltWith" : {
       "modules" : {
          "CPAN::Meta" : "2.141520",
@@ -760,7 +760,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "1.001001-source",
+                  "tag" : "1.001002-source",
                   "tag_format" : "%v-source",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
@@ -831,7 +831,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : "releases",
                   "signed" : 0,
-                  "tag" : "1.001001",
+                  "tag" : "1.001002",
                   "tag_format" : "%v",
                   "tag_message" : "v%v",
                   "time_zone" : "local"

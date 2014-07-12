@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Heuristic::Changelog;
 
-our $VERSION = '1.001001';
+our $VERSION = '1.001002';
 
 # ABSTRACT: Determine if a path contains a Changelog (or similar)
 
@@ -86,7 +86,7 @@ Path::IsDev::Heuristic::Changelog - Determine if a path contains a Changelog (or
 
 =head1 VERSION
 
-version 1.001001
+version 1.001002
 
 =head1 DESCRIPTION
 

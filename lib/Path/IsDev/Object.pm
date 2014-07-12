@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Object;
 
-our $VERSION = '1.001001';
+our $VERSION = '1.001002';
 
 # ABSTRACT: Object Oriented guts for IsDev export
 
@@ -245,7 +245,7 @@ Path::IsDev::Object - Object Oriented guts for IsDev export
 
 =head1 VERSION
 
-version 1.001001
+version 1.001002
 
 =head1 SYNOPSIS
 

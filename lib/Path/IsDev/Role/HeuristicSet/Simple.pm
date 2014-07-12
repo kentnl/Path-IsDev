@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Role::HeuristicSet::Simple;
 
-our $VERSION = '1.001001';
+our $VERSION = '1.001002';
 
 # ABSTRACT: Simple excludes/includes set
 
@@ -83,7 +83,7 @@ Path::IsDev::Role::HeuristicSet::Simple - Simple excludes/includes set
 
 =head1 VERSION
 
-version 1.001001
+version 1.001002
 
 =head1 ROLE REQUIRES
 

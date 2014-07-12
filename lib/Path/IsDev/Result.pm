@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Result;
 
-our $VERSION = '1.001001';
+our $VERSION = '1.001002';
 
 # ABSTRACT: Result container
 
@@ -149,7 +149,7 @@ Path::IsDev::Result - Result container
 
 =head1 VERSION
 
-version 1.001001
+version 1.001002
 
 =head1 SYNOPSIS
 
