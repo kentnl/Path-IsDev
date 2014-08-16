@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Heuristic::Makefile;
 
-our $VERSION = '1.001001';
+our $VERSION = '1.001002';
 
 
 
@@ -72,7 +72,7 @@ Path::IsDev::Heuristic::Makefile - Determine if a path contains a Makefile
 
 =head1 VERSION
 
-version 1.001001
+version 1.001002
 
 =head1 METHODS
 

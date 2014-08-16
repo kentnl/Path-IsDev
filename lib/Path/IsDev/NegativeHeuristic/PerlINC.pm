@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::NegativeHeuristic::PerlINC;
 
-our $VERSION = '1.001001';
+our $VERSION = '1.001002';
 
 # ABSTRACT: White-list paths in Config.pm as being non-development roots.
 
@@ -78,7 +78,7 @@ Path::IsDev::NegativeHeuristic::PerlINC - White-list paths in Config.pm as being
 
 =head1 VERSION
 
-version 1.001001
+version 1.001002
 
 =head1 METHODS
 

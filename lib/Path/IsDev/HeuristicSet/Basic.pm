@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::HeuristicSet::Basic;
 
-our $VERSION = '1.001001';
+our $VERSION = '1.001002';
 
 # ABSTRACT: Basic IsDev set of Heuristics
 
@@ -98,7 +98,7 @@ Path::IsDev::HeuristicSet::Basic - Basic IsDev set of Heuristics
 
 =head1 VERSION
 
-version 1.001001
+version 1.001002
 
 =head1 METHODS
 

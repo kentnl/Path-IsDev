@@ -5,20 +5,11 @@ use utf8;
 
 package Path::IsDev::Heuristic::MYMETA;
 
-our $VERSION = '1.001001';
+our $VERSION = '1.001002';
 
 # ABSTRACT: Determine if a path contains MYMETA.(json|yml)
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
-
-
-
-
-
-
-
-
-
 
 
 
@@ -80,7 +71,7 @@ Path::IsDev::Heuristic::MYMETA - Determine if a path contains MYMETA.(json|yml)
 
 =head1 VERSION
 
-version 1.001001
+version 1.001002
 
 =head1 DESCRIPTION
 

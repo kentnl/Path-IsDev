@@ -5,249 +5,11 @@ use utf8;
 
 package Path::IsDev;
 
-our $VERSION = '1.001001';
+our $VERSION = '1.001002';
 
 # ABSTRACT: Determine if a given Path resembles a development source tree
 
 our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -334,7 +96,7 @@ Path::IsDev - Determine if a given Path resembles a development source tree
 
 =head1 VERSION
 
-version 1.001001
+version 1.001002
 
 =head1 SYNOPSIS
 
@@ -384,6 +146,16 @@ it using
     use Path::IsDev qw( is_dev );
 
 That is, no C<set> specification is applicable, so you'll only get the "default".
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Path::IsDev",
+    "interface":"exporter"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 UNDERSTANDING AND DEBUGGING THIS MODULE
 
@@ -596,16 +368,6 @@ So with that in understanding, saying this modules default utility is "insecure"
 And to that effect, this module does nothing to "lock down" that mechanism, and this module encourages you
 to B<NOT> force a set, unless you B<NEED> to, and strongly suggests that forcing a set for the purpose of security will achieve
 no real improvement in security, while simultaneously reducing utility.
-
-=begin MetaPOD::JSON v1.1.0
-
-{
-    "namespace":"Path::IsDev",
-    "interface":"exporter"
-}
-
-
-=end MetaPOD::JSON
 
 =head1 AUTHOR
 
