@@ -115,9 +115,9 @@ requires:
   utf8: '0'
   warnings: '0'
 resources:
-  bugtracker: https://github.com/kentfredric/Path-IsDev/issues
-  homepage: https://github.com/kentfredric/Path-IsDev
-  repository: https://github.com/kentfredric/Path-IsDev.git
+  bugtracker: https://github.com/kentnl/Path-IsDev/issues
+  homepage: https://github.com/kentnl/Path-IsDev
+  repository: https://github.com/kentnl/Path-IsDev.git
 version: '1.001002'
 x_BuiltWith:
   modules:

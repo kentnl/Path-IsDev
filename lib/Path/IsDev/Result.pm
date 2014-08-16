@@ -41,18 +41,6 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 use Class::Tiny 'path', 'result', { reasons => sub { [] }, };
 
 sub _path  { require Path::Tiny; goto &Path::Tiny::path }

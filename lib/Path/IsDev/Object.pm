@@ -23,31 +23,6 @@ our $AUTHORITY = 'cpan:KENTNL'; # AUTHORITY
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 our $ENV_KEY_DEBUG = 'PATH_ISDEV_DEBUG';
 our $DEBUG = ( exists $ENV{$ENV_KEY_DEBUG} ? $ENV{$ENV_KEY_DEBUG} : undef );
 
