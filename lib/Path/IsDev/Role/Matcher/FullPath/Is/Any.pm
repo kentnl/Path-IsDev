@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Role::Matcher::FullPath::Is::Any;
 
-our $VERSION = '1.001002';
+our $VERSION = '1.001003';
 
 # ABSTRACT: Match if the current directory is the same directory from a list of absolute paths.
 

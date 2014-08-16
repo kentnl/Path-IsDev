@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Heuristic::DevDirMarker;
 
-our $VERSION = '1.001002';
+our $VERSION = '1.001003';
 
 # ABSTRACT: Determine if a path contains a .devdir file
 

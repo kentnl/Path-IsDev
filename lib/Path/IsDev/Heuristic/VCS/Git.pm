@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Heuristic::VCS::Git;
 
-our $VERSION = '1.001002';
+our $VERSION = '1.001003';
 
 =begin MetaPOD::JSON v1.1.0
 
