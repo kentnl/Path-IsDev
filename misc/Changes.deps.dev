@@ -1,6 +1,8 @@
 This file contains changes to DEVELOPMENT dependencies only ( both REQUIRED and OPTIONAL )
 
-1.001002
+1.001003
+
+1.001002 2014-08-16T04:40:51Z
  [Added / develop requires]
  - Dist::Zilla::Plugin::Git::Contributors 0.006
 
