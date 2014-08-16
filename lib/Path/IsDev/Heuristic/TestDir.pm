@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Heuristic::TestDir;
 
-our $VERSION = '1.001002';
+our $VERSION = '1.001003';
 
 # ABSTRACT: Determine if a path contains a t/ or xt/ directory
 
@@ -74,7 +74,7 @@ Path::IsDev::Heuristic::TestDir - Determine if a path contains a t/ or xt/ direc
 
 =head1 VERSION
 
-version 1.001002
+version 1.001003
 
 =head1 METHODS
 

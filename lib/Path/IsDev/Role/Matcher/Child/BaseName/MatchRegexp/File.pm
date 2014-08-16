@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File;
 
-our $VERSION = '1.001002';
+our $VERSION = '1.001003';
 
 # ABSTRACT: Match if any children have basename's that match a regexp and are files
 
@@ -92,7 +92,7 @@ Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File - Match if any ch
 
 =head1 VERSION
 
-version 1.001002
+version 1.001003
 
 =head1 METHODS
 

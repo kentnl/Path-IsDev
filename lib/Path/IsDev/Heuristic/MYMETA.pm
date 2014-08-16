@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Heuristic::MYMETA;
 
-our $VERSION = '1.001002';
+our $VERSION = '1.001003';
 
 # ABSTRACT: Determine if a path contains MYMETA.(json|yml)
 
@@ -71,7 +71,7 @@ Path::IsDev::Heuristic::MYMETA - Determine if a path contains MYMETA.(json|yml)
 
 =head1 VERSION
 
-version 1.001002
+version 1.001003
 
 =head1 DESCRIPTION
 

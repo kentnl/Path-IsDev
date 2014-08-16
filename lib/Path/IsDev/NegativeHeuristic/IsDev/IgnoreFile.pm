@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile;
 
-our $VERSION = '1.001002';
+our $VERSION = '1.001003';
 
 # ABSTRACT: An explicit exclusion file heuristic
 
@@ -90,7 +90,7 @@ Path::IsDev::NegativeHeuristic::IsDev::IgnoreFile - An explicit exclusion file h
 
 =head1 VERSION
 
-version 1.001002
+version 1.001003
 
 =head1 SYNOPSIS
 
