@@ -11,6 +11,79 @@ our $VERSION = '1.001002';
 
 # AUTHORITY
 
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"Path::IsDev",
+    "interface":"exporter"
+}
+
+=end MetaPOD::JSON
+
+=cut
+
+use Sub::Exporter -setup => { exports => [ is_dev => \&_build_is_dev, ], };
+
+our $ENV_KEY_DEBUG = 'PATH_ISDEV_DEBUG';
+
+our $DEBUG = ( exists $ENV{$ENV_KEY_DEBUG} ? $ENV{$ENV_KEY_DEBUG} : undef );
+
+=func debug
+
+Debug callback.
+
+To enable debugging:
+
+    export PATH_ISDEV_DEBUG=1
+
+=cut
+
+sub debug {
+  return unless $DEBUG;
+  return *STDERR->printf( qq{[Path::IsDev] %s\n}, shift );
+}
+
+sub _build_is_dev {
+  my ( undef, undef, $arg ) = @_;
+
+  my $isdev_object;
+  return sub {
+    my ($path) = @_;
+    $isdev_object ||= do {
+      require Path::IsDev::Object;
+      Path::IsDev::Object->new( %{ $arg || {} } );
+    };
+    return $isdev_object->matches($path);
+  };
+}
+
+=func C<is_dev>
+
+Using an C<import>'ed C<is_dev>:
+
+    if( is_dev( $path ) ) {
+
+    }
+
+Though the actual heuristics used will be based on how C<import> was called.
+
+Additionally, you can call
+
+    Path::IsDev::is_dev
+
+without C<import>ing anything, and it will behave exactly the same as if you'd imported
+it using
+
+    use Path::IsDev qw( is_dev );
+
+That is, no C<set> specification is applicable, so you'll only get the "default".
+
+=cut
+
+*is_dev = _build_is_dev( 'Path::IsDev', 'is_dev', {} );
+
+1;
+
 =head1 DESCRIPTION
 
 This module is more or less a bunch of heuristics for determining if a given path
@@ -190,8 +263,6 @@ insensitive, extensions optional.
 
 =back
 
-=cut
-
 =head1 ADVANCED USAGE
 
 =head2 Custom Sets
@@ -203,8 +274,6 @@ Though, for the vast majority of cases, this is not required.
 
     use Path::IsDev is_dev => { set => 'Basic' };
     use Path::IsDev is_dev => { set => 'SomeOtherSet' , -as => 'is_dev_other' };
-
-=cut
 
 =head2 Overriding the default set
 
@@ -248,76 +317,3 @@ to B<NOT> force a set, unless you B<NEED> to, and strongly suggests that forcing
 no real improvement in security, while simultaneously reducing utility.
 
 =cut
-
-=begin MetaPOD::JSON v1.1.0
-
-{
-    "namespace":"Path::IsDev",
-    "interface":"exporter"
-}
-
-=end MetaPOD::JSON
-
-=cut
-
-use Sub::Exporter -setup => { exports => [ is_dev => \&_build_is_dev, ], };
-
-our $ENV_KEY_DEBUG = 'PATH_ISDEV_DEBUG';
-
-our $DEBUG = ( exists $ENV{$ENV_KEY_DEBUG} ? $ENV{$ENV_KEY_DEBUG} : undef );
-
-=func debug
-
-Debug callback.
-
-To enable debugging:
-
-    export PATH_ISDEV_DEBUG=1
-
-=cut
-
-sub debug {
-  return unless $DEBUG;
-  return *STDERR->printf( qq{[Path::IsDev] %s\n}, shift );
-}
-
-sub _build_is_dev {
-  my ( undef, undef, $arg ) = @_;
-
-  my $isdev_object;
-  return sub {
-    my ($path) = @_;
-    $isdev_object ||= do {
-      require Path::IsDev::Object;
-      Path::IsDev::Object->new( %{ $arg || {} } );
-    };
-    return $isdev_object->matches($path);
-  };
-}
-
-=func C<is_dev>
-
-Using an C<import>'ed C<is_dev>:
-
-    if( is_dev( $path ) ) {
-
-    }
-
-Though the actual heuristics used will be based on how C<import> was called.
-
-Additionally, you can call
-
-    Path::IsDev::is_dev
-
-without C<import>ing anything, and it will behave exactly the same as if you'd imported
-it using
-
-    use Path::IsDev qw( is_dev );
-
-That is, no C<set> specification is applicable, so you'll only get the "default".
-
-=cut
-
-*is_dev = _build_is_dev( 'Path::IsDev', 'is_dev', {} );
-
-1;

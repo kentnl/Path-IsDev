@@ -33,18 +33,6 @@ our $VERSION = '1.001002';
 
 =cut
 
-=head1 DESCRIPTION
-
-This is a reasonably new internal component for Path::IsDev.
-
-Its purpose is to communicate state between internal things, and give some sort of introspectable
-context for why things happened in various places without resorting to spamming debug everywhere.
-
-Now instead of turning on debug, as long as you can get a result, you can inspect and dump that result
-at the point you need it.
-
-=cut
-
 =attr C<path>
 
 =attr C<result>
@@ -136,3 +124,15 @@ sub add_reason {
 }
 
 1;
+
+=head1 DESCRIPTION
+
+This is a reasonably new internal component for Path::IsDev.
+
+Its purpose is to communicate state between internal things, and give some sort of introspectable
+context for why things happened in various places without resorting to spamming debug everywhere.
+
+Now instead of turning on debug, as long as you can get a result, you can inspect and dump that result
+at the point you need it.
+
+=cut

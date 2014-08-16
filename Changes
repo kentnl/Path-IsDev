@@ -5,6 +5,7 @@ Release history for Path-IsDev
  - CPANDAY!
  - no code changes
  - tests augmented
+ - whitespace reduced
 
  [Dependencies::Stats]
  - Dependencies changed since 1.001001, see misc/*.deps* for details
@@ -14,6 +15,9 @@ Release history for Path-IsDev
 
  [Metadata]
  - move to kentnl org
+
+ [Misc]
+ - Improve source side POD to reduce build side whitespace.
 
  [Tests]
  - update Test::ReportPrereqs

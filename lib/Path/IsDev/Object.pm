@@ -23,31 +23,6 @@ our $VERSION = '1.001002';
 
 =cut
 
-=head1 DESCRIPTION
-
-Exporting functions is handy for end users, but quickly
-becomes a huge headache when you're trying to chain them.
-
-e.g: If you're writing an exporter yourself, and you want to wrap
-responses from an exported symbol, while passing through user
-configuration => Huge headache.
-
-So the exporter based interface is there for people who don't need anything fancy,
-while the Object based interface is there for people with more complex requirements.
-
-=head1 SYNOPSIS
-
-    use Path::IsDev::Object;
-
-    my $dev = Path::IsDev::Object->new();
-    my $dev = Path::IsDev::Object->new( set => 'MySet' );
-
-    if ( $dev->matches($path) ){
-        print "$path is dev";
-    }
-
-=cut
-
 our $ENV_KEY_DEBUG = 'PATH_ISDEV_DEBUG';
 our $DEBUG = ( exists $ENV{$ENV_KEY_DEBUG} ? $ENV{$ENV_KEY_DEBUG} : undef );
 
@@ -232,3 +207,28 @@ sub matches {
 }
 
 1;
+
+=head1 DESCRIPTION
+
+Exporting functions is handy for end users, but quickly
+becomes a huge headache when you're trying to chain them.
+
+e.g: If you're writing an exporter yourself, and you want to wrap
+responses from an exported symbol, while passing through user
+configuration => Huge headache.
+
+So the exporter based interface is there for people who don't need anything fancy,
+while the Object based interface is there for people with more complex requirements.
+
+=head1 SYNOPSIS
+
+    use Path::IsDev::Object;
+
+    my $dev = Path::IsDev::Object->new();
+    my $dev = Path::IsDev::Object->new( set => 'MySet' );
+
+    if ( $dev->matches($path) ){
+        print "$path is dev";
+    }
+
+=cut

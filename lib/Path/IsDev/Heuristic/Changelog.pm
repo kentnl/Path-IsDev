@@ -11,21 +11,6 @@ our $VERSION = '1.001002';
 
 # AUTHORITY
 
-=head1 DESCRIPTION
-
-This heuristic matches any case variation of C<Changes> or C<Changelog>,
-including any files of that name with a suffix.
-
-e.g.:
-
-    Changes
-    CHANGES
-    Changes.mkdn
-
-etc.
-
-=cut
-
 =begin MetaPOD::JSON v1.1.0
 
 {
@@ -74,3 +59,17 @@ sub matches {
 
 1;
 
+=head1 DESCRIPTION
+
+This heuristic matches any case variation of C<Changes> or C<Changelog>,
+including any files of that name with a suffix.
+
+e.g.:
+
+    Changes
+    CHANGES
+    Changes.mkdn
+
+etc.
+
+=cut

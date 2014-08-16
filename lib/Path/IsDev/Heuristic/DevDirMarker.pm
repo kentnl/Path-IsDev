@@ -11,19 +11,6 @@ our $VERSION = '1.001002';
 
 # AUTHORITY
 
-=head1 DESCRIPTION
-
-This Heuristic is a workaround that is likely viable in the event none of the other Heuristics work.
-
-All this heuristic checks for is the presence of a special file called C<.devdir>, which is intended as an explicit notation that
-"This directory is a project root".
-
-An example case where you might need such a Heuristic, is the scenario where you're not working with a Perl C<CPAN> dist, but are
-instead working on a project in a different language, where Perl is simply there for build/test purposes.
-
-
-=cut
-
 =begin MetaPOD::JSON v1.1.0
 
 {
@@ -71,3 +58,14 @@ sub matches {
 
 1;
 
+=head1 DESCRIPTION
+
+This Heuristic is a workaround that is likely viable in the event none of the other Heuristics work.
+
+All this heuristic checks for is the presence of a special file called C<.devdir>, which is intended as an explicit notation that
+"This directory is a project root".
+
+An example case where you might need such a Heuristic, is the scenario where you're not working with a Perl C<CPAN> dist, but are
+instead working on a project in a different language, where Perl is simply there for build/test purposes.
+
+=cut
