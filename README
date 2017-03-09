@@ -1,275 +1,33 @@
-NAME
-    Path::IsDev - Determine if a given Path resembles a development source
-    tree
+Path::IsDev
 
-VERSION
-    version 1.001003
+This module is more or less a bunch of heuristics for determining if a
+given path is a development tree root of some kind.
 
-SYNOPSIS
-        use Path::IsDev qw(is_dev);
+This has many useful applications, notably ones that require behaviours
+for "installed" modules to be different to those that are still "in
+development"
 
-        if( is_dev('/some/path') ) {
-            ...
-        } else {
-            ...
-        }
+INSTALLATION
 
-DESCRIPTION
-    This module is more or less a bunch of heuristics for determining if a
-    given path is a development tree root of some kind.
+This is a Perl module distribution. It should be installed with whichever
+tool you use to manage your installation of Perl, e.g. any of
 
-    This has many useful applications, notably ones that require behaviours
-    for "installed" modules to be different to those that are still "in
-    development"
+  cpanm .
+  cpan  .
+  cpanp -i .
 
-FUNCTIONS
-  debug
-    Debug callback.
+Consult http://www.cpan.org/modules/INSTALL.html for further instruction.
+Should you wish to install this module manually, the procedure is
 
-    To enable debugging:
-
-        export PATH_ISDEV_DEBUG=1
-
-  "is_dev"
-    Using an "import"'ed "is_dev":
-
-        if( is_dev( $path ) ) {
-
-        }
-
-    Though the actual heuristics used will be based on how "import" was
-    called.
-
-    Additionally, you can call
-
-        Path::IsDev::is_dev
-
-    without "import"ing anything, and it will behave exactly the same as if
-    you'd imported it using
-
-        use Path::IsDev qw( is_dev );
-
-    That is, no "set" specification is applicable, so you'll only get the
-    "default".
-
-UNDERSTANDING AND DEBUGGING THIS MODULE
-    Understanding how this module works, is critical to understand where you
-    can use it, and the consequences of using it.
-
-    This module operates on a very simplistic level, and its easy for
-    false-positives to occur.
-
-    There are two types of Heuristics, Postive/Confirming Heuristics, and
-    Negative/Disconfirming Heuristics.
-
-    Positive Heuristics and Negative Heuristics are based solely on the
-    presence of specific marker files in a directory, or special marker
-    directories.
-
-    For instance, the files "META.yml", "Makefile.PL", and "Build.PL" are
-    all Positive Heuristic markers, because their presence often indicates a
-    "root" of a development tree.
-
-    And for instance, the directories "t/", "xt/" and ".git/" are also
-    Positive Heuristic markers, because these structures are common in
-    "perl" development trees, and uncommon in install trees.
-
-    However, these markers sometimes go wrong, for instance, consider you
-    have a "local::lib" or "perlbrew" install in $HOME
-
-        $HOME/
-        $HOME/lib/
-        $HOME/perl5/perls/perl-5.19.3/lib/site_perl/
-
-    Etc.
-
-    Under normal circumstances, neither $HOME nor those 3 paths are
-    considered "dev".
-
-    However, all it takes to cause a false positive, is for somebody to
-    install a "t" or "xt" directory, or a marker file in one of the above
-    directories for "path_isdev($dir)" to return true.
-
-    This may not be a problem, at least, until you use "Path::FindDev" which
-    combines "Path::IsDev" with recursive up-level traversal.
-
-        $HOME/
-        $HOME/lib/
-        $HOME/perl5/perls/perl-5.19.3/lib/site_perl/
-
-        find_dev('$HOME/perl5/perls/perl-5.19.3/lib/site_perl/') # returns false, because it is not inside a dev directory
-
-        mkdir $HOME/t
-
-        find_dev('$HOME/perl5/perls/perl-5.19.3/lib/site_perl/') # returns $HOME, because $HOME/t exists.
-
-    And it is this kind of problem that usually catches people off guard.
-
-        PATH_ISDEV_DEBUG=1 \
-            perl -Ilib -MPath::FindDev=find_dev \
-            -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
-
-        ...
-        [Path::IsDev=0] + ::Tool::Dzil => 0 : dist.ini does not exist
-        [Path::IsDev=0] + ::Tool::MakeMaker => 0 : Makefile.PL does not exist
-        [Path::IsDev=0] + ::Tool::ModuleBuild => 0 : Build.PL does not exist
-        [Path::IsDev=0] + ::META => 0 : META.json does not exist
-        [Path::IsDev=0] + ::META => 1 : META.yml exists
-        [Path::IsDev=0] + ::META => 1 : /home/kent/perl5/META.yml is a file
-        [Path::IsDev=0] + ::META matched path /home/kent/perl5
-        /home/kent/perl5
-
-    Whoops!.
-
-        [Path::IsDev=0] + ::META => 1 : META.yml exists
-        [Path::IsDev=0] + ::META => 1 : /home/kent/perl5/META.yml is a file
-
-    No wonder!
-
-        rm /home/kent/perl5/META.yml
-
-        PATH_ISDEV_DEBUG=1 \
-            perl -Ilib -MPath::FindDev=find_dev \
-            -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
-
-        ...
-        [Path::IsDev=0] Matching /home/kent/perl5
-        ...
-        [Path::IsDev=0] + ::TestDir => 0 : xt does not exist
-        [Path::IsDev=0] + ::TestDir => 1 : t exists
-        [Path::IsDev=0] + ::TestDir => 1 : /home/kent/perl5/t is a dir
-        [Path::IsDev=0] + ::TestDir matched path /home/kent/perl5
-        /home/kent/perl5
-
-    Double whoops!
-
-        [Path::IsDev=0] + ::TestDir => 1 : t exists
-        [Path::IsDev=0] + ::TestDir => 1 : /home/kent/perl5/t is a dir
-
-    And you could keep doing that until you rule out all the bad heuristics
-    in your tree.
-
-    Or, you could use a negative heuristic.
-
-        touch /home/kent/perl5/.path_isdev_ignore
-
-        PATH_ISDEV_DEBUG=1 \
-            perl -Ilib -MPath::FindDev=find_dev \
-            -E "say find_dev(q{/home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl})"
-        ...
-        [Path::IsDev=0] Matching /home/kent/perl5
-        [Path::IsDev=0] - ::IsDev::IgnoreFile => 1 : .path_isdev_ignore exists
-        [Path::IsDev=0] - ::IsDev::IgnoreFile => 1 : /home/kent/perl5/.path_isdev_ignore is a file
-        [Path::IsDev=0] - ::IsDev::IgnoreFile excludes path /home/kent/perl5
-        [Path::IsDev=0] no match found
-        ...
-        [Path::IsDev=0] Matching /
-        ...
-        [Path::IsDev=0] no match found
-
-    Success!
-
-        [Path::IsDev=0] - ::IsDev::IgnoreFile => 1 : .path_isdev_ignore exists
-        [Path::IsDev=0] - ::IsDev::IgnoreFile => 1 : /home/kent/perl5/.path_isdev_ignore is a file
-
-HEURISTICS
-  Negative Heuristics bundled with this distribution
-    Just remember, a Negative Heuristic excludes the path it is associated
-    with
-
-    *   "IsDev::IgnoreFile" - ".path_isdev_ignore"
-
-  Positive Heuristics bundled with this distribution
-    *   "Changelog" - Files matching "Changes", "Changelog", and similar,
-        case insensitive, extensions optional.
-
-    *   "DevDirMarker" - explicit ".devdir" file to indicate a project root.
-
-    *   "META" - "META.yml"/"META.json"
-
-    *   "MYMETA" - "MYMETA.yml"/"MYMETA.json"
-
-    *   "Makefile" - Any "Makefile" format documented supported by GNU Make
-
-    *   "TestDir" - A directory called either "t/" or "xt/"
-
-    *   "Tool::DZil" - A "dist.ini" file
-
-    *   "Tool::MakeMaker" - A "Makefile.PL" file
-
-    *   "Tool::ModuleBuild" - A "Build.PL" file
-
-    *   "VCS::Git" - A ".git" directory
-
-HEURISTIC SETS
-  Heuristic Sets Bundled with this distribution
-    *   "Basic" - The basic heuristic set that contains most, if not all
-        heuristics.
-
-ADVANCED USAGE
-  Custom Sets
-    "Path::IsDev" has a system of "sets" of Heuristics, in order to allow
-    for pluggable and flexible heuristic types.
-
-    Though, for the vast majority of cases, this is not required.
-
-        use Path::IsDev is_dev => { set => 'Basic' };
-        use Path::IsDev is_dev => { set => 'SomeOtherSet' , -as => 'is_dev_other' };
-
-  Overriding the default set
-    If for whatever reason the "Basic" set is insufficient, or if it false
-    positives on your system for some reason, the "default" set can be
-    overridden.
-
-        export PATH_ISDEV_DEFAULT_SET="SomeOtherSet"
-
-        ...
-        use Path::IsDev qw( is_dev );
-        is_dev('/some/path') # uses SomeOtherSet
-
-    Though this will only take priority in the event the set is not
-    specified during "import"
-
-    If this poses a security concern for the user, then this security hole
-    can be eliminated by declaring the set you want in code:
-
-        export PATH_ISDEV_DEFAULT_SET="SomeOtherSet"
-
-        ...
-        use Path::IsDev  is_dev => { set => 'Basic' };
-        is_dev('/some/path') # uses Basic, regardless of ENV
-
-SECURITY
-    Its conceivable, than an evil user could construct an evil set,
-    containing arbitrary and vulnerable code, and possibly stash that evil
-    set in a poorly secured privileged users @INC
-
-    And if they managed to achieve that, if they could poison the privileged
-    users %ENV, they could trick the privileged user into executing
-    arbitrary code.
-
-    Though granted, if you can do either of those 2 things, you're probably
-    security vulnerable anyway, and granted, if you could do either of those
-    2 things you could do much more evil things by the following:
-
-        export PERL5OPT="-MEvil::Module"
-
-    So with that in understanding, saying this modules default utility is
-    "insecure" is mostly a bogus argument.
-
-    And to that effect, this module does nothing to "lock down" that
-    mechanism, and this module encourages you to NOT force a set, unless you
-    NEED to, and strongly suggests that forcing a set for the purpose of
-    security will achieve no real improvement in security, while
-    simultaneously reducing utility.
-
-AUTHOR
-    Kent Fredric <kentfredric@gmail.com>
+  perl Makefile.PL
+  make
+  make test
+  make install
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2014 by Kent Fredric
-    <kentfredric@gmail.com>.
 
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
+This software is copyright (c) 2017 by Kent Fredric
+<kentfredric@gmail.com>.
 
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
