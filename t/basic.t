@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use Test::More;
+use Test::More tests => 2;
 use File::Temp qw( tempdir );
 use FindBin;
 
@@ -12,5 +12,3 @@ my $dir = tempdir();
 
 ok( !is_dev($dir),               'empty dirs should not be dev dirs' );
 ok( is_dev("$FindBin::Bin/../"), 'dirname(dirname(__FILE__)) is dev' );
-
-done_testing;

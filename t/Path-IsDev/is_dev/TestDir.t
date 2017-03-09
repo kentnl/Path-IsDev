@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Test::More;
+use Test::More tests => 4;
 use Path::Tiny qw(path);
 use Test::Fatal qw( exception );
 use FindBin;
@@ -29,6 +29,3 @@ nofatal 'Can call without exception' => sub {
 };
 
 isnt( $path, undef, 'path is a dev dir' );
-
-done_testing;
-
