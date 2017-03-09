@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::NegativeHeuristic::HomeDir;
 
-our $VERSION = '1.001003';
+our $VERSION = '1.001004';
 
 # ABSTRACT: User home directories are not development roots
 
@@ -87,7 +87,7 @@ Path::IsDev::NegativeHeuristic::HomeDir - User home directories are not developm
 
 =head1 VERSION
 
-version 1.001003
+version 1.001004
 
 =head1 METHODS
 

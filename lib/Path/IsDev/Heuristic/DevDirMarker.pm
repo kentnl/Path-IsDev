@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Heuristic::DevDirMarker;
 
-our $VERSION = '1.001003';
+our $VERSION = '1.001004';
 
 # ABSTRACT: Determine if a path contains a .devdir file
 
@@ -70,7 +70,7 @@ Path::IsDev::Heuristic::DevDirMarker - Determine if a path contains a .devdir fi
 
 =head1 VERSION
 
-version 1.001003
+version 1.001004
 
 =head1 DESCRIPTION
 

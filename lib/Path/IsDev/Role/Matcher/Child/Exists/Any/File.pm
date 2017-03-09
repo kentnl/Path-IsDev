@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Role::Matcher::Child::Exists::Any::File;
 
-our $VERSION = '1.001003';
+our $VERSION = '1.001004';
 
 # ABSTRACT: Match if a path contains one of any of a list of files
 
@@ -84,7 +84,7 @@ Path::IsDev::Role::Matcher::Child::Exists::Any::File - Match if a path contains 
 
 =head1 VERSION
 
-version 1.001003
+version 1.001004
 
 =head1 METHODS
 

@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Role::Heuristic;
 
-our $VERSION = '1.001003';
+our $VERSION = '1.001004';
 
 # ABSTRACT: Base role for Heuristic things.
 
@@ -94,7 +94,7 @@ Path::IsDev::Role::Heuristic - Base role for Heuristic things.
 
 =head1 VERSION
 
-version 1.001003
+version 1.001004
 
 =head1 ROLE REQUIRES
 

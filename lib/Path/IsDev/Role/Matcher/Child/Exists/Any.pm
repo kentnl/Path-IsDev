@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Role::Matcher::Child::Exists::Any;
 
-our $VERSION = '1.001003';
+our $VERSION = '1.001004';
 
 # ABSTRACT: Match if any of a list of children exists
 
@@ -80,7 +80,7 @@ Path::IsDev::Role::Matcher::Child::Exists::Any - Match if any of a list of child
 
 =head1 VERSION
 
-version 1.001003
+version 1.001004
 
 =head1 METHODS
 

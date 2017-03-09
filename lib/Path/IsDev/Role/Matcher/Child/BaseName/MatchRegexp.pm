@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp;
 
-our $VERSION = '1.001003';
+our $VERSION = '1.001004';
 
 # ABSTRACT: Match when a path has a child file matching an expression
 
@@ -86,7 +86,7 @@ Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp - Match when a path has
 
 =head1 VERSION
 
-version 1.001003
+version 1.001004
 
 =head1 METHODS
 

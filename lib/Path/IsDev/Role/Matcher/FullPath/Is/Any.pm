@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Role::Matcher::FullPath::Is::Any;
 
-our $VERSION = '1.001003';
+our $VERSION = '1.001004';
 
 # ABSTRACT: Match if the current directory is the same directory from a list of absolute paths.
 
@@ -109,7 +109,7 @@ Path::IsDev::Role::Matcher::FullPath::Is::Any - Match if the current directory i
 
 =head1 VERSION
 
-version 1.001003
+version 1.001004
 
 =head1 METHODS
 

@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Heuristic::Tool::ModuleBuild;
 
-our $VERSION = '1.001003';
+our $VERSION = '1.001004';
 
 
 
@@ -68,7 +68,7 @@ Path::IsDev::Heuristic::Tool::ModuleBuild - Determine if a path is a Module::Bui
 
 =head1 VERSION
 
-version 1.001003
+version 1.001004
 
 =head1 METHODS
 
