@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Heuristic::Makefile;
 
-our $VERSION = '1.001003';
+our $VERSION = '1.001004';
 
 =begin MetaPOD::JSON v1.1.0
 

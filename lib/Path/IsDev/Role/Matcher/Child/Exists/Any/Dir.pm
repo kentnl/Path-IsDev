@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Role::Matcher::Child::Exists::Any::Dir;
 
-our $VERSION = '1.001003';
+our $VERSION = '1.001004';
 
 # ABSTRACT: Match if a path contains one of any of a list of directories
 

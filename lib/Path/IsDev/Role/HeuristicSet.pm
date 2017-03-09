@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Role::HeuristicSet;
 
-our $VERSION = '1.001003';
+our $VERSION = '1.001004';
 
 # ABSTRACT: Role for sets of Heuristics.
 

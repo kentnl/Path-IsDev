@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Role::NegativeHeuristic;
 
-our $VERSION = '1.001003';
+our $VERSION = '1.001004';
 
 # ABSTRACT: Base role for Negative Heuristic things.
 

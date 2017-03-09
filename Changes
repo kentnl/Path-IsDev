@@ -1,6 +1,8 @@
 Release history for Path-IsDev
 
 {{$NEXT}}
+
+1.001003 2017-03-09T20:21:10Z 4dcd533
  - Bugfix: Avoid -Ddefault_inc_excludes_dot failures ( also makes tests *much* faster )
 
  [Dependencies::Stats]

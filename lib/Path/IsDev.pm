@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev;
 
-our $VERSION = '1.001003';
+our $VERSION = '1.001004';
 
 # ABSTRACT: Determine if a given Path resembles a development source tree
 

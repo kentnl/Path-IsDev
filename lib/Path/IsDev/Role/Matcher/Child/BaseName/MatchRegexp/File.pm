@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp::File;
 
-our $VERSION = '1.001003';
+our $VERSION = '1.001004';
 
 # ABSTRACT: Match if any children have basename's that match a regexp and are files
 
