@@ -1,6 +1,8 @@
 This file contains ALL changes in dependencies in both REQUIRED / OPTIONAL dependencies for all phases (configure/build/runtime/test/develop)
 
-1.001003
+1.001004
+
+1.001003 2017-03-09T20:21:10Z
  [Added / configure requires]
  - perl 5.008
 
