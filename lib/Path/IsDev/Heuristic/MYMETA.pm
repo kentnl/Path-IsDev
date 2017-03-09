@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Heuristic::MYMETA;
 
-our $VERSION = '1.001002';
+our $VERSION = '1.001003';
 
 # ABSTRACT: Determine if a path contains MYMETA.(json|yml)
 
@@ -71,7 +71,7 @@ Path::IsDev::Heuristic::MYMETA - Determine if a path contains MYMETA.(json|yml)
 
 =head1 VERSION
 
-version 1.001002
+version 1.001003
 
 =head1 DESCRIPTION
 
@@ -109,11 +109,11 @@ Matches if any of the files in C<files> exist as children of the C<path>
 
 =head1 AUTHOR
 
-Kent Fredric <kentfredric@gmail.com>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2017 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::HeuristicSet::Basic;
 
-our $VERSION = '1.001002';
+our $VERSION = '1.001003';
 
 # ABSTRACT: Basic IsDev set of Heuristics
 
@@ -98,7 +98,7 @@ Path::IsDev::HeuristicSet::Basic - Basic IsDev set of Heuristics
 
 =head1 VERSION
 
-version 1.001002
+version 1.001003
 
 =head1 METHODS
 
@@ -157,11 +157,11 @@ Heuristics included in this set:
 
 =head1 AUTHOR
 
-Kent Fredric <kentfredric@gmail.com>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2017 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

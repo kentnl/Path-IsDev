@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev;
 
-our $VERSION = '1.001002';
+our $VERSION = '1.001003';
 
 # ABSTRACT: Determine if a given Path resembles a development source tree
 
@@ -96,7 +96,7 @@ Path::IsDev - Determine if a given Path resembles a development source tree
 
 =head1 VERSION
 
-version 1.001002
+version 1.001003
 
 =head1 SYNOPSIS
 
@@ -371,11 +371,11 @@ no real improvement in security, while simultaneously reducing utility.
 
 =head1 AUTHOR
 
-Kent Fredric <kentfredric@gmail.com>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2017 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

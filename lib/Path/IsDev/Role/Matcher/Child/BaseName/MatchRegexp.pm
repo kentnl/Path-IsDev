@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp;
 
-our $VERSION = '1.001002';
+our $VERSION = '1.001003';
 
 # ABSTRACT: Match when a path has a child file matching an expression
 
@@ -86,7 +86,7 @@ Path::IsDev::Role::Matcher::Child::BaseName::MatchRegexp - Match when a path has
 
 =head1 VERSION
 
-version 1.001002
+version 1.001003
 
 =head1 METHODS
 
@@ -120,11 +120,11 @@ Given a regexp C<$regexp>, match if any of C<< $result_object->path->children >>
 
 =head1 AUTHOR
 
-Kent Fredric <kentfredric@gmail.com>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2017 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

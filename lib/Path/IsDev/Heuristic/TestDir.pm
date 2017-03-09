@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Heuristic::TestDir;
 
-our $VERSION = '1.001002';
+our $VERSION = '1.001003';
 
 # ABSTRACT: Determine if a path contains a t/ or xt/ directory
 
@@ -74,7 +74,7 @@ Path::IsDev::Heuristic::TestDir - Determine if a path contains a t/ or xt/ direc
 
 =head1 VERSION
 
-version 1.001002
+version 1.001003
 
 =head1 METHODS
 
@@ -107,11 +107,11 @@ Directories relevant to this heuristic:
 
 =head1 AUTHOR
 
-Kent Fredric <kentfredric@gmail.com>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2017 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

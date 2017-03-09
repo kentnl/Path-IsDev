@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Role::NegativeHeuristic;
 
-our $VERSION = '1.001002';
+our $VERSION = '1.001003';
 
 # ABSTRACT: Base role for Negative Heuristic things.
 
@@ -94,7 +94,7 @@ Path::IsDev::Role::NegativeHeuristic - Base role for Negative Heuristic things.
 
 =head1 VERSION
 
-version 1.001002
+version 1.001003
 
 =head1 ROLE REQUIRES
 
@@ -146,11 +146,11 @@ Returns a description of the general heuristic type
 
 =head1 AUTHOR
 
-Kent Fredric <kentfredric@gmail.com>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2017 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

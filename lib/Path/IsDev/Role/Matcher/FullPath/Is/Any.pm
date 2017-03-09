@@ -5,7 +5,7 @@ use utf8;
 
 package Path::IsDev::Role::Matcher::FullPath::Is::Any;
 
-our $VERSION = '1.001002';
+our $VERSION = '1.001003';
 
 # ABSTRACT: Match if the current directory is the same directory from a list of absolute paths.
 
@@ -109,7 +109,7 @@ Path::IsDev::Role::Matcher::FullPath::Is::Any - Match if the current directory i
 
 =head1 VERSION
 
-version 1.001002
+version 1.001003
 
 =head1 METHODS
 
@@ -145,11 +145,11 @@ Otherwise, compare C<$source_path> vs C<< $comparison_path->realpath >>, and ret
 
 =head1 AUTHOR
 
-Kent Fredric <kentfredric@gmail.com>
+Kent Fredric <kentnl@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2014 by Kent Fredric <kentfredric@gmail.com>.
+This software is copyright (c) 2017 by Kent Fredric <kentfredric@gmail.com>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

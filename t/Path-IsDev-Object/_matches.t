@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-use Test::More;
+use Test::More tests => 29;
 use Path::Tiny qw(path);
 use Test::Fatal qw( exception );
 use FindBin;
@@ -12,10 +12,18 @@ sub nofatal {
   return is( $e, undef, "no exceptions: $message" );
 }
 
+our $level = 0;
+
+sub my_subtest {
+  note( ( '    ' x $level ) . '{' . ' subtest: ' . $_[0] );
+  { local $level = $level + 1; $_[1]->() };
+  note( ( '    ' x $level ) . '}' );
+}
+
 my $corpus_dir =
   path($FindBin::Bin)->parent->parent->child('corpus')->child('Changelog');
 
-subtest 'corpus/Changelog' => sub {
+my_subtest 'corpus/Changelog' => sub {
   return unless nofatal 'require Path::IsDev::Object' => sub {
     require Path::IsDev::Object;
   };
@@ -43,7 +51,7 @@ subtest 'corpus/Changelog' => sub {
     my $computed_root = path($FindBin::Bin)->parent->parent;
     my $result        = $instance->_matches($computed_root);
     ok( defined $result->result, 'instance->_matches($path_isdev_source)->result is defined' );
-    subtest "result_object" => sub {
+    my_subtest "result_object" => sub {
       return unless nofatal 'result->path' => sub {
         my $path = $result->path;
         ok( defined $path, '->path is defined' );
@@ -78,5 +86,3 @@ subtest 'corpus/Changelog' => sub {
     pass("_debug(testing) OK ");
   };
 };
-
-done_testing;
